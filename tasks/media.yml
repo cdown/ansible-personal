@@ -1,0 +1,11 @@
+---
+- name: Install media applications
+  pacman: name={{ item }} state=present
+  with_items:
+    - mpv
+    - mpd
+    - mpc
+  when: user == "chris"
+
+- name: Install mupdf
+  pacman: name=mupdf state=present

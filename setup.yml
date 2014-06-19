@@ -1,0 +1,36 @@
+---
+- hosts: localhost
+  connection: local
+
+  vars_prompt:
+    - name: config_file
+      prompt: "Which vars should I load?"
+      private: no
+    - name: user_password
+      prompt: "What should the user's password be?"
+      private: yes
+      encrypt: sha512_crypt
+      confirm: yes
+
+  vars_files:
+    - vars/{{ config_file }}.yml
+
+  tasks:
+    - include: tasks/pacman.yml
+    - include: tasks/network.yml
+    - include: tasks/ssh.yml
+    - include: tasks/users.yml
+    - include: tasks/aur.yml
+    - include: tasks/zsh.yml
+    - include: tasks/sudo.yml
+    - include: tasks/ntp.yml
+    - include: tasks/fonts.yml
+    - include: tasks/xorg.yml
+    - include: tasks/blacklist-pc-speaker.yml
+    - include: tasks/desktop.yml
+    - include: tasks/basic-tools.yml
+    - include: tasks/cron.yml
+    - include: tasks/email.yml
+    - include: tasks/media.yml
+    - include: tasks/chinese.yml
+    - include: tasks/dotfiles.yml

@@ -1,0 +1,3 @@
+---
+- name: Create local user
+  user: name={{ user }} shell=/bin/bash password={{ user_password }}

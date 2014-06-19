@@ -1,0 +1,26 @@
+---
+- name: Install tools that don't require Ansible configuration
+  pacman: name={{ item }} state=present
+  with_items:
+    - vim
+    - unzip
+    - rsync
+    - tmux
+    - gnome-icon-theme
+
+- name: Install extra tools if using Chris profile
+  pacman: name={{ item }} state=present
+  with_items:
+    - android-tools
+    - unrar
+    - atop
+    - dnsutils
+    - nmap
+    - git
+    - lsof
+    - autossh
+  when: user == "chris"
+
+- name: Install laptop tools
+  pacman: name=acpi state=present
+  when: laptop

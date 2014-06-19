@@ -1,0 +1,6 @@
+---
+- name: Install tools for Pinyin entry
+  pacman: name={{ item }} state=present
+  with_items:
+    - fcitx
+    - fcitx-sunpinyin

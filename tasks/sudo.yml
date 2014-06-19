@@ -1,0 +1,12 @@
+---
+- name: Install sudo
+  pacman: name=sudo state=present
+
+- name: Configure sudoers
+  copy: src=files/sudoers dest=/etc/sudoers mode=0440
+
+- name: Create sudo group
+  group: name=sudo state=present
+
+- name: Add local user to sudo group
+  user: name={{ user }} groups=sudo append=yes

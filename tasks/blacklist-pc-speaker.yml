@@ -1,0 +1,3 @@
+---
+- name: Blacklist pcspkr
+  kernel_blacklist: name=pcspkr state=present

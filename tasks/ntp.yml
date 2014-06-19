@@ -1,0 +1,6 @@
+---
+- name: Install NTP daemon
+  pacman: name=ntp state=present
+
+- name: Enable NTP daemon
+  service: name=ntpd state=started enabled=yes

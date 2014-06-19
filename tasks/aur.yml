@@ -1,0 +1,12 @@
+---
+- name: Copy aur script
+  copy: src=files/bin/aur dest=/usr/local/bin/aur mode=755
+
+- name: Install cower
+  command: aur cower
+
+- name: Make cower a dependency (of owlman)
+  command: pacman -D --asdeps cower
+
+- name: Install owlman
+  command: aur owlman

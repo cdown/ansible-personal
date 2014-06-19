@@ -1,0 +1,3 @@
+---
+- name: Install fonts
+  pacman: name=ttf-droid state=present

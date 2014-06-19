@@ -1,0 +1,4 @@
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=chris+cron@chrisdown.name
+
+0 * * * * root mkdir -p /tmp/pdl && pacman --noconfirm --dbpath /tmp/pdl -Syw $(CHECKUPDATES_DB=/tmp/pdl checkupdates) >/dev/null

@@ -1,0 +1,26 @@
+---
+- name: Install dwm
+  command: aur dwm-cdown-git
+
+- name: Install Hangouts video plugin
+  command: aur google-talkplugin
+
+- name: Install Pepper Flash
+  command: aur chromium-pepper-flash
+
+- name: Install desktop utilities
+  pacman: name={{ item }} state=present
+  with_items:
+    - chromium
+    - dmenu
+    - imagemagick
+    - rxvt-unicode
+    - slock
+
+- name: Set up terminal fonts (Chris)
+  pacman: name=terminus-font state=present
+  when: user == "chris"
+
+- name: Set up terminal fonts (Lin)
+  pacman: name=ttf-inconsolata state=present
+  when: user == "lin"

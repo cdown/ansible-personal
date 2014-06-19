@@ -1,0 +1,20 @@
+---
+- name: Automatically get DHCP lease
+  service: name=dhcpcd state=started enabled=yes
+  when: not wifi
+
+- name: Install wireless tools
+  pacman: name=wpa_supplicant state=present
+  when: wifi
+
+- name: Install dnsmasq for DNS caching
+  pacman: name=dnsmasq state=present
+
+- name: Set up DNS caching
+  copy: src=files/network/dnsmasq.conf dest=/etc/dnsmasq.conf
+
+- name: Start and enable dnsmasq
+  service: name=dnsmasq state=started enabled=yes
+
+- name: Set up DNS resolvers
+  copy: src=files/network/resolv.conf.head dest=/etc/resolv.conf.head

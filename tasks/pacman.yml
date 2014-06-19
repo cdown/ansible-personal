@@ -1,0 +1,6 @@
+---
+- name: Copy pacman configuration
+  copy: src=files/pacman.conf dest=/etc/pacman.conf
+
+- name: Update package lists
+  pacman: update_cache=yes
