@@ -7,3 +7,5 @@ model: VirtualBox
 
 wifi: false
 laptop: false
+
+long_bit: no
