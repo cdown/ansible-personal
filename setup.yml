@@ -16,6 +16,9 @@
     - vars/{{ config_file }}.yml
 
   tasks:
+    - name: Get size of long to determine architecture
+      command: getconf LONG_BIT
+      register: long_bit
     - include: tasks/pacman.yml
     - include: tasks/network.yml
     - include: tasks/ssh.yml
