@@ -3,6 +3,6 @@
   pacman: name={{ item }} state=present
   with_items:
     - mutt
-    - w3m
+    - lynx
     - offlineimap
   when: user == "chris"
