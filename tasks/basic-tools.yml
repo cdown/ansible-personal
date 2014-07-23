@@ -21,6 +21,10 @@
     - lsof
   when: user == "chris"
 
+- name: Install extra tools if using Lin profile
+  pacman: name=libreoffice state=present
+  when: user == "lin"
+
 - name: Install laptop tools
   pacman: name=acpi state=present
   when: laptop
