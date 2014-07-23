@@ -18,7 +18,6 @@
 
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present
-  when: user == "chris"
 
 - name: Set up terminal fonts (Lin)
   pacman: name=ttf-inconsolata state=present
