@@ -9,7 +9,7 @@
 
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
-  when: model == "Vostro 3700" or model == "XPS 8500"
+  when: model == "Vostro 3700"
 
 - name: Set up Xorg for Vostro 3700
   pacman: name={{ item }} state=present
@@ -21,8 +21,7 @@
 - name: Set up Xorg for XPS 8500
   pacman: name={{ item }} state=present
   with_items:
-    - nvidia
-    - nvidia-utils
+    - xf86-video-nouveau
   when: model == "XPS 8500"
 
 - name: Install VirtualBox guest utilities
