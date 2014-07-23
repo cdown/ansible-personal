@@ -7,5 +7,8 @@
     - mpc
   when: user == "chris"
 
-- name: Install mupdf
-  pacman: name=mupdf state=present
+- name: Install zathura
+  pacman: name={{ item }} state=present
+  with_items:
+    - zathura
+    - zathura-pdf-mupdf
