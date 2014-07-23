@@ -7,6 +7,7 @@
     - rsync
     - tmux
     - gnome-icon-theme
+    - autossh
 
 - name: Install extra tools if using Chris profile
   pacman: name={{ item }} state=present
@@ -18,7 +19,6 @@
     - nmap
     - git
     - lsof
-    - autossh
   when: user == "chris"
 
 - name: Install laptop tools
