@@ -5,13 +5,12 @@
 - name: Install Hangouts video plugin
   command: aur google-talkplugin
 
-- name: Install Pepper Flash
-  command: aur chromium-pepper-flash
+- name: Install Google Chrome
+  command: aur google-chrome
 
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
   with_items:
-    - chromium
     - dmenu
     - imagemagick
     - rxvt-unicode
