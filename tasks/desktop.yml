@@ -6,7 +6,10 @@
   command: aur google-talkplugin
 
 - name: Install Google Chrome
-  command: aur google-chrome
+  command: aur {{ item }}
+  with_items:
+    - libgcrypt15
+    - google-chrome
 
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
