@@ -1,4 +1,4 @@
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 MAILTO=chris+cron@chrisdown.name
 
-0 12 * * * root reflector -f 6 -c Japan -c Australia -c Korea --sort rate --save /etc/pacman.d/mirrorlist >/dev/null
+0 12 * * * root reflector -f 6 -c Japan -c Australia -c Korea --protocol http --sort rate --save /etc/pacman.d/mirrorlist >/dev/null
