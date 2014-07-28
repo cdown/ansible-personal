@@ -31,3 +31,6 @@
 - name: Set up autoloading of VirtualBox modules
   copy: src=files/virtualbox/modules dest=/etc/modules-load.d/virtualbox-guest.conf
   when: model == "VirtualBox"
+
+- name: Depmod
+  command: depmod
