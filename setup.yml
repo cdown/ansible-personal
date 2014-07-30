@@ -37,3 +37,4 @@
     - include: tasks/media.yml
     - include: tasks/chinese.yml
     - include: tasks/dotfiles.yml
+    - include: tasks/rbenv.yml
