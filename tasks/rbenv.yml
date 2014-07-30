@@ -7,7 +7,7 @@
   when: user == "chris"
 
 - name: Install ruby 2.1.2 using rbenv
-  command: {{ item }}
+  command: "{{ item }}"
   with_items:
     - rbenv install 2.1.2
     - rbenv rehash
