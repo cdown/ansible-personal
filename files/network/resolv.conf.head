@@ -1,3 +1,2 @@
 nameserver 127.0.0.1
 options timeout:2
-search regentmarkets.com
