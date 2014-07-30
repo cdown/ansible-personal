@@ -5,4 +5,5 @@
     - mutt
     - lynx
     - offlineimap
+    - procmail
   when: user == "chris"
