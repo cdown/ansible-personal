@@ -25,6 +25,10 @@
     - sxiv
   when: user == "chris"
 
+- name: Install yturl if using Chris profile
+  command: aur yturl
+  when: user == "chris"
+
 - name: Install extra tools if using Lin profile
   pacman: name=libreoffice state=present
   when: user == "lin"
