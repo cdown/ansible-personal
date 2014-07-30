@@ -22,6 +22,7 @@
     - xclip
     - pass
     - passmenu
+    - sxiv
   when: user == "chris"
 
 - name: Install extra tools if using Lin profile
