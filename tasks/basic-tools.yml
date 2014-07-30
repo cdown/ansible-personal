@@ -20,6 +20,8 @@
     - git
     - lsof
     - xclip
+    - pass
+    - passmenu
   when: user == "chris"
 
 - name: Install extra tools if using Lin profile
