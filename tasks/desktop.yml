@@ -19,6 +19,9 @@
     - rxvt-unicode
     - slock
 
+- name: Install urxvt Perl extensions
+  command: aur urxvt-perls
+
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present
 
