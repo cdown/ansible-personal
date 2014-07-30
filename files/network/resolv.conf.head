@@ -1,6 +1,3 @@
 nameserver 127.0.0.1
-nameserver 106.186.17.181
-nameserver 111.67.16.202
-nameserver 118.88.20.195
 options timeout:2
 search regentmarkets.com
