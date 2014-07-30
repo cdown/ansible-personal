@@ -18,6 +18,7 @@
     - imagemagick
     - rxvt-unicode
     - slock
+    - alsa-utils
 
 - name: Install urxvt Perl extensions
   command: aur urxvt-perls
