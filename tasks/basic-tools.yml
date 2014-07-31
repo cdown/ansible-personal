@@ -15,6 +15,7 @@
     - android-tools
     - unrar
     - atop
+    - htop
     - dnsutils
     - nmap
     - git
