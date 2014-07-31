@@ -34,3 +34,4 @@
 
 - name: Depmod
   command: depmod
+  changed_when: false

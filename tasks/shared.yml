@@ -3,11 +3,13 @@
   command: id -u {{ user }}
   register: uid
   when: model == "VirtualBox"
+  changed_when: false
 
 - name: Get GID for {{ user }}
   command: id -g {{ user }}
   register: gid
   when: model == "VirtualBox"
+  changed_when: false
 
 - name: Set up shared directory entry in fstab
   mount: name=/mnt/shared src=Shared fstype=vboxsf opts="uid={{ uid.stdout }},gid={{ gid.stdout }}" state=present

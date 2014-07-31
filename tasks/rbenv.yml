@@ -13,6 +13,7 @@
   sudo: yes
   sudo_user: "{{ user }}"
   when: user == "chris"
+  changed_when: false
 
 - name: Install ruby 2.1.2 using rbenv
   command: "{{ item }}"
@@ -30,6 +31,7 @@
   sudo: yes
   sudo_user: "{{ user }}"
   when: user == "chris"
+  changed_when: false
 
 - name: Install bundler
   shell: eval "$(rbenv init -)" && gem install bundler && rbenv rehash
