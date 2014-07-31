@@ -21,6 +21,12 @@
       register: long_bit
       changed_when: false
 
+    # Used, hackily, to not reinstall AUR packages
+    - name: Get list of installed packages
+      command: pacman -Qq
+      register: installed_packages
+      changed_when: false
+
     - include: tasks/pacman.yml
     - include: tasks/network.yml
     - include: tasks/ssh.yml
