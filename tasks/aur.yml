@@ -4,9 +4,11 @@
 
 - name: Install cower
   command: aur cower
+  when: "'cower' not in installed_packages.stdout.split('\n')"
 
 - name: Make cower a dependency (of owlman)
   command: pacman -D --asdeps cower
 
 - name: Install owlman
   command: aur owlman
+  when: "'owlman' not in installed_packages.stdout.split('\n')"

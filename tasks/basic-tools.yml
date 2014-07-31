@@ -27,7 +27,7 @@
 
 - name: Install yturl if using Chris profile
   command: aur yturl
-  when: user == "chris"
+  when: "user == 'chris' and 'yturl' not in installed_packages.stdout.split('\n')"
 
 - name: Install extra tools if using Lin profile
   pacman: name=libreoffice state=present

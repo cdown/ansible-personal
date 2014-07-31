@@ -4,6 +4,14 @@
   with_items:
     - rbenv
     - ruby-build
+  when: "user == 'chris' and 'rbenv' not in installed_packages.stdout.split('\n')"
+  register: rbenv_installed
+
+- name: Check if ruby is installed in rbenv
+  command: rbenv versions
+  register: rbenv_versions
+  sudo: yes
+  sudo_user: "{{ user }}"
   when: user == "chris"
 
 - name: Install ruby 2.1.2 using rbenv
@@ -14,10 +22,17 @@
     - rbenv global 2.1.2
   sudo: yes
   sudo_user: "{{ user }}"
+  when: user == "chris" and rbenv_versions.stdout != ""
+
+- name: Check if bundler is installed
+  shell: eval "$(rbenv init -)" && gem list bundler
+  register: rbenv_bundler
+  sudo: yes
+  sudo_user: "{{ user }}"
   when: user == "chris"
 
 - name: Install bundler
   shell: eval "$(rbenv init -)" && gem install bundler && rbenv rehash
   sudo: yes
   sudo_user: "{{ user }}"
-  when: user == "chris"
+  when: user == "chris" and "bundler" in rbenv_bundler.stdout
