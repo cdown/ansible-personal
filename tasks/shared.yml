@@ -10,7 +10,7 @@
   when: model == "VirtualBox"
 
 - name: Set up shared directory entry in fstab
-  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="uid={{ uid }},gid={{ gid }}" state=present
+  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="uid={{ uid.stdout }},gid={{ gid.stdout }}" state=present
   when: model == "VirtualBox"
 
 - name: Create /mnt/shared
