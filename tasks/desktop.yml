@@ -1,18 +1,18 @@
 ---
 - name: Install dwm
   command: aur dwm-cdown-git
-  when: "'dwm-cdown-git' not in installed_packages.stdout.split('\n')"
+  when: "'dwm-cdown-git' not in installed_packages.stdout_lines"
 
 - name: Install Hangouts video plugin
   command: aur google-talkplugin
-  when: "'google-talkplugin' not in installed_packages.stdout.split('\n')"
+  when: "'google-talkplugin' not in installed_packages.stdout_lines"
 
 - name: Install Google Chrome
   command: aur {{ item }}
   with_items:
     - libgcrypt15
     - google-chrome
-  when: "'google-chrome' not in installed_packages.stdout.split('\n')"
+  when: "'google-chrome' not in installed_packages.stdout_lines"
 
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
@@ -29,7 +29,7 @@
 
 - name: Install urxvt Perl extensions
   command: aur urxvt-perls
-  when: "'urxvt-perls' not in installed_packages.stdout.split('\n')"
+  when: "'urxvt-perls' not in installed_packages.stdout_lines"
 
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present

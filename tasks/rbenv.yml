@@ -4,7 +4,7 @@
   with_items:
     - rbenv
     - ruby-build
-  when: "user == 'chris' and 'rbenv' not in installed_packages.stdout.split('\n')"
+  when: "user == 'chris' and 'rbenv' not in installed_packages.stdout_lines"
   register: rbenv_installed
 
 - name: Check if ruby is installed in rbenv
