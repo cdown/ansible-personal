@@ -22,7 +22,7 @@
     - rbenv global 2.1.2
   sudo: yes
   sudo_user: "{{ user }}"
-  when: user == "chris" and rbenv_versions.stdout != ""
+  when: user == "chris" and rbenv_versions.stdout == ""
 
 - name: Check if bundler is installed
   shell: eval "$(rbenv init -)" && gem list bundler
