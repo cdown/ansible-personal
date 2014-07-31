@@ -32,6 +32,10 @@
   copy: src=files/virtualbox/modules dest=/etc/modules-load.d/virtualbox-guest.conf
   when: model == "VirtualBox"
 
+- name: Configure vboxservice
+  service: name=vboxservice state=started enabled=yes
+  when: model == "VirtualBox"
+
 - name: Depmod
   command: depmod
   changed_when: false
