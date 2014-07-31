@@ -39,6 +39,7 @@
     - include: tasks/chinese.yml
     - include: tasks/dotfiles.yml
     - include: tasks/rbenv.yml
+    - include: tasks/shared.yml
 
     - debug: msg={{ item }}
       with_items:

@@ -1,0 +1,18 @@
+---
+- name: Get UID for {{ user }}
+  command: id -u {{ user }}
+  register: uid
+  when: model == "VirtualBox"
+
+- name: Get GID for {{ user }}
+  command: id -g {{ user }}
+  register: gid
+  when: model == "VirtualBox"
+
+- name: Set up shared directory entry in fstab
+  mount: name=/mnt/shared src=Shared fstype=vboxsf opts=uid={{ uid }},gid={{ gid }} state=present
+  when: model == "VirtualBox"
+
+- name: Create /mnt/shared
+  file: dest=/mnt/shared state=directory
+  when: model == "VirtualBox"
