@@ -19,6 +19,7 @@
     - name: Get size of long to determine architecture
       command: getconf LONG_BIT
       register: long_bit
+      changed_when: false
 
     - include: tasks/pacman.yml
     - include: tasks/network.yml
