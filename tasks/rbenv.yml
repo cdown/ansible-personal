@@ -35,4 +35,4 @@
   shell: eval "$(rbenv init -)" && gem install bundler && rbenv rehash
   sudo: yes
   sudo_user: "{{ user }}"
-  when: user == "chris" and "bundler" in rbenv_bundler.stdout
+  when: user == "chris" and "bundler" not in rbenv_bundler.stdout
