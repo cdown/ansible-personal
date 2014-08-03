@@ -12,7 +12,7 @@
   changed_when: false
 
 - name: Set up shared directory entry in fstab
-  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="uid={{ uid.stdout }},gid={{ gid.stdout }}" state=present
+  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="uid={{ uid.stdout }},gid={{ gid.stdout }},noauto" state=present
   when: model == "VirtualBox"
 
 - name: Create /mnt/shared
