@@ -2,24 +2,24 @@
 - name: Clone Chris' dotfiles for {{ user }}
   sudo: yes
   sudo_user: "{{ user }}"
-  git: repo=git://github.com/cdown/dotfiles.git dest="~{{ user }}/git/dotfiles" update=no
+  git: repo=git://github.com/cdown/dotfiles.git dest="~{{ user }}/git/dotfiles" accept_hostkey=yes update=no
   register: dotfiles_clone
   when: user == "chris"
 
 - name: Clone Lin's dotfiles for {{ user }}
   sudo: yes
   sudo_user: "{{ user }}"
-  git: repo=git://github.com/cdown/dotfiles.git dest="~{{ user }}/git/dotfiles" update=no version=lin
+  git: repo=git://github.com/cdown/dotfiles.git dest="~{{ user }}/git/dotfiles" accept_hostkey=yes update=no version=lin
   register: dotfiles_clone
   when: user == "lin"
 
 - name: Clone Chris' dotfiles for root
-  git: repo=git://github.com/cdown/dotfiles.git dest="~root/git/dotfiles" update=no
+  git: repo=git://github.com/cdown/dotfiles.git dest="~root/git/dotfiles" accept_hostkey=yes update=no
   register: dotfiles_clone_root
   when: user == "chris"
 
 - name: Clone Lin's dotfiles for root
-  git: repo=git://github.com/cdown/dotfiles.git dest="~root/git/dotfiles" update=no version=lin
+  git: repo=git://github.com/cdown/dotfiles.git dest="~root/git/dotfiles" accept_hostkey=yes update=no version=lin
   register: dotfiles_clone_root
   when: user == "lin"
 
