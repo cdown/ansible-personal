@@ -5,10 +5,19 @@ pkg=$1
 last_two_chars=${pkg#??*}
 pkg_prefix=${pkg%$last_two_chars}
 
-cd /tmp
+temp=$(mktemp -d)
+
+cd "$temp"
 
 curl -sO "https://aur.archlinux.org/packages/$pkg_prefix/$pkg/$pkg.tar.gz"
 tar xzf "$pkg.tar.gz"
 
 cd "$pkg"
-makepkg --asroot --noconfirm -si
+
+chown -R nobody "$temp"
+sudo -u nobody makepkg
+pacman --noconfirm -U *.pkg.tar.xz
+
+cd /
+
+rm -rf "$temp"

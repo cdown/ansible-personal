@@ -27,8 +27,10 @@
   when: user == "chris"
 
 - name: Install yturl if using Chris profile
-  command: aur yturl
-  when: "user == 'chris' and 'yturl' not in installed_packages.stdout_lines"
+  command: yaourt --noconfirm -S yturl
+  sudo: yes
+  sudo_user: makepkg
+  when: "user == 'chris'"
 
 - name: Install extra tools if using Lin profile
   pacman: name=libreoffice state=present

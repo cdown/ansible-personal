@@ -1,14 +1,17 @@
 ---
+- name: Create local user for makepkg
+  user: name=makepkg shell=/bin/sh
+
 - name: Copy aur script
   copy: src=files/bin/aur dest=/usr/local/bin/aur mode=755
 
-- name: Install cower
-  command: aur cower
-  when: "'cower' not in installed_packages.stdout_lines"
+- name: Install package-query dependency (yajl)
+  pacman: name=yajl state=present
 
-- name: Make cower a dependency (of owlman)
-  command: pacman -D --asdeps cower
+- name: Install yaourt dependency (package-query)
+  command: aur package-query
+  when: "'package-query' not in installed_packages.stdout_lines"
 
-- name: Install owlman
-  command: aur owlman
-  when: "'owlman' not in installed_packages.stdout_lines"
+- name: Install yaourt
+  command: aur yaourt
+  when: "'yaourt' not in installed_packages.stdout_lines"
