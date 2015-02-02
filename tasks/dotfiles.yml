@@ -28,3 +28,11 @@
 
 - name: Set up dotfiles for root
   command: ./setup chdir="~root/git/dotfiles"
+
+- name: "Set {{ user }}'s dotfiles to push using ssh"
+  sudo: yes
+  sudo_user: "{{ user }}"
+  command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~{{ user }}/git/dotfiles
+
+- name: "Set root's dotfiles to push using ssh"
+  command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~root/git/dotfiles
