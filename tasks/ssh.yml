@@ -1,4 +1,7 @@
 ---
+- name: Install mosh
+  pacman: name=mosh state=present
+
 - name: Install SSH daemon
   pacman: name=openssh state=present
 
