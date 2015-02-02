@@ -1,7 +1,6 @@
 ---
 - name: Install NTP daemon
   pacman: name=ntp state=present
-  when: model != "VirtualBox"
 
 - name: Enable NTP daemon
   service: name=ntpd state=started enabled=yes
