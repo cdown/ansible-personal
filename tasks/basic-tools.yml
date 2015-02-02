@@ -8,6 +8,7 @@
     - tmux
     - gnome-icon-theme
     - autossh
+    - irssi
     # For duply
     - python2-boto
 
