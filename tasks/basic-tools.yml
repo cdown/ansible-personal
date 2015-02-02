@@ -32,6 +32,12 @@
   sudo_user: makepkg
   when: "user == 'chris' and 'yturl' not in installed_packages.stdout_lines"
 
+- name: Install duply
+  command: yaourt --noconfirm -S duply
+  sudo: yes
+  sudo_user: makepkg
+  when: "'duply' not in installed_packages.stdout_lines"
+
 - name: Install extra tools if using Lin profile
   pacman: name=libreoffice state=present
   when: user == "lin"
