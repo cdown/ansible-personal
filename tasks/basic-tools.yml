@@ -8,6 +8,8 @@
     - tmux
     - gnome-icon-theme
     - autossh
+    # For duply
+    - python2-boto
 
 - name: Install extra tools if using Chris profile
   pacman: name={{ item }} state=present
