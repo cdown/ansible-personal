@@ -34,6 +34,7 @@
   command: yaourt --noconfirm -S urxvt-perls
   sudo: yes
   sudo_user: makepkg
+  when: "'urxvt-perls' not in installed_packages.stdout_lines"
 
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present
