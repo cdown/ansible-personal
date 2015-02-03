@@ -22,6 +22,7 @@
   with_items:
     - dmenu
     - imagemagick
+    - ghostscript # for imagemagick
     - rxvt-unicode
     - slock
     - alsa-utils
