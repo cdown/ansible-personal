@@ -24,6 +24,10 @@
     - xf86-video-nouveau
   when: model == "XPS 8500"
 
+- name: Set up Xorg for Parallels
+  pacman: name=xf86-video-vesa state=present
+  when: model == "Parallels"
+
 - name: Install VirtualBox guest utilities
   pacman: name=virtualbox-guest-utils state=present
   when: model == "VirtualBox"
