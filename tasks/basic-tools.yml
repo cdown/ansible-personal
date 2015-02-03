@@ -41,6 +41,12 @@
   sudo_user: makepkg
   when: "'duply' not in installed_packages.stdout_lines"
 
+- name: Install pdftk
+  command: yaourt --noconfirm -S pdftk-bin
+  sudo: yes
+  sudo_user: makepkg
+  when: "'pdftk-bin' not in installed_packages.stdout_lines"
+
 - name: Install extra tools if using Lin profile
   pacman: name=libreoffice state=present
   when: user == "lin"
