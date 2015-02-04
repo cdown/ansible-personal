@@ -6,6 +6,7 @@
     - xorg-xmodmap
     - xorg-xrandr
     - xorg-xinit
+    - xorg-xev
     - xorg-xset
 
 - name: Blacklist nouveau Xorg driver
