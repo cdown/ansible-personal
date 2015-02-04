@@ -3,6 +3,7 @@
   pacman: name={{ item }} state=present
   with_items:
     - xorg-server
+    - xorg-xmodmap
     - xorg-xrandr
     - xorg-xinit
     - xorg-xset
