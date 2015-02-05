@@ -48,6 +48,7 @@
       tags:
         - dotfiles
     - include: tasks/rbenv.yml
+    - include: tasks/chef.yml
     - include: tasks/shared.yml
 
     - debug: msg={{ item }}

@@ -1,0 +1,6 @@
+---
+- name: Install vagrant
+  command: yaourt --noconfirm -S vagrant
+  sudo: yes
+  sudo_user: makepkg
+  when: "'vagrant' not in installed_packages.stdout_lines"
