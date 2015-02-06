@@ -1,38 +1,48 @@
 ---
+- stat: path=~{{ user }}/git/dotfiles
+  register: user_dotfiles
+
+- stat: path=~{{ user }}/git/dotfiles
+  register: root_dotfiles
+
 - name: Clone Chris' dotfiles for {{ user }}
   sudo: yes
   sudo_user: "{{ user }}"
   git: repo=git://github.com/cdown/dotfiles.git dest=~{{ user }}/git/dotfiles accept_hostkey=yes
   register: dotfiles_clone
-  when: user == "chris"
+  when: "'{{ user }}' == 'chris' and not {{ user_dotfiles.stat.exists }}"
 
 - name: Clone Lin's dotfiles for {{ user }}
   sudo: yes
   sudo_user: "{{ user }}"
   git: repo=git://github.com/cdown/dotfiles.git dest=~{{ user }}/git/dotfiles accept_hostkey=yes version=lin
-  when: user == "lin"
+  when: "'{{ user }}' == 'lin' and not {{ user_dotfiles.stat.exists }}"
 
 - name: Clone Chris' dotfiles for root
   git: repo=git://github.com/cdown/dotfiles.git dest=~root/git/dotfiles accept_hostkey=yes
-  when: user == "chris"
+  when: "'{{ user }}' == 'chris' and not {{ root_dotfiles.stat.exists }}"
 
 - name: Clone Lin's dotfiles for root
   git: repo=git://github.com/cdown/dotfiles.git dest=~root/git/dotfiles accept_hostkey=yes version=lin
   register: dotfiles_clone_root
-  when: user == "lin"
+  when: "'{{ user }}' == 'lin' and not {{ root_dotfiles.stat.exists }}"
 
 - name: Set up dotfiles for {{ user }}
   sudo: yes
   sudo_user: "{{ user }}"
   command: ./setup chdir="~{{ user }}/git/dotfiles"
+  when: dotfiles_clone.changed
 
 - name: Set up dotfiles for root
   command: ./setup chdir="~root/git/dotfiles"
+  when: dotfiles_clone_root.changed
 
 - name: "Set {{ user }}'s dotfiles to push using ssh"
   sudo: yes
   sudo_user: "{{ user }}"
   command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~{{ user }}/git/dotfiles
+  when: dotfiles_clone.changed
 
 - name: "Set root's dotfiles to push using ssh"
   command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~root/git/dotfiles
+  when: dotfiles_clone_root.changed
