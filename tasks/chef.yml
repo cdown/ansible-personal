@@ -34,6 +34,8 @@
 # https://github.com/mitchellh/vagrant/issues/3083
 - name: Remove default VirtualBox host interface to avoid failure of first vagrant up
   command: VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
+  sudo: yes
+  sudo_user: '{{ user }}'
   when: virtualbox_install.changed
 
 - name: Set up autoloading of VirtualBox host modules
