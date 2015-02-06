@@ -4,3 +4,18 @@
   sudo: yes
   sudo_user: makepkg
   when: "'vagrant' not in installed_packages.stdout_lines"
+
+- name: Install chef-dk
+  command: yaourt --noconfirm -S chef-dk
+  sudo: yes
+  sudo_user: makepkg
+  when: "'chef-dk' not in installed_packages.stdout_lines"
+
+- name: Install Vagrant plugins
+  command: 'vagrant plugin install {{ item }}'
+  with_items:
+    - vagrant-berkshelf
+    - vagrant-omnibus
+
+- name: Install VirtualBox (for Vagrant)
+  pacman: name=virtualbox state=present
