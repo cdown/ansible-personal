@@ -2,6 +2,8 @@
 - name: Get list of installed packages
   command: vagrant plugin list
   register: installed_vagrant_plugins
+  sudo: yes
+  sudo_user: '{{ user }}'
   changed_when: false
 
 - name: Install vagrant
@@ -21,7 +23,9 @@
   with_items:
     - vagrant-berkshelf
     - vagrant-omnibus
-  when: "'{{ item }}' not in installed_vagrant_plugins"
+  sudo: yes
+  sudo_user: '{{ user }}'
+  when: "'{{ item }}' not in installed_vagrant_plugins.stdout"
 
 - name: Install VirtualBox (for Vagrant)
   pacman: name=virtualbox state=present
