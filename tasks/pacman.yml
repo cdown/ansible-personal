@@ -4,3 +4,4 @@
 
 - name: Update package lists
   pacman: update_cache=yes
+  changed_when: false
