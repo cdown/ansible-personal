@@ -11,6 +11,8 @@
     - irssi
     # For duply
     - python2-boto
+    # For irssi scripts
+    - perl-datetime
 
 - name: Install extra tools if using Chris profile
   pacman: name={{ item }} state=present
