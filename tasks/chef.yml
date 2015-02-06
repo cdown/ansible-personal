@@ -1,4 +1,9 @@
 ---
+- name: Get list of installed packages
+  command: vagrant plugin list
+  register: installed_vagrant_plugins
+  changed_when: false
+
 - name: Install vagrant
   command: yaourt --noconfirm -S vagrant
   sudo: yes
@@ -16,6 +21,7 @@
   with_items:
     - vagrant-berkshelf
     - vagrant-omnibus
+  when: "'{{ item }}' not in installed_vagrant_plugins"
 
 - name: Install VirtualBox (for Vagrant)
   pacman: name=virtualbox state=present
