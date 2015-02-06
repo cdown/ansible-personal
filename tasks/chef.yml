@@ -29,6 +29,12 @@
 
 - name: Install VirtualBox (for Vagrant)
   pacman: name=virtualbox state=present
+  register: virtualbox_install
+
+# https://github.com/mitchellh/vagrant/issues/3083
+- name: Remove default VirtualBox host interface to avoid failure of first vagrant up
+  command: VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
+  when: virtualbox_install.changed
 
 - name: Set up autoloading of VirtualBox host modules
   copy: src=files/virtualbox/host-modules dest=/etc/modules-load.d/virtualbox-host.conf
