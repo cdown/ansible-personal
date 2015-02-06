@@ -7,16 +7,14 @@
   changed_when: false
 
 - name: Install vagrant
-  command: yaourt --noconfirm -S vagrant
+  yaourt: name=vagrant
   sudo: yes
   sudo_user: makepkg
-  when: "'vagrant' not in installed_packages.stdout_lines"
 
 - name: Install chef-dk
-  command: yaourt --noconfirm -S chef-dk
+  yaourt: name=chef-dk
   sudo: yes
   sudo_user: makepkg
-  when: "'chef-dk' not in installed_packages.stdout_lines"
 
 - name: Install Vagrant plugins
   command: 'vagrant plugin install {{ item }}'

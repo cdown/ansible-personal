@@ -30,22 +30,20 @@
   when: user == "chris"
 
 - name: Install yturl if using Chris profile
-  command: yaourt --noconfirm -S yturl
+  yaourt: name=yturl
   sudo: yes
   sudo_user: makepkg
-  when: "user == 'chris' and 'yturl' not in installed_packages.stdout_lines"
+  when: user == 'chris'
 
 - name: Install duply
-  command: yaourt --noconfirm -S duply
+  yaourt: name=duply
   sudo: yes
   sudo_user: makepkg
-  when: "'duply' not in installed_packages.stdout_lines"
 
 - name: Install pdftk
-  command: yaourt --noconfirm -S pdftk-bin
+  yaourt: name=pdftk-bin
   sudo: yes
   sudo_user: makepkg
-  when: "'pdftk-bin' not in installed_packages.stdout_lines"
 
 - name: Install extra tools if using Lin profile
   pacman: name=libreoffice state=present

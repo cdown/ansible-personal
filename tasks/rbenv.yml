@@ -1,13 +1,12 @@
 ---
 - name: Install rbenv
-  command: 'yaourt --noconfirm -S {{ item }}'
+  yaourt: 'name={{ item }}'
   with_items:
     - rbenv
     - ruby-build
   sudo: yes
   sudo_user: makepkg
-  when: "user == 'chris' and 'rbenv' not in installed_packages.stdout_lines"
-  register: rbenv_installed
+  when: user == 'chris'
 
 - name: Check if ruby is installed in rbenv
   command: rbenv versions

@@ -1,21 +1,18 @@
 ---
 - name: Install dwm
-  command: yaourt --noconfirm -S dwm-cdown-git
+  yaourt: name=dwm-cdown-git
   sudo: yes
   sudo_user: makepkg
-  when: "'dwm-cdown-git' not in installed_packages.stdout_lines"
 
 - name: Install Hangouts video plugin
-  command: yaourt --noconfirm -S google-talkplugin
+  yaourt: name=google-talkplugin
   sudo: yes
   sudo_user: makepkg
-  when: "'google-talkplugin' not in installed_packages.stdout_lines"
 
 - name: Install Google Chrome
-  command: yaourt --noconfirm -S google-chrome
+  yaourt: name=google-chrome
   sudo: yes
   sudo_user: makepkg
-  when: "'google-chrome' not in installed_packages.stdout_lines"
 
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
@@ -32,10 +29,9 @@
   when: user == "chris"
 
 - name: Install urxvt Perl extensions
-  command: yaourt --noconfirm -S urxvt-perls
+  yaourt: name=urxvt-perls
   sudo: yes
   sudo_user: makepkg
-  when: "'urxvt-perls' not in installed_packages.stdout_lines"
 
 - name: Set up terminal fonts (Chris)
   pacman: name=terminus-font state=present
