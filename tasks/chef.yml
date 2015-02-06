@@ -29,3 +29,6 @@
 
 - name: Install VirtualBox (for Vagrant)
   pacman: name=virtualbox state=present
+
+- name: Set up autoloading of VirtualBox host modules
+  copy: src=files/virtualbox/host-modules dest=/etc/modules-load.d/virtualbox-host.conf
