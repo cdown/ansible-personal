@@ -9,6 +9,8 @@
     - gnome-icon-theme
     - autossh
     - irssi
+    - python-virtualenv
+    - python2-virtualenv
     # For duply
     - python2-boto
     # For irssi scripts
