@@ -6,3 +6,6 @@
 - name: Update database
   command: pkgfile --update
   when: pkgfile_installed.changed
+
+- name: Cron to update pkgfile database
+  copy: src=files/cron/pkgfile dest=/etc/cron.d/pkgfile
