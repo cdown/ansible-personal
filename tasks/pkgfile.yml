@@ -1,0 +1,8 @@
+---
+- name: Install pkgfile
+  pacman: name=pkgfile state=present
+  register: pkgfile_installed
+
+- name: Update database
+  command: pkgfile --update
+  when: pkgfile_installed.changed

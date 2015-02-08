@@ -50,6 +50,7 @@
     - include: tasks/rbenv.yml
     - include: tasks/chef.yml
     - include: tasks/shared.yml
+    - include: tasks/pkgfile.yml
 
     - debug: msg={{ item }}
       with_items:
