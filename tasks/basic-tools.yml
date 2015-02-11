@@ -7,7 +7,6 @@
     - rsync
     - tmux
     - gnome-icon-theme
-    - autossh
     - irssi
     - python-virtualenv
     - python2-virtualenv
