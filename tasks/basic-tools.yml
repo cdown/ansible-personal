@@ -50,6 +50,11 @@
   sudo: yes
   sudo_user: makepkg
 
+- name: Install xnviewmp
+  yaourt: name=xnviewmp
+  sudo: yes
+  sudo_user: makepkg
+
 - name: Install extra tools if using Lin profile
   pacman: name=libreoffice state=present
   when: user == "lin"
