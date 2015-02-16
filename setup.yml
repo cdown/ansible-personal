@@ -51,7 +51,6 @@
     - include: tasks/chef.yml
     - include: tasks/shared.yml
     - include: tasks/pkgfile.yml
-    - include: tasks/tex.yml
 
     - debug: msg={{ item }}
       with_items:
