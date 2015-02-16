@@ -16,6 +16,7 @@
     - perl-datetime
     # For photo backups
     - perl-image-exiftool
+    - pinta
 
 - name: Install extra tools if using Chris profile
   pacman: name={{ item }} state=present
