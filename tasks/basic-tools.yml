@@ -40,18 +40,12 @@
   sudo_user: makepkg
   when: user == 'chris'
 
-- name: Install duply
-  yaourt: name=duply
-  sudo: yes
-  sudo_user: makepkg
-
-- name: Install pdftk
-  yaourt: name=pdftk-bin
-  sudo: yes
-  sudo_user: makepkg
-
-- name: Install xnviewmp
-  yaourt: name=xnviewmp
+- name: Install basic tools requiring yaourt
+  yaourt: name={{ item }}
+  with_items:
+    - duply
+    - pdftk-bin
+    - xnviewmp
   sudo: yes
   sudo_user: makepkg
 
