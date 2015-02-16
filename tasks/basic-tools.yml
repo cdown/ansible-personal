@@ -46,6 +46,7 @@
     - duply
     - pdftk-bin
     - xnviewmp
+    - drive
   sudo: yes
   sudo_user: makepkg
 
