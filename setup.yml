@@ -42,6 +42,7 @@
     - include: tasks/dotfiles.yml
       tags:
         - dotfiles
+    - include: tasks/shared.yml
     - include: tasks/pkgfile.yml
     - include: tasks/lin-dev.yml
 
