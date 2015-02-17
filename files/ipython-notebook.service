@@ -1,0 +1,13 @@
+[Unit]
+Description=IPython notebook
+
+[Service]
+Type=simple
+PIDFile=/var/run/ipython-notebook.pid
+ExecStart=/usr/bin/ipython notebook --no-browser --pylab=inline
+User=ipython
+Group=ipython
+WorkingDirectory=/srv/ipython-notebook/notebooks
+
+[Install]
+WantedBy=multi-user.target
