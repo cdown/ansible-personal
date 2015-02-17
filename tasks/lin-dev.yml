@@ -13,7 +13,7 @@
   copy: src=files/ipython-notebook.service dest=/etc/systemd/system/ipython-notebook.service
 
 - name: Create notebook directory
-  file: path=/srv/ipython-notebook/notebooks state=directory
+  file: path=/srv/ipython-notebook/notebooks state=directory owner=ipython
 
 - name: Enable iPython notebook
   service: name=ipython-notebook state=started enabled=yes
