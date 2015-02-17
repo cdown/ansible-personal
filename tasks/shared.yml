@@ -1,20 +1,18 @@
 ---
-- name: Get UID for {{ user }}
-  command: id -u {{ user }}
-  register: uid
-  when: model == "VirtualBox"
-  changed_when: false
+- name: Create vboxmnt group
+  group: name=vboxmnt state=present
 
-- name: Get GID for {{ user }}
-  command: id -g {{ user }}
+- name: Add local users to vboxmnt group
+  user: name={{ item }} groups=vboxmnt append=yes
+  with_items: users
+
+- name: Get GID for vboxmnt
+  shell: 'getent group vboxmnt | cut -d: -f3'
   register: gid
-  when: model == "VirtualBox"
   changed_when: false
 
 - name: Set up shared directory entry in fstab
-  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="uid={{ uid.stdout }},gid={{ gid.stdout }},noauto" state=present
-  when: model == "VirtualBox"
+  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="gid={{ gid.stdout }},dmode=070,fmode=060" state=present
 
 - name: Create /mnt/shared
   file: dest=/mnt/shared state=directory
-  when: model == "VirtualBox"

@@ -43,6 +43,7 @@
       tags:
         - dotfiles
     - include: tasks/shared.yml
+      when: model == "VirtualBox"
     - include: tasks/pkgfile.yml
     - include: tasks/lin-dev.yml
 
