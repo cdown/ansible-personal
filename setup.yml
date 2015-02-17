@@ -42,7 +42,6 @@
     - include: tasks/dotfiles.yml
       tags:
         - dotfiles
-    - include: tasks/chef.yml
     - include: tasks/pkgfile.yml
 
     - debug: msg={{ item }}
