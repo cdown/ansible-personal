@@ -1,18 +1,3 @@
 ---
 - name: Install mosh
   pacman: name=mosh state=present
-
-- name: Install SSH daemon
-  pacman: name=openssh state=present
-
-- name: Enable SSH daemon
-  service: name=sshd state=started enabled=yes
-
-- name: Configure SSH daemon
-  copy: src=files/sshd_config dest=/etc/ssh/sshd_config
-
-- name: Create SSH group
-  group: name=ssh state=present
-
-- name: Add local user to ssh group
-  user: name={{ user }} groups=ssh append=yes
