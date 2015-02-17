@@ -1,0 +1,16 @@
+---
+ansible_python_interpreter: /usr/bin/python2
+
+users:
+  - chris
+  - lin
+
+users_inc_super:
+  - chris
+  - lin
+  - root
+
+model: VirtualBox
+
+wifi: false
+laptop: false
