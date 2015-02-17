@@ -26,10 +26,6 @@
     - libnotify
     - xfce4-notifyd
 
-- name: Install qt4 for pinentry-qt4 if on Chris profile
-  pacman: name=qt4 state=present
-  when: user == "chris"
-
 - name: Install urxvt Perl extensions
   yaourt: name=urxvt-perls
   sudo: yes
