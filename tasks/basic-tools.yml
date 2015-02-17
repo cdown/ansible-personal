@@ -29,6 +29,7 @@
     - pass
     - passmenu
     - sxiv
+    - libreoffice-still
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
@@ -38,7 +39,6 @@
     - xnviewmp
     - drive
     - yturl
-    - libreoffice
   sudo: yes
   sudo_user: makepkg
 
