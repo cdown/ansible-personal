@@ -9,4 +9,5 @@
   group: name=sudo state=present
 
 - name: Add local user to sudo group
-  user: name={{ user }} groups=sudo append=yes
+  user: name={{ item }} groups=sudo append=yes
+  with_items: users
