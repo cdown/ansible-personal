@@ -1,11 +1,6 @@
 ---
 
-- name: Create local user
-  user: name={{ user }} shell=/bin/zsh
+- name: Create local users
+  user: name={{ item }} shell=/bin/zsh
+  with_items: users
   register: user_create
-
-# This is always marked as "changed" by Ansible, annoyingly. Only mark it as
-# changed if the user is new.
-- name: Set local user password
-  user: name={{ user }} password={{ user_password }}
-  when: user_create.changed

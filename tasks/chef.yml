@@ -3,7 +3,8 @@
   command: vagrant plugin list
   register: installed_vagrant_plugins
   sudo: yes
-  sudo_user: '{{ user }}'
+  sudo_user: '{{ item }}'
+  with_items: users
   changed_when: false
 
 - name: Install vagrant
@@ -22,7 +23,8 @@
     - vagrant-berkshelf
     - vagrant-omnibus
   sudo: yes
-  sudo_user: '{{ user }}'
+  sudo_user: '{{ item }}'
+  with_items: users
   when: "'{{ item }}' not in installed_vagrant_plugins.stdout"
 
 - name: Install VirtualBox (for Vagrant)
@@ -33,7 +35,8 @@
 - name: Remove default VirtualBox host interface to avoid failure of first vagrant up
   command: VBoxManage dhcpserver remove --netname HostInterfaceNetworking-vboxnet0
   sudo: yes
-  sudo_user: '{{ user }}'
+  sudo_user: '{{ item }}'
+  with_items: users
   when: virtualbox_install.changed
 
 - name: Set up autoloading of VirtualBox host modules

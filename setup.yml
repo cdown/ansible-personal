@@ -6,11 +6,6 @@
     - name: config_file
       prompt: "Which vars should I load?"
       private: no
-    - name: user_password
-      prompt: "What should the user's password be?"
-      private: yes
-      encrypt: sha512_crypt
-      confirm: yes
 
   vars_files:
     - vars/{{ config_file }}.yml
