@@ -43,6 +43,7 @@
       tags:
         - dotfiles
     - include: tasks/pkgfile.yml
+    - include: tasks/lin-dev.yml
 
     - debug: msg={{ item }}
       with_items:

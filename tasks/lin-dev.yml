@@ -1,0 +1,19 @@
+- name: Install iPython notebook
+  pacman: name={{ item }}
+  with_items:
+    - ipython
+    - python-jinja
+    - python-tornado
+    - python-pyzmq
+
+- name: Create local iPython user
+  user: name=ipython home=/srv/ipython-notebook
+
+- name: Add iPython notebook init script
+  copy: src=files/ipython-notebook.service dest=/etc/systemd/system/ipython-notebook.service
+
+- name: Create notebook directory
+  file: path=/srv/ipython-notebook/notebooks state=directory
+
+- name: Enable iPython notebook
+  service: name=ipython-notebook state=started enabled=yes
