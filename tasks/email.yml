@@ -6,4 +6,3 @@
     - lynx
     - offlineimap
     - procmail
-  when: user == "chris"

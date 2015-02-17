@@ -31,9 +31,8 @@
   sudo: yes
   sudo_user: makepkg
 
-- name: Set up terminal fonts (Chris)
-  pacman: name=terminus-font state=present
-
-- name: Set up terminal fonts (Lin)
-  pacman: name=ttf-inconsolata state=present
-  when: user == "lin"
+- name: Set up terminal fonts
+  pacman: name={{ item }}
+  with_items:
+    - terminus-font
+    - ttf-inconsolata

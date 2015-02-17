@@ -5,7 +5,6 @@
     - mpv
     - mpd
     - mpc
-  when: user == "chris"
 
 - name: Install zathura
   pacman: name={{ item }} state=present

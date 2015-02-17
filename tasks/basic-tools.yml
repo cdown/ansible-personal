@@ -17,10 +17,6 @@
     # For photo backups
     - perl-image-exiftool
     - pinta
-
-- name: Install extra tools if using Chris profile
-  pacman: name={{ item }} state=present
-  with_items:
     - android-tools
     - unrar
     - atop
@@ -33,13 +29,6 @@
     - pass
     - passmenu
     - sxiv
-  when: user == "chris"
-
-- name: Install yturl if using Chris profile
-  yaourt: name=yturl
-  sudo: yes
-  sudo_user: makepkg
-  when: user == 'chris'
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
@@ -48,12 +37,10 @@
     - pdftk-bin
     - xnviewmp
     - drive
+    - yturl
+    - libreoffice
   sudo: yes
   sudo_user: makepkg
-
-- name: Install extra tools if using Lin profile
-  pacman: name=libreoffice state=present
-  when: user == "lin"
 
 - name: Install laptop tools
   pacman: name=acpi state=present
