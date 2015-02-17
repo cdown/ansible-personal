@@ -9,6 +9,7 @@
     - xorg-xinit
     - xorg-xev
     - xorg-xset
+    - xorg-xrdb
 
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
