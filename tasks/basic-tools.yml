@@ -39,6 +39,7 @@
     - xnviewmp
     - drive
     - yturl
+    - ruby-jekyll
   sudo: yes
   sudo_user: makepkg
 
