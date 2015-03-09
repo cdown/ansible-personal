@@ -12,7 +12,7 @@
   changed_when: false
 
 - name: Set up shared directory entry in fstab
-  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="gid={{ gid.stdout }},dmode=070,fmode=060" state=present
+  mount: name=/mnt/shared src=Shared fstype=vboxsf opts="gid={{ gid.stdout }},dmode=770,fmode=660" state=present
 
 - name: Create /mnt/shared
   file: dest=/mnt/shared state=directory
