@@ -1,0 +1,38 @@
+---
+- name: Install rbenv
+  yaourt: 'name={{ item }}'
+  with_items:
+    - rbenv
+    - ruby-build
+  sudo: yes
+  sudo_user: makepkg
+
+- name: Check if ruby is installed in rbenv
+  command: rbenv versions
+  register: rbenv_versions
+  sudo: yes
+  sudo_user: "{{ user }}"
+  changed_when: false
+
+- name: Install ruby 2.1.2 using rbenv
+  command: "{{ item }}"
+  with_items:
+    - rbenv install 2.1.2
+    - rbenv rehash
+    - rbenv global 2.1.2
+  sudo: yes
+  sudo_user: "{{ user }}"
+  when: 'rbenv_versions.stdout == ""'
+
+- name: Check if bundler is installed
+  shell: eval "$(rbenv init -)" && gem list bundler
+  register: rbenv_bundler
+  sudo: yes
+  sudo_user: "{{ user }}"
+  changed_when: false
+
+- name: Install bundler
+  shell: eval "$(rbenv init -)" && gem install bundler && rbenv rehash
+  sudo: yes
+  sudo_user: "{{ user }}"
+  when: '"bundler" not in rbenv_bundler.stdout'

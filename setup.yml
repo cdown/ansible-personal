@@ -42,6 +42,7 @@
     - include: tasks/dotfiles.yml user=root
     - include: tasks/dotfiles.yml user=chris
     - include: tasks/dotfiles.yml user=lin
+    - include: tasks/rbenv.yml user=chris
     - include: tasks/shared.yml
       when: model == "VirtualBox"
     - include: tasks/pkgfile.yml
