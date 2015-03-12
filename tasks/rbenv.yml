@@ -8,8 +8,8 @@
   sudo_user: makepkg
 
 - name: Check if ruby is installed in rbenv
-  command: rbenv versions
-  register: rbenv_versions
+  command: rbenv version
+  register: rbenv_version
   sudo: yes
   sudo_user: "{{ user }}"
   changed_when: false
@@ -22,7 +22,7 @@
     - rbenv global 2.1.2
   sudo: yes
   sudo_user: "{{ user }}"
-  when: 'rbenv_versions.stdout == ""'
+  when: '"system" in rbenv_version.stdout'
 
 - name: Check if bundler is installed
   shell: eval "$(rbenv init -)" && gem list bundler
