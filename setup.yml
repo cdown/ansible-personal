@@ -39,9 +39,9 @@
     - include: tasks/email.yml
     - include: tasks/media.yml
     - include: tasks/chinese.yml
-    - include: tasks/dotfiles.yml
-      tags:
-        - dotfiles
+    - include: tasks/dotfiles.yml user=root
+    - include: tasks/dotfiles.yml user=chris
+    - include: tasks/dotfiles.yml user=lin
     - include: tasks/shared.yml
       when: model == "VirtualBox"
     - include: tasks/pkgfile.yml

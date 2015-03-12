@@ -1,20 +1,17 @@
 ---
-- name: Clone dotfiles for {{ item }}
+- name: Clone dotfiles for {{ user }}
   sudo: yes
-  sudo_user: "{{ item }}"
-  git: repo=git://github.com/cdown/dotfiles.git dest=~{{ item }}/git/dotfiles accept_hostkey=yes
-  with_items: users_inc_super
+  sudo_user: "{{ user }}"
+  git: repo=git://github.com/cdown/dotfiles.git dest=~{{ user }}/git/dotfiles accept_hostkey=yes
 
-- name: Set up dotfiles for {{ item }}
+- name: Set up dotfiles for {{ user }}
   sudo: yes
-  sudo_user: "{{ item }}"
-  command: ./setup chdir="~{{ item }}/git/dotfiles"
-  with_items: users_inc_super
+  sudo_user: "{{ user }}"
+  command: ./setup chdir="~{{ user }}/git/dotfiles"
   changed_when: false
 
-- name: "Set {{ item }}'s dotfiles to push using ssh"
+- name: "Set {{ user }}'s dotfiles to push using ssh"
   sudo: yes
-  sudo_user: "{{ item }}"
-  command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~{{ item }}/git/dotfiles
-  with_items: users_inc_super
+  sudo_user: "{{ user }}"
+  command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~{{ user }}/git/dotfiles
   changed_when: false
