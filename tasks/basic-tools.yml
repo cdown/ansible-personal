@@ -3,6 +3,7 @@
   pacman: name={{ item }} state=present
   with_items:
     - vim
+    - zip
     - unzip
     - rsync
     - tmux
