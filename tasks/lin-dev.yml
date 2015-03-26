@@ -5,6 +5,7 @@
     - python-jinja
     - python-tornado
     - python-pyzmq
+    - python-jsonschema
 
 - name: Create local iPython user
   user: name=ipython home=/srv/ipython-notebook
