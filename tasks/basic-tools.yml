@@ -31,6 +31,8 @@
     - passmenu
     - sxiv
     - libreoffice-still
+    - python-docs
+    - python2-docs
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
