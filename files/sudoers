@@ -4,3 +4,8 @@ root  ALL=(ALL) ALL
 # Allow the build user access to pacman. This user can't be accessed without
 # being in the sudo group, anyway.
 makepkg ALL=NOPASSWD: /usr/bin/pacman *
+
+# Allow "real" users access to build using the makepkg user directly
+{% for user in users %}
+{{ user }} ALL=(makepkg) NOPASSWD: ALL
+{% endfor %}

@@ -3,7 +3,7 @@
   pacman: name=sudo state=present
 
 - name: Configure sudoers
-  copy: src=files/sudoers dest=/etc/sudoers mode=0440
+  template: src=files/sudoers dest=/etc/sudoers mode=0440
 
 - name: Create sudo group
   group: name=sudo state=present
