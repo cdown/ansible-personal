@@ -47,6 +47,7 @@
       when: model == "VirtualBox"
     - include: tasks/pkgfile.yml
     - include: tasks/lin-dev.yml
+      when: install_lin_dev
 
     - debug: msg={{ item }}
       with_items:
