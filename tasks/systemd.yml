@@ -1,0 +1,6 @@
+---
+- name: Create journald.conf.d dir
+  file: path=/etc/journald.conf.d state=directory
+
+- name: Install journald config
+  copy: src=files/journald.conf dest=/etc/journald.conf.d/local.conf

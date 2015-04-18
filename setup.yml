@@ -36,6 +36,7 @@
     - include: tasks/desktop.yml
     - include: tasks/basic-tools.yml
     - include: tasks/cron.yml
+    - include: tasks/systemd.yml
     - include: tasks/email.yml
     - include: tasks/media.yml
     - include: tasks/chinese.yml
