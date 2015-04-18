@@ -13,3 +13,6 @@
 
 - name: Cron to update mirror list
   copy: src=files/cron/reflector dest=/etc/cron.d/reflector
+
+- name: Cron to clear corrupted journals
+  copy: src=files/cron/clear-corrupt-journals dest=/etc/cron.d/clear-corrupt-journals
