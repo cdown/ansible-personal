@@ -1,9 +1,0 @@
----
-ansible_python_interpreter: /usr/bin/python2
-
-user: chris
-
-model: VirtualBox
-
-wifi: false
-laptop: false
