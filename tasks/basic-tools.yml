@@ -18,6 +18,7 @@
     - perl-image-exiftool
     - pinta
     - android-tools
+    - android-udev
     - unrar
     - atop
     - htop
