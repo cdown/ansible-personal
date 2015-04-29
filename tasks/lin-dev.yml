@@ -1,7 +1,6 @@
-- name: Install iPython notebook
+- name: Install iPython notebook dependencies
   pacman: name={{ item }}
   with_items:
-    - ipython
     - python-jinja
     - python-tornado
     - python-pyzmq

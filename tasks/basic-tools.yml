@@ -23,6 +23,7 @@
     - htop
     - dnsutils
     - nmap
+    - ipython
     - git
     - lsof
     - xclip
