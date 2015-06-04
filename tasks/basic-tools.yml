@@ -32,6 +32,7 @@
     - sxiv
     - python-docs
     - python2-docs
+    - darktable
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
