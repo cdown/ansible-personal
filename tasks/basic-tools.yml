@@ -38,6 +38,7 @@
     - xnviewmp
     - drive
     - yturl
+    - xbanish-git
   sudo: yes
   sudo_user: makepkg
 
