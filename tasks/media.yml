@@ -3,8 +3,6 @@
   pacman: name={{ item }} state=present
   with_items:
     - mpv
-    - mpd
-    - mpc
 
 - name: Install zathura
   pacman: name={{ item }} state=present
