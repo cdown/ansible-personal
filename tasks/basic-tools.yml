@@ -39,6 +39,7 @@
     - drive
     - yturl
     - xbanish-git
+    - clipmenu
   sudo: yes
   sudo_user: makepkg
 
