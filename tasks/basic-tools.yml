@@ -29,6 +29,7 @@
     - xclip
     - pass
     - sxiv
+    - python-virtualenvwrapper
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
