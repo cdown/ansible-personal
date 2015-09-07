@@ -30,6 +30,7 @@
     - pass
     - sxiv
     - python-virtualenvwrapper
+    - python-pylint
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
