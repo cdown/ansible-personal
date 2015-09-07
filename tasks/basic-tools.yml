@@ -42,6 +42,7 @@
     - yturl
     - xbanish
     - clipmenu
+    - shellcheck
   sudo: yes
   sudo_user: makepkg
 
