@@ -32,6 +32,7 @@
     - python-virtualenvwrapper
     - python-pylint
     - twine
+    - whois
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
