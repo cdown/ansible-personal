@@ -21,7 +21,7 @@
     - android-udev
     - atop
     - htop
-    - dnsutils
+    - bind-tools
     - nmap
     - ipython
     - git
