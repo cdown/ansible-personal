@@ -33,13 +33,13 @@
     - python-pylint
     - twine
     - whois
+    - shotwell
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
   with_items:
     - duply
     - pdftk-bin
-    - xnviewmp
     - drive
     - yturl
     - xbanish
