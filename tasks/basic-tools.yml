@@ -45,6 +45,7 @@
     - xbanish
     - clipmenu
     - shellcheck
+    - google-cloud-sdk  # for gsutil
   sudo: yes
   sudo_user: makepkg
 
