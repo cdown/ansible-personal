@@ -14,10 +14,6 @@
 - name: Install Pythons using pyenv
   command: "pyenv install {{ item }}"
   with_items:
-    - 2.6.9
-    - 2.7.10
-    - 3.3.6
-    - 3.4.3
     - 3.5.0
   sudo: yes
   sudo_user: "{{ user }}"
