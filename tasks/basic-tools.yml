@@ -33,7 +33,6 @@
     - python-pylint
     - twine
     - whois
-    - shotwell
     - libjpeg-turbo  # for jpegtran
 
 - name: Install basic tools requiring yaourt
