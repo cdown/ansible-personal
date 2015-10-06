@@ -18,3 +18,17 @@
   sudo: yes
   sudo_user: "{{ user }}"
   when: '"{{ item }}" not in pyenv_versions.stdout'
+
+- name: Install Python utilities
+  shell: 'eval "$(pyenv init -)" && pip install {{ item }}'
+  with_items:
+    - gsutil
+    - yturl
+    - tzupdate
+    - virtualenv
+    - virtualenvwrapper
+    - pylint
+    - twine
+    - ipython
+  sudo: yes
+  sudo_user: "{{ user }}"

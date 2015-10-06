@@ -8,8 +8,6 @@
     - tmux
     - gnome-icon-theme
     - irssi
-    - python-virtualenv
-    - python2-virtualenv
     # For duply
     - python2-boto
     # For irssi scripts
@@ -23,15 +21,11 @@
     - htop
     - bind-tools
     - nmap
-    - ipython
     - git
     - lsof
     - xclip
     - pass
     - sxiv
-    - python-virtualenvwrapper
-    - python-pylint
-    - twine
     - whois
     - libjpeg-turbo  # for jpegtran
 
@@ -41,11 +35,9 @@
     - duply
     - pdftk-bin
     - drive
-    - yturl
     - xbanish
     - clipmenu
     - shellcheck
-    - google-cloud-sdk  # for gsutil
   sudo: yes
   sudo_user: makepkg
 
