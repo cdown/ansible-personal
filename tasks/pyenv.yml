@@ -14,15 +14,15 @@
 - name: Install Pythons using pyenv
   command: "pyenv install {{ item }}"
   with_items:
+    - 2.7.10
     - 3.5.0
   sudo: yes
   sudo_user: "{{ user }}"
   when: '"{{ item }}" not in pyenv_versions.stdout'
 
-- name: Install Python utilities
-  shell: 'eval "$(pyenv init -)" && pip install {{ item }}'
+- name: Install Python 3 utilities
+  shell: 'eval "$(pyenv init -)" && pyenv shell 3.5.0 && pip install {{ item }}'
   with_items:
-    - gsutil
     - yturl
     - tzupdate
     - virtualenv
@@ -30,5 +30,12 @@
     - pylint
     - twine
     - ipython
+  sudo: yes
+  sudo_user: "{{ user }}"
+
+- name: Install Python 2 utilities
+  shell: 'eval "$(pyenv init -)" && pyenv shell 2.7.10 && pip install {{ item }}'
+  with_items:
+    - gsutil
   sudo: yes
   sudo_user: "{{ user }}"
