@@ -27,7 +27,8 @@
     - tzupdate
     - virtualenv
     - virtualenvwrapper
-    - pylint
+    - hg+https://bitbucket.org/logilab/astroid
+    - hg+https://bitbucket.org/logilab/pylint
     - twine
     - ipython
   sudo: yes
