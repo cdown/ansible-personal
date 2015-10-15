@@ -14,6 +14,7 @@
     - perl-datetime
     # For photo backups
     - perl-image-exiftool
+    - aspell
     - pinta
     - android-tools
     - android-udev
