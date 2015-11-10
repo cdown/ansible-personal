@@ -4,6 +4,7 @@
   with_items:
     - vim
     - p7zip
+    - mercurial
     - rsync
     - tmux
     - gnome-icon-theme
