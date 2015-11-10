@@ -40,7 +40,7 @@
     - xbanish
     - clipmenu
     - shellcheck
-    - docx2text
+    - docx2txt
   sudo: yes
   sudo_user: makepkg
 
