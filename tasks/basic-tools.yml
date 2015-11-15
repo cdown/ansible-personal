@@ -7,6 +7,7 @@
     - mercurial
     - rsync
     - tmux
+    - python-virtualenvwrapper
     - gnome-icon-theme
     - irssi
     # For duply
