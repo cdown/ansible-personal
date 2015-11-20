@@ -28,6 +28,7 @@
     - lsof
     - xclip
     - pass
+    - pkgbuild-introspection
     - sxiv
     - whois
     - libjpeg-turbo  # for jpegtran
