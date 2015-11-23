@@ -6,6 +6,7 @@
     - p7zip
     - mercurial
     - rsync
+    - notmuch
     - tmux
     - python-virtualenvwrapper
     - gnome-icon-theme
