@@ -7,6 +7,7 @@
     - mercurial
     - rsync
     - notmuch
+    - notmuch-mutt
     - tmux
     - python-virtualenvwrapper
     - gnome-icon-theme
