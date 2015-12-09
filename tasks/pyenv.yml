@@ -35,6 +35,7 @@
     - line_profiler
     - memory_profiler
     - psutil
+    - awscli
   sudo: yes
   sudo_user: "{{ user }}"
 

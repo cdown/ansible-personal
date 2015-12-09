@@ -4,4 +4,3 @@
 
 - name: Enable NTP daemon
   service: name=ntpd state=started enabled=yes
-  when: model != "VirtualBox"
