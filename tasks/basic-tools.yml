@@ -4,6 +4,7 @@
   with_items:
     - vim
     - p7zip
+    - maim
     - mercurial
     - rsync
     - notmuch
