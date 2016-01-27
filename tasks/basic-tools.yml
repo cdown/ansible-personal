@@ -35,6 +35,7 @@
     - sxiv
     - whois
     - libjpeg-turbo  # for jpegtran
+    - msmtp
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
