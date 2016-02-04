@@ -1,18 +1,18 @@
 ---
 - name: Install dwm
   yaourt: name=dwm-cdown-git
-  sudo: yes
-  sudo_user: makepkg
+  become: yes
+  become_user: makepkg
 
 - name: Install Hangouts video plugin
   yaourt: name=google-talkplugin
-  sudo: yes
-  sudo_user: makepkg
+  become: yes
+  become_user: makepkg
 
 - name: Install Google Chrome
   yaourt: name=google-chrome
-  sudo: yes
-  sudo_user: makepkg
+  become: yes
+  become_user: makepkg
 
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
@@ -28,8 +28,8 @@
 
 - name: Install urxvt Perl extensions
   yaourt: name=urxvt-perls
-  sudo: yes
-  sudo_user: makepkg
+  become: yes
+  become_user: makepkg
 
 - name: Set up terminal fonts
   pacman: name={{ item }}

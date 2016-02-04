@@ -1,17 +1,17 @@
 ---
 - name: Clone dotfiles for {{ user }}
-  sudo: yes
-  sudo_user: "{{ user }}"
+  become: yes
+  become_user: "{{ user }}"
   git: repo=git://github.com/cdown/dotfiles.git dest=~{{ user }}/git/dotfiles accept_hostkey=yes update=no
 
 - name: Set up dotfiles for {{ user }}
-  sudo: yes
-  sudo_user: "{{ user }}"
+  become: yes
+  become_user: "{{ user }}"
   command: ./setup chdir="~{{ user }}/git/dotfiles"
   changed_when: false
 
 - name: "Set {{ user }}'s dotfiles to push using ssh"
-  sudo: yes
-  sudo_user: "{{ user }}"
+  become: yes
+  become_user: "{{ user }}"
   command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~{{ user }}/git/dotfiles
   changed_when: false

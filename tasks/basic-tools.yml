@@ -47,8 +47,8 @@
     - clipmenu
     - shellcheck
     - docx2txt
-  sudo: yes
-  sudo_user: makepkg
+  become: yes
+  become_user: makepkg
 
 - name: Install laptop tools
   pacman: name=acpi state=present
