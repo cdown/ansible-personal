@@ -1,9 +1,18 @@
 ---
 ansible_python_interpreter: /usr/bin/python2
 
-user: chris
+users:
+  - chris
+  - lin
+
+users_inc_super:
+  - chris
+  - lin
+  - root
 
 model: Vostro 3700
 
 wifi: true
 laptop: true
+
+install_lin_dev: false
