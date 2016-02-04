@@ -9,9 +9,3 @@
   become_user: "{{ user }}"
   command: ./setup chdir="~{{ user }}/git/dotfiles"
   changed_when: false
-
-- name: "Set {{ user }}'s dotfiles to push using ssh"
-  become: yes
-  become_user: "{{ user }}"
-  command: git remote set-url --push origin git@github.com:cdown/dotfiles.git chdir=~{{ user }}/git/dotfiles
-  changed_when: false
