@@ -37,6 +37,8 @@
     - libjpeg-turbo  # for jpegtran
     - msmtp
     - ctags
+    - ltrace
+    - strace
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
