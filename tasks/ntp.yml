@@ -2,5 +2,8 @@
 - name: Install NTP daemon
   pacman: name=ntp state=present
 
+- name: Install NTP config
+  copy: src=files/ntp.conf dest=/etc/ntp.conf mode=644
+
 - name: Enable NTP daemon
   service: name=ntpd state=started enabled=yes
