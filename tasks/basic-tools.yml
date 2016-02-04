@@ -36,6 +36,7 @@
     - whois
     - libjpeg-turbo  # for jpegtran
     - msmtp
+    - ctags
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
