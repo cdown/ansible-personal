@@ -48,5 +48,7 @@
     - include: tasks/shared.yml
       when: model == "VirtualBox"
     - include: tasks/pkgfile.yml
+    - include: tasks/vostro-tools.yml
+      when: model == "Vostro 3700"
     - include: tasks/lin-dev.yml
       when: install_lin_dev
