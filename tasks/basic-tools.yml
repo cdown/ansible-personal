@@ -54,5 +54,9 @@
   become_user: makepkg
 
 - name: Install laptop tools
-  pacman: name=acpi state=present
+  yaourt: name={{ item }}
+  with_items:
+    - acpi
+    - acpid
+    - bats
   when: laptop
