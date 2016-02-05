@@ -4,3 +4,4 @@
   with_items:
     - fcitx
     - fcitx-sunpinyin
+    - fcitx-im
