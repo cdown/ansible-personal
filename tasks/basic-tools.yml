@@ -39,6 +39,7 @@
     - ctags
     - ltrace
     - strace
+    - fuse-exfat
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
