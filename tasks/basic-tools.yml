@@ -51,6 +51,7 @@
     - clipmenu
     - shellcheck
     - docx2txt
+    - pngquant
   become: yes
   become_user: makepkg
 
