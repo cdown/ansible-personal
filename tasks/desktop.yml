@@ -36,3 +36,4 @@
   with_items:
     - terminus-font
     - ttf-inconsolata
+    - ttf-symbola
