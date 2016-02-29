@@ -4,7 +4,7 @@
 
 - name: Add local users to vboxmnt group
   user: name={{ item }} groups=vboxmnt append=yes
-  with_items: users
+  with_items: '{{ users }}'
 
 - name: Get GID for vboxmnt
   shell: 'getent group vboxmnt | cut -d: -f3'

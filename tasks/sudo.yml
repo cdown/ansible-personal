@@ -10,4 +10,4 @@
 
 - name: Add local user to sudo group
   user: name={{ item }} groups=sudo append=yes
-  with_items: users
+  with_items: '{{ users }}'
