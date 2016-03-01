@@ -40,6 +40,7 @@
     - ltrace
     - strace
     - fuse-exfat
+    - dosfstools
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
