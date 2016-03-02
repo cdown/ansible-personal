@@ -63,3 +63,6 @@
     - acpid
     - bats
   when: laptop
+
+- name: Enable atop logging
+  service: name=atop state=started enabled=yes
