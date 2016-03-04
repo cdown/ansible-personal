@@ -5,6 +5,7 @@
     - vim
     - p7zip
     - maim
+    - slop  # optdepends for `screenshot --select`
     - mercurial
     - rsync
     - notmuch
