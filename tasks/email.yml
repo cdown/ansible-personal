@@ -4,5 +4,5 @@
   with_items:
     - mutt
     - w3m
-    - offlineimap
+    - isync
     - procmail
