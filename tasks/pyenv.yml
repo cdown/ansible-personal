@@ -14,14 +14,14 @@
 - name: Install Pythons using pyenv
   command: "pyenv install {{ item }}"
   with_items:
-    - 2.7.10
-    - 3.5.0
+    - 2.7.11
+    - 3.5.1
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in pyenv_versions.stdout'
 
 - name: Install Python 3 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell 3.5.0 && pip install {{ item }}'
+  shell: 'eval "$(pyenv init -)" && pyenv shell 3.5.1 && pip install {{ item }}'
   with_items:
     - yturl
     - tzupdate
@@ -40,7 +40,7 @@
   become_user: "{{ user }}"
 
 - name: Install Python 2 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell 2.7.10 && pip install {{ item }}'
+  shell: 'eval "$(pyenv init -)" && pyenv shell 2.7.11 && pip install {{ item }}'
   with_items:
     - gsutil
   become: yes
