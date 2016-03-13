@@ -36,6 +36,7 @@
     - memory_profiler
     - psutil
     - awscli
+    - tox
   become: yes
   become_user: "{{ user }}"
 
