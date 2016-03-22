@@ -33,7 +33,11 @@
   when: model == "Parallels"
 
 - name: Install VirtualBox guest utilities
-  pacman: name=virtualbox-guest-utils state=present
+  pacman: name={{ item }} state=present
+  with_items:
+    - virtualbox-guest-utils
+    - linux-headers  # needed for virtualbox-guest-dkms which is pulled in by
+                     # virtualbox-guest-utils
   when: model == "VirtualBox"
 
 - name: Set up autoloading of VirtualBox modules
