@@ -42,6 +42,7 @@
     - strace
     - fuse-exfat
     - dosfstools
+    - perf
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
