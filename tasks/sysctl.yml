@@ -1,0 +1,3 @@
+---
+- name: Copy sysctl settings
+  copy: src=files/sysctl.conf dest=/etc/sysctl.d/99-local.conf
