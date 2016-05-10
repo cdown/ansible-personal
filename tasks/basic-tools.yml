@@ -63,6 +63,7 @@
     - pngquant
     - tor-browser-en
     - netatop
+    - sshrc
   become: yes
   become_user: makepkg
 
