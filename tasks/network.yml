@@ -1,7 +1,6 @@
 ---
-- name: Automatically get DHCP lease
-  service: name=dhcpcd state=started enabled=yes
-  when: not wifi
+- name: Disable old dhcpcd setup (now using netctl)
+  service: name=dhcpcd state=stopped enabled=no
 
 - name: Install wireless tools
   pacman: name={{ item }} state=present
