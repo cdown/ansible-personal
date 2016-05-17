@@ -1,0 +1,18 @@
+---
+ansible_python_interpreter: /usr/bin/python2
+
+users:
+  - chris
+  - lin
+
+users_inc_super:
+  - chris
+  - lin
+  - root
+
+model: T460s
+
+wifi: true
+laptop: true
+
+install_lin_dev: false
