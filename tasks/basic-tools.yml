@@ -54,7 +54,6 @@
   yaourt: name={{ item }}
   with_items:
     - duply
-    - pdftk-bin
     - drive
     - xbanish
     - clipmenu
@@ -64,6 +63,8 @@
     - tor-browser-en
     - netatop
     - sshrc
+    # libgcj16-bin is broken way too often :-(
+    # - pdftk-bin
   become: yes
   become_user: makepkg
 
