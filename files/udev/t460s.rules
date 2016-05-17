@@ -1,0 +1,1 @@
+ACTION=="add", KERNEL=="intel_backlight", SUBSYSTEM=="backlight", SUBSYSTEMS=="pci", DRIVERS=="i915", ATTR{brightness}="700"

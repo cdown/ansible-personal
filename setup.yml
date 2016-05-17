@@ -53,3 +53,4 @@
       when: model == "Vostro 3700"
     - include: tasks/lin-dev.yml
       when: install_lin_dev
+    - include: tasks/udev.yml

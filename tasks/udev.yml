@@ -1,0 +1,4 @@
+---
+- name: Copy udev settings for T460s
+  copy: src=files/udev/t460s.rules dest=/etc/udev/rules.d/99-machinespec.rules
+  when: model == "T460s"
