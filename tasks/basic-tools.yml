@@ -76,6 +76,8 @@
     - acpid
     - bats
   when: laptop
+  become: yes
+  become_user: makepkg
 
 - name: Enable atop logging
   service: name=atop state=started enabled=yes
