@@ -64,6 +64,7 @@
     - tor-browser-en
     - netatop
     - sshrc
+    - spotify
     # libgcj16-bin is broken way too often :-(
     # - pdftk-bin
   become: yes
