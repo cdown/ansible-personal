@@ -10,5 +10,6 @@
   yaourt: name={{ item }}
   with_items:
     - mpdscribble
+    - mpdmenu
   become: yes
   become_user: makepkg
