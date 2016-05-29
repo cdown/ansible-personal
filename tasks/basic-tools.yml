@@ -4,6 +4,7 @@
   with_items:
     - vim
     - p7zip
+    - pulseaudio  # sigh, skype
     - maim
     - slop  # optdepends for `screenshot --select`
     - mercurial
@@ -45,6 +46,7 @@
     - perf
     - openconnect
     - mupdf
+    - skype
 
 - name: Set up GPG key for Tor Browser Bundle developers
   command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
