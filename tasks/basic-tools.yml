@@ -62,6 +62,7 @@
     - docx2txt
     - pngquant
     - tor-browser-en
+    - bcc-tools
     - netatop
     - sshrc
     # libgcj16-bin is broken way too often :-(
