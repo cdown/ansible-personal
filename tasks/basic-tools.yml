@@ -11,6 +11,7 @@
     - notmuch
     - notmuch-mutt
     - tmux
+    - macchanger
     - python-virtualenvwrapper
     - gnome-icon-theme
     - irssi
