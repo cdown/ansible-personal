@@ -54,3 +54,4 @@
     - include: tasks/lin-dev.yml
       when: install_lin_dev
     - include: tasks/udev.yml
+    - include: tasks/printing.yml

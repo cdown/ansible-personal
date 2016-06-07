@@ -1,0 +1,9 @@
+---
+- name: Install CUPS and Ghostscript
+  pacman: name={{ item }} state=present
+  with_items:
+    - cups
+    - ghostscript
+
+- name: Enable CUPS daemon
+  service: name=org.cups.cupsd state=started enabled=yes
