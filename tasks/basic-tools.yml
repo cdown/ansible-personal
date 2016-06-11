@@ -26,6 +26,7 @@
     - android-tools
     - android-udev
     - atop
+    - logrotate  # for automatic atop log rotation
     - htop
     - bind-tools
     - nmap
