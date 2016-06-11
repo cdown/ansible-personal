@@ -65,6 +65,7 @@
     - pngquant
     - tor-browser-en
     - bcc-tools
+    - netatop
     - sshrc
     # libgcj16-bin is broken way too often :-(
     # - pdftk-bin
@@ -86,3 +87,6 @@
 
 - name: Enable atop logging
   service: name=atop state=started enabled=yes
+
+- name: Enable netatop module
+  copy: src=files/netatop-modules dest=/etc/modules-load.d/netatop.conf
