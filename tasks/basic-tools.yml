@@ -48,10 +48,20 @@
     - openconnect
     - mupdf
 
-- name: Set up GPG key for Tor Browser Bundle developers
-  command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
+- name: Get GPG keys for makepkg user
+  command: gpg --list-keys --keyid-format long
+  register: makepkg_gpg_keys
+  changed_when: false
   become: yes
   become_user: makepkg
+
+- name: Set up GPG key for Tor Browser Bundle developers
+  command: gpg --keyserver pgp.mit.edu --recv-keys {{ item }}
+  become: yes
+  become_user: makepkg
+  when: '"{{ item }}" not in makepkg_gpg_keys.stdout'
+  with_items:
+    - 2E1AC68ED40814E0
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
