@@ -42,7 +42,7 @@
     - ctags
     - ltrace
     - strace
-    - fuse-exfat
+    - exfat-utils
     - dosfstools
     - perf
     - openconnect
