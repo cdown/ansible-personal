@@ -88,6 +88,7 @@
     - acpi
     - acpid
     - bats
+    - iw
   when: laptop
   become: yes
   become_user: makepkg
