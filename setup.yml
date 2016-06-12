@@ -55,3 +55,4 @@
       when: install_lin_dev
     - include: tasks/udev.yml
     - include: tasks/printing.yml
+    - include: tasks/sound.yml

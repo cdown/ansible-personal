@@ -1,0 +1,4 @@
+---
+- name: Add snd_hda_intel power save settings
+  copy: src=files/sound-power-save dest=/etc/modprobe.d/99-sound-power-save.conf mode=644
+  when: model == "T460s"
