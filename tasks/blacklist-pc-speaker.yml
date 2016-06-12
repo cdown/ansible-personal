@@ -1,3 +1,6 @@
 ---
 - name: Blacklist pcspkr
   kernel_blacklist: name=pcspkr state=present
+
+- name: Blacklist uvcvideo (for webcam)
+  kernel_blacklist: name=uvcvideo state=present
