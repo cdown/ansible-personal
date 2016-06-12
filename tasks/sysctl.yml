@@ -1,0 +1,4 @@
+---
+- name: Copy sysctl laptop powersave settings
+  copy: src=files/sysctl/laptop.conf dest=/etc/sysctl.d/99-laptop.conf
+  when: laptop
