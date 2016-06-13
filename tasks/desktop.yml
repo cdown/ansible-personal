@@ -4,19 +4,10 @@
   become: yes
   become_user: makepkg
 
-- name: Install Hangouts video plugin
-  yaourt: name=google-talkplugin
-  become: yes
-  become_user: makepkg
-
-- name: Install Google Chrome
-  yaourt: name=google-chrome
-  become: yes
-  become_user: makepkg
-
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
   with_items:
+    - firefox
     - dmenu
     - imagemagick
     - ghostscript # for imagemagick
