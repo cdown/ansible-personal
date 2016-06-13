@@ -15,6 +15,9 @@
 - name: Caps -> Ctrl in Xorg
   copy: src=files/xorg-no-caps dest=/etc/X11/xorg.conf.d/00-keyboard.conf mode=644
 
+- name: Disable touchscreen
+  copy: src=files/xorg-no-touchscreen dest=/etc/X11/xorg.conf.d/99-touchscreen.conf mode=644
+
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
   when: model == "Vostro 3700"
