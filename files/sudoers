@@ -8,4 +8,5 @@ makepkg ALL=NOPASSWD: /usr/bin/pacman *
 # Allow "real" users access to build using the makepkg user directly
 {% for user in users %}
 {{ user }} ALL=(makepkg) NOPASSWD: ALL
+{{ user }} ALL=NOPASSWD: /usr/bin/wifi-menu
 {% endfor %}
