@@ -1,3 +1,0 @@
-PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-
-0 * * * * root sh -c "time reflector -f 6 -c 'United Kingdom' -c Ireland -c Netherlands --protocol http --sort rate --save /etc/pacman.d/mirrorlist; echo \$?" >/tmp/reflector-last.log 2>&1
