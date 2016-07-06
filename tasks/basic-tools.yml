@@ -77,6 +77,8 @@
     - tor-browser-en
     - bcc-tools
     - netatop
+    - spotify
+    - yakyak
     - sshrc
     # libgcj16-bin is broken way too often :-(
     # - pdftk-bin
