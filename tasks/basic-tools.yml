@@ -10,7 +10,6 @@
     - mercurial
     - rsync
     - notmuch
-    - autossh
     - notmuch-mutt
     - tmux
     - macchanger
