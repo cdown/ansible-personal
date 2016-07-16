@@ -48,6 +48,7 @@
     - perf
     - openconnect
     - mupdf
+    - skype
 
 - name: Get GPG keys for makepkg user
   command: gpg --list-keys --keyid-format long
@@ -79,6 +80,7 @@
     - netatop
     - spotify
     - sshrc
+    - lib32-apulse  # skype
     # libgcj16-bin is broken way too often :-(
     # - pdftk-bin
   become: yes
