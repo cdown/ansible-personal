@@ -83,7 +83,7 @@
     - lib32-apulse  # skype
     # libgcj16-bin is broken way too often :-(
     # - pdftk-bin
-    - ttf-twitter-color-emoji-svginot
+    - emojione-color-font
   become: yes
   become_user: makepkg
 
