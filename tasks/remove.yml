@@ -6,6 +6,7 @@
     - acpid
     - android-tools
     - android-udev
+    - netatop  # Must be before atop
     - atop
     - bcc-tools
     - ctags
@@ -17,7 +18,6 @@
     - logrotate
     - ltrace
     - mercurial
-    - netatop
     - nmap
     - pdftk-bin
     - perf
