@@ -7,7 +7,6 @@
     - p7zip
     - maim
     - slop  # optdepends for `screenshot --select`
-    - mercurial
     - rsync
     - notmuch
     - notmuch-mutt
@@ -20,17 +19,10 @@
     - python2-boto
     # For irssi scripts
     - perl-datetime
-    # For photo backups
+    # For photo backup renaming
     - perl-image-exiftool
-    - aspell
     - pinta
-    - android-tools
-    - android-udev
-    - atop
-    - logrotate  # for automatic atop log rotation
-    - htop
     - bind-tools
-    - nmap
     - git
     - lsof
     - xclip
@@ -38,32 +30,11 @@
     - pkgbuild-introspection
     - sxiv
     - whois
-    - libjpeg-turbo  # for jpegtran
     - msmtp
-    - ctags
-    - ltrace
     - strace
-    - exfat-utils
     - dosfstools
-    - perf
     - openconnect
     - mupdf
-    - skype
-
-- name: Get GPG keys for makepkg user
-  command: gpg --list-keys --keyid-format long
-  register: makepkg_gpg_keys
-  changed_when: false
-  become: yes
-  become_user: makepkg
-
-- name: Set up GPG key for Tor Browser Bundle developers
-  command: gpg --keyserver pgp.mit.edu --recv-keys {{ item }}
-  become: yes
-  become_user: makepkg
-  when: '"{{ item }}" not in makepkg_gpg_keys.stdout'
-  with_items:
-    - 2E1AC68ED40814E0
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
@@ -75,34 +46,15 @@
     - shellcheck
     - docx2txt
     - pngquant
-    - tor-browser-en
-    - bcc-tools
-    - netatop
-    - spotify
     - sshrc
-    - lib32-apulse  # skype
-    # libgcj16-bin is broken way too often :-(
-    # - pdftk-bin
-    - emojione-color-font
   become: yes
   become_user: makepkg
 
 - name: Install laptop tools
   yaourt: name={{ item }}
   with_items:
-    - acpi
-    - acpid
     - bats
     - iw
   when: laptop
   become: yes
   become_user: makepkg
-
-- name: Set up atop config
-  copy: src=files/atop.daily dest=/etc/atop/atop.daily mode=755
-
-- name: Enable atop logging
-  service: name=atop state=started enabled=yes
-
-- name: Enable netatop module
-  copy: src=files/netatop-modules dest=/etc/modules-load.d/netatop.conf
