@@ -6,9 +6,6 @@
   pacman: name={{ item }} state=present
   when: wifi
   with_items:
+    - iw
     - wpa_supplicant
     - dialog  # needed for wifi-menu
-
-- name: Install wireless tools
-  pacman: name=wpa_supplicant state=present
-  when: wifi
