@@ -1,0 +1,33 @@
+---
+- name: Remove tools that are no longer used
+  pacman: name={{ item }} state=absent
+  with_items:
+    - acpi
+    - acpid
+    - android-tools
+    - android-udev
+    - aspell
+    - atop
+    - bcc-tools
+    - ctags
+    - emojione-color-font
+    - exfat-utils
+    - htop
+    - lib32-apulse
+    - libjpeg-turbo
+    - logrotate
+    - ltrace
+    - mercurial
+    - netatop
+    - nmap
+    - pdftk-bin
+    - perf
+    - skype
+    - spotify
+    - tor-browser-en
+
+- name: Remove files that are no longer used
+  file: path={{ item }} state=absent
+  with_items:
+    - /etc/atop/atop.daily
+    - /etc/modules-load.d/netatop.conf
