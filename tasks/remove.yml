@@ -14,7 +14,6 @@
     - exfat-utils
     - htop
     - lib32-apulse
-    - libjpeg-turbo
     - logrotate
     - ltrace
     - mercurial
