@@ -28,6 +28,9 @@
   file: path={{ item }} state=absent
   with_items:
     - /etc/modules-load.d/netatop.conf
+    # wtf, why does the atop package force this midnight restart upon you by
+    # default without checking if the service is enabled
+    - /etc/cron.d/atop
 
 - name: Disable services that are not used
   service: name={{ item }} state=stopped enabled=no
