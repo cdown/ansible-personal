@@ -22,6 +22,7 @@
     - skype
     - spotify
     - tor-browser-en
+    - pngquant
 
 - name: Remove files that are no longer used
   file: path={{ item }} state=absent
