@@ -35,6 +35,7 @@
     - dosfstools
     - openconnect
     - mupdf
+    - atop
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
