@@ -24,15 +24,18 @@
   become_user: "{{ user }}"
   when: '"system" in rbenv_version.stdout'
 
-- name: Check if bundler is installed
-  shell: eval "$(rbenv init -)" && gem list bundler
-  register: rbenv_bundler
+- name: Get list of installed gems
+  shell: "eval \"$(rbenv init -)\" && gem list | awk '{ print $1 }'"
+  register: rbenv_gems
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
-- name: Install bundler
-  shell: eval "$(rbenv init -)" && gem install bundler && rbenv rehash
+- name: Install Ruby utilities
+  shell: 'eval "$(rbenv init -)" && gem install {{ item }} && rbenv rehash'
+  with_items:
+    - bundler
+    - trello_cli
   become: yes
   become_user: "{{ user }}"
-  when: '"bundler" not in rbenv_bundler.stdout'
+  when: '"{{ item | basename }}" not in rbenv_gems.stdout_lines'
