@@ -1,0 +1,40 @@
+---
+- name: Install ndenv
+  yaourt: 'name={{ item }}'
+  with_items:
+    - ndenv
+    - node-build
+  become: yes
+  become_user: makepkg
+
+- name: Check if node is installed in ndenv
+  command: ndenv version
+  register: ndenv_version
+  become: yes
+  become_user: "{{ user }}"
+  changed_when: false
+
+- name: Install node 4.4.7 using ndenv
+  command: "{{ item }}"
+  with_items:
+    - ndenv install v4.4.7
+    - ndenv rehash
+    - ndenv global v4.4.7
+  become: yes
+  become_user: "{{ user }}"
+  when: '"system" in ndenv_version.stdout'
+
+- name: Get list of installed packages
+  shell: "eval \"$(ndenv init -)\" && ndenv exec npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
+  register: ndenv_packages
+  become: yes
+  become_user: "{{ user }}"
+  changed_when: false
+
+- name: Install node utilities
+  shell: 'eval "$(ndenv init -)" && ndenv exec npm install -g {{ item }} && ndenv rehash'
+  with_items:
+    - trello-backup
+  become: yes
+  become_user: "{{ user }}"
+  when: '"{{ item | basename }}" not in ndenv_packages.stdout_lines'
