@@ -23,6 +23,8 @@
     - spotify
     - tor-browser-en
     - pngquant
+    - ndenv
+    - node-build
 
 - name: Remove files that are no longer used
   file: path={{ item }} state=absent

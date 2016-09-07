@@ -31,10 +31,10 @@
   become_user: "{{ user }}"
   changed_when: false
 
-- name: Install node utilities
-  shell: 'eval "$(nodenv init -)" && npm install -g {{ item }} && nodenv rehash'
-  with_items:
-    - nativefier
-  become: yes
-  become_user: "{{ user }}"
-  when: '"{{ item | basename }}" not in nodenv_packages.stdout_lines'
+#- name: Install node utilities
+#  shell: 'eval "$(nodenv init -)" && npm install -g {{ item }} && nodenv rehash'
+#  with_items:
+#    - nativefier
+#  become: yes
+#  become_user: "{{ user }}"
+#  when: '"{{ item | basename }}" not in nodenv_packages.stdout_lines'
