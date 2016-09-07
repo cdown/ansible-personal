@@ -1,40 +1,40 @@
 ---
-- name: Install ndenv
+- name: Install nodenv
   yaourt: 'name={{ item }}'
   with_items:
-    - ndenv
-    - node-build
+    - nodenv
+    - nodenv-node-build
   become: yes
   become_user: makepkg
 
-- name: Check if node is installed in ndenv
-  command: ndenv version
-  register: ndenv_version
+- name: Check if node is installed in nodenv
+  command: nodenv version
+  register: nodenv_version
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
-- name: Install node 4.4.7 using ndenv
+- name: Install node 4.4.5 using nodenv
   command: "{{ item }}"
   with_items:
-    - ndenv install v4.4.7
-    - ndenv rehash
-    - ndenv global v4.4.7
+    - nodenv install 4.4.5
+    - nodenv rehash
+    - nodenv global 4.4.5
   become: yes
   become_user: "{{ user }}"
-  when: '"system" in ndenv_version.stdout'
+  when: '"system" in nodenv_version.stdout'
 
 - name: Get list of installed packages
-  shell: "eval \"$(ndenv init -)\" && ndenv exec npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
-  register: ndenv_packages
+  shell: "eval \"$(nodenv init -)\" && npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
+  register: nodenv_packages
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Install node utilities
-  shell: 'eval "$(ndenv init -)" && ndenv exec npm install -g {{ item }} && ndenv rehash'
+  shell: 'eval "$(nodenv init -)" && npm install -g {{ item }} && nodenv rehash'
   with_items:
-    - trello-backup
+    - nativefier
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item | basename }}" not in ndenv_packages.stdout_lines'
+  when: '"{{ item | basename }}" not in nodenv_packages.stdout_lines'
