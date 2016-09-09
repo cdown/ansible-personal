@@ -48,6 +48,7 @@
     - docx2txt
     - pngquant
     - sshrc
+    - bluejeans
   become: yes
   become_user: makepkg
 
