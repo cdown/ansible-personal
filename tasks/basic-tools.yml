@@ -49,6 +49,7 @@
     - pngquant
     - sshrc
     - bluejeans
+    - spotify
   become: yes
   become_user: makepkg
 
