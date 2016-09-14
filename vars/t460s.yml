@@ -2,12 +2,10 @@
 ansible_python_interpreter: /usr/bin/python2
 
 users:
-  - chris
-  - lin
+  - cdown
 
 users_inc_super:
-  - chris
-  - lin
+  - cdown
   - root
 
 model: T460s
