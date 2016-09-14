@@ -1,0 +1,9 @@
+[Unit]
+Description=Laptop battery savings
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/powerdown
+
+[Install]
+WantedBy=multi-user.target
