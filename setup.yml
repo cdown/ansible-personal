@@ -41,12 +41,22 @@
     - include: tasks/media.yml
     - include: tasks/chinese.yml
     - include: tasks/sysctl.yml
-    - include: tasks/dotfiles.yml user=root
-    - include: tasks/dotfiles.yml user=chris
-    - include: tasks/dotfiles.yml user=lin
-    - include: tasks/rbenv.yml user=chris
-    - include: tasks/pyenv.yml user=chris
-    - include: tasks/ndenv.yml user=chris
+    - include: tasks/dotfiles.yml user={{ user_item }}
+      with_items: '{{ users_inc_super }}'
+      loop_control:
+        loop_var: user_item
+    - include: tasks/rbenv.yml user={{ user_item }}
+      with_items: '{{ users }}'
+      loop_control:
+        loop_var: user_item
+    - include: tasks/pyenv.yml user={{ user_item }}
+      with_items: '{{ users }}'
+      loop_control:
+        loop_var: user_item
+    - include: tasks/ndenv.yml user={{ user_item }}
+      with_items: '{{ users }}'
+      loop_control:
+        loop_var: user_item
     - include: tasks/shared.yml
       when: model == "VirtualBox"
     - include: tasks/pkgfile.yml
