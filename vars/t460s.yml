@@ -8,6 +8,9 @@ users_inc_super:
   - cdown
   - root
 
+install_env_users:
+  - cdown
+
 model: T460s
 
 wifi: true

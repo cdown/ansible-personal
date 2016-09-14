@@ -46,15 +46,15 @@
       loop_control:
         loop_var: user_item
     - include: tasks/rbenv.yml user={{ user_item }}
-      with_items: '{{ users }}'
+      with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
     - include: tasks/pyenv.yml user={{ user_item }}
-      with_items: '{{ users }}'
+      with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
     - include: tasks/ndenv.yml user={{ user_item }}
-      with_items: '{{ users }}'
+      with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
     - include: tasks/shared.yml

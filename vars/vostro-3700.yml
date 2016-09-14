@@ -10,6 +10,9 @@ users_inc_super:
   - lin
   - root
 
+install_env_users:
+  - chris
+
 model: Vostro 3700
 
 wifi: true
