@@ -14,7 +14,6 @@
     - lib32-apulse
     - logrotate
     - ltrace
-    - mercurial
     - nmap
     - pdftk-bin
     - perf
