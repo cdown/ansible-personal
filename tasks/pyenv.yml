@@ -41,8 +41,8 @@
     - tzupdate
     - virtualenv
     - virtualenvwrapper
-    - hg+https://bitbucket.org/logilab/astroid
-    - hg+https://bitbucket.org/logilab/pylint
+    - astroid
+    - pylint
     - twine
     - ipython
     - flake8
