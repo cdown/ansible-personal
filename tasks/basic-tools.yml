@@ -37,6 +37,7 @@
     - mupdf
     - atop
     - mercurial  # needed for some pyenv installed stuff
+    - flashplugin
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
