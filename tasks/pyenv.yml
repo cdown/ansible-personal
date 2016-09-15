@@ -59,6 +59,7 @@
   shell: 'eval "$(pyenv init -)" && pyenv shell 2.7.11 && pip install {{ item }}'
   with_items:
     - gsutil
+    - s3cmd
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in py2_utils.stdout_lines'
