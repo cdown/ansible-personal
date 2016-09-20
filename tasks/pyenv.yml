@@ -51,6 +51,7 @@
     - psutil
     - awscli
     - tox
+    - pipdeptree
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in py3_utils.stdout_lines'
@@ -60,6 +61,7 @@
   with_items:
     - gsutil
     - s3cmd
+    - pipdeptree
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in py2_utils.stdout_lines'
