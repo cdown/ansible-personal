@@ -5,8 +5,8 @@ root  ALL=(ALL) ALL
 # being in the sudo group, anyway.
 makepkg ALL=NOPASSWD: /usr/bin/pacman *
 
-# Allow "real" users access to build using the makepkg user directly
+# If you managed to run malicious code as my user, I'm already fucked, so err
+# on the side of usability.
 {% for user in users %}
-{{ user }} ALL=(makepkg) NOPASSWD: ALL
-{{ user }} ALL=NOPASSWD: /usr/bin/wifi-menu
+{{ user }} ALL=(ALL) NOPASSWD:ALL
 {% endfor %}
