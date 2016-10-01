@@ -67,6 +67,4 @@
     - include: tasks/udev.yml
     - include: tasks/printing.yml
     - include: tasks/sound.yml
-    - include: tasks/power.yml
-      when: laptop
     - include: tasks/remove.yml
