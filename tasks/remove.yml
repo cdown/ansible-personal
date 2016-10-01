@@ -44,3 +44,4 @@
   service: name={{ item }} state=stopped enabled=no
   with_items:
     - atop
+    - powerdown
