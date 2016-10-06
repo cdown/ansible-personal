@@ -38,6 +38,7 @@
     - atop
     - mercurial  # needed for some pyenv installed stuff
     - flashplugin
+    - colordiff
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
