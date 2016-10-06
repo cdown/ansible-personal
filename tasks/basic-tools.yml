@@ -53,6 +53,7 @@
     - sshrc
     - bluejeans
     - spotify
+    - urlscan
   become: yes
   become_user: makepkg
 
