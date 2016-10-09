@@ -67,4 +67,8 @@
     - include: tasks/udev.yml
     - include: tasks/printing.yml
     - include: tasks/sound.yml
+    - include: tasks/chef.yml user={{ user_item }}
+      with_items: '{{ install_env_users }}'
+      loop_control:
+        loop_var: user_item
     - include: tasks/remove.yml
