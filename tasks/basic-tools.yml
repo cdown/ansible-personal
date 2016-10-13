@@ -39,6 +39,7 @@
     - mercurial  # needed for some pyenv installed stuff
     - flashplugin
     - colordiff
+    - zenity  # used for trello-popup
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
