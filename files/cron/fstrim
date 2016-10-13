@@ -1,0 +1,5 @@
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=chris+cron@chrisdown.name
+
+## XXX: not guaranteed to be sda...
+0 12 * * 3 root [ "$(cat /sys/block/sda/queue/rotational)" -eq 0 ] && fstrim -v /

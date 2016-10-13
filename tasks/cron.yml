@@ -10,3 +10,6 @@
 
 - name: Cron to clear corrupted journals
   copy: src=files/cron/clear-corrupt-journals dest=/etc/cron.d/clear-corrupt-journals
+
+- name: Cron to trim SSD
+  copy: src=files/cron/fstrim dest=/etc/cron.d/fstrim
