@@ -40,6 +40,7 @@
     - flashplugin
     - colordiff
     - zenity  # used for trello-popup
+    - openssh
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
