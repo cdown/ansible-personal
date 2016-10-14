@@ -1,0 +1,9 @@
+---
+- name: Copy powerdown script
+  copy: src=files/bin/powerdown dest=/usr/local/bin/powerdown mode=755
+
+- name: Install powerdown service
+  copy: src=files/powerdown.service dest=/etc/systemd/system/powerdown.service mode=644
+
+- name: Enable powerdown service
+  service: name=powerdown enabled=yes
