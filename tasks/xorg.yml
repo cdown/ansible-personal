@@ -22,14 +22,12 @@
 - name: Set up Xorg for Vostro 3700
   pacman: name={{ item }} state=present
   with_items:
-    - xf86-video-intel
     - xf86-input-synaptics
   when: model == "Vostro 3700"
 
 - name: Set up Xorg for T460s
   pacman: name={{ item }} state=present
   with_items:
-    - xf86-video-intel
     - xf86-input-synaptics
   when: model == "T460s"
 
