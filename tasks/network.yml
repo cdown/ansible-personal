@@ -10,3 +10,4 @@
     - wpa_supplicant
     - wireless_tools
     - dialog  # needed for wifi-menu
+    - rfkill
