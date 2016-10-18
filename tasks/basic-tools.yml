@@ -67,6 +67,8 @@
     - spotify
     - urlscan
     - udftools
+    - skype
+    - lib32-apulse  # skype
   become: yes
   become_user: makepkg
 
