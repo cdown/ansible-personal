@@ -7,3 +7,6 @@
 
 - name: Enable powerdown service
   service: name=powerdown enabled=yes
+
+- name: Install ethtool for powerdown
+  pacman: name=ethtool state=present
