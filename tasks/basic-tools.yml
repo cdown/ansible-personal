@@ -20,6 +20,7 @@
     - rsync
     - notmuch
     - notmuch-mutt
+    - evince
     - tmux
     - macchanger
     - python-virtualenvwrapper
