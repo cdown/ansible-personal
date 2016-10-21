@@ -70,7 +70,7 @@
     - udftools
     - skype
     - lib32-apulse  # skype
-    - yubikey-toggle
+    - xinput-toggle
   become: yes
   become_user: makepkg
 
