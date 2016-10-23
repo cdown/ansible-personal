@@ -6,3 +6,6 @@
 - name: Copy udev settings for laptops
   copy: src=files/udev/laptop-net.rules dest=/etc/udev/rules.d/70-laptop-net.rules
   when: laptop
+
+- name: Use deadline scheduler for SSDs
+  copy: src=files/udev/deadline-for-ssd.rules dest=/etc/udev/rules.d/99-deadline-for-ssd.rules
