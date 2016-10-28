@@ -71,6 +71,7 @@
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
+    - include: tasks/skype.yml
     - include: tasks/power.yml
       when: laptop
     - include: tasks/remove.yml

@@ -1,0 +1,25 @@
+---
+- name: Install docker + xdg-user-dirs (needed for skype)
+  pacman: 'name={{ item }}'
+  with_items:
+    - docker
+    - xdg-user-dirs
+
+- name: Start/enable docker service
+  service: name=docker state=started enabled=yes
+
+- name: Get list of installed docker images
+  command: 'docker images --format {% raw %} {{.Repository}} {% endraw %}'
+  register: docker_images
+  changed_when: false
+
+- name: Pull Skype docker image
+  shell: 'docker pull {{ item }}'
+  with_items:
+    - sameersbn/skype
+  when: '"{{ item }}" not in docker_images.stdout_lines'
+  register: skype_pulled
+
+- name: Install Skype host scripts
+  command: docker run -t --rm --volume /usr/local/bin:/target sameersbn/skype install
+  when: skype_pulled.changed
