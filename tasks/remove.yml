@@ -11,11 +11,13 @@
     - emojione-color-font
     - exfat-utils
     - htop
+    - lib32-apulse
     - logrotate
     - ltrace
     - nmap
     - pdftk-bin
     - perf
+    - skype
     - tor-browser-en
     - ndenv
     - node-build

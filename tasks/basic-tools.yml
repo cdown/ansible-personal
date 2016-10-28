@@ -68,8 +68,6 @@
     - spotify
     - urlscan
     - udftools
-    - skype
-    - lib32-apulse  # skype
     - xinput-toggle
     - simple-mtpfs
   become: yes
