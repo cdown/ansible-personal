@@ -36,6 +36,7 @@
   with_items:
     - bundler
     - trello_cli
+    - pomo
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in rbenv_gems.stdout_lines'
