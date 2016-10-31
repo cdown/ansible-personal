@@ -52,6 +52,7 @@
     - colordiff
     - zenity  # used for trello-popup
     - openssh
+    - htop
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
