@@ -63,6 +63,7 @@
     - clipmenu
     - shellcheck
     - docx2txt
+    - antiword
     - pngquant
     - sshrc
     - bluejeans
