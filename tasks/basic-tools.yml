@@ -71,6 +71,7 @@
     - udftools
     - xinput-toggle
     - simple-mtpfs
+    - bcc-tools
   become: yes
   become_user: makepkg
 
