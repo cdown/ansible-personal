@@ -54,6 +54,11 @@
     - openssh
     - htop
 
+- name: Set up GPG key for Tor Browser Bundle developers
+  command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
+  become: yes
+  become_user: makepkg
+
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
   with_items:
@@ -73,6 +78,7 @@
     - xinput-toggle
     - simple-mtpfs
     - bcc-tools
+    - tor-browser-en
   become: yes
   become_user: makepkg
 
