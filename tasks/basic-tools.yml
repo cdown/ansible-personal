@@ -79,6 +79,7 @@
     - simple-mtpfs
     - bcc-tools
     - tor-browser-en
+    - nota
   become: yes
   become_user: makepkg
 
