@@ -53,6 +53,7 @@
     - zenity  # used for trello-popup
     - openssh
     - htop
+    - zstd
 
 - name: Set up GPG key for Tor Browser Bundle developers
   command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
