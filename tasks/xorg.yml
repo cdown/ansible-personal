@@ -47,6 +47,7 @@
     - virtualbox-guest-utils
     - linux-headers  # needed for virtualbox-guest-dkms which is pulled in by
                      # virtualbox-guest-utils
+    - linux-lts-headers
   when: model == "VirtualBox"
 
 - name: Set up autoloading of VirtualBox modules

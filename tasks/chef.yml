@@ -5,6 +5,7 @@
     - chef-dk
     - vagrant
     - linux-headers  # needed for virtualbox-host-dkms
+    - linux-lts-headers
     - virtualbox
   become: yes
   become_user: makepkg
