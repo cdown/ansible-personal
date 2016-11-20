@@ -52,7 +52,6 @@
     - awscli
     - tox
     - pipdeptree
-    - stapler
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in py3_utils.stdout_lines'
@@ -63,6 +62,7 @@
     - gsutil
     - s3cmd
     - pipdeptree
+    - stapler
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in py2_utils.stdout_lines'
