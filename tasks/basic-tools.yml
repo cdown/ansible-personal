@@ -83,6 +83,7 @@
     - bcc-tools
     - tor-browser-en
     - nota
+    - frogr
   become: yes
   become_user: makepkg
 
