@@ -14,28 +14,28 @@
 - name: Install Pythons using pyenv
   command: "pyenv install {{ item }}"
   with_items:
-    - 2.7.11
-    - 3.5.1
+    - 2.7.12
+    - 3.5.2
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in pyenv_versions.stdout'
 
 - name: Get list of Python 3 utils installed
-  shell: "eval \"$(pyenv init -)\" && pyenv shell 3.5.1 && pip freeze | awk -F= '{ print $1 }'"
+  shell: "eval \"$(pyenv init -)\" && pyenv shell 3.5.2 && pip freeze | awk -F= '{ print $1 }'"
   register: py3_utils
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Get list of Python 2 utils installed
-  shell: "eval \"$(pyenv init -)\" && pyenv shell 2.7.11 && pip freeze | awk -F= '{ print $1 }'"
+  shell: "eval \"$(pyenv init -)\" && pyenv shell 2.7.12 && pip freeze | awk -F= '{ print $1 }'"
   register: py2_utils
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Install Python 3 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell 3.5.1 && pip install {{ item }}'
+  shell: 'eval "$(pyenv init -)" && pyenv shell 3.5.2 && pip install {{ item }}'
   with_items:
     - yturl
     - tzupdate
@@ -57,7 +57,7 @@
   when: '"{{ item | basename }}" not in py3_utils.stdout_lines'
 
 - name: Install Python 2 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell 2.7.11 && pip install {{ item }}'
+  shell: 'eval "$(pyenv init -)" && pyenv shell 2.7.12 && pip install {{ item }}'
   with_items:
     - gsutil
     - s3cmd
