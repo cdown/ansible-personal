@@ -1,0 +1,12 @@
+---
+- name: Set up locale.conf
+  copy: src=files/locale.conf dest=/etc/locale.conf
+  register: locale_config
+
+- name: Set up locale.gen
+  copy: src=files/locale.gen dest=/etc/locale.gen
+  register: locale_gen
+
+- name: Update package lists
+  command: locale-gen
+  when: locale_config.changed or locale_gen.changed

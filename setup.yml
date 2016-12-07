@@ -91,3 +91,4 @@
       when: laptop
     - include: tasks/remove.yml
     - include: tasks/debugging.yml
+    - include: tasks/locale.yml
