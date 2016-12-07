@@ -56,13 +56,6 @@
   become: yes
   become_user: makepkg
 
-- name: Install basic tools requiring yaourt
-  yaourt: name={{ item }}
-  with_items:
-    - bcc-tools
-  become: yes
-  become_user: makepkg
-
 - name: Install non-RPi basic tools requiring yaourt
   yaourt: name={{ item }}
   when: model != 'rpi'
