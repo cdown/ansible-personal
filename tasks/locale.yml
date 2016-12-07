@@ -7,6 +7,6 @@
   copy: src=files/locale.gen dest=/etc/locale.gen
   register: locale_gen
 
-- name: Update package lists
+- name: locale-gen
   command: locale-gen
   when: locale_config.changed or locale_gen.changed
