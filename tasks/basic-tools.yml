@@ -52,6 +52,7 @@
 
 - name: Set up GPG key for Tor Browser Bundle developers
   command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
+  when: model != 'rpi'
   become: yes
   become_user: makepkg
 
