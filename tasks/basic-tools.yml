@@ -1,14 +1,4 @@
 ---
-# No way to handle conflicts nicely, sadly
-- name: Remove gcc in preparation for gcc multilib
-  pacman: name={{ item }} state=absent force=yes
-  with_items:
-    - gcc
-    - gcc-libs
-
-- name: Install gcc-multilib
-  pacman: name=gcc-multilib state=present
-
 - name: Install tools that don't require Ansible configuration
   pacman: name={{ item }} state=present
   with_items:
