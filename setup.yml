@@ -90,3 +90,4 @@
     - include: tasks/power.yml
       when: laptop
     - include: tasks/remove.yml
+    - include: tasks/debugging.yml
