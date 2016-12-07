@@ -11,7 +11,6 @@
     - emojione-color-font
     - exfat-utils
     - lib32-apulse
-    - logrotate
     - ltrace
     - nmap
     - pdftk-bin
@@ -24,20 +23,3 @@
   file: path={{ item }} state=absent
   with_items:
     - /etc/modules-load.d/netatop.conf
-
-- name: Remove /etc/cron.d/atop
-  # wtf, why does the atop package force this midnight restart upon you by
-  # default without checking if the service is enabled. We can't even just
-  # remove it since it will then restore it on reinstall :(
-  copy:
-    content: ''
-    dest: /etc/cron.d/atop
-    force: yes
-    group: root
-    owner: root
-    mode: 0555
-
-- name: Disable services that are not used
-  service: name={{ item }} state=stopped enabled=no
-  with_items:
-    - atop
