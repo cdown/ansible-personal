@@ -5,6 +5,9 @@
 - name: Copy aur script
   copy: src=files/bin/aur dest=/usr/local/bin/aur mode=755
 
+- name: Install base-devel
+  pacman: name=base-devel state=present
+
 - name: Install package-query dependency (yajl)
   pacman: name=yajl state=present
 

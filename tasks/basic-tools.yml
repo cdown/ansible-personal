@@ -12,8 +12,6 @@
 - name: Install tools that don't require Ansible configuration
   pacman: name={{ item }} state=present
   with_items:
-    - base-devel
-    - strip
     - vim
     - rsync
     - tmux
