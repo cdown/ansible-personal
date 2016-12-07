@@ -12,18 +12,44 @@
 - name: Install tools that don't require Ansible configuration
   pacman: name={{ item }} state=present
   with_items:
-    - reflector
     - vim
-    - p7zip
-    - maim
-    - slop  # optdepends for `screenshot --select`
     - rsync
-    - notmuch
-    - notmuch-mutt
-    - evince
     - tmux
     - macchanger
     - python-virtualenvwrapper
+    - bind-tools
+    - git
+    - lsof
+    - whois
+    - strace
+    - atop
+    - zenity  # used for trello-popup
+    - openssh
+    - htop
+    - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
+
+- name: Install non-RPi basic tools
+  pacman: name={{ item }} state=present
+  when: model != "rpi"
+  with_items:
+    - reflector
+    - linux-lts
+    - p7zip
+    - maim
+    - slop  # optdepends for `screenshot --select`
+    - evince
+    - zstd
+    - mercurial  # needed for some pyenv installed stuff
+    - flashplugin
+    - colordiff
+    - dosfstools
+    - openconnect
+    - mupdf
+    - msmtp
+    - xclip
+    - pass
+    - pkgbuild-introspection
+    - sxiv
     - gnome-icon-theme
     - irssi
     # For duply
@@ -33,29 +59,6 @@
     # For photo backup renaming
     - perl-image-exiftool
     - pinta
-    - bind-tools
-    - git
-    - lsof
-    - xclip
-    - pass
-    - pkgbuild-introspection
-    - sxiv
-    - whois
-    - msmtp
-    - strace
-    - dosfstools
-    - openconnect
-    - mupdf
-    - atop
-    - mercurial  # needed for some pyenv installed stuff
-    - flashplugin
-    - colordiff
-    - zenity  # used for trello-popup
-    - openssh
-    - htop
-    - zstd
-    - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
-    - linux-lts
 
 - name: Set up GPG key for Tor Browser Bundle developers
   command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
@@ -64,6 +67,14 @@
 
 - name: Install basic tools requiring yaourt
   yaourt: name={{ item }}
+  with_items:
+    - bcc-tools
+  become: yes
+  become_user: makepkg
+
+- name: Install non-RPi basic tools requiring yaourt
+  yaourt: name={{ item }}
+  when: model != 'rpi'
   with_items:
     - duply
     - drive
@@ -80,7 +91,6 @@
     - udftools
     - xinput-toggle
     - simple-mtpfs
-    - bcc-tools
     - tor-browser-en
     - nota
     - frogr

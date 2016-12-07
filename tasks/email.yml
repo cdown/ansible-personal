@@ -6,3 +6,5 @@
     - w3m
     - isync
     - procmail
+    - notmuch
+    - notmuch-mutt
