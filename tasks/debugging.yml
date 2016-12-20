@@ -10,6 +10,7 @@
   - nethogs
   - strace
   - tcpdump
+  - nmap
   - logrotate  # for atop
 
 - name: Install netatop
