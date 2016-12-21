@@ -86,7 +86,7 @@
       loop_control:
         loop_var: user_item
     - include: tasks/skype.yml
-      when: model != "rpi"
+      when: 'model != "rpi" and long_bit.stdout == "64"'
     - include: tasks/power.yml
       when: laptop
     - include: tasks/remove.yml
