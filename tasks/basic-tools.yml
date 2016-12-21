@@ -69,7 +69,6 @@
     - antiword
     - pngquant
     - sshrc
-    - bluejeans
     - spotify
     - urlscan
     - udftools
@@ -80,6 +79,12 @@
     - frogr
   become: yes
   become_user: makepkg
+
+- name: Install bluejeans on 64-bit only
+  yaourt: name=bluejeans
+  become: yes
+  become_user: makepkg
+  when: long_bit.stdout == "64" and model != "rpi"
 
 - name: Install laptop tools
   yaourt: name={{ item }}
