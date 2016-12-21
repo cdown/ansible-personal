@@ -81,7 +81,7 @@
     - include: tasks/sound.yml
       when: model != "rpi"
     - include: tasks/chef.yml user={{ user_item }}
-      when: model != "rpi"
+      when: 'model != "rpi" and long_bit.stdout == "64"'
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
