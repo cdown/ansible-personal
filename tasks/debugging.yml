@@ -17,7 +17,7 @@
   yaourt: name=netatop
   become: yes
   become_user: makepkg
-  when: model != 'rpi'
+  when: 'model != "rpi" and long_bit.stdout == "64"'
 
 - name: Copy atop config
   copy: src=files/atop.daily dest=/etc/atop/atop.daily mode=700
