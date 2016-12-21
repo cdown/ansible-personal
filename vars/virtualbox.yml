@@ -3,9 +3,11 @@ ansible_python_interpreter: /usr/bin/python2
 
 users:
   - cdown
+  - lin
 
 users_inc_super:
   - cdown
+  - lin
   - root
 
 install_env_users:
