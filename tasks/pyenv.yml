@@ -15,13 +15,13 @@
   command: "pyenv install {{ item }}"
   with_items:
     - 2.7.13
-    - 3.6
+    - 3.6.0
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in pyenv_versions.stdout_lines'
 
 - name: Get list of Python 3 utils installed
-  shell: "eval \"$(pyenv init -)\" && pyenv shell 3.6 && pip freeze | awk -F= '{ print $1 }'"
+  shell: "eval \"$(pyenv init -)\" && pyenv shell 3.6.0 && pip freeze | awk -F= '{ print $1 }'"
   register: py3_utils
   become: yes
   become_user: "{{ user }}"
@@ -35,7 +35,7 @@
   changed_when: false
 
 - name: Install Python 3 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell 3.6 && pip install {{ item }}'
+  shell: 'eval "$(pyenv init -)" && pyenv shell 3.6.0 && pip install {{ item }}'
   with_items:
     - yturl
     - tzupdate
