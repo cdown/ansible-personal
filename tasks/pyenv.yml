@@ -5,7 +5,7 @@
   become_user: makepkg
 
 - name: Get list of Pythons installed in pyenv
-  command: pyenv versions
+  shell: "pyenv versions | sed 's/^..//' | awk '{ print $1 }'"
   register: pyenv_versions
   become: yes
   become_user: "{{ user }}"
@@ -18,7 +18,7 @@
     - 3.6
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item }}" not in pyenv_versions.stdout'
+  when: '"{{ item }}" not in pyenv_versions.stdout_lines'
 
 - name: Get list of Python 3 utils installed
   shell: "eval \"$(pyenv init -)\" && pyenv shell 3.6 && pip freeze | awk -F= '{ print $1 }'"
