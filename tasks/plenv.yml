@@ -24,8 +24,17 @@
   become_user: "{{ user }}"
   when: '"system" in plenv_version.stdout'
 
+- name: Get user home
+  shell: "getent passwd cdown | awk -F: '{ print $6 }'"
+  register: user_home
+  changed_when: false
+
+- stat: "path={{ user_home.stdout }}/.plenv/shims/cpanm"
+  register: cpanm_installed
+
 - name: Install cpanm
   shell: "eval \"$(plenv init -)\" && plenv install-cpanm && plenv rehash"
+  when: 'not cpanm_installed.stat.exists'
 
 - name: Get list of installed gems
   shell: "eval \"$(plenv init -)\" && cpan -l | awk '{ print $1 }'"
@@ -35,7 +44,7 @@
   changed_when: false
 
 - name: Install perl utilities
-  shell: 'eval "$(plenv init -)" && cpan {{ item }} && plenv rehash'
+  shell: 'eval "$(plenv init -)" && cpanm -n {{ item }} && plenv rehash'
   with_items:
     # Irssi
     - DateTime
