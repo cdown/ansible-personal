@@ -1,0 +1,46 @@
+---
+- name: Install plenv
+  yaourt: 'name={{ item }}'
+  with_items:
+    - plenv
+    - perl-build
+  become: yes
+  become_user: makepkg
+
+- name: Check if perl is installed in plenv
+  command: plenv version
+  register: plenv_version
+  become: yes
+  become_user: "{{ user }}"
+  changed_when: false
+
+- name: Install perl 5.25.8 using plenv
+  command: "{{ item }}"
+  with_items:
+    - plenv install 5.25.8
+    - plenv rehash
+    - plenv global 5.25.8
+  become: yes
+  become_user: "{{ user }}"
+  when: '"system" in plenv_version.stdout'
+
+- name: Install cpanm
+  shell: "eval \"$(plenv init -)\" && plenv install-cpanm && plenv rehash"
+
+- name: Get list of installed gems
+  shell: "eval \"$(plenv init -)\" && cpan -l | awk '{ print $1 }'"
+  register: plenv_gems
+  become: yes
+  become_user: "{{ user }}"
+  changed_when: false
+
+- name: Install perl utilities
+  shell: 'eval "$(plenv init -)" && cpan {{ item }} && plenv rehash'
+  with_items:
+    # Irssi
+    - DateTime
+    # Image renamer
+    - Image::ExifTool
+  become: yes
+  become_user: "{{ user }}"
+  when: '"{{ item | basename }}" not in plenv_gems.stdout_lines'

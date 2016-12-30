@@ -67,6 +67,11 @@
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
+    - include: tasks/plenv.yml user={{ user_item }}
+      when: model != "rpi"
+      with_items: '{{ install_env_users }}'
+      loop_control:
+        loop_var: user_item
     - include: tasks/shared.yml
       when: model == "VirtualBox"
     - include: tasks/pkgfile.yml

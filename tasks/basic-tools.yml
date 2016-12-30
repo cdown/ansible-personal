@@ -44,10 +44,6 @@
     - irssi
     # For duply
     - python2-boto
-    # For irssi scripts
-    - perl-datetime
-    # For photo backup renaming
-    - perl-image-exiftool
     - pinta
     - parallel
 
