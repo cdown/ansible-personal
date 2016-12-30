@@ -35,6 +35,8 @@
 - name: Install cpanm
   shell: "eval \"$(plenv init -)\" && plenv install-cpanm && plenv rehash"
   when: 'not cpanm_installed.stat.exists'
+  become: yes
+  become_user: "{{ user }}"
 
 - name: Get list of installed gems
   shell: "eval \"$(plenv init -)\" && cpan -l | awk '{ print $1 }'"
