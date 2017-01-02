@@ -17,6 +17,7 @@
     - openssh
     - htop
     - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
+    - autossh
 
 - name: Install non-RPi basic tools
   pacman: name={{ item }} state=present
