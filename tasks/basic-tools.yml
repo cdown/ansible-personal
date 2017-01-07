@@ -36,6 +36,7 @@
     - dosfstools
     - openconnect
     - mupdf
+    - mupdf-tools  # `mutool clean` to fix pdfs
     - msmtp
     - xclip
     - pass
