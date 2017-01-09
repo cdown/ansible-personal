@@ -54,6 +54,7 @@
     - pipdeptree
     - srt
     - hanzidentifier  # for srt lines-matching -m hanzidentifier -f hanzidentifier.has_chinese
+    - youtube-dl
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in py3_utils.stdout_lines'
