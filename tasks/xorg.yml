@@ -29,6 +29,7 @@
   pacman: name={{ item }} state=present
   with_items:
     - xf86-input-synaptics
+    - libva-intel-driver
   when: model == "T460s"
 
 - name: Set up Xorg for XPS 8500
