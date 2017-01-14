@@ -38,6 +38,7 @@
     - trello_cli
     - pomo
     - libnotify  # https://github.com/tj/pomo/issues/47
+    - travis
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in rbenv_gems.stdout_lines'
