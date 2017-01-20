@@ -79,6 +79,7 @@
     - tor-browser-en
     - nota
     - frogr
+    - wdiff
   become: yes
   become_user: makepkg
 
