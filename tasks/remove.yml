@@ -16,6 +16,7 @@
     - skype
     - ndenv
     - node-build
+    - pkgfile
 
 - name: Remove unused files
   file: path={{ item }} state=absent
