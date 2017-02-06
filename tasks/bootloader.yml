@@ -6,7 +6,7 @@
   pacman: name=syslinux state=present
 
 - name: Generate syslinux config
-  command: generate-syslinux-config linux
+  command: "generate-syslinux-config {{ kernel }}"
   register: gsc
   changed_when: false
 

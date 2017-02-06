@@ -4,8 +4,7 @@
   with_items:
     - chef-dk
     - vagrant
-    - linux-headers  # needed for virtualbox-host-dkms
-    - linux-lts-headers
+    - "{{ kernel }}-headers"  # needed for virtualbox-host-dkms
     - virtualbox
   become: yes
   become_user: makepkg

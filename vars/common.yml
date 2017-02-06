@@ -12,3 +12,5 @@ install_env_users:
   - cdown
 
 install_lin_dev: false
+
+kernel: linux

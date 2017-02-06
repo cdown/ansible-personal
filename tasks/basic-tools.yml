@@ -25,7 +25,6 @@
   when: model != "rpi"
   with_items:
     - reflector
-    - linux-lts
     - p7zip
     - maim
     - slop  # optdepends for `screenshot --select`
