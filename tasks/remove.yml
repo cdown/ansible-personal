@@ -16,3 +16,8 @@
     - skype
     - ndenv
     - node-build
+
+- name: Remove unused files
+  file: path={{ item }} state=absent
+  with_items:
+    - /etc/udev/rules.d/99-deadline-for-ssd.rules
