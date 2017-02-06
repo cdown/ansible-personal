@@ -8,4 +8,4 @@
   when: laptop
 
 - name: Set I/O schedulers
-  copy: src=files/udev/io-schedulers.rules dest=/etc/udev/rules.d/99-io-schedulers.rules
+  template: src=files/udev/io-schedulers.rules dest=/etc/udev/rules.d/99-io-schedulers.rules
