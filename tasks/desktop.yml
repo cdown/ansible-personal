@@ -7,7 +7,6 @@
 - name: Install desktop utilities
   pacman: name={{ item }} state=present
   with_items:
-    - firefox
     - dmenu
     - imagemagick
     - ghostscript # for imagemagick
@@ -16,6 +15,11 @@
     - alsa-utils
     - libnotify
     - xfce4-notifyd
+
+- name: Install unbranded Firefox (XPI signing, bleh)
+  yaourt: name=firefox-unbranded-bin
+  become: yes
+  become_user: makepkg
 
 - name: Install urxvt Perl extensions
   yaourt: name=urxvt-perls
