@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if (( UID )); then
+    echo 'You must be root' >&2
+    exit 2
+fi
+
+kernel=${1?}
+root_partition=/dev/sda2
+root_crypt_device=cryptroot
+root_crypt_device_path=/dev/mapper/$root_crypt_device
+short_hostname=${HOSTNAME::5}
+
+encrypt=0
+
+if blkid /dev/sda2 | grep -q 'TYPE="crypto_LUKS"'; then
+    encrypt=1
+fi
+
+if (( encrypt )); then
+    encrypted_root_uuid=$(cryptsetup luksUUID "$root_partition")
+    append="cryptdevice=UUID=$encrypted_root_uuid:$root_crypt_device:allow-discards root=$root_crypt_device_path rw"
+else
+    append="root=LABEL=$short_hostname-/ rw"
+fi
+
+cat << EOF
+PROMPT 1
+TIMEOUT 5
+DEFAULT arch
+
+LABEL arch
+    LINUX ../vmlinuz-$kernel
+    APPEND $append
+    INITRD ../initramfs-$kernel.img
+
+LABEL archfallback
+    LINUX ../vmlinuz-$kernel
+    APPEND $append
+    INITRD ../initramfs-$kernel-fallback.img
+EOF

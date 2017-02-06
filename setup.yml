@@ -23,6 +23,7 @@
       changed_when: false
 
     - include: tasks/pacman.yml
+    - include: tasks/bootloader.yml
     - include: tasks/network.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
