@@ -1,12 +1,4 @@
 ---
-ansible_python_interpreter: /usr/bin/python2
-
-user: lin
-
-install_env_users:
-  - lin
-
 model: XPS 8500
-
 wifi: false
 laptop: false

@@ -8,6 +8,7 @@
       private: no
 
   vars_files:
+    - vars/common.yml
     - vars/{{ config_file }}.yml
 
   tasks:
