@@ -24,6 +24,7 @@
 
     - include: tasks/pacman.yml
     - include: tasks/bootloader.yml
+      when: model != "rpi"
     - include: tasks/network.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
