@@ -17,6 +17,8 @@
       register: long_bit
       changed_when: false
 
+    - include: tasks/remove.yml
+
     # Used, hackily, to not reinstall AUR packages
     - name: Get list of installed packages
       command: pacman -Qq
@@ -97,6 +99,5 @@
       when: 'model != "rpi" and long_bit.stdout == "64"'
     - include: tasks/power.yml
       when: laptop
-    - include: tasks/remove.yml
     - include: tasks/debugging.yml
     - include: tasks/locale.yml
