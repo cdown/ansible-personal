@@ -2,6 +2,11 @@
 model: T460s
 wifi: true
 laptop: true
-kernel: linux-ck-skylake
-hdd_scheduler: bfq
-ssd_scheduler: bfq
+
+# https://bbs.archlinux.org/viewtopic.php?id=218581
+# https://bugs.freedesktop.org/show_bug.cgi?id=96781#c20
+# 4.8 kernel contains bug that induces hard lockups
+#kernel: linux-ck-skylake
+#hdd_scheduler: bfq
+#ssd_scheduler: bfq
+kernel: linux-lts
