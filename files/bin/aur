@@ -10,8 +10,8 @@ git clone http://aur.archlinux.org/"$pkg".git
 
 cd "$pkg"
 
-chown -R nobody "$temp"
-sudo -u nobody makepkg -s
+chown -R makepkg "$temp"
+sudo -u makepkg makepkg -s
 pacman --noconfirm -U *.pkg.tar.xz
 
 cd /
