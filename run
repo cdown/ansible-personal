@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+(( UID )) && exec sudo "$0" "$@"
+
+config_file=/.ansibleconfig
+
+if [[ -e $config_file ]]; then
+    AS_CONFIG=$(cat "$config_file")
+else
+    read -r -p 'Config: ' AS_CONFIG
+    echo "$AS_CONFIG" > "$config_file"
+fi
+
+export AS_CONFIG
+
+exec ansible-playbook -i localhost, -v setup.yml

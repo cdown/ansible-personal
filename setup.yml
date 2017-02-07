@@ -2,14 +2,9 @@
 - hosts: localhost
   connection: local
 
-  vars_prompt:
-    - name: config_file
-      prompt: "Which vars should I load?"
-      private: no
-
   vars_files:
     - vars/common.yml
-    - vars/{{ config_file }}.yml
+    - "vars/{{ lookup('env', 'AS_CONFIG') }}.yml"
 
   tasks:
     - name: Get size of long to determine architecture
