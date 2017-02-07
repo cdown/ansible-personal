@@ -3,9 +3,11 @@
   become: yes
   become_user: "{{ user }}"
   git: repo=git://github.com/cdown/dotfiles.git dest=~{{ user }}/git/dotfiles accept_hostkey=yes update=no
+  register: df_clone
 
 - name: Set up dotfiles for {{ user }}
   become: yes
   become_user: "{{ user }}"
   command: ./setup chdir="~{{ user }}/git/dotfiles"
   changed_when: false
+  when: df_clone.changed
