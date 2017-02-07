@@ -1,3 +1,0 @@
-[submodule "library/external_modules/ansible-yaourt"]
-	path = library/external_modules/ansible-yaourt
-	url = git://github.com/cdown/ansible-yaourt.git
