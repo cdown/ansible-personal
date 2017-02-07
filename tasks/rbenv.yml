@@ -14,12 +14,12 @@
   become_user: "{{ user }}"
   changed_when: false
 
-- name: Install ruby 2.3.1 using rbenv
+- name: Install ruby 2.4.0 using rbenv
   command: "{{ item }}"
   with_items:
-    - rbenv install 2.3.1
+    - rbenv install 2.4.0
     - rbenv rehash
-    - rbenv global 2.3.1
+    - rbenv global 2.4.0
   become: yes
   become_user: "{{ user }}"
   when: '"system" in rbenv_version.stdout'
