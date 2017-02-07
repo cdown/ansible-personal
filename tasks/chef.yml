@@ -1,6 +1,6 @@
 ---
 - name: Install Chef packages
-  yaourt: name={{ item }}
+  aur: name={{ item }}
   with_items:
     - chef-dk
     - vagrant

@@ -67,8 +67,8 @@
   retries: 3
   delay: 1
 
-- name: Install non-RPi basic tools requiring yaourt
-  yaourt: name={{ item }}
+- name: Install non-RPi basic tools requiring aur
+  aur: name={{ item }}
   when: model != 'rpi'
   with_items:
     - duply
@@ -93,13 +93,13 @@
   become_user: makepkg
 
 - name: Install bluejeans on 64-bit only
-  yaourt: name=bluejeans
+  aur: name=bluejeans
   become: yes
   become_user: makepkg
   when: long_bit.stdout == "64" and model != "rpi"
 
 - name: Install laptop tools
-  yaourt: name={{ item }}
+  aur: name={{ item }}
   with_items:
     - bats
   when: laptop

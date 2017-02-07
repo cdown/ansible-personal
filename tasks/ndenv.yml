@@ -1,6 +1,6 @@
 ---
 - name: Install nodenv
-  yaourt: 'name={{ item }}'
+  aur: 'name={{ item }}'
   with_items:
     - nodenv
     - nodenv-node-build

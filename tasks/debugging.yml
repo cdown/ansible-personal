@@ -14,7 +14,7 @@
   - logrotate  # for atop
 
 - name: Install netatop
-  yaourt: name=netatop-dkms
+  aur: name=netatop-dkms
   become: yes
   become_user: makepkg
   when: 'model != "rpi" and long_bit.stdout == "64"'

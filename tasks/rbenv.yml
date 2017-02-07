@@ -1,6 +1,6 @@
 ---
 - name: Install rbenv
-  yaourt: 'name={{ item }}'
+  aur: 'name={{ item }}'
   with_items:
     - rbenv
     - ruby-build

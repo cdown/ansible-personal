@@ -6,8 +6,8 @@
     - mpd
     - mpc
 
-- name: Install media applications requiring yaourt
-  yaourt: name={{ item }}
+- name: Install media applications requiring aur
+  aur: name={{ item }}
   with_items:
     - mpdscribble
     - mpdmenu

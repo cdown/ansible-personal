@@ -4,7 +4,7 @@
   when: model == "T460s"
 
 - name: Install PulseAudio
-  yaourt: name={{ item }}
+  aur: name={{ item }}
   with_items:
     - pulseaudio
     - pulseaudio-ctl

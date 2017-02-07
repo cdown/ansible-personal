@@ -1,6 +1,6 @@
 ---
 - name: Install dwm
-  yaourt: name=dwm-cdown-git
+  aur: name=dwm-cdown-git
   become: yes
   become_user: makepkg
 
@@ -17,12 +17,12 @@
     - xfce4-notifyd
 
 - name: Install unbranded Firefox (XPI signing, bleh)
-  yaourt: name=firefox-unbranded-bin
+  aur: name=firefox-unbranded-bin
   become: yes
   become_user: makepkg
 
 - name: Install urxvt Perl extensions
-  yaourt: name=urxvt-perls
+  aur: name=urxvt-perls
   become: yes
   become_user: makepkg
 

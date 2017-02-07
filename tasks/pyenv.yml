@@ -1,6 +1,6 @@
 ---
 - name: Install pyenv
-  yaourt: name=pyenv
+  aur: name=pyenv
   become: yes
   become_user: makepkg
 

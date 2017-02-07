@@ -1,6 +1,6 @@
 ---
 - name: Install plenv
-  yaourt: 'name={{ item }}'
+  aur: 'name={{ item }}'
   with_items:
     - plenv
     - perl-build
