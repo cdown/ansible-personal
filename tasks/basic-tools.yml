@@ -56,6 +56,8 @@
   when: model != 'rpi'
   become: yes
   become_user: makepkg
+  retries: 3
+  delay: 1
 
 - name: Install non-RPi basic tools requiring yaourt
   yaourt: name={{ item }}

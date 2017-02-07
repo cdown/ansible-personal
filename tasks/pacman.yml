@@ -11,6 +11,8 @@
   command: pacman-key -r 5EE46C4C
   register: retrieve_ck_key
   when: '"88A032865EE46C4C" not in pacman_keys.stdout'
+  retries: 3
+  delay: 1
 
 - name: Lsign repo-ck key
   command: pacman-key --lsign-key 5EE46C4C
