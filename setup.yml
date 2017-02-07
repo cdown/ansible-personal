@@ -20,6 +20,11 @@
       register: installed_packages
       changed_when: false
 
+    - name: Get pacman keys
+      command: pacman-key --list-sigs
+      changed_when: false
+      register: pacman_keys
+
     - include: tasks/pacman.yml
     - include: tasks/bootloader.yml
       when: model != "rpi"
