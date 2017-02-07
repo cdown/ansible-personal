@@ -51,9 +51,17 @@
     # Video game gamma
     - xorg-xgamma
 
+- name: Check Tor Browser Bundle key's existence
+  command: gpg --list-keys 2E1AC68ED40814E0
+  changed_when: false
+  ignore_errors: true
+  register: tor_key
+  become: yes
+  become_user: makepkg
+
 - name: Set up GPG key for Tor Browser Bundle developers
   command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
-  when: model != 'rpi'
+  when: "model != 'rpi' and tor_key.rc != 0"
   become: yes
   become_user: makepkg
   retries: 3
