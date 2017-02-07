@@ -7,22 +7,20 @@
   become: yes
   become_user: makepkg
 
-- name: Check if perl is installed in plenv
-  command: plenv version
-  register: plenv_version
+- name: Get list of Perls installed in plenv
+  shell: "plenv versions | sed 's/^..//' | awk '{ print $1 }'"
+  register: plenv_versions
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
-- name: Install perl 5.25.8 using plenv
-  command: "{{ item }}"
+- name: Install Perls using plenv
+  command: "plenv install {{ item }}"
   with_items:
-    - plenv install 5.25.8
-    - plenv rehash
-    - plenv global 5.25.8
+    - 5.25.8
   become: yes
   become_user: "{{ user }}"
-  when: '"system" in plenv_version.stdout'
+  when: '"{{ item }}" not in plenv_versions.stdout_lines'
 
 - name: Get user home
   shell: "getent passwd cdown | awk -F: '{ print $6 }'"

@@ -7,22 +7,20 @@
   become: yes
   become_user: makepkg
 
-- name: Check if ruby is installed in rbenv
-  command: rbenv version
-  register: rbenv_version
+- name: Get list of Rubies installed in rbenv
+  shell: "rbenv versions | sed 's/^..//' | awk '{ print $1 }'"
+  register: rbenv_versions
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
-- name: Install ruby 2.4.0 using rbenv
-  command: "{{ item }}"
+- name: Install Rubies using rbenv
+  command: "rbenv install {{ item }}"
   with_items:
-    - rbenv install 2.4.0
-    - rbenv rehash
-    - rbenv global 2.4.0
+    - 2.4.0
   become: yes
   become_user: "{{ user }}"
-  when: '"system" in rbenv_version.stdout'
+  when: '"{{ item }}" not in rbenv_versions.stdout_lines'
 
 - name: Get list of installed gems
   shell: "eval \"$(rbenv init -)\" && gem list | awk '{ print $1 }'"

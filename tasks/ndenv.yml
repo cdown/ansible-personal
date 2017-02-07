@@ -7,22 +7,20 @@
   become: yes
   become_user: makepkg
 
-- name: Check if node is installed in nodenv
-  command: nodenv version
-  register: nodenv_version
+- name: Get list of Nodes installed in nodenv
+  shell: "nodenv versions | sed 's/^..//' | awk '{ print $1 }'"
+  register: nodenv_versions
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
-- name: Install node 4.4.5 using nodenv
-  command: "{{ item }}"
+- name: Install Nodes using nodenv
+  command: "nodenv install {{ item }}"
   with_items:
-    - nodenv install 4.4.5
-    - nodenv rehash
-    - nodenv global 4.4.5
+    - 4.4.5
   become: yes
   become_user: "{{ user }}"
-  when: '"system" in nodenv_version.stdout'
+  when: '"{{ item }}" not in nodenv_versions.stdout_lines'
 
 - name: Get list of installed packages
   shell: "eval \"$(nodenv init -)\" && npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
