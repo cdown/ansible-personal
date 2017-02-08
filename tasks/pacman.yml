@@ -24,3 +24,8 @@
 - name: Update package lists
   pacman: update_cache=yes
   changed_when: false
+
+- name: Copy makepkg configuration
+  template: src=files/makepkg.conf dest=/etc/makepkg.conf
+  # Only works on x86_64 for now
+  when: long_bit.stdout == "64" and model != "rpi"
