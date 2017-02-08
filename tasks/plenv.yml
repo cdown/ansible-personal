@@ -27,7 +27,7 @@
   register: user_home
   changed_when: false
 
-- stat: "path={{ user_home.stdout }}/.plenv/shims/cpanm"
+- stat: "path={{ user_home.stdout }}/.plenv/versions/{{ perl_version }}/bin/cpanm"
   register: cpanm_installed
 
 - name: Install cpanm
