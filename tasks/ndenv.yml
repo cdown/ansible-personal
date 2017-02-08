@@ -15,7 +15,7 @@
   changed_when: false
 
 - name: Install Nodes using nodenv
-  command: "nodenv install {{ item }}"
+  shell: "nodenv install {{ item }} && nodenv global {{ item }}"
   with_items:
     - 4.4.5
   become: yes

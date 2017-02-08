@@ -15,7 +15,7 @@
   changed_when: false
 
 - name: Install Rubies using rbenv
-  command: "rbenv install {{ item }}"
+  shell: "rbenv install {{ item }} && rbenv global {{ item }}"
   with_items:
     - 2.4.0
   become: yes

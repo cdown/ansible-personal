@@ -15,7 +15,7 @@
   changed_when: false
 
 - name: Install Perls using plenv
-  command: "plenv install {{ item }}"
+  shell: "plenv install {{ item }} && plenv global {{ item }}"
   with_items:
     - 5.25.8
   become: yes
