@@ -107,3 +107,6 @@
   when: laptop
   become: yes
   become_user: makepkg
+
+- name: Start acpid
+  service: name=acpid state=started enabled=yes
