@@ -101,3 +101,7 @@
       when: laptop
     - include: tasks/debugging.yml
     - include: tasks/locale.yml
+
+  handlers:
+    - name: restart laptop-mode
+      service: name=laptop-mode state=restarted
