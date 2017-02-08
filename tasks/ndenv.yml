@@ -17,7 +17,7 @@
 - name: Install Nodes using nodenv
   shell: "nodenv install {{ item }} && nodenv global {{ item }}"
   with_items:
-    - 4.4.5
+    - {{ node_version }}
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in nodenv_versions.stdout_lines'

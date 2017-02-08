@@ -17,7 +17,7 @@
 - name: Install Rubies using rbenv
   shell: "rbenv install {{ item }} && rbenv global {{ item }}"
   with_items:
-    - 2.4.0
+    - {{ ruby_version }}
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in rbenv_versions.stdout_lines'

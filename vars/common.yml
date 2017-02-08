@@ -17,3 +17,9 @@ kernel: linux
 
 hdd_scheduler: deadline
 ssd_scheduler: deadline
+
+python_2_version: 2.7.13
+python_3_version: 3.6.0
+node_version: 4.4.5
+ruby_version: 2.4.0
+perl_version: 5.25.8

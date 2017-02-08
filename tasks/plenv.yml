@@ -17,7 +17,7 @@
 - name: Install Perls using plenv
   shell: "plenv install {{ item }} && plenv global {{ item }}"
   with_items:
-    - 5.25.8
+    - {{ perl_version }}
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in plenv_versions.stdout_lines'
