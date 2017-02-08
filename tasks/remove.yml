@@ -2,8 +2,6 @@
 - name: Remove tools that are no longer used
   pacman: name={{ item }} state=absent
   with_items:
-    - acpi
-    - acpid
     - android-tools
     - android-udev
     - ctags
