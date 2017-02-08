@@ -26,6 +26,8 @@
       register: pacman_keys
 
     - include: tasks/pacman.yml
+    - include: tasks/kernel.yml
+      when: model != "rpi"
     - include: tasks/bootloader.yml
       when: model != "rpi"
     - include: tasks/network.yml

@@ -1,0 +1,11 @@
+---
+- name: Install PGP keys for kernel build
+  command: gpg --recv-keys {{ item }}
+  with_items: "{{ extra_kernel_pgp_keys }}"
+  become: yes
+  become_user: makepkg
+
+- name: Install kernel
+  aur: name={{ kernel }} state=present
+  become: yes
+  become_user: makepkg

@@ -7,5 +7,10 @@ laptop: true
 # https://bugs.freedesktop.org/show_bug.cgi?id=96781#c20
 # 4.8 kernel contains bug that induces hard lockups
 kernel: linux-zen-flipdone
+extra_kernel_pgp_keys:
+  - A5E9288C4FA415FA  # linus
+  - 79BE3E4300411886  # gregkh
+  - 38DBBDC86092693E  # heftig
+
 hdd_scheduler: bfq
 ssd_scheduler: bfq

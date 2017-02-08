@@ -14,6 +14,7 @@ install_env_users:
 install_lin_dev: false
 
 kernel: linux
+extra_kernel_pgp_keys: []
 
 hdd_scheduler: deadline
 ssd_scheduler: deadline
