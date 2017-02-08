@@ -14,8 +14,8 @@
 - name: Install Pythons using pyenv
   command: "pyenv install {{ item }}"
   with_items:
-    - {{ python_2_version }}
-    - {{ python_3_version }}
+    - "{{ python_2_version }}"
+    - "{{ python_3_version }}"
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in pyenv_versions.stdout_lines'

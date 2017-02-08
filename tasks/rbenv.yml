@@ -17,20 +17,20 @@
 - name: Install Rubies using rbenv
   shell: "rbenv install {{ item }} && rbenv global {{ item }}"
   with_items:
-    - {{ ruby_version }}
+    - "{{ ruby_version }}"
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in rbenv_versions.stdout_lines'
 
 - name: Get list of installed gems
-  shell: "eval \"$(rbenv init -)\" && gem list | awk '{ print $1 }'"
+  shell: "eval \"$(rbenv init -)\" && rbenv shell {{ ruby_version }} && gem list | awk '{ print $1 }'"
   register: rbenv_gems
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Install Ruby utilities
-  shell: 'eval "$(rbenv init -)" && gem install {{ item }} && rbenv rehash'
+  shell: 'eval "$(rbenv init -)" && rbenv shell {{ ruby_version }} && gem install {{ item }} && rbenv rehash'
   with_items:
     - bundler
     - trello_cli

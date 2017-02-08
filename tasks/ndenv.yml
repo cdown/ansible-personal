@@ -17,20 +17,20 @@
 - name: Install Nodes using nodenv
   shell: "nodenv install {{ item }} && nodenv global {{ item }}"
   with_items:
-    - {{ node_version }}
+    - "{{ node_version }}"
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in nodenv_versions.stdout_lines'
 
 - name: Get list of installed packages
-  shell: "eval \"$(nodenv init -)\" && npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
+  shell: "eval \"$(nodenv init -)\" && nodenv shell {{ node_version }} && npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
   register: nodenv_packages
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 #- name: Install node utilities
-#  shell: 'eval "$(nodenv init -)" && npm install -g {{ item }} && nodenv rehash'
+#  shell: 'eval "$(nodenv init -)" && nodenv shell {{ node_version }} && npm install -g {{ item }} && nodenv rehash'
 #  with_items:
 #    - nativefier
 #  become: yes

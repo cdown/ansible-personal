@@ -17,7 +17,7 @@
 - name: Install Perls using plenv
   shell: "plenv install {{ item }} && plenv global {{ item }}"
   with_items:
-    - {{ perl_version }}
+    - "{{ perl_version }}"
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item }}" not in plenv_versions.stdout_lines'
@@ -31,20 +31,20 @@
   register: cpanm_installed
 
 - name: Install cpanm
-  shell: "eval \"$(plenv init -)\" && plenv install-cpanm && plenv rehash"
+  shell: "eval \"$(plenv init -)\" && plenv shell {{ perl_version }} && plenv install-cpanm && plenv rehash"
   when: 'not cpanm_installed.stat.exists'
   become: yes
   become_user: "{{ user }}"
 
 - name: Get list of installed gems
-  shell: "eval \"$(plenv init -)\" && cpan -l | awk '{ print $1 }'"
+  shell: "eval \"$(plenv init -)\" && plenv shell {{ perl_version }} && cpan -l | awk '{ print $1 }'"
   register: plenv_gems
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Install perl utilities
-  shell: 'eval "$(plenv init -)" && cpanm -n {{ item }} && plenv rehash'
+  shell: 'eval "$(plenv init -)" && plenv shell {{ perl_version }} && cpanm -n {{ item }} && plenv rehash'
   with_items:
     # Irssi
     - DateTime
