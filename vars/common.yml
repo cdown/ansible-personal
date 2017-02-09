@@ -13,11 +13,14 @@ install_env_users:
 
 install_lin_dev: false
 
-kernel: linux
-extra_kernel_pgp_keys: []
+kernel: linux-cdown
+extra_kernel_pgp_keys:
+  - A5E9288C4FA415FA  # linus
+  - 79BE3E4300411886  # gregkh
+  - 38DBBDC86092693E  # heftig
 
-hdd_scheduler: deadline
-ssd_scheduler: deadline
+hdd_scheduler: bfq
+ssd_scheduler: bfq
 
 python_2_version: 2.7.13
 python_3_version: 3.6.0
