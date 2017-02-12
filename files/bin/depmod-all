@@ -1,0 +1,5 @@
+#!/bin/bash -e
+
+for dir in /lib/modules/*; do
+    depmod "${dir##*/}"
+done

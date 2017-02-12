@@ -60,6 +60,9 @@
   service: name=vboxservice state=started enabled=yes
   when: model == "VirtualBox"
 
+- name: Install depmod-all
+  copy: src=files/bin/depmod-all dest=/usr/local/bin/depmod-all mode=0755
+
 - name: Depmod
-  command: depmod
+  command: depmod-all
   changed_when: false
