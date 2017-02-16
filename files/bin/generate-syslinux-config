@@ -6,6 +6,7 @@ if (( UID )); then
 fi
 
 kernel=${1?}
+extra_kernel_params=$2
 root_partition=/dev/sda2
 root_crypt_device=cryptroot
 root_crypt_device_path=/dev/mapper/$root_crypt_device
@@ -31,11 +32,11 @@ DEFAULT arch
 
 LABEL arch
     LINUX ../vmlinuz-$kernel
-    APPEND $append
+    APPEND $extra_kernel_params $append
     INITRD ../initramfs-$kernel.img
 
 LABEL archfallback
     LINUX ../vmlinuz-$kernel
-    APPEND $append
+    APPEND $extra_kernel_params $append
     INITRD ../initramfs-$kernel-fallback.img
 EOF

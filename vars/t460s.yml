@@ -6,6 +6,4 @@ laptop: true
 # https://bbs.archlinux.org/viewtopic.php?id=218581
 # https://bugs.freedesktop.org/show_bug.cgi?id=96781#c20
 # 4.8+ kernel contains bug that induces hard lockups
-kernel: linux-lts
-hdd_scheduler: deadline
-ssd_scheduler: deadline
+extra_kernel_params: 'video=SVIDEO-1:d'
