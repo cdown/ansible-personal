@@ -91,3 +91,5 @@
   handlers:
     - name: restart laptop-mode
       service: name=laptop-mode state=restarted
+    - name: restart ntpd
+      service: name=ntpd state=restarted
