@@ -15,6 +15,7 @@
     - ndenv
     - node-build
     - pkgfile
+    - xf86-video-intel  # we always use KMS
 
 - name: Remove unused files
   file: path={{ item }} state=absent
