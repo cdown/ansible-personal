@@ -27,9 +27,7 @@
 
     - include: tasks/pacman.yml
     - include: tasks/kernel.yml
-      when: model != "rpi"
     - include: tasks/bootloader.yml
-      when: model != "rpi"
     - include: tasks/network.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
@@ -38,44 +36,33 @@
     - include: tasks/sudo.yml
     - include: tasks/ntp.yml
     - include: tasks/fonts.yml
-      when: model != "rpi"
     - include: tasks/xorg.yml
-      when: model != "rpi"
     - include: tasks/blacklist-pc-speaker.yml
-      when: model != "rpi"
     - include: tasks/desktop.yml
-      when: model != "rpi"
     - include: tasks/basic-tools.yml
     - include: tasks/cron.yml
     - include: tasks/systemd.yml
     - include: tasks/email.yml
-      when: model != "rpi"
     - include: tasks/media.yml
-      when: model != "rpi"
     - include: tasks/chinese.yml
-      when: model != "rpi"
     - include: tasks/sysctl.yml
     - include: tasks/dotfiles.yml user={{ user_item }}
       with_items: '{{ users_inc_super }}'
       loop_control:
         loop_var: user_item
     - include: tasks/rbenv.yml user={{ user_item }}
-      when: model != "rpi"
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
     - include: tasks/pyenv.yml user={{ user_item }}
-      when: model != "rpi"
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
     - include: tasks/ndenv.yml user={{ user_item }}
-      when: model != "rpi"
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
     - include: tasks/plenv.yml user={{ user_item }}
-      when: model != "rpi"
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
@@ -87,18 +74,15 @@
     - include: tasks/lin-dev.yml
       when: install_lin_dev
     - include: tasks/udev.yml
-      when: model != "rpi"
     - include: tasks/printing.yml
-      when: model != "rpi"
     - include: tasks/sound.yml
-      when: model != "rpi"
     - include: tasks/chef.yml user={{ user_item }}
-      when: 'model != "rpi" and long_bit.stdout == "64"'
+      when: long_bit.stdout == "64"
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
     - include: tasks/skype.yml
-      when: 'model != "rpi" and long_bit.stdout == "64"'
+      when: long_bit.stdout == "64"
     - include: tasks/power.yml
       when: laptop
     - include: tasks/debugging.yml

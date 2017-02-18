@@ -21,11 +21,6 @@
     - ncdu
     - acpi
     - acpid
-
-- name: Install non-RPi basic tools
-  pacman: name={{ item }} state=present
-  when: model != "rpi"
-  with_items:
     - reflector
     - p7zip
     - maim
@@ -63,15 +58,14 @@
 
 - name: Set up GPG key for Tor Browser Bundle developers
   command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
-  when: "model != 'rpi' and tor_key.rc != 0"
+  when: tor_key.rc != 0
   become: yes
   become_user: makepkg
   retries: 3
   delay: 1
 
-- name: Install non-RPi basic tools requiring aur
+- name: Install basic tools requiring aur
   aur: name={{ item }}
-  when: model != 'rpi'
   with_items:
     - duply
     - drive
@@ -98,7 +92,7 @@
   aur: name=bluejeans
   become: yes
   become_user: makepkg
-  when: long_bit.stdout == "64" and model != "rpi"
+  when: long_bit.stdout == "64"
 
 - name: Install laptop tools
   aur: name={{ item }}

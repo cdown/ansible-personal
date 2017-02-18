@@ -15,11 +15,6 @@
 
 - name: Copy pacman configuration
   template: src=files/pacman.conf dest=/etc/pacman.conf
-  when: model != 'rpi'
-
-- name: Copy pacman configuration for RPi
-  copy: src=files/pacman-arm.conf dest=/etc/pacman.conf
-  when: model == 'rpi'
 
 - name: Update package lists
   pacman: update_cache=yes
@@ -28,4 +23,4 @@
 - name: Copy makepkg configuration
   template: src=files/makepkg.conf dest=/etc/makepkg.conf
   # Only works on x86_64 for now
-  when: long_bit.stdout == "64" and model != "rpi"
+  when: long_bit.stdout == "64"
