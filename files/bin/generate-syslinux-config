@@ -25,18 +25,29 @@ else
     append="root=LABEL=$short_hostname-/ rw"
 fi
 
+kernel_file=vmlinuz-$kernel
+initrd_file=initramfs-$kernel.img
+initrd_fallback_file=initramfs-$kernel-fallback.img
+
+for file in "$kernel_file" "$initrd_file" "$initrd_fallback_file"; do
+    if ! [[ -f /boot/"$file" ]]; then
+        printf 'FATAL: %s does not exist\n' "$file"
+        exit 1
+    fi
+done
+
 cat << EOF
 PROMPT 1
 TIMEOUT 5
 DEFAULT arch
 
 LABEL arch
-    LINUX ../vmlinuz-$kernel
+    LINUX ../$kernel_file
     APPEND $extra_kernel_params $append
-    INITRD ../initramfs-$kernel.img
+    INITRD ../$initrd_file
 
 LABEL archfallback
-    LINUX ../vmlinuz-$kernel
+    LINUX ../$kernel_file
     APPEND $extra_kernel_params $append
-    INITRD ../initramfs-$kernel-fallback.img
+    INITRD ../$initrd_fallback_file
 EOF
