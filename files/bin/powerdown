@@ -3,6 +3,8 @@
 sudo tee /sys/class/scsi_host/*/link_power_management_policy <<< min_power > /dev/null
 sudo tee /sys/bus/i2c/devices/*/device/power/control <<< auto > /dev/null
 sudo tee /sys/bus/{pci,usb}/devices/*/power/control <<< auto > /dev/null
+sudo tee /sys/module/snd_hda_intel/parameters/power_save <<< 1 > /dev/null
+sudo tee /proc/sys/kernel/nmi_watchdog <<< 0 > /dev/null
 
 for device in /sys/class/net/e*; do
     device=${device##*/}
