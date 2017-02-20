@@ -13,6 +13,7 @@
   - nmap
   - logrotate  # for atop
   - bcc-tools
+  - powertop
 
 - name: Install netatop
   aur: name=netatop-dkms
