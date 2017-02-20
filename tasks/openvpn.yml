@@ -6,7 +6,7 @@
 # where "down" must be passed as $script_type in the environment, which
 # down-root.so does not support, so we roll our modified version.
 - name: Install script to manage resolvconf for OpenVPN
-  copy: src=files/openvpn/update-resolv-conf dest=/etc/openvpn/update-resolv-conf
+  copy: src=files/openvpn/update-resolv-conf dest=/etc/openvpn/update-resolv-conf mode=0755
 
 - name: Create client configs dir
   file: path=/etc/openvpn/client state=directory mode=0700
