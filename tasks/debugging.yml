@@ -12,14 +12,15 @@
   - tcpdump
   - nmap
   - logrotate  # for atop
-  - bcc-tools
   - powertop
 
-- name: Install netatop
-  aur: name=netatop-dkms
+- name: Install debugging tools (AUR)
+  aur: name={{ item }}
+  with_items:
+    - bcc-tools
+    - netatop-dkms
   become: yes
   become_user: makepkg
-  when: long_bit.stdout == "64"
 
 - name: Copy atop config
   copy: src=files/atop.daily dest=/etc/atop/atop.daily mode=700
