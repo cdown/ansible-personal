@@ -47,6 +47,7 @@
     - parallel
     # Video game gamma
     - xorg-xgamma
+    - pdfpc
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys 2E1AC68ED40814E0
