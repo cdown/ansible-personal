@@ -17,6 +17,7 @@
     - pkgfile
     - xf86-video-intel  # we always use KMS
     - openvpn-update-resolv-conf  # now managed by ansible directly
+    - youtube-dl  # done through pyenv
 
 - name: Remove unused files
   file: path={{ item }} state=absent
