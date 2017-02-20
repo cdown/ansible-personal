@@ -21,7 +21,7 @@
 RESOLVCONF=$(type -p resolvconf)
 
 # cdown: $script_type cannot be set with down_root
-script_root=${script_root:-"${1?}"}
+script_type=${script_type:-"${1?}"}
 
 case $script_type in
 
