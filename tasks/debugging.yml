@@ -12,6 +12,7 @@
   - tcpdump
   - nmap
   - logrotate  # for atop
+  - bcc-tools
 
 - name: Install netatop
   aur: name=netatop-dkms
