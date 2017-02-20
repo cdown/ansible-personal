@@ -16,6 +16,7 @@
     - node-build
     - pkgfile
     - xf86-video-intel  # we always use KMS
+    - openvpn-update-resolv-conf  # now managed by ansible directly
 
 - name: Remove unused files
   file: path={{ item }} state=absent

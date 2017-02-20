@@ -1,0 +1,15 @@
+---
+- name: Install OpenVPN client
+  pacman: name=openvpn state=present
+
+# This is available as openvpn-update-resolv-conf, but that one has an issue
+# where "down" must be passed as $script_type in the environment, which
+# down-root.so does not support, so we roll our modified version.
+- name: Install script to manage resolvconf for OpenVPN
+  copy: src=files/openvpn/update-resolv-conf dest=/etc/openvpn/update-resolv-conf
+
+- name: Create client configs dir
+  file: path=/etc/openvpn/client state=directory mode=0700
+
+- name: Copy OpenVPN client config
+  copy: src=files/openvpn/client.conf dest=/etc/openvpn/client/client.conf
