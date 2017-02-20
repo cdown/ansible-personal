@@ -87,6 +87,7 @@
     - nota
     - frogr
     - wdiff
+    - cconv
   become: yes
   become_user: makepkg
 
