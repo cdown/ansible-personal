@@ -1,0 +1,14 @@
+---
+- name: Install TeX
+  pacman: name={{ item }} state=present
+  with_items:
+    - texlive-bin
+    - texlive-core
+    - texlive-latexextra
+
+- name: Install dependencies for CV
+  pacman: name={{ item }} state=present
+  with_items:
+    - texlive-pstricks
+    - ttf-dejavu
+    - ttf-linux-libertine

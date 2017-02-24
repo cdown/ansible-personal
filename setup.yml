@@ -88,6 +88,7 @@
     - include: tasks/debugging.yml
     - include: tasks/locale.yml
     - include: tasks/openvpn.yml
+    - include: tasks/tex.yml
 
   handlers:
     - name: restart laptop-mode
