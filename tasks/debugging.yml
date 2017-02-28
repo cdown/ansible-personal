@@ -13,6 +13,7 @@
   - nmap
   - logrotate  # for atop
   - powertop
+  - wireshark-cli
 
 - name: Install debugging tools (AUR)
   aur: name={{ item }}
