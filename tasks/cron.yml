@@ -5,9 +5,6 @@
 - name: Enable cronie
   service: name=cronie state=started enabled=yes
 
-- name: Cron to download updates
-  copy: src=files/cron/download-updates dest=/etc/cron.d/download-updates
-
 - name: Cron to clear corrupted journals
   copy: src=files/cron/clear-corrupt-journals dest=/etc/cron.d/clear-corrupt-journals
 
