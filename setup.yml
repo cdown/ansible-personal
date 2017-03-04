@@ -89,6 +89,7 @@
     - include: tasks/locale.yml
     - include: tasks/openvpn.yml
     - include: tasks/tex.yml
+    - include: tasks/postremove.yml
 
   handlers:
     - name: restart laptop-mode

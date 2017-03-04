@@ -1,0 +1,9 @@
+---
+- name: List orphaned packages
+  command: pacman -Qttdq
+  register: orphaned_pkgs
+  changed_when: false
+
+- name: Remove orphaned packages
+  pacman: name={{ item }} state=absent
+  with_items: "{{ orphaned_pkgs.stdout_lines }}"
