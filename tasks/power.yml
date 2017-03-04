@@ -11,16 +11,6 @@
 - name: Install ethtool for powerdown
   pacman: name=ethtool state=present
 
-- name: Install laptop-mode-tools
-  aur: name=laptop-mode-tools state=present
-
-- name: Configure laptop mode
-  copy: src=files/laptop-mode.conf dest=/etc/laptop-mode/laptop-mode.conf
-  notify: restart laptop-mode
-
-- name: Enable laptop-mode
-  service: name=laptop-mode state=started enabled=yes
-
 - name: Install i915 powersave options
   copy: src=files/modules/i915.conf dest=/etc/modprobe.d/99-i915.conf mode=644
 
