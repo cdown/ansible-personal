@@ -44,8 +44,6 @@
     - python2-boto
     - pinta
     - parallel
-    # Video game gamma
-    - xorg-xgamma
     - pdfpc
     - okular  # sometimes lpr fails to print stuff, where okular works... :-/
     - abs
@@ -80,14 +78,11 @@
     - pngquant
     - sshrc
     - spotify
-    - urlscan
     - udftools
     - xinput-toggle
     - gvfs-mtp
     - tor-browser-en
     - nota
-    - frogr
-    - wdiff
     - cconv
   become: yes
   become_user: makepkg

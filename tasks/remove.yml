@@ -18,6 +18,10 @@
     - xf86-video-intel  # we always use KMS
     - openvpn-update-resolv-conf  # now managed by ansible directly
     - youtube-dl  # done through pyenv
+    - frogr
+    - wdiff
+    - urlscan
+    - xorg-xgamma
 
 - name: Remove unused files
   file: path={{ item }} state=absent
