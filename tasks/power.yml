@@ -23,3 +23,6 @@
 
 - name: Install i915 powersave options
   copy: src=files/modules/i915.conf dest=/etc/modprobe.d/99-i915.conf mode=644
+
+- name: Blacklist btusb
+  kernel_blacklist: name=btusb state=present
