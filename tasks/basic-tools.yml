@@ -48,6 +48,7 @@
     - okular  # sometimes lpr fails to print stuff, where okular works... :-/
     - abs
     - enca
+    - lshw
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys 2E1AC68ED40814E0
