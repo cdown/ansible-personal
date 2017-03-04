@@ -3,6 +3,7 @@
   command: pacman -Qttdq
   register: orphaned_pkgs
   changed_when: false
+  failed_when: 'orphaned_pkgs.rc != 0 and orphaned_pkgs.stderr_lines'  # -Qttdq returns 1 when there is nothing
 
 - name: Remove orphaned packages
   pacman: name={{ item }} state=absent
