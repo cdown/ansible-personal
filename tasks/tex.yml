@@ -5,6 +5,7 @@
     - texlive-bin
     - texlive-core
     - texlive-latexextra
+    - texlive-pictures  # forest
 
 - name: Install dependencies for CV
   pacman: name={{ item }} state=present
