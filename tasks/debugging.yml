@@ -2,18 +2,19 @@
 - name: Install debugging tools
   pacman: name={{ item }} state=present
   with_items:
-  - atop
-  - bind-tools
-  - htop
-  - iftop
-  - mtr
-  - nethogs
-  - strace
-  - tcpdump
-  - nmap
-  - logrotate  # for atop
-  - powertop
-  - wireshark-cli
+    - atop
+    - bind-tools
+    - htop
+    - iftop
+    - mtr
+    - nethogs
+    - strace
+    - tcpdump
+    - nmap
+    - logrotate  # for atop
+    - powertop
+    - wireshark-cli
+    - mcelog
 
 - name: Install debugging tools (AUR)
   aur: name={{ item }}
