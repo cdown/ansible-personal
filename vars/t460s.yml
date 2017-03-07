@@ -64,4 +64,4 @@ kernel: linux-ck-skylake
 # systemd-logind[518]: Powering Off...
 # systemd-logind[518]: System is powering down.
 
-extra_kernel_params: 'video=SVIDEO-1:d i915.enable_execlists=0'
+extra_kernel_params: 'video=SVIDEO-1:d i915.enable_execlists=0 cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1'
