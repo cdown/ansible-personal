@@ -23,6 +23,7 @@
     - urlscan
     - xorg-xgamma
     - laptop-mode
+    - docker
 
 - name: Remove unused files
   file: path={{ item }} state=absent

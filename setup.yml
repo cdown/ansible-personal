@@ -81,8 +81,6 @@
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include: tasks/skype.yml
-      when: long_bit.stdout == "64"
     - include: tasks/power.yml
       when: laptop
     - include: tasks/debugging.yml
