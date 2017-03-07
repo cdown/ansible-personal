@@ -3,9 +3,13 @@ model: T460s
 wifi: true
 laptop: true
 
-kernel: linux-ck-skylake
 
 # https://bbs.archlinux.org/viewtopic.php?id=218581
 # https://bugs.freedesktop.org/show_bug.cgi?id=96781#c20
 # 4.8+ kernel contains bug that induces hard lockups
-extra_kernel_params: 'video=SVIDEO-1:d'
+# Currently disabled as there are other weird freezes, wanting to debug by
+# testing 4.4 LTS.
+#kernel: linux-ck-skylake
+#extra_kernel_params: 'video=SVIDEO-1:d'
+
+kernel: linux-lts44
