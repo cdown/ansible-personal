@@ -29,3 +29,4 @@
   with_items:
     - /etc/udev/rules.d/99-deadline-for-ssd.rules
     - /etc/cron.d/download-updates
+    - /etc/cron.d/clear-corrupt-journals
