@@ -67,4 +67,4 @@ kernel: linux-drm-tip-git
 # systemd-logind[518]: Powering Off...
 # systemd-logind[518]: System is powering down.
 
-extra_kernel_params: 'video=SVIDEO-1:d i915.enable_execlists=0 cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1'
+extra_kernel_params: 'video=SVIDEO-1:d i915.enable_execlists=0 cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1 drm.debug=0xe'
