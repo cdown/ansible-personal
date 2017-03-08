@@ -5,3 +5,6 @@
 
 - name: Disable ptrace_scope
   copy: src=files/sysctl/trace.conf dest=/etc/sysctl.d/99-trace.conf
+
+- name: Enable magic sysrq
+  copy: src=files/sysctl/sysrq.conf dest=/etc/sysctl.d/99-sysrq.conf
