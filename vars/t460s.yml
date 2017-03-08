@@ -5,6 +5,8 @@ laptop: true
 
 
 #kernel: linux-ck-skylake
+#hdd_scheduler: bfq
+#ssd_scheduler: bfq
 
 # https://bugs.freedesktop.org/show_bug.cgi?id=100111
 kernel: linux-drm-tip-git
