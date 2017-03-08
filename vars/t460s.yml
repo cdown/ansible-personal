@@ -4,7 +4,10 @@ wifi: true
 laptop: true
 
 
-kernel: linux-ck-skylake
+#kernel: linux-ck-skylake
+
+# https://bugs.freedesktop.org/show_bug.cgi?id=100111
+kernel: linux-drm-tip-git
 
 # Disabling SVIDEO to work around flip_done timed out bug in 4.8+:
 # https://bbs.archlinux.org/viewtopic.php?id=218581
