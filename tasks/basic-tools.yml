@@ -49,6 +49,8 @@
     - abs
     - enca
     - lshw
+    - android-tools
+    - android-udev
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys 2E1AC68ED40814E0
