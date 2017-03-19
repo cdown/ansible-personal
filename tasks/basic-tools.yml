@@ -87,6 +87,7 @@
     - tor-browser-en
     - nota
     - cconv
+    - screenkey
   become: yes
   become_user: makepkg
 
