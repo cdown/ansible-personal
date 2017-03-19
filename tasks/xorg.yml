@@ -12,6 +12,7 @@
     - xorg-xrdb
     - xorg-xinput
     - xorg-xlsclients
+    - xorg-xdpyinfo
 
 - name: Caps -> Ctrl in Xorg
   copy: src=files/xorg-no-caps dest=/etc/X11/xorg.conf.d/00-keyboard.conf mode=644
