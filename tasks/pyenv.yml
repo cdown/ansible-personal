@@ -66,6 +66,7 @@
     - s3cmd
     - pipdeptree
     - stapler
+    - flickr_download
   become: yes
   become_user: "{{ user }}"
   when: '"{{ item | basename }}" not in py2_utils.stdout_lines'
