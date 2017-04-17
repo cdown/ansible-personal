@@ -25,7 +25,7 @@
   become_user: makepkg
 
 - name: Copy atop config
-  copy: src=files/atop.daily dest=/etc/atop/atop.daily mode=700
+  copy: src=files/atop.daily dest=/usr/share/atop/atop.daily mode=700
 
 - name: Enable atop
   service: name=atop state=started enabled=yes
