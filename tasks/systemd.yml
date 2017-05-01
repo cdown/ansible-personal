@@ -4,3 +4,9 @@
 
 - name: Install journald config
   copy: src=files/journald.conf dest=/etc/journald.conf.d/local.conf
+
+- name: Create system.conf.d dir
+  file: path=/etc/system.conf.d state=directory
+
+- name: Install system config
+  copy: src=files/system.conf dest=/etc/system.conf.d/local.conf
