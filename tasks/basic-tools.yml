@@ -86,6 +86,22 @@
   retries: 3
   delay: 1
 
+- name: Check curl's key's existence (libopenssl-1.0-compat)
+  command: gpg --list-keys 5CC908FDB71E12C2
+  changed_when: false
+  ignore_errors: true
+  register: curl_key
+  become: yes
+  become_user: makepkg
+
+- name: Set up GPG key for curl (libopenssl-1.0-compat)
+  command: gpg --keyserver pgp.mit.edu --recv-keys 5CC908FDB71E12C2
+  when: curl_key.rc != 0
+  become: yes
+  become_user: makepkg
+  retries: 3
+  delay: 1
+
 - name: Install basic tools requiring aur
   aur: name={{ item }}
   with_items:
