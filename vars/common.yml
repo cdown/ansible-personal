@@ -12,6 +12,7 @@ install_env_users:
   - cdown
 
 install_lin_dev: false
+install_chef: false
 
 kernel: linux
 hdd_scheduler: deadline
