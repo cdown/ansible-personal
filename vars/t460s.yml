@@ -3,4 +3,9 @@ model: T460s
 wifi: true
 laptop: true
 
-extra_kernel_params: 'cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1'
+# t460s does not enable ASPM for power saving without pcie_aspm=force
+# % dmesg | grep -i aspm
+# [    0.502657] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI]
+# [    0.502759] acpi PNP0A08:00: _OSC failed (AE_SUPPORT); disabling ASPM
+
+extra_kernel_params: 'pcie_aspm=force cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1'
