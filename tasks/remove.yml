@@ -22,6 +22,8 @@
     - xorg-xgamma
     - laptop-mode
     - docker
+    - netatop-dkms
+    - netatop
 
 - name: Remove unused files
   file: path={{ item }} state=absent

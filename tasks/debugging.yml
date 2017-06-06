@@ -20,7 +20,6 @@
   aur: name={{ item }}
   with_items:
     - bcc-tools
-    - netatop-dkms
   become: yes
   become_user: makepkg
 
