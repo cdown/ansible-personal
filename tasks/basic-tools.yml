@@ -126,6 +126,7 @@
     - nota
     - cconv
     - screenkey
+    - xprintidle
   become: yes
   become_user: makepkg
 
