@@ -20,6 +20,7 @@
   aur: name={{ item }}
   with_items:
     - bcc-tools
+    - python2-bcc
   become: yes
   become_user: makepkg
 
