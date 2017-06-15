@@ -5,5 +5,8 @@
 - name: Enable cronie
   service: name=cronie state=started enabled=yes
 
+- name: Cron to download updates
+  copy: src=files/cron/download-updates dest=/etc/cron.d/download-updates
+
 - name: Cron to trim SSD
   copy: src=files/cron/fstrim dest=/etc/cron.d/fstrim
