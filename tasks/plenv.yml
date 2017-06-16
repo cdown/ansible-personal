@@ -48,7 +48,6 @@
   with_items:
     # Irssi
     - DateTime
-    - HTML::Escape
     # Image renamer
     - Image::ExifTool
     - App::cpanoutdated
