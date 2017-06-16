@@ -127,7 +127,6 @@
     - cconv
     - screenkey
     - xprintidle
-    - perl-html-escape  # irssi notify.pl
   become: yes
   become_user: makepkg
 

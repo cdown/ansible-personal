@@ -43,10 +43,12 @@
   become_user: "{{ user }}"
   changed_when: false
 
-# Don't put stuff for Irssi here, it doesn't use plenv. Use system perl
 - name: Install perl utilities
   shell: 'eval "$(plenv init -)" && plenv shell {{ perl_version }} && cpanm -n {{ item }} && plenv rehash'
   with_items:
+    # Irssi
+    - DateTime
+    - HTML::Escape
     # Image renamer
     - Image::ExifTool
     - App::cpanoutdated
