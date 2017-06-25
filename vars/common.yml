@@ -23,5 +23,7 @@ extra_kernel_pgp_keys: []
 python_2_version: 2.7.13
 python_3_version: 3.6.1
 node_version: 6.2.1
-ruby_version: 2.4.1
+ruby_version: 2.4.0
+# https://github.com/FIRHQ/fir-cli/issues/118
+# ruby_version: 2.4.1
 perl_version: 5.27.1
