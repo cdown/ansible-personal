@@ -12,4 +12,4 @@ fi
 AS_CONFIG=$(cat "$config_file")
 export AS_CONFIG
 
-exec ansible-playbook -i localhost, -v setup.yml
+exec ansible-playbook -i localhost, setup.yml
