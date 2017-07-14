@@ -16,6 +16,7 @@
     - wireshark-cli
     - mcelog
     - perf
+    - time
 
 - name: Install debugging tools (AUR)
   aur: name={{ item }}
