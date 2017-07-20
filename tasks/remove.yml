@@ -8,7 +8,6 @@
     - lib32-apulse
     - ltrace
     - pdftk-bin
-    - perf
     - skype
     - ndenv
     - node-build
