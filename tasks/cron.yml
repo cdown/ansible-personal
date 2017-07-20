@@ -10,3 +10,9 @@
 
 - name: Cron to trim SSD
   copy: src=files/cron/fstrim dest=/etc/cron.d/fstrim
+
+- name: Install reflector for mirror list autoupdate
+  pacman: name=reflector state=present
+
+- name: Cron to update mirror list
+  copy: src=files/cron/reflector dest=/etc/cron.d/reflector
