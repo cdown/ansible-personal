@@ -51,6 +51,8 @@
   with_items:
     - virtualbox-guest-utils
     - "{{ kernel }}-headers"  # needed for virtualbox-guest-dkms which is
+  become: yes
+  become_user: makepkg
                               # pulled in by virtualbox-guest-utils
   when: model == "VirtualBox"
 
