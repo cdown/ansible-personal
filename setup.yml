@@ -25,6 +25,7 @@
       changed_when: false
       register: pacman_keys
 
+    - include: tasks/sudo.yml
     - include: tasks/pacman.yml
     - include: tasks/aur.yml
     - include: tasks/kernel.yml
@@ -33,7 +34,6 @@
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
     - include: tasks/users.yml
-    - include: tasks/sudo.yml
     - include: tasks/ntp.yml
     - include: tasks/fonts.yml
     - include: tasks/xorg.yml
