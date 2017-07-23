@@ -26,13 +26,13 @@
       register: pacman_keys
 
     - include: tasks/pacman.yml
+    - include: tasks/aur.yml
     - include: tasks/kernel.yml
     - include: tasks/bootloader.yml
     - include: tasks/network.yml
     - include: tasks/ssh.yml
     - include: tasks/zsh.yml
     - include: tasks/users.yml
-    - include: tasks/aur.yml
     - include: tasks/sudo.yml
     - include: tasks/ntp.yml
     - include: tasks/fonts.yml
