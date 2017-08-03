@@ -128,6 +128,7 @@
     - cconv
     - screenkey
     - xprintidle
+    - prompter
   become: yes
   become_user: makepkg
 
