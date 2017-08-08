@@ -23,6 +23,7 @@
     - docker
     - netatop-dkms
     - netatop
+    - pandoc
 
 - name: Remove unused files
   file: path={{ item }} state=absent
