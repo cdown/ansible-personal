@@ -1,0 +1,4 @@
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+MAILTO=chris+cron@chrisdown.name
+
+0 * * * * root find /var/log/atop -type f -mtime +3 -name 'atop_[0-9]*' -delete

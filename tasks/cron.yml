@@ -14,6 +14,9 @@
 - name: Cron to clean pacman cache
   copy: src=files/cron/clean-cache dest=/etc/cron.d/clean-cache
 
+- name: Cron to purge atop logs
+  copy: src=files/cron/purge-atop-logs dest=/etc/cron.d/purge-atop-logs
+
 - name: Install reflector for mirror list autoupdate
   pacman: name=reflector state=present
 
