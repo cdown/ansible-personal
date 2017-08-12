@@ -11,7 +11,7 @@
   become_user: makepkg
 
 - name: For whatever kernel we installed, add standard + LTS ones as a backup
-  pacman: name={{ kernel }} state=present
+  pacman: name={{ item }} state=present
   with_items:
     - linux
     - linux-lts
