@@ -24,6 +24,7 @@
     - netatop-dkms
     - netatop
     - pandoc
+    - gvfs-mtp
 
 - name: Remove unused files
   file: path={{ item }} state=absent

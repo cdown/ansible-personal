@@ -122,8 +122,8 @@
     - spotify
     - udftools
     - xinput-toggle
-    - gvfs-mtp
     - tor-browser-en
+    - mtpfs
     - nota
     - cconv
     - screenkey
