@@ -9,3 +9,6 @@
 
 - name: Set I/O schedulers
   template: src=files/udev/io-schedulers.rules dest=/etc/udev/rules.d/99-io-schedulers.rules
+
+- name: Set FUSE config
+  copy: src=files/fuse.conf dest=/etc/fuse.conf
