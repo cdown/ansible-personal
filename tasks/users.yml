@@ -3,3 +3,10 @@
 - name: Create local users
   user: name={{ item }} shell=/bin/zsh
   with_items: '{{ users }}'
+
+- name: Create adbusers group
+  group: name=adbusers state=present
+
+- name: Add local user to adbusers group
+  user: name={{ item }} groups=adbusers append=yes
+  with_items: '{{ users }}'
