@@ -29,5 +29,5 @@
 - name: Copy atop config
   copy: src=files/atop.daily dest=/usr/share/atop/atop.daily mode=700
 
-- name: Enable atop
-  service: name=atop state=started enabled=yes
+- name: Mask atop
+  systemd: name=atop state=stopped enabled=no masked=yes
