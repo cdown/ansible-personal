@@ -5,7 +5,7 @@ laptop: true
 
 extra_kernel_params: 'pcie_aspm=force'
 
- currently freezes when sd card is inserted
-kernel: linux-ck-haswell
-hdd_scheduler: bfq
-ssd_scheduler: bfq
+# currently freezes when sd card is inserted
+# kernel: linux-ck-haswell
+# hdd_scheduler: bfq
+# ssd_scheduler: bfq
