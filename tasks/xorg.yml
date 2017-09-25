@@ -32,7 +32,7 @@
   with_items:
     - xf86-input-synaptics
     - libva-intel-driver
-  when: model in ["T460s", "X1 Carbon"]
+  when: model in ["T460s", "T470s", "X1 Carbon"]
 
 - name: Set up Xorg for XPS 8500
   pacman: name={{ item }} state=present

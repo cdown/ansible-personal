@@ -1,7 +1,7 @@
 ---
 - name: Copy udev settings for T460s
   copy: src=files/udev/t460s.rules dest=/etc/udev/rules.d/99-machinespec.rules
-  when: model in ["T460s", "X1 Carbon"]
+  when: model in ["T460s", "T470s", "X1 Carbon"]
 
 - name: Copy udev settings for laptops
   copy: src=files/udev/laptop-net.rules dest=/etc/udev/rules.d/70-laptop-net.rules
