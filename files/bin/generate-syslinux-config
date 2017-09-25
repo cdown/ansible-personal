@@ -8,7 +8,7 @@ fi
 kernel=${1?}
 extra_kernel_params=$2
 root_partition=$(df --output=source / | tail -n1)
-if [[ $root_partition == /dev/mapper/* ]]; then
+if [[ $root_partition == /dev/mapper/* || $root_partition == /dev/dm* ]]; then
     root_partition=/dev/$(dmsetup deps -o devname | awk '$1 == "cryptroot:"' | awk -F'[()]' '{ print $(NF - 1) }')
 fi
 root_crypt_device=cryptroot
