@@ -10,5 +10,5 @@ laptop: true
 extra_kernel_params: 'pcie_aspm=force'
 
 kernel: linux-ck-broadwell
-hdd_scheduler: bfq
-ssd_scheduler: bfq
+hdd_scheduler: mq-deadline
+ssd_scheduler: mq-deadline
