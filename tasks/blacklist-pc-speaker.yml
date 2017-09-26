@@ -2,5 +2,11 @@
 - name: Blacklist pcspkr
   kernel_blacklist: name=pcspkr state=present
 
+- name: Blacklist iTCO modules to avoid watchdog module load
+  kernel_blacklist: name={{ item }} state=present
+  with_items:
+    - iTCO_wdt
+    - iTCO_vendor_support
+
 - name: Blacklist uvcvideo (for webcam)
   kernel_blacklist: name=uvcvideo state=present
