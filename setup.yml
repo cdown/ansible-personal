@@ -12,7 +12,7 @@
       register: long_bit
       changed_when: false
 
-    - include: tasks/remove.yml
+    - include_tasks: tasks/remove.yml
 
     # Used, hackily, to not reinstall AUR packages
     - name: Get list of installed packages
@@ -25,69 +25,69 @@
       changed_when: false
       register: pacman_keys
 
-    - include: tasks/sudo.yml
-    - include: tasks/pacman.yml
-    - include: tasks/aur.yml
-    - include: tasks/kernel.yml
-    - include: tasks/bootloader.yml
-    - include: tasks/network.yml
-    - include: tasks/ssh.yml
-    - include: tasks/zsh.yml
-    - include: tasks/users.yml
-    - include: tasks/ntp.yml
-    - include: tasks/fonts.yml
-    - include: tasks/xorg.yml
-    - include: tasks/blacklist-pc-speaker.yml
-    - include: tasks/desktop.yml
-    - include: tasks/basic-tools.yml
-    - include: tasks/cron.yml
-    - include: tasks/systemd.yml
-    - include: tasks/email.yml
-    - include: tasks/media.yml
-    - include: tasks/chinese.yml
-    - include: tasks/sysctl.yml
-    - include: tasks/dotfiles.yml user={{ user_item }}
+    - include_tasks: tasks/sudo.yml
+    - include_tasks: tasks/pacman.yml
+    - include_tasks: tasks/aur.yml
+    - include_tasks: tasks/kernel.yml
+    - include_tasks: tasks/bootloader.yml
+    - include_tasks: tasks/network.yml
+    - include_tasks: tasks/ssh.yml
+    - include_tasks: tasks/zsh.yml
+    - include_tasks: tasks/users.yml
+    - include_tasks: tasks/ntp.yml
+    - include_tasks: tasks/fonts.yml
+    - include_tasks: tasks/xorg.yml
+    - include_tasks: tasks/blacklist-pc-speaker.yml
+    - include_tasks: tasks/desktop.yml
+    - include_tasks: tasks/basic-tools.yml
+    - include_tasks: tasks/cron.yml
+    - include_tasks: tasks/systemd.yml
+    - include_tasks: tasks/email.yml
+    - include_tasks: tasks/media.yml
+    - include_tasks: tasks/chinese.yml
+    - include_tasks: tasks/sysctl.yml
+    - include_tasks: tasks/dotfiles.yml user={{ user_item }}
       with_items: '{{ users_inc_super }}'
       loop_control:
         loop_var: user_item
-    - include: tasks/rbenv.yml user={{ user_item }}
+    - include_tasks: tasks/rbenv.yml user={{ user_item }}
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include: tasks/pyenv.yml user={{ user_item }}
+    - include_tasks: tasks/pyenv.yml user={{ user_item }}
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include: tasks/ndenv.yml user={{ user_item }}
+    - include_tasks: tasks/ndenv.yml user={{ user_item }}
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include: tasks/plenv.yml user={{ user_item }}
+    - include_tasks: tasks/plenv.yml user={{ user_item }}
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include: tasks/shared.yml
+    - include_tasks: tasks/shared.yml
       when: model == "VirtualBox"
-    - include: tasks/pkgfile.yml
-    - include: tasks/vostro-tools.yml
+    - include_tasks: tasks/pkgfile.yml
+    - include_tasks: tasks/vostro-tools.yml
       when: model == "Vostro 3700"
-    - include: tasks/lin-dev.yml
+    - include_tasks: tasks/lin-dev.yml
       when: install_lin_dev
-    - include: tasks/udev.yml
-    - include: tasks/printing.yml
-    - include: tasks/sound.yml
-    - include: tasks/chef.yml user={{ user_item }}
+    - include_tasks: tasks/udev.yml
+    - include_tasks: tasks/printing.yml
+    - include_tasks: tasks/sound.yml
+    - include_tasks: tasks/chef.yml user={{ user_item }}
       when: long_bit.stdout == "64" and install_chef
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include: tasks/power.yml
+    - include_tasks: tasks/power.yml
       when: laptop
-    - include: tasks/debugging.yml
-    - include: tasks/locale.yml
-    - include: tasks/openvpn.yml
-    - include: tasks/tex.yml
-    - include: tasks/postremove.yml
+    - include_tasks: tasks/debugging.yml
+    - include_tasks: tasks/locale.yml
+    - include_tasks: tasks/openvpn.yml
+    - include_tasks: tasks/tex.yml
+    - include_tasks: tasks/postremove.yml
 
   handlers:
     - name: restart ntpd
