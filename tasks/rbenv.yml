@@ -20,7 +20,7 @@
     - "{{ ruby_version }}"
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item }}" not in rbenv_versions.stdout_lines'
+  when: 'item not in rbenv_versions.stdout_lines'
 
 - name: Get list of installed gems
   shell: "eval \"$(rbenv init -)\" && rbenv shell {{ ruby_version }} && gem list | awk '{ print $1 }'"
@@ -39,4 +39,4 @@
     - travis
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item | basename }}" not in rbenv_gems.stdout_lines'
+  when: '(item|basename) not in rbenv_gems.stdout_lines'

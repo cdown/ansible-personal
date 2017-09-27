@@ -23,4 +23,4 @@
     - vagrant-omnibus
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item }}" not in vagrant_plugins.stdout_lines'
+  when: 'item not in vagrant_plugins.stdout_lines'

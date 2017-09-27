@@ -18,7 +18,7 @@
     - "{{ python_3_version }}"
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item }}" not in pyenv_versions.stdout_lines'
+  when: 'item not in pyenv_versions.stdout_lines'
 
 - name: Get list of Python 3 utils installed
   shell: "eval \"$(pyenv init -)\" && pyenv shell {{ python_3_version }} && pip freeze | awk -F= '{ print $1 }'"
@@ -57,7 +57,7 @@
     - youtube-dl
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item | basename }}" not in py3_utils.stdout_lines'
+  when: '(item|basename) not in py3_utils.stdout_lines'
 
 - name: Install Python 2 utilities
   shell: 'eval "$(pyenv init -)" && pyenv shell {{ python_2_version }} && pip install {{ item }}'
@@ -69,4 +69,4 @@
     - flickr-download
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item | basename }}" not in py2_utils.stdout_lines'
+  when: '(item|basename) not in py2_utils.stdout_lines'

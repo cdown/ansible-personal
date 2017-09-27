@@ -20,7 +20,7 @@
     - "{{ perl_version }}"
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item }}" not in plenv_versions.stdout_lines'
+  when: 'item not in plenv_versions.stdout_lines'
 
 - name: Get user home
   shell: "getent passwd cdown | awk -F: '{ print $6 }'"
@@ -53,4 +53,4 @@
     - App::cpanoutdated
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item | basename }}" not in plenv_gems.stdout_lines'
+  when: '(item|basename) not in plenv_gems.stdout_lines'
