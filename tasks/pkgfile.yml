@@ -1,6 +1,3 @@
 ---
-- name: Update database
-  command: pacman -Fy
-
 - name: Cron to update pkgfile database
   copy: src=files/cron/pkgfile dest=/etc/cron.d/pkgfile
