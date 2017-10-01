@@ -1,0 +1,10 @@
+---
+- name: Install WINE
+  pacman: name={{ item }} state=present
+  with_items:
+    - lib32-libglvnd  # wine has multiple fulfilments for lib32-libgl
+    - wine
+    # Audio
+    - lib32-alsa-plugins
+    - lib32-libpulse
+    - lib32-openal

@@ -87,6 +87,7 @@
     - include_tasks: tasks/locale.yml
     - include_tasks: tasks/openvpn.yml
     - include_tasks: tasks/tex.yml
+    - include_tasks: tasks/wine.yml
     - include_tasks: tasks/postremove.yml
 
   handlers:
