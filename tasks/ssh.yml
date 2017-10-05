@@ -1,3 +1,4 @@
 ---
 - name: Install mosh
   pacman: name=mosh state=present
+  when: not minimal

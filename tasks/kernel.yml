@@ -20,3 +20,4 @@
     - linux-headers
     - linux-lts
     - linux-lts-headers
+  when: not minimal
