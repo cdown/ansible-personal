@@ -141,7 +141,7 @@
     - screenkey
     - xprintidle
     - prompter
-    - pandoc-lite
+    - pandoc-bin
   become: yes
   become_user: makepkg
 
