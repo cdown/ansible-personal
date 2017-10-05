@@ -1,25 +1,34 @@
 ---
-- name: Install tools that don't require Ansible configuration
+- name: Install tools that don't require Ansible configuration (all)
   pacman: name={{ item }} state=present
   with_items:
+    - base
+    - base-devel
     - vim
     - rsync
     - tmux
+    - git
+    - openssh
+    - htop
+    - acpi
+    - acpid
+    - mupdf
+    - gnome-icon-theme
+
+- name: Install tools that don't require Ansible configuration (Chris specific)
+  pacman: name={{ item }} state=present
+  when: not lin
+  with_items:
     - macchanger
     - python-virtualenvwrapper
     - bind-tools
-    - git
     - lsof
     - whois
     - atop
     - zenity  # used for trello-popup
-    - openssh
-    - htop
     - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
     - autossh
     - ncdu
-    - acpi
-    - acpid
     - reflector
     - p7zip
     - maim
@@ -31,14 +40,12 @@
     - colordiff
     - dosfstools
     - openconnect
-    - mupdf
     - mupdf-tools  # `mutool clean` to fix pdfs
     - msmtp
     - xclip
     - pass
     - pkgbuild-introspection
     - sxiv
-    - gnome-icon-theme
     - irssi
     # For duply
     - python2-boto
@@ -55,14 +62,14 @@
     - gimp
     - gimp-plugin-gmic
     - gmic
-    - base
-    - base-devel
     - rust
     - chromium
     - libreoffice-fresh
     - dmidecode  # certsign
     - xautolock
     - xorg-xwininfo  # lock-maybe
+    - imagemagick
+    - ghostscript # for imagemagick
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys 2E1AC68ED40814E0
@@ -112,8 +119,9 @@
   retries: 3
   delay: 1
 
-- name: Install basic tools requiring aur
+- name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}
+  when: not lin
   with_items:
     - duply
     - drive
@@ -141,7 +149,7 @@
   aur: name=bluejeans
   become: yes
   become_user: makepkg
-  when: long_bit.stdout == "64"
+  when: long_bit.stdout == "64" and not lin
 
 - name: Install laptop tools
   aur: name={{ item }}

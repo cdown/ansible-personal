@@ -43,8 +43,11 @@
     - include_tasks: tasks/cron.yml
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
+      when: not lin
     - include_tasks: tasks/media.yml
+      when: not lin
     - include_tasks: tasks/chinese.yml
+      when: not lin
     - include_tasks: tasks/sysctl.yml
     - include_tasks: tasks/dotfiles.yml user={{ user_item }}
       with_items: '{{ users_inc_super }}'
@@ -71,10 +74,9 @@
     - include_tasks: tasks/pkgfile.yml
     - include_tasks: tasks/vostro-tools.yml
       when: model == "Vostro 3700"
-    - include_tasks: tasks/lin-dev.yml
-      when: install_lin_dev
     - include_tasks: tasks/udev.yml
     - include_tasks: tasks/printing.yml
+      when: model != "VirtualBox"
     - include_tasks: tasks/sound.yml
     - include_tasks: tasks/chef.yml user={{ user_item }}
       when: long_bit.stdout == "64" and install_chef
@@ -84,10 +86,14 @@
     - include_tasks: tasks/power.yml
       when: laptop
     - include_tasks: tasks/debugging.yml
-    - include_tasks: tasks/locale.yml
+      when: not lin
     - include_tasks: tasks/openvpn.yml
+      when: not lin
     - include_tasks: tasks/tex.yml
+      when: not lin
+    - include_tasks: tasks/locale.yml
     - include_tasks: tasks/wine.yml
+      when: model != "VirtualBox"
     - include_tasks: tasks/postremove.yml
 
   handlers:
