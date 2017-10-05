@@ -26,6 +26,7 @@
     - pandoc
     - gvfs-mtp
     - mtpfs
+    - pandoc-lite  # old pandoc-bin
 
 - name: Remove unused files
   file: path={{ item }} state=absent
