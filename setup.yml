@@ -43,11 +43,11 @@
     - include_tasks: tasks/cron.yml
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
-      when: not lin
+      when: not minimal
     - include_tasks: tasks/media.yml
-      when: not lin
+      when: not minimal
     - include_tasks: tasks/chinese.yml
-      when: not lin
+      when: not minimal
     - include_tasks: tasks/sysctl.yml
     - include_tasks: tasks/dotfiles.yml user={{ user_item }}
       with_items: '{{ users_inc_super }}'
@@ -86,11 +86,11 @@
     - include_tasks: tasks/power.yml
       when: laptop
     - include_tasks: tasks/debugging.yml
-      when: not lin
+      when: not minimal
     - include_tasks: tasks/openvpn.yml
-      when: not lin
+      when: not minimal
     - include_tasks: tasks/tex.yml
-      when: not lin
+      when: not minimal
     - include_tasks: tasks/locale.yml
     - include_tasks: tasks/wine.yml
       when: model != "VirtualBox"

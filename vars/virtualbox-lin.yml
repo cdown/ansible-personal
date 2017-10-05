@@ -11,4 +11,4 @@ users_inc_super:
   - root
 
 install_env_users: []
-lin: true
+minimal: true

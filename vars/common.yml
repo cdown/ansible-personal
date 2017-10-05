@@ -13,7 +13,7 @@ users_inc_super:
 install_env_users:
   - cdown
 
-lin: false
+minimal: false
 install_chef: false
 
 kernel: linux

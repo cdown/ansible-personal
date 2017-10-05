@@ -17,7 +17,7 @@
 
 - name: Install tools that don't require Ansible configuration (Chris specific)
   pacman: name={{ item }} state=present
-  when: not lin
+  when: not minimal
   with_items:
     - macchanger
     - python-virtualenvwrapper
@@ -121,7 +121,7 @@
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}
-  when: not lin
+  when: not minimal
   with_items:
     - duply
     - drive
@@ -149,7 +149,7 @@
   aur: name=bluejeans
   become: yes
   become_user: makepkg
-  when: long_bit.stdout == "64" and not lin
+  when: long_bit.stdout == "64" and not minimal
 
 - name: Install laptop tools
   aur: name={{ item }}
