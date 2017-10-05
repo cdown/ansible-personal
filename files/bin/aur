@@ -12,7 +12,7 @@ cd "$pkg"
 
 chown -R makepkg "$temp"
 sudo -u makepkg makepkg -s --noconfirm
-pacman --noconfirm -U *.pkg.tar
+pacman --noconfirm -U *.pkg.tar.xz
 
 cd /
 
