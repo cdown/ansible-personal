@@ -3,16 +3,21 @@
   pacman: name={{ item }} state=present
   with_items:
     - xorg-server
+    - xorg-xinit
+    - xorg-xrdb
+
+- name: Install optional xorg tools
+  pacman: name={{ item }} state=present
+  with_items:
     - xorg-xprop
     - xorg-xmodmap
     - xorg-xrandr
-    - xorg-xinit
     - xorg-xev
     - xorg-xset
-    - xorg-xrdb
     - xorg-xinput
     - xorg-xlsclients
     - xorg-xdpyinfo
+  when: not minimal
 
 - name: Caps -> Ctrl in Xorg
   copy: src=files/xorg-no-caps dest=/etc/X11/xorg.conf.d/00-keyboard.conf mode=644

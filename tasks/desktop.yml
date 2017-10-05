@@ -11,8 +11,13 @@
     - rxvt-unicode
     - slock
     - alsa-utils
+
+- name: Install optional desktop utilities
+  pacman: name={{ item }} state=present
+  with_items:
     - libnotify
     - xfce4-notifyd
+  when: not minimal
 
 - name: Install unbranded Firefox (XPI signing, bleh)
   aur: name=firefox-unbranded-bin
@@ -21,6 +26,7 @@
 
 - name: Install urxvt Perl extensions
   aur: name=urxvt-perls
+  when: not minimal
   become: yes
   become_user: makepkg
 

@@ -8,5 +8,6 @@
   with_items:
     - pulseaudio
     - pulseaudio-ctl
+  when: not minimal
   become: yes
   become_user: makepkg

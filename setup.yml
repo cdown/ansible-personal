@@ -93,7 +93,7 @@
       when: not minimal
     - include_tasks: tasks/locale.yml
     - include_tasks: tasks/wine.yml
-      when: model != "VirtualBox"
+      when: not minimal
     - include_tasks: tasks/postremove.yml
 
   handlers:
