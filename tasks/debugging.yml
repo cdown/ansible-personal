@@ -14,7 +14,6 @@
     - logrotate  # for atop
     - powertop
     - wireshark-cli
-    - mcelog
     - perf
     - time
 

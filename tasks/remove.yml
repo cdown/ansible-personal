@@ -27,6 +27,7 @@
     - gvfs-mtp
     - mtpfs
     - pandoc-lite  # old pandoc-bin
+    - mcelog  # not in community or aur any more
 
 - name: Remove unused files
   file: path={{ item }} state=absent
