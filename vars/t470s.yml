@@ -9,6 +9,5 @@ laptop: true
 # [    0.502759] acpi PNP0A08:00: _OSC failed (AE_SUPPORT); disabling ASPM
 extra_kernel_params: 'pcie_aspm=force scsi_mod.use_blk_mq=1'
 
-kernel: linux-ck-broadwell
 hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
