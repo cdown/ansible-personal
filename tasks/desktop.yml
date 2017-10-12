@@ -39,3 +39,6 @@
 
 - name: Lock screen on suspend for cdown
   copy: src=files/slock.service dest=/etc/systemd/system/slock.service mode=644
+
+- name: Enable lock service
+  service: name=slock enabled=yes
