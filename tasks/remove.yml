@@ -1,4 +1,10 @@
 ---
+# We can't remove cronie without this
+- name: Install cron dummy first so we don't get install loop
+  aur: name=cron-dummy state=present
+  become: yes
+  become_user: makepkg
+
 - name: Remove tools that are no longer used
   pacman: name={{ item }} state=absent
   with_items:
@@ -28,6 +34,7 @@
     - mtpfs
     - pandoc-lite  # old pandoc-bin
     - mcelog  # not in community or aur any more
+    - cronie
 
 - name: Remove unused files
   file: path={{ item }} state=absent
@@ -35,3 +42,14 @@
     - /etc/udev/rules.d/99-deadline-for-ssd.rules
     - /etc/cron.d/clear-corrupt-journals
     - /etc/modprobe.d/99-i915.conf
+
+- name: Remove old crons (now timers)
+  file: path={{ item }} state=absent
+  with_items:
+    - /etc/cron.d/download-updates
+    - /etc/cron.d/clean-cache
+    - /etc/cron.d/fstrim
+    - /etc/cron.d/i8kfan
+    - /etc/cron.d/pkgfile
+    - /etc/cron.d/purge-atop-logs
+    - /etc/cron.d/reflector
