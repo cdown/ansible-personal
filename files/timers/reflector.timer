@@ -1,0 +1,3 @@
+[Timer]
+OnCalendar=hourly
+RandomizedDelaySec=30m
