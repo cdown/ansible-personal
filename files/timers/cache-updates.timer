@@ -1,0 +1,5 @@
+[Timer]
+OnBootSec=1h
+OnUnitInactiveSec=1h
+Persistent=true
+RandomizedDelaySec=30m

@@ -1,0 +1,4 @@
+#!/bin/bash -e
+
+mkdir -p /var/tmp/pdl
+pacman --noconfirm --dbpath /var/tmp/pdl -Syw $(CHECKUPDATES_DB=/var/tmp/pdl checkupdates | awk '{ print $1 }')

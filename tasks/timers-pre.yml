@@ -1,0 +1,3 @@
+---
+- name: Install cache-updates
+  copy: src=files/bin/cache-updates dest=/usr/local/bin/cache-updates mode=755

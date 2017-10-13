@@ -41,9 +41,11 @@
     - include_tasks: tasks/desktop.yml
     - include_tasks: tasks/basic-tools.yml
     - include_tasks: tasks/cron.yml
+    - include_tasks: tasks/timers-pre.yml
     - include_tasks: tasks/timers.yml
       with_items:
         - clean-cache
+        - cache-updates
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
       when: not minimal
