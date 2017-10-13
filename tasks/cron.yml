@@ -19,3 +19,9 @@
 
 - name: Cron to update mirror list
   copy: src=files/cron/reflector dest=/etc/cron.d/reflector
+
+- name: Remove old crons
+  file: path={{ item }} state=absent
+  with_items:
+    - /etc/cron.d/download-updates
+    - /etc/cron.d/clean-cache
