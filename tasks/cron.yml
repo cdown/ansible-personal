@@ -20,3 +20,5 @@
     - /etc/cron.d/download-updates
     - /etc/cron.d/clean-cache
     - /etc/cron.d/fstrim
+    - /etc/cron.d/i8kfan
+    - /etc/cron.d/pkgfile

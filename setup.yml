@@ -48,6 +48,7 @@
         - cache-updates
         - fstrim-root
         - fstrim-boot
+        - pacman-fy
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
       when: not minimal
@@ -78,7 +79,6 @@
         loop_var: user_item
     - include_tasks: tasks/shared.yml
       when: model == "VirtualBox"
-    - include_tasks: tasks/pkgfile.yml
     - include_tasks: tasks/udev.yml
     - include_tasks: tasks/printing.yml
       when: model != "VirtualBox"
