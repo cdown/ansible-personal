@@ -1,5 +1,4 @@
 [Timer]
-OnBootSec=1h
-OnUnitInactiveSec=1h
+OnCalendar=hourly
 Persistent=true
 RandomizedDelaySec=30m
