@@ -5,9 +5,6 @@
 - name: Enable cronie
   service: name=cronie state=started enabled=yes
 
-- name: Cron to trim SSD
-  copy: src=files/cron/fstrim dest=/etc/cron.d/fstrim
-
 - name: Cron to purge atop logs
   copy: src=files/cron/purge-atop-logs dest=/etc/cron.d/purge-atop-logs
 
@@ -22,3 +19,4 @@
   with_items:
     - /etc/cron.d/download-updates
     - /etc/cron.d/clean-cache
+    - /etc/cron.d/fstrim

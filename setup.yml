@@ -46,6 +46,8 @@
       with_items:
         - clean-cache
         - cache-updates
+        - fstrim-root
+        - fstrim-boot
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
       when: not minimal
