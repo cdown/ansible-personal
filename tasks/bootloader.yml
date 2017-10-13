@@ -2,8 +2,11 @@
 - name: Copy generate syslinux script
   copy: src=files/bin/generate-syslinux-config dest=/usr/local/bin/generate-syslinux-config mode=755
 
-- name: Install syslinux package
-  pacman: name=syslinux state=present
+- name: Install packages needed for boot
+  pacman: name={{ item }} state=present
+  with_items:
+    - syslinux
+    - intel-ucode
 
 - name: Generate syslinux config
   command: "generate-syslinux-config {{ kernel }} '{{ default_kernel_params }} {{ extra_kernel_params }}'"

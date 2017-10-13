@@ -47,7 +47,7 @@ DEFAULT arch
 LABEL arch
     LINUX ../$kernel_file
     APPEND $extra_kernel_params $append
-    INITRD ../$initrd_file
+    INITRD ../intel-ucode.img,../$initrd_file
 
 LABEL archfallback
     LINUX ../$kernel_file
