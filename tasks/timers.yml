@@ -1,9 +1,14 @@
 ---
 - name: Set up {{ item }} service
   copy: src=files/timers/{{ item }}.service dest=/etc/systemd/system/{{ item }}.service
+  register: service
 
 - name: Set up {{ item }} timer
   copy: src=files/timers/{{ item }}.timer dest=/etc/systemd/system/{{ item }}.timer
+  register: timer
+
+- systemd: daemon_reload=yes
+  when: service.changed or timer.changed
 
 - name: Enable and start {{ item }} timer
   systemd: name={{ item }}.timer state=started enabled=True
