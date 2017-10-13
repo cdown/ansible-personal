@@ -79,8 +79,6 @@
     - include_tasks: tasks/shared.yml
       when: model == "VirtualBox"
     - include_tasks: tasks/pkgfile.yml
-    - include_tasks: tasks/vostro-tools.yml
-      when: model == "Vostro 3700"
     - include_tasks: tasks/udev.yml
     - include_tasks: tasks/printing.yml
       when: model != "VirtualBox"

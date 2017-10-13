@@ -1,6 +1,0 @@
----
-- name: Install Vostro tools
-  aur: name=i8kutils state=present
-
-- name: Keep resetting fan to defaults (lol i8k)
-  copy: src=files/cron/i8kfan dest=/etc/cron.d/i8kfan
