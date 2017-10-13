@@ -22,3 +22,4 @@
     - /etc/cron.d/fstrim
     - /etc/cron.d/i8kfan
     - /etc/cron.d/pkgfile
+    - /etc/cron.d/purge-atop-logs
