@@ -11,9 +11,6 @@
 - name: Cron to trim SSD
   copy: src=files/cron/fstrim dest=/etc/cron.d/fstrim
 
-- name: Cron to clean pacman cache
-  copy: src=files/cron/clean-cache dest=/etc/cron.d/clean-cache
-
 - name: Cron to purge atop logs
   copy: src=files/cron/purge-atop-logs dest=/etc/cron.d/purge-atop-logs
 
