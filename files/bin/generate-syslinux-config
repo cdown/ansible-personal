@@ -31,8 +31,9 @@ fi
 kernel_file=vmlinuz-$kernel
 initrd_file=initramfs-$kernel.img
 initrd_fallback_file=initramfs-$kernel-fallback.img
+ucode_file=intel-ucode.img
 
-for file in "$kernel_file" "$initrd_file" "$initrd_fallback_file"; do
+for file in "$kernel_file" "$initrd_file" "$initrd_fallback_file" "$ucode_file"; do
     if ! [[ -f /boot/"$file" ]]; then
         printf 'FATAL: %s does not exist\n' "$file"
         exit 1
@@ -47,7 +48,7 @@ DEFAULT arch
 LABEL arch
     LINUX ../$kernel_file
     APPEND $extra_kernel_params $append
-    INITRD ../intel-ucode.img,../$initrd_file
+    INITRD ../$ucode_file,../$initrd_file
 
 LABEL archfallback
     LINUX ../$kernel_file
