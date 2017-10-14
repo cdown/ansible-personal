@@ -2,3 +2,6 @@
 OnCalendar=weekly
 Persistent=true
 RandomizedDelaySec=1d
+
+[Install]
+WantedBy=timers.target
