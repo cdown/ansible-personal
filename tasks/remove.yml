@@ -35,6 +35,14 @@
     - pandoc-lite  # old pandoc-bin
     - mcelog  # not in community or aur any more
     - cronie
+    - lvm2
+    - jfsutils
+    - mdadm
+    - nano
+    - pcmciautils
+    - reiserfsprogs
+    - s-nail
+    - xfsprogs
 
 - name: Remove unused files
   file: path={{ item }} state=absent
