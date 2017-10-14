@@ -43,6 +43,7 @@
     - reiserfsprogs
     - s-nail
     - xfsprogs
+    - okular
 
 - name: Remove unused files
   file: path={{ item }} state=absent

@@ -53,7 +53,6 @@
     - pinta
     - parallel
     - pdfpc
-    - okular  # sometimes lpr fails to print stuff, where okular works... :-/
     - enca
     - lshw
     - android-tools
