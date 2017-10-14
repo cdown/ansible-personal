@@ -10,8 +10,6 @@
     - git
     - openssh
     - htop
-    - acpi
-    - acpid
     - mupdf
     - gnome-icon-theme
     - btrfs-progs
@@ -158,6 +156,3 @@
   when: laptop
   become: yes
   become_user: makepkg
-
-- name: Start acpid
-  service: name=acpid state=started enabled=yes

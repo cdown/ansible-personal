@@ -45,6 +45,8 @@
     - xfsprogs
     - okular
     - evince
+    - acpid
+    - acpi
 
 - name: Remove unused files
   file: path={{ item }} state=absent
