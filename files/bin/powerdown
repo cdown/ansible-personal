@@ -2,7 +2,17 @@
 
 sudo tee /sys/class/scsi_host/*/link_power_management_policy <<< min_power > /dev/null
 sudo tee /sys/bus/i2c/devices/*/device/power/control <<< auto > /dev/null
-sudo tee /sys/bus/{pci,usb}/devices/*/power/control <<< auto > /dev/null
+sudo tee /sys/bus/pci/devices/*/power/control <<< auto > /dev/null
+
+for dir in /sys/bus/usb/devices/*; do
+    # Some keyboards/mice don't really react well to being suspended.
+    prod_file=$dir/product
+    if [[ -e $prod_file ]] && [[ "$(cat "$prod_file")" == *@(Keyboard|Mouse)* ]]; then
+        continue
+    fi
+    sudo tee "$dir"/power/control <<< auto > /dev/null
+done
+
 sudo tee /sys/module/snd_hda_intel/parameters/power_save <<< 1 > /dev/null
 sudo tee /proc/sys/kernel/nmi_watchdog <<< 0 > /dev/null
 
