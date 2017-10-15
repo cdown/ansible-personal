@@ -6,8 +6,9 @@
   become_user: makepkg
 
 - name: Remove tools that are no longer used
-  pacman: name={{ item }} state=absent
+  pacman: name={{ item }} state=absent recurse=yes
   with_items:
+    - okular
     - ctags
     - emojione-color-font
     - exfat-utils
@@ -43,7 +44,6 @@
     - reiserfsprogs
     - s-nail
     - xfsprogs
-    - okular
     - evince
     - acpid
     - acpi
