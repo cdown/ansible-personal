@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo tee /sys/class/scsi_host/*/link_power_management_policy <<< min_power > /dev/null
-sudo tee /sys/bus/i2c/devices/*/device/power/control <<< auto > /dev/null
-sudo tee /sys/bus/pci/devices/*/power/control <<< auto > /dev/null
+tee /sys/class/scsi_host/*/link_power_management_policy <<< min_power > /dev/null
+tee /sys/bus/i2c/devices/*/device/power/control <<< auto > /dev/null
+tee /sys/bus/pci/devices/*/power/control <<< auto > /dev/null
 
 for dir in /sys/bus/usb/devices/*; do
     # Some keyboards/mice don't really react well to being suspended.
@@ -10,13 +10,13 @@ for dir in /sys/bus/usb/devices/*; do
     if [[ -e $prod_file ]] && [[ "$(cat "$prod_file")" == *@(Keyboard|Mouse)* ]]; then
         continue
     fi
-    sudo tee "$dir"/power/control <<< auto > /dev/null
+    tee "$dir"/power/control <<< auto > /dev/null
 done
 
-sudo tee /sys/module/snd_hda_intel/parameters/power_save <<< 1 > /dev/null
-sudo tee /proc/sys/kernel/nmi_watchdog <<< 0 > /dev/null
+tee /sys/module/snd_hda_intel/parameters/power_save <<< 1 > /dev/null
+tee /proc/sys/kernel/nmi_watchdog <<< 0 > /dev/null
 
 for device in /sys/class/net/e*; do
     device=${device##*/}
-    sudo ethtool -s "$device" wol d
+    ethtool -s "$device" wol d
 done
