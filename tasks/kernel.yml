@@ -21,3 +21,11 @@
     - linux-lts
     - linux-lts-headers
   when: not minimal
+
+- name: Install mkinitcpio config
+  copy: src=files/mkinitcpio.conf dest=/etc/mkinitcpio.conf
+  register: cpio
+
+- name: Regenerate initcpios
+  command: mkinitcpio -P
+  when: cpio.changed
