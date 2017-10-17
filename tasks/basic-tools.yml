@@ -51,7 +51,6 @@
     - gmic
     - rust
     - chromium
-    - libreoffice-fresh
     - dmidecode  # certsign
     - xautolock
     - xorg-xwininfo  # lock-maybe

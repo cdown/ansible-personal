@@ -69,6 +69,7 @@
     - pinta
     - lshw
     - gthumb
+    - libreoffice-fresh
 
 - name: Remove unused files
   file: path={{ item }} state=absent
