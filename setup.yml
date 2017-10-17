@@ -49,6 +49,7 @@
         - pacman-fy
         - reflector
         - clear-pacaur-cache
+        - localepurge
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
       when: not minimal
