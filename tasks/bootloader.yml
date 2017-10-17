@@ -17,5 +17,5 @@
   copy: 'content="{{ gsc.stdout }}\n" dest=/boot/syslinux/syslinux.cfg'
 
 - name: Install syslinux to /boot
-  command: syslinux-install_update -u -a -m
+  command: syslinux-install_update -i -a -m
   changed_when: false
