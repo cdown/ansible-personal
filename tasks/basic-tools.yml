@@ -30,7 +30,6 @@
     - zstd
     - mercurial  # needed for some pyenv installed stuff
     - flashplugin
-    - dosfstools
     - openconnect
     - mupdf-tools  # `mutool clean` to fix pdfs
     - msmtp
