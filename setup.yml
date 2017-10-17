@@ -12,8 +12,6 @@
       register: long_bit
       changed_when: false
 
-    - include_tasks: tasks/remove.yml
-
     # Used, hackily, to not reinstall AUR packages
     - name: Get list of installed packages
       command: pacman -Qq
@@ -28,6 +26,7 @@
     - include_tasks: tasks/sudo.yml
     - include_tasks: tasks/pacman.yml
     - include_tasks: tasks/aur.yml
+    - include_tasks: tasks/remove.yml
     - include_tasks: tasks/kernel.yml
     - include_tasks: tasks/bootloader.yml
     - include_tasks: tasks/network.yml
