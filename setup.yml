@@ -53,8 +53,6 @@
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
       when: not minimal
-    - include_tasks: tasks/media.yml
-      when: not minimal
     - include_tasks: tasks/chinese.yml
       when: not minimal
     - include_tasks: tasks/sysctl.yml
