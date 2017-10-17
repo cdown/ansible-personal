@@ -73,6 +73,7 @@
     - chromium
     - xautolock
     - xorg-xwininfo
+    - xbanish
 
 - name: Remove unused files
   file: path={{ item }} state=absent
