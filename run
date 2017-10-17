@@ -12,4 +12,13 @@ fi
 AS_CONFIG=$(cat "$config_file")
 export AS_CONFIG
 
-exec ansible-playbook -i localhost, "${0%/*}"/setup.yml
+while true; do
+    ansible-playbook -i localhost, "${0%/*}"/setup.yml
+    rc=$?
+    if (( PROMPT_RETRY )); then
+        read -r -p "Retry? " REPLY
+        [[ "$REPLY" == [yY]* ]] || break
+    else
+        exit "$rc"
+    fi
+done
