@@ -48,6 +48,7 @@
         - fstrim-boot
         - pacman-fy
         - reflector
+        - clear-pacaur-cache
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
       when: not minimal

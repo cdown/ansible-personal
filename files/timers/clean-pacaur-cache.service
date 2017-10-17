@@ -1,0 +1,3 @@
+[Service]
+Type=oneshot
+ExecStart=/bin/rm -rf /home/makepkg/.cache/pacaur
