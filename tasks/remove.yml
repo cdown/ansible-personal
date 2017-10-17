@@ -71,6 +71,8 @@
     - gthumb
     - libreoffice-fresh
     - chromium
+    - xautolock
+    - xorg-xwininfo
 
 - name: Remove unused files
   file: path={{ item }} state=absent

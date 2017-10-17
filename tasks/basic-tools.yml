@@ -51,8 +51,6 @@
     - gmic
     - rust
     - dmidecode  # certsign
-    - xautolock
-    - xorg-xwininfo  # lock-maybe
     - imagemagick
     - ghostscript # for imagemagick
     - mpv
