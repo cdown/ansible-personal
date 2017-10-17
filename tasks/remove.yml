@@ -63,6 +63,7 @@
     - gnome-icon-theme
     - arch-install-scripts
     - autossh
+    - ncdu
 
 - name: Remove unused files
   file: path={{ item }} state=absent

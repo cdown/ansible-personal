@@ -23,7 +23,6 @@
     - atop
     - zenity  # used for trello-popup
     - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
-    - ncdu
     - reflector
     - p7zip
     - maim
