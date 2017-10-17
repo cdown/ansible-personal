@@ -137,7 +137,6 @@
     - xprintidle
     - prompter
     - pandoc-bin
-    - vlock-original
   become: yes
   become_user: makepkg
 
