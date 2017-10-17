@@ -10,7 +10,6 @@
     - dmenu
     - rxvt-unicode
     - slock
-    - alsa-utils
 
 - name: Install optional desktop utilities
   pacman: name={{ item }} state=present

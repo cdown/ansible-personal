@@ -81,6 +81,7 @@
     - nmap
     - tcpdump
     - nethogs
+    - alsa-utils
 
 - name: Remove unused files
   file: path={{ item }} state=absent
