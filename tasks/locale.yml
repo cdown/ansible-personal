@@ -10,11 +10,3 @@
 - name: locale-gen
   command: locale-gen
   when: locale_config.changed or locale_gen.changed
-
-- name: Install localepurge
-  aur: name=localepurge
-  become: yes
-  become_user: makepkg
-
-- name: Configure localepurge
-  copy: src=files/locale.nopurge dest=/etc/locale.nopurge
