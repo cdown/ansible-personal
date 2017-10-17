@@ -64,7 +64,6 @@
     - xorg-xwininfo  # lock-maybe
     - imagemagick
     - ghostscript # for imagemagick
-    - arch-install-scripts
     - mpv
 
 - name: Check Matt Caswell's key's existence (libopenssl-1.0-compat)

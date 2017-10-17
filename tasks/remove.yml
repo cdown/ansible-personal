@@ -61,6 +61,7 @@
     - clipmenu
     - cconv
     - gnome-icon-theme
+    - arch-install-scripts
 
 - name: Remove unused files
   file: path={{ item }} state=absent
