@@ -116,7 +116,6 @@
     - udftools
     - xinput-toggle
     - nota
-    - cconv
     - pandoc-bin
   become: yes
   become_user: makepkg

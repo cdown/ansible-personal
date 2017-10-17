@@ -59,6 +59,7 @@
     - prompter
     - tor-browser-en
     - clipmenu
+    - cconv
 
 - name: Remove unused files
   file: path={{ item }} state=absent
