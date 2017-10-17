@@ -82,6 +82,9 @@
     - tcpdump
     - nethogs
     - alsa-utils
+    - notmuch
+    - notmuch-mutt
+    - isync
 
 - name: Remove unused files
   file: path={{ item }} state=absent
