@@ -58,6 +58,7 @@
     - nodenv-node-build
     - prompter
     - tor-browser-en
+    - clipmenu
 
 - name: Remove unused files
   file: path={{ item }} state=absent
