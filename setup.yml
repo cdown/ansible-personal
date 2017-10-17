@@ -48,7 +48,7 @@
         - fstrim-boot
         - pacman-fy
         - reflector
-        - clear-pacaur-cache
+        - clean-pacaur-cache
         - localepurge
     - include_tasks: tasks/systemd.yml
     - include_tasks: tasks/email.yml
