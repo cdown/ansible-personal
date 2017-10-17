@@ -75,6 +75,12 @@
     - xorg-xwininfo
     - xbanish
     - logrotate
+    - perf
+    - powertop
+    - wireshark-cli
+    - nmap
+    - tcpdump
+    - nethogs
 
 - name: Remove unused files
   file: path={{ item }} state=absent
