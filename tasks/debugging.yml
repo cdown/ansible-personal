@@ -11,7 +11,6 @@
     - strace
     - tcpdump
     - nmap
-    - logrotate  # for atop
     - powertop
     - wireshark-cli
     - perf

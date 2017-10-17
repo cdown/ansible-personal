@@ -74,6 +74,7 @@
     - xautolock
     - xorg-xwininfo
     - xbanish
+    - logrotate
 
 - name: Remove unused files
   file: path={{ item }} state=absent
