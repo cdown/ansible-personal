@@ -40,7 +40,6 @@
     - irssi
     # For duply
     - python2-boto
-    - pinta
     - parallel
     - pdfpc
     - enca

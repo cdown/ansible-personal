@@ -66,6 +66,7 @@
     - ncdu
     - colordiff
     - dosfstools
+    - pinta
 
 - name: Remove unused files
   file: path={{ item }} state=absent
