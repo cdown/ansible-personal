@@ -27,6 +27,7 @@
     - include_tasks: tasks/pacman.yml
     - include_tasks: tasks/aur.yml
     - include_tasks: tasks/remove.yml
+    - include_tasks: tasks/basic-tools.yml
     - include_tasks: tasks/kernel.yml
     - include_tasks: tasks/bootloader.yml
     - include_tasks: tasks/network.yml
@@ -38,7 +39,6 @@
     - include_tasks: tasks/xorg.yml
     - include_tasks: tasks/blacklist-pc-speaker.yml
     - include_tasks: tasks/desktop.yml
-    - include_tasks: tasks/basic-tools.yml
     - include_tasks: tasks/timers-pre.yml
     - include_tasks: tasks/timers.yml
       with_items:
