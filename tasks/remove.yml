@@ -50,6 +50,10 @@
     - vlock-original
     - screenkey
     - xprintidle
+    - mpd
+    - mpc
+    - mpdscribble
+    - mpdmenu
 
 - name: Remove unused files
   file: path={{ item }} state=absent
