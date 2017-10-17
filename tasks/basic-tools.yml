@@ -135,7 +135,6 @@
     - tor-browser-en
     - nota
     - cconv
-    - prompter
     - pandoc-bin
   become: yes
   become_user: makepkg
