@@ -68,22 +68,6 @@
     - arch-install-scripts
     - mpv
 
-- name: Check Tor Browser Bundle key's existence
-  command: gpg --list-keys 2E1AC68ED40814E0
-  changed_when: false
-  ignore_errors: true
-  register: tor_key
-  become: yes
-  become_user: makepkg
-
-- name: Set up GPG key for Tor Browser Bundle developers
-  command: gpg --keyserver pgp.mit.edu --recv-keys 2E1AC68ED40814E0
-  when: tor_key.rc != 0
-  become: yes
-  become_user: makepkg
-  retries: 3
-  delay: 1
-
 - name: Check Matt Caswell's key's existence (libopenssl-1.0-compat)
   command: gpg --list-keys D9C4D26D0E604491
   changed_when: false
@@ -132,7 +116,6 @@
     - spotify
     - udftools
     - xinput-toggle
-    - tor-browser-en
     - nota
     - cconv
     - pandoc-bin
