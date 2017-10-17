@@ -15,10 +15,14 @@ export AS_CONFIG
 while true; do
     ansible-playbook -i localhost, "${0%/*}"/setup.yml
     rc=$?
-    if (( PROMPT_RETRY )); then
-        read -r -p "Retry? " REPLY
-        [[ "$REPLY" == [yY]* ]] || break
-    else
+    if (( NO_PROMPT_RETRY )); then
         exit "$rc"
+    else
+        if (( rc )); then
+            read -r -p "Retry? " REPLY
+            [[ "$REPLY" == [yY]* ]] || break
+        else
+            exit 0
+        fi
     fi
 done
