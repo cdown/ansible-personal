@@ -60,6 +60,7 @@
     - tor-browser-en
     - clipmenu
     - cconv
+    - gnome-icon-theme
 
 - name: Remove unused files
   file: path={{ item }} state=absent

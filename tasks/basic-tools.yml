@@ -9,7 +9,6 @@
     - openssh
     - htop
     - mupdf
-    - gnome-icon-theme
     - btrfs-progs
 
 - name: Install tools that don't require Ansible configuration (Chris specific)
