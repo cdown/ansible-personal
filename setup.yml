@@ -81,8 +81,6 @@
       when: laptop
     - include_tasks: tasks/debugging.yml
       when: not minimal
-    - include_tasks: tasks/openvpn.yml
-      when: not minimal
     - include_tasks: tasks/tex.yml
       when: not minimal
     - include_tasks: tasks/locale.yml

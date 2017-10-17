@@ -1,5 +1,0 @@
-# See https://github.com/OpenVPN/openvpn/pull/28,
-# https://community.openvpn.net/openvpn/ticket/581
-
-[Service]
-KillMode=mixed
