@@ -62,6 +62,7 @@
     - cconv
     - gnome-icon-theme
     - arch-install-scripts
+    - autossh
 
 - name: Remove unused files
   file: path={{ item }} state=absent
