@@ -49,6 +49,7 @@
     - acpi
     - vlock-original
     - screenkey
+    - xprintidle
 
 - name: Remove unused files
   file: path={{ item }} state=absent

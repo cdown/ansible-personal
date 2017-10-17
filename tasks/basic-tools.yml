@@ -134,7 +134,6 @@
     - tor-browser-en
     - nota
     - cconv
-    - xprintidle
     - prompter
     - pandoc-bin
   become: yes
