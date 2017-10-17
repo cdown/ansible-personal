@@ -77,11 +77,6 @@
     - include_tasks: tasks/printing.yml
       when: model != "VirtualBox"
     - include_tasks: tasks/sound.yml
-    - include_tasks: tasks/chef.yml user={{ user_item }}
-      when: long_bit.stdout == "64" and install_chef
-      with_items: '{{ install_env_users }}'
-      loop_control:
-        loop_var: user_item
     - include_tasks: tasks/power.yml
       when: laptop
     - include_tasks: tasks/debugging.yml
