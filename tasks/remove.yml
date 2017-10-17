@@ -86,6 +86,7 @@
     - notmuch-mutt
     - isync
     - openvpn
+    - ntp
 
 - name: Remove unused files
   file: path={{ item }} state=absent
