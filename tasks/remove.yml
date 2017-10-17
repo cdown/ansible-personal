@@ -54,6 +54,8 @@
     - mpc
     - mpdscribble
     - mpdmenu
+    - nodenv
+    - nodenv-node-build
 
 - name: Remove unused files
   file: path={{ item }} state=absent

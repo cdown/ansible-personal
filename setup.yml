@@ -70,10 +70,6 @@
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include_tasks: tasks/ndenv.yml user={{ user_item }}
-      with_items: '{{ install_env_users }}'
-      loop_control:
-        loop_var: user_item
     - include_tasks: tasks/plenv.yml user={{ user_item }}
       with_items: '{{ install_env_users }}'
       loop_control:
