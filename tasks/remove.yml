@@ -68,6 +68,7 @@
     - dosfstools
     - pinta
     - lshw
+    - gthumb
 
 - name: Remove unused files
   file: path={{ item }} state=absent

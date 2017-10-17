@@ -46,7 +46,6 @@
     - android-tools
     - android-udev
     - hugin
-    - gthumb
     - gimp
     - gimp-plugin-gmic
     - gmic
