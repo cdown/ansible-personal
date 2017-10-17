@@ -70,6 +70,7 @@
     - lshw
     - gthumb
     - libreoffice-fresh
+    - chromium
 
 - name: Remove unused files
   file: path={{ item }} state=absent

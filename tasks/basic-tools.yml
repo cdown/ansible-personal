@@ -50,7 +50,6 @@
     - gimp-plugin-gmic
     - gmic
     - rust
-    - chromium
     - dmidecode  # certsign
     - xautolock
     - xorg-xwininfo  # lock-maybe
