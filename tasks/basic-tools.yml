@@ -10,6 +10,7 @@
     - htop
     - mupdf
     - btrfs-progs
+    - acpid
 
 - name: Install tools that don't require Ansible configuration (Chris specific)
   pacman: name={{ item }} state=present

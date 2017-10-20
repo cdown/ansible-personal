@@ -8,6 +8,9 @@
 - name: Enable powerdown service
   service: name=powerdown enabled=yes
 
+- name: Set up powerdown on ACPI battery events
+  copy: src=files/acpi_events dest=/etc/acpi/events/ansible
+
 - name: Install ethtool for powerdown
   pacman: name=ethtool state=present
 
