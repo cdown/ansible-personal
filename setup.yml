@@ -29,7 +29,8 @@
     - include_tasks: tasks/remove.yml
     - include_tasks: tasks/basic-tools.yml
     - include_tasks: tasks/kernel.yml
-    - include_tasks: tasks/bootloader.yml
+    - include_tasks: tasks/syslinux.yml
+      when: part_type == "mbr"
     - include_tasks: tasks/network.yml
     - include_tasks: tasks/ssh.yml
     - include_tasks: tasks/zsh.yml
