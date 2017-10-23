@@ -31,6 +31,8 @@
     - include_tasks: tasks/kernel.yml
     - include_tasks: tasks/syslinux.yml
       when: part_type == "mbr"
+    - include_tasks: tasks/systemd-boot.yml
+      when: part_type == "gpt"
     - include_tasks: tasks/network.yml
     - include_tasks: tasks/ssh.yml
     - include_tasks: tasks/zsh.yml

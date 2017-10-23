@@ -1,0 +1,48 @@
+#!/bin/bash
+
+if (( UID )); then
+    echo 'You must be root' >&2
+    exit 2
+fi
+
+kernel=${1?}
+extra_kernel_params=$2
+root_partition=$(df --output=source / | tail -n1)
+if [[ $root_partition == /dev/mapper/* || $root_partition == /dev/dm* ]]; then
+    root_partition=/dev/$(dmsetup deps -o devname | awk '$1 == "cryptroot:"' | awk -F'[()]' '{ print $(NF - 1) }')
+fi
+root_crypt_device=cryptroot
+root_crypt_device_path=/dev/mapper/$root_crypt_device
+short_hostname=${HOSTNAME::5}
+
+encrypt=0
+
+if blkid "$root_partition" | grep -q 'TYPE="crypto_LUKS"'; then
+    encrypt=1
+fi
+
+if (( encrypt )); then
+    encrypted_root_uuid=$(cryptsetup luksUUID "$root_partition")
+    append="cryptdevice=UUID=$encrypted_root_uuid:$root_crypt_device:allow-discards root=$root_crypt_device_path rw"
+else
+    append="root=LABEL=$short_hostname-/ rw"
+fi
+
+kernel_file=vmlinuz-$kernel
+initrd_file=initramfs-$kernel.img
+ucode_file=intel-ucode.img
+
+for file in "$kernel_file" "$initrd_file" "$ucode_file"; do
+    if ! [[ -f /boot/"$file" ]]; then
+        printf 'FATAL: %s does not exist\n' "$file"
+        exit 1
+    fi
+done
+
+cat << EOF
+title Arch
+linux /$kernel_file
+initrd /$ucode_file
+initrd /$initrd_file
+options $extra_kernel_params $append
+EOF
