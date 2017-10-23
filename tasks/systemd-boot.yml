@@ -19,3 +19,8 @@
 
 - name: Copy loader config
   copy: 'content="default arch\n" dest=/boot/loader/loader.conf'
+
+- name: Install pacman hook to regenerate systemd-boot install
+  aur: name=systemd-boot-pacman-hook
+  become: yes
+  become_user: makepkg
