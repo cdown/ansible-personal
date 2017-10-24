@@ -22,9 +22,9 @@ default_kernel_params: 'cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1 nmi_
 extra_kernel_params: ''
 extra_kernel_pgp_keys: []
 
-python_2_version: 2.7.13
-python_3_version: 3.6.2
+python_2_version: 2.7.14
+python_3_version: 3.6.3
 ruby_version: 2.4.2
-perl_version: 5.27.4
+perl_version: 5.27.5
 
 part_type: mbr
