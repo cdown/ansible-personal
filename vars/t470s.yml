@@ -11,3 +11,5 @@ extra_kernel_params: 'pcie_aspm=force scsi_mod.use_blk_mq=1'
 
 hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
+
+part_type: gpt
