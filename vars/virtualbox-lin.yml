@@ -12,3 +12,5 @@ users_inc_super:
 
 install_env_users: []
 minimal: true
+
+part_type: gpt
