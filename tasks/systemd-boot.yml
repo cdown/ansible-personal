@@ -24,3 +24,6 @@
   aur: name=systemd-boot-pacman-hook
   become: yes
   become_user: makepkg
+
+- name: Mount efivars read-only to avoid EFIgeddon
+  mount: src=efivarfs path=/sys/firmware/efi/efivars fstype=efivarfs opts="ro,nosuid,nodev,noexec,noatime" state=present
