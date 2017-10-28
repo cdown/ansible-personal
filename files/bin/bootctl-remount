@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+# efivarfs being rw is scary. Do it for as short of a time as possible. We set
+# it as ro in fstab, so remount alone does the job.
+
+trap 'mount -o remount efivarfs' 0
+mount -o remount,rw efivarfs
+bootctl "$@"
