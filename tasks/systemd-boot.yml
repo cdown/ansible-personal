@@ -1,12 +1,18 @@
 ---
+- name: Mount efivars read-only to avoid EFIgeddon
+  mount: src=efivarfs path=/sys/firmware/efi/efivars fstype=efivarfs opts="ro,nosuid,nodev,noexec,noatime" state=present
+
 - name: Copy generate systemd-boot script
   copy: src=files/bin/generate-systemd-boot-config dest=/usr/local/bin/generate-systemd-boot-config mode=755
+
+- name: Copy bootctl-remount script
+  copy: src=files/bin/bootctl-remount dest=/usr/local/bin/bootctl-remount mode=755
 
 - name: Install intel-ucode
   pacman: name=intel-ucode state=present
 
 - name: Install systemd-boot to /boot
-  command: bootctl --path=/boot install
+  command: bootctl-remount --path=/boot install
   changed_when: false
 
 - name: Generate systemd-boot config
@@ -24,6 +30,3 @@
   aur: name=systemd-boot-pacman-hook
   become: yes
   become_user: makepkg
-
-- name: Mount efivars read-only to avoid EFIgeddon
-  mount: src=efivarfs path=/sys/firmware/efi/efivars fstype=efivarfs opts="ro,nosuid,nodev,noexec,noatime" state=present
