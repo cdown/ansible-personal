@@ -90,6 +90,7 @@
     - include_tasks: tasks/wine.yml
       when: not minimal
     - include_tasks: tasks/postremove.yml
+    - systemd: daemon_reload=yes
 
   handlers:
     - name: restart ntpd
