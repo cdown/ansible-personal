@@ -8,3 +8,15 @@
     - lib32-alsa-plugins
     - lib32-libpulse
     - lib32-openal
+  when: install_wine
+
+- name: Uninstall WINE
+  pacman: name={{ item }} state=absent recurse=yes
+  with_items:
+    - wine
+    # Audio
+    - lib32-libglvnd  # wine has multiple fulfilments for lib32-libgl
+    - lib32-alsa-plugins
+    - lib32-libpulse
+    - lib32-openal
+  when: not install_wine

@@ -27,4 +27,6 @@ python_3_version: 3.6.3
 ruby_version: 2.4.2
 perl_version: 5.27.5
 
+install_wine: false
+
 part_type: mbr
