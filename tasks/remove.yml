@@ -86,6 +86,7 @@
     - isync
     - openvpn
     - ntp
+    - rfkill  # this is now part of util-linux
 
 - name: Remove unused files
   file: path={{ item }} state=absent
