@@ -6,4 +6,4 @@ Type=oneshot
 ExecStart=/usr/local/bin/powerdown
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=battery.target

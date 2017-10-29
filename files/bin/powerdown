@@ -1,30 +1,23 @@
 #!/bin/bash
 
-on_ac=$(cat /sys/class/power_supply/AC/online)
-
-# These are always ok to do
 for device in /sys/class/net/e*; do
     device=${device##*/}
     ethtool -s "$device" wol d
 done
-tee /proc/sys/kernel/nmi_watchdog <<< 0 > /dev/null
 
-if (( on_ac )); then
-    tee /sys/bus/i2c/devices/*/device/power/control <<< on > /dev/null
-    tee /sys/bus/{usb,pci}/devices/*/power/control <<< on > /dev/null
-    tee /sys/module/snd_hda_intel/parameters/power_save <<< 0 > /dev/null
-else
-    tee /sys/bus/i2c/devices/*/device/power/control <<< auto > /dev/null
-    tee /sys/bus/pci/devices/*/power/control <<< auto > /dev/null
+echo 0 > /proc/sys/kernel/nmi_watchdog
 
-    for dir in /sys/bus/usb/devices/*; do
-        # Some keyboards/mice don't really react well to being suspended.
-        prod_file=$dir/product
-        if [[ -e $prod_file ]] && [[ "$(cat "$prod_file")" == *@(Keyboard|Mouse)* ]]; then
-            continue
-        fi
-        tee "$dir"/power/control <<< auto > /dev/null
-    done
+tee <<< auto > /dev/null \
+    /sys/bus/i2c/devices/*/device/power/control \
+    /sys/bus/pci/devices/*/power/control
 
-    tee /sys/module/snd_hda_intel/parameters/power_save <<< 1 > /dev/null
-fi
+for dir in /sys/bus/usb/devices/*; do
+    # Some keyboards/mice don't really react well to being suspended.
+    prod_file=$dir/product
+    if [[ -e $prod_file ]] && [[ "$(cat "$prod_file")" == *@(Keyboard|Mouse)* ]]; then
+        continue
+    fi
+    echo auto > "$dir"/power/control
+done
+
+echo 1 > /sys/module/snd_hda_intel/parameters/power_save

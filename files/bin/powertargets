@@ -1,0 +1,16 @@
+#!/bin/bash -e
+
+# Events for some batteries look exactly the same for battery plug/unplug, so
+# we need this script to determine what changed.
+#
+# % acpi_listen | grep battery
+# battery PNP0C0A:00 00000080 00000001 <-- unplug
+# battery PNP0C0A:00 00000080 00000001 <-- plug
+
+on_ac=$(cat /sys/class/power_supply/AC/online)
+
+if (( on_ac )); then
+    exec systemctl start ac.target
+else
+    exec systemctl start battery.target
+fi

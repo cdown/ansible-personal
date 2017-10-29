@@ -1,0 +1,6 @@
+#!/bin/bash
+
+tee <<< on > /dev/null \
+    /sys/bus/i2c/devices/*/device/power/control \
+    /sys/bus/{usb,pci}/devices/*/power/control
+echo 0 > /sys/module/snd_hda_intel/parameters/power_save

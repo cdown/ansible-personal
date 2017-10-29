@@ -1,2 +1,2 @@
 event=battery.*
-action=/usr/local/bin/powerdown
+action=/usr/local/bin/powertargets

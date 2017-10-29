@@ -1,17 +1,35 @@
 ---
-- name: Copy powerdown script
-  copy: src=files/bin/powerdown dest=/usr/local/bin/powerdown mode=755
+- name: Copy {{ item }} script
+  copy: src=files/bin/{{ item }} dest=/usr/local/bin/{{ item }} mode=755
+  with_items:
+    - powerdown
+    - powerup
 
-- name: Install powerdown service
-  copy: src=files/powerdown.service dest=/etc/systemd/system/powerdown.service mode=644
+- name: Install {{ item }} service
+  copy: src=files/{{ item }}.service dest=/etc/systemd/system/{{ item }}.service mode=644
+  with_items:
+    - powerdown
+    - powerup
 
-- name: Enable powerdown service
-  service: name=powerdown enabled=yes
+- name: Enable {{ item }} service
+  systemd: name={{ item }} enabled=yes daemon_reload=yes
+  with_items:
+    - powerdown
+    - powerup
 
 - name: Enable acpid service
   service: name=acpid enabled=yes state=started
 
-- name: Set up powerdown on ACPI battery events
+- name: Copy power targets
+  copy: src=files/{{ item }}.target dest=/etc/systemd/system
+  with_items:
+    - ac
+    - battery
+
+- name: Copy powertargets script
+  copy: src=files/bin/powertargets dest=/usr/local/bin/powertargets mode=755
+
+- name: Set up power targets on ACPI battery events
   copy: src=files/acpi_events dest=/etc/acpi/events/ansible
 
 - name: Install ethtool for powerdown

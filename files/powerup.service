@@ -1,0 +1,9 @@
+[Unit]
+Description=Disable laptop battery savings
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/powerup
+
+[Install]
+WantedBy=ac.target
