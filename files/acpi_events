@@ -1,2 +1,2 @@
-event=battery.*
-action=/usr/local/bin/powertargets
+event=ac_adapter.*
+action=/usr/local/bin/powertargets %e
