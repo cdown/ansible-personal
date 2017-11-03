@@ -55,6 +55,7 @@
     - imagemagick
     - ghostscript # for imagemagick
     - mpv
+    - chromium
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}

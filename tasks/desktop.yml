@@ -18,11 +18,6 @@
     - xfce4-notifyd
   when: not minimal
 
-- name: Install unbranded Firefox (XPI signing, bleh)
-  aur: name=firefox-unbranded-bin
-  become: yes
-  become_user: makepkg
-
 - name: Install urxvt Perl extensions
   aur: name=urxvt-perls
   when: not minimal

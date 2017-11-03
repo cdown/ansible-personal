@@ -69,7 +69,6 @@
     - lshw
     - gthumb
     - libreoffice-fresh
-    - chromium
     - xautolock
     - xorg-xwininfo
     - xbanish
@@ -87,6 +86,7 @@
     - openvpn
     - ntp
     - rfkill  # this is now part of util-linux
+    - firefox-unbranded-bin
 
 - name: Remove unused files
   file: path={{ item }} state=absent
