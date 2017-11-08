@@ -13,5 +13,3 @@ hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
 
 part_type: gpt
-
-install_wine: true
