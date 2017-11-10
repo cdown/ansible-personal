@@ -62,7 +62,6 @@
     - gnome-icon-theme
     - arch-install-scripts
     - autossh
-    - ncdu
     - colordiff
     - dosfstools
     - pinta
