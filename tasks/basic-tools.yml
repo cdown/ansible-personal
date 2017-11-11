@@ -57,6 +57,7 @@
     - mpv
     - chromium
     - ncdu
+    - powertop
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}

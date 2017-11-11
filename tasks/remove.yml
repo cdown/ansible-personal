@@ -73,7 +73,6 @@
     - xbanish
     - logrotate
     - perf
-    - powertop
     - wireshark-cli
     - nmap
     - tcpdump
