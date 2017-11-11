@@ -35,5 +35,8 @@
 - name: Install ethtool for powerdown
   pacman: name=ethtool state=present
 
-- name: Blacklist btusb
-  kernel_blacklist: name=btusb state=present
+- name: Blacklist Bluetooth
+  kernel_blacklist: name={{ item }} state=present
+  with_items:
+    - btusb
+    - bluetooth
