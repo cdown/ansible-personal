@@ -21,3 +21,5 @@ for dir in /sys/bus/usb/devices/*; do
 done
 
 echo 1 > /sys/module/snd_hda_intel/parameters/power_save
+
+echo powersupersave > /sys/module/pcie_aspm/parameters/policy
