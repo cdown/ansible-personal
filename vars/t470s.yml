@@ -7,7 +7,7 @@ laptop: true
 # % dmesg | grep -i aspm
 # [    0.502657] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI]
 # [    0.502759] acpi PNP0A08:00: _OSC failed (AE_SUPPORT); disabling ASPM
-extra_kernel_params: 'pcie_aspm=force scsi_mod.use_blk_mq=1'
+extra_kernel_params: 'pcie_aspm=force pcie_aspm.policy=powersupersave scsi_mod.use_blk_mq=1'
 
 hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
