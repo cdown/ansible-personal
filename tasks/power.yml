@@ -17,20 +17,14 @@
     - powerdown
     - powerup
 
-- name: Enable acpid service
-  service: name=acpid enabled=yes state=started
+- name: Copy power targets udev rule
+  copy: src=files/udev/powertargets.rules dest=/etc/udev/rules.d/99-powertargets.rules
 
 - name: Copy power targets
   copy: src=files/{{ item }}.target dest=/etc/systemd/system
   with_items:
     - ac
     - battery
-
-- name: Copy powertargets script
-  copy: src=files/bin/powertargets dest=/usr/local/bin/powertargets mode=755
-
-- name: Set up power targets on ACPI battery events
-  copy: src=files/acpi_events dest=/etc/acpi/events/ansible
 
 - name: Install ethtool for powerdown
   pacman: name=ethtool state=present

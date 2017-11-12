@@ -1,9 +1,0 @@
-#!/bin/bash -e
-
-on_ac=$4
-
-if (( on_ac )); then
-    exec systemctl start ac.target
-else
-    exec systemctl start battery.target
-fi

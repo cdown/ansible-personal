@@ -94,6 +94,8 @@
     - /etc/modprobe.d/99-i915.conf
     - /etc/systemd/system/localepurge.service
     - /etc/systemd/system/localepurge.timer
+    - /usr/local/bin/powertargets
+    - /etc/acpi/events/ansible
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent
