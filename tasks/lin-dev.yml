@@ -5,3 +5,4 @@
     - python-numpy
     - python-matplotlib
     - python-pandas
+    - ipython
