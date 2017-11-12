@@ -30,3 +30,5 @@ perl_version: 5.27.5
 install_wine: false
 
 part_type: mbr
+
+lin_dev: false

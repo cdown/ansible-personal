@@ -1,22 +1,7 @@
-- name: Install iPython notebook dependencies
+- name: Install Lin dev tools
   pacman: name={{ item }}
   with_items:
-    - python-jinja
-    - python-tornado
-    - python-pyzmq
-    - python-jsonschema
-
-- name: Install libreoffice
-  pacman: name=libreoffice-still
-
-- name: Create local iPython user
-  user: name=ipython home=/srv/ipython-notebook
-
-- name: Add iPython notebook init script
-  copy: src=files/ipython-notebook.service dest=/etc/systemd/system/ipython-notebook.service
-
-- name: Create notebook directory
-  file: path=/srv/ipython-notebook/notebooks state=directory owner=ipython
-
-- name: Enable iPython notebook
-  service: name=ipython-notebook state=started enabled=yes
+    - python-scipy
+    - python-numpy
+    - python-matplotlib
+    - python-pandas
