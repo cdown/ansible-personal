@@ -6,3 +6,5 @@
     - python-matplotlib
     - python-pandas
     - ipython
+    - jupyter-nbconvert  # conversion of ipynb to py
+    - jupyter-notebook
