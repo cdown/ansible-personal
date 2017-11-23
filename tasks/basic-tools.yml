@@ -57,6 +57,8 @@
     - chromium
     - ncdu
     - powertop
+    - openbox  # presentations
+    - libreoffice-still
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}
