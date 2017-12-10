@@ -42,6 +42,7 @@
 
 - name: Fix tearing
   copy: src=files/xorg-intel-tearing dest=/etc/X11/xorg.conf.d/99-xorg-intel-tearing.conf mode=644
+  when: model in ["T460s", "T470s", "X1 Carbon"]
 
 - name: Set up Xorg for XPS 8500
   pacman: name={{ item }} state=present
