@@ -5,6 +5,7 @@
     - python-numpy
     - python-matplotlib
     - python-pandas
+    - python-statsmodels
     - ipython
     - jupyter-nbconvert  # conversion of ipynb to py
     - jupyter-notebook
