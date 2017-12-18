@@ -4,6 +4,9 @@
   become: yes
   become_user: makepkg
 
+- name: Install Cython (apparently build dep for line_profiler now...)
+  pacman: name=cython
+
 - name: Get list of Pythons installed in pyenv
   shell: "pyenv versions | sed 's/^..//' | awk '{ print $1 }'"
   register: pyenv_versions
