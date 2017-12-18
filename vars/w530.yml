@@ -22,3 +22,6 @@ users:
 users_inc_super:
   - lin
   - root
+
+install_env_users:
+  - lin
