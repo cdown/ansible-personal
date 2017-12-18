@@ -46,7 +46,7 @@
     - twine
     - ipython
     - flake8
-    - line-profiler
+    - line_profiler
     - memory-profiler
     - psutil
     - awscli
