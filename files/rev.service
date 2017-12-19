@@ -5,7 +5,7 @@ After=network.target network-online.target
 AssertPathExists=/opt/revkey
 
 [Service]
-ExecStart=/usr/bin/ssh -vv -o ExitOnForwardFailure=yes -o BatchMode=yes -o ConnectTimeout=5 -o ServerAliveInterval=30 -i /opt/revkey -N -R 0:localhost:22 rev@tangsanjiao.chrisdown.name
+ExecStart=/usr/bin/ssh -vv -o ExitOnForwardFailure=yes -o StrictHostKeyChecking=no -o BatchMode=yes -o ConnectTimeout=5 -o ServerAliveInterval=30 -i /opt/revkey -N -R 0:127.0.0.1:22 rev@tangsanjiao.chrisdown.name
 KillSignal=SIGINT
 Restart=always
 RestartSec=5
