@@ -14,7 +14,7 @@ ssd_scheduler: mq-deadline
 
 part_type: gpt
 
-install_wine: false
+install_wine: true
 
 users:
   - lin
