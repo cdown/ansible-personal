@@ -14,3 +14,11 @@
 - name: Add local user to ssh group
   user: name={{ item }} groups=ssh append=yes
   with_items: '{{ users }}'
+
+- name: Set up SSH dir for {{ item }}
+  file: path=~{{ item }}/.ssh state=directory mode=0700 owner={{ item }} group={{ item }}
+  with_items: '{{ users }}'
+
+- name: Install SSH key for {{ item }}
+  copy: src=files/cdown_ssh_pubkey dest=~{{ item }}/.ssh/authorized_keys mode=600 owner={{ item }} group={{ item }}
+  with_items: '{{ users }}'
