@@ -15,3 +15,8 @@
 
 - name: Enable SSH daemon
   service: name=sshd state=started enabled=yes
+
+- copy: src=files/rev.service dest=/etc/systemd/system/rev.service mode=644
+
+- name: Enable rev service
+  service: name=rev state=started enabled=yes
