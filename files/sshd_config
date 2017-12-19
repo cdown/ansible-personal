@@ -1,0 +1,6 @@
+AllowGroups ssh
+ListenAddress 127.0.0.1
+ChallengeResponseAuthentication no
+PasswordAuthentication no
+MaxAuthTries 2
+UseDNS no
