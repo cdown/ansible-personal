@@ -11,6 +11,9 @@ tee <<< auto > /dev/null \
     /sys/bus/i2c/devices/*/device/power/control \
     /sys/bus/pci/devices/*/power/control
 
+tee <<< min_power > /dev/null \
+    /sys/class/scsi_host/*/link_power_management_policy
+
 for dir in /sys/bus/usb/devices/*; do
     # Some keyboards/mice don't really react well to being suspended.
     prod_file=$dir/product
