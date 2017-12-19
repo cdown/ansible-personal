@@ -18,9 +18,11 @@ install_wine: false
 
 users:
   - lin
+  - cdown
 
 users_inc_super:
   - lin
+  - cdown
   - root
 
 install_env_users:
