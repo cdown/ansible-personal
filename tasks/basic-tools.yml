@@ -64,6 +64,7 @@
   aur: name={{ item }}
   when: not minimal
   with_items:
+    - cconv
     - duply
     - drive
     - shellcheck
