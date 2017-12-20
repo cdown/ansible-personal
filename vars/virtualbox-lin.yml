@@ -14,5 +14,3 @@ install_env_users: []
 minimal: true
 
 part_type: gpt
-
-lin_dev: true
