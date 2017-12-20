@@ -3,6 +3,7 @@
 (( UID )) && exec sudo "$0" "$@"
 
 config_file=/.ansibleconfig
+type_file=/.ansibletype
 
 if ! [[ -e $config_file ]]; then
     read -r -p 'Config: ' AS_CONFIG

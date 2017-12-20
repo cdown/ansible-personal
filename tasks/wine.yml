@@ -4,6 +4,8 @@
   with_items:
     - lib32-libglvnd  # wine has multiple fulfilments for lib32-libgl
     - wine
+    - wine_gecko
+    - wine-mono
     # Audio
     - lib32-alsa-plugins
     - lib32-libpulse
@@ -14,6 +16,8 @@
   pacman: name={{ item }} state=absent recurse=yes
   with_items:
     - wine
+    - wine_gecko
+    - wine-mono
     # Audio
     - lib32-libglvnd  # wine has multiple fulfilments for lib32-libgl
     - lib32-alsa-plugins
