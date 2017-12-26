@@ -61,6 +61,8 @@
     - libreoffice-still
     - brasero  # bin/cue rip
     - mktorrent
+    - mpd
+    - mpc
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}
@@ -79,6 +81,8 @@
     - xinput-toggle
     - nota
     - pandoc-bin
+    - mpdscribble
+    - mpdmenu
   become: yes
   become_user: makepkg
 
