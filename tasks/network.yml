@@ -15,3 +15,5 @@
     - wpa_supplicant
     - wireless_tools
     - dialog  # needed for wifi-menu
+
+- template: src=files/hosts dest=/etc/hosts
