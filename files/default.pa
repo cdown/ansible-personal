@@ -139,7 +139,4 @@ load-module module-filter-apply
 #set-default-sink output
 #set-default-source input
 
-# HDMI audio on T470s
-.nofail
-load-module module-alsa-sink device=hw:0,7
-.fall
+load-module module-switch-on-connect
