@@ -36,14 +36,11 @@
     - pandoc-lite  # old pandoc-bin
     - mcelog  # not in community or aur any more
     - cronie
-    - lvm2
     - jfsutils
-    - mdadm
     - nano
     - pcmciautils
     - reiserfsprogs
     - s-nail
-    - xfsprogs
     - evince
     - acpi
     - vlock-original
@@ -58,7 +55,6 @@
     - arch-install-scripts
     - autossh
     - colordiff
-    - dosfstools
     - pinta
     - lshw
     - gthumb
@@ -80,6 +76,11 @@
     - ntp
     - rfkill  # this is now part of util-linux
     - firefox-unbranded-bin
+    - brasero  # damn you lvm2
+    - lvm2
+    - mdadm
+    - xfsprogs
+    - dosfstools
 
 - name: Remove unused files
   file: path={{ item }} state=absent

@@ -59,7 +59,6 @@
     - powertop
     - openbox  # presentations
     - libreoffice-still
-    - brasero  # bin/cue rip
     - mktorrent
     - mpd
     - mpc
