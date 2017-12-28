@@ -8,6 +8,7 @@
   with_items:
     - pulseaudio
     - pulseaudio-ctl
+    - pavucontrol
   when: not minimal
   become: yes
   become_user: makepkg
