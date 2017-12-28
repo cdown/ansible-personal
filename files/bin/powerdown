@@ -26,3 +26,8 @@ done
 echo 1 > /sys/module/snd_hda_intel/parameters/power_save
 
 echo powersupersave > /sys/module/pcie_aspm/parameters/policy
+
+tee <<< powersave > /dev/null \
+    /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
+

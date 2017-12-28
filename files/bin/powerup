@@ -7,3 +7,5 @@ echo 0 > /sys/module/snd_hda_intel/parameters/power_save
 echo performance > /sys/module/pcie_aspm/parameters/policy
 tee <<< '' > /dev/null \
     /sys/class/scsi_host/*/link_power_management_policy
+tee <<< performance > /dev/null \
+    /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
