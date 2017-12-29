@@ -1,0 +1,8 @@
+---
+- name: Check if {{ item }} lingers
+  stat: path=/var/lib/systemd/linger/{{ item }}
+  register: linger
+
+- name: Enable linger for {{ item }}
+  command: loginctl enable-linger {{ item }}
+  when: not linger.stat.exists

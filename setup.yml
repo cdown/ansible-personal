@@ -37,6 +37,8 @@
     - include_tasks: tasks/ssh.yml
     - include_tasks: tasks/zsh.yml
     - include_tasks: tasks/users.yml
+    - include_tasks: tasks/linger.yml item={{ item }}
+      with_items: '{{ users }}'
     - include_tasks: tasks/ntp.yml
     - include_tasks: tasks/fonts.yml
     - include_tasks: tasks/xorg.yml
