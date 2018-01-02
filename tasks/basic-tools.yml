@@ -84,6 +84,7 @@
     - pandoc-bin
     - mpdscribble
     - mpdmenu
+    - spek
   become: yes
   become_user: makepkg
 
