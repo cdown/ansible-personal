@@ -64,6 +64,7 @@
     - mpd
     - mpc
     - id3v2
+    - kid3
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}
