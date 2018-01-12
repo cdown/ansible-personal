@@ -76,11 +76,6 @@
     - ntp
     - rfkill  # this is now part of util-linux
     - firefox-unbranded-bin
-    - brasero  # damn you lvm2
-    - lvm2
-    - mdadm
-    - xfsprogs
-    - dosfstools
 
 - name: Remove unused files
   file: path={{ item }} state=absent
