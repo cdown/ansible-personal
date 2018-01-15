@@ -19,10 +19,8 @@
   when: not minimal
 
 - name: Install urxvt Perl extensions
-  aur: name=urxvt-perls
+  pacman: name=urxvt-perls
   when: not minimal
-  become: yes
-  become_user: makepkg
 
 - name: Set up terminal fonts
   pacman: name={{ item }}
