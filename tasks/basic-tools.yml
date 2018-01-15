@@ -41,7 +41,6 @@
     - msmtp
     - xclip
     - pass
-    - pkgbuild-introspection
     - sxiv
     - irssi
     # For duply
@@ -93,6 +92,7 @@
     - mpdmenu
     - spek
     - geteltorito
+    - pkgbuild-introspection
   become: yes
   become_user: makepkg
 
