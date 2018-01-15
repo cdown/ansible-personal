@@ -13,5 +13,7 @@
   become: yes
   become_user: makepkg
 
+- file: path=/etc/pulse state=directory
+
 - name: Add HDMI sink to PA
   copy: src=files/default.pa dest=/etc/pulse/default.pa mode=644
