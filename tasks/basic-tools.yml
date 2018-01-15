@@ -92,6 +92,7 @@
     - mpdscribble
     - mpdmenu
     - spek
+    - geteltorito
   become: yes
   become_user: makepkg
 
