@@ -35,13 +35,8 @@
 - name: Set up Xorg for ThinkPad
   pacman: name={{ item }} state=present
   with_items:
-    - xf86-video-intel
     - xf86-input-synaptics
     - libva-intel-driver
-  when: model in ["T460s", "T470s", "X1 Carbon"]
-
-- name: Fix tearing
-  copy: src=files/xorg-intel-tearing dest=/etc/X11/xorg.conf.d/99-xorg-intel-tearing.conf mode=644
   when: model in ["T460s", "T470s", "X1 Carbon"]
 
 - name: Set up Xorg for nvidia laptops

@@ -13,6 +13,7 @@
     - ndenv
     - node-build
     - pkgfile
+    - xf86-video-intel  # we always use KMS
     - openvpn-update-resolv-conf  # now managed by ansible directly
     - cython
     - youtube-dl  # done through pyenv
@@ -81,6 +82,7 @@
     - /etc/systemd/system/localepurge.timer
     - /usr/local/bin/powertargets
     - /etc/acpi/events/ansible
+    - /etc/X11/xorg.conf.d/99-xorg-intel-tearing.conf
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent
