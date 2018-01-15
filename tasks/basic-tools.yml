@@ -71,6 +71,9 @@
     - kid3
     - udftools
     - clang
+    - shellcheck
+    - docx2txt
+    - antiword
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}
@@ -79,9 +82,6 @@
     - cconv
     - duply
     - drive
-    - shellcheck
-    - docx2txt
-    - antiword
     - pngquant
     - sshrc
     - spotify
