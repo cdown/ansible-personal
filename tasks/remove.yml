@@ -1,10 +1,4 @@
 ---
-# We can't remove cronie without this
-- name: Install cron dummy first so we don't get install loop
-  aur: name=cron-dummy state=present
-  become: yes
-  become_user: makepkg
-
 - name: Remove tools that are no longer used
   pacman: name={{ item }} state=absent recurse=yes
   with_items:

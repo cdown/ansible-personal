@@ -10,8 +10,13 @@
     - htop
     - mupdf
     - btrfs-progs
-    - atop
     - wmname
+
+# See https://github.com/ansible/ansible/pull/34322 for my plan for a better
+# solution
+- name: Install atop using --assume-installed magic
+  command: pacman --noconfirm -S atop --assume-installed cron
+  when: "'atop' not in installed_packages.stdout_lines"
 
 - name: Install tools that don't require Ansible configuration (Chris specific)
   pacman: name={{ item }} state=present
