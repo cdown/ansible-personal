@@ -69,6 +69,7 @@
     - mpc
     - id3v2
     - kid3
+    - udftools
     - clang
 
 - name: Install basic tools requiring aur (Chris specific)
@@ -84,7 +85,6 @@
     - pngquant
     - sshrc
     - spotify
-    - udftools
     - xinput-toggle
     - nota
     - pandoc-bin
