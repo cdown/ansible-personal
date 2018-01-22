@@ -1,0 +1,16 @@
+- stat: path=/swap
+  register: swap
+
+- shell: head -c 2G < /dev/zero > /swap
+  when: not swap.stat.exists
+  register: create_swap
+
+- file: path=/swap mode=600 owner=root group=root
+
+- command: mkswap /swap
+  when: create_swap.changed
+
+- mount: name=none src=/swap fstype=swap opts="sw" state=present
+
+- command: swapon /swap
+  when: create_swap.changed
