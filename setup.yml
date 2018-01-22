@@ -23,7 +23,6 @@
       changed_when: false
       register: pacman_keys
 
-    - include_tasks: tasks/swap.yml
     - include_tasks: tasks/sudo.yml
     - include_tasks: tasks/pacman.yml
     - include_tasks: tasks/aur.yml

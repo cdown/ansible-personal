@@ -11,6 +11,3 @@
 
 - name: Allow more dirty pages
   copy: src=files/sysctl/dirty.conf dest=/etc/sysctl.d/99-dirty.conf
-
-- name: Set up swappiness
-  template: src=files/sysctl/swap.conf dest=/etc/sysctl.d/99-swap.conf
