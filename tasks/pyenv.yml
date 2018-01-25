@@ -1,4 +1,7 @@
 ---
+- name: Install tkinter first so that we compile with tk support
+  pacman: name=tk
+
 - name: Install pyenv
   aur: name=pyenv
   become: yes
