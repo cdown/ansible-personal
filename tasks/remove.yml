@@ -55,7 +55,6 @@
     - gthumb
     - libreoffice-fresh
     - xautolock
-    - xorg-xwininfo
     - xbanish
     - logrotate
     - perf

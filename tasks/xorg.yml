@@ -17,6 +17,7 @@
     - xorg-xinput
     - xorg-xlsclients
     - xorg-xdpyinfo
+    - xorg-xwininfo
   when: not minimal
 
 - name: Caps -> Ctrl in Xorg
