@@ -94,6 +94,7 @@
     - spek
     - geteltorito
     - pkgbuild-introspection
+    - pdftk-bin
   become: yes
   become_user: makepkg
 

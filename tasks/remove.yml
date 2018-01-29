@@ -8,7 +8,6 @@
     - exfat-utils
     - lib32-apulse
     - ltrace
-    - pdftk-bin
     - skype
     - ndenv
     - node-build
