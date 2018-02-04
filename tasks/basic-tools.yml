@@ -54,7 +54,7 @@
     - gimp
     - gimp-plugin-gmic
     - gmic
-    - rust
+    - rustup
     - dmidecode  # certsign
     - imagemagick
     - ghostscript # for imagemagick
