@@ -14,7 +14,7 @@ AS_CONFIG=$(cat "$config_file")
 export AS_CONFIG
 
 while true; do
-    ansible-playbook -i localhost, "${0%/*}"/setup.yml
+    ansible-playbook -i localhost, "$@" "${0%/*}"/setup.yml
     rc=$?
     if (( NO_PROMPT_RETRY )); then
         exit "$rc"
