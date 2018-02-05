@@ -1,0 +1,17 @@
+---
+- pacman: name=rustup
+
+- shell: "rustup show | awk -F- '$1 ~ /^[a-z]+$/ { print $1 }'"
+  become: yes
+  become_user: "{{ user }}"
+  register: rust_versions
+  changed_when: false
+
+- name: Install rust toolchains
+  command: "rustup install {{ item }}"
+  with_items:
+    - stable
+    - nightly
+  become: yes
+  become_user: "{{ user }}"
+  when: 'item not in rust_versions.stdout_lines'
