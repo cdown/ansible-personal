@@ -23,28 +23,28 @@
       changed_when: false
       register: pacman_keys
 
-    - include_tasks: tasks/sudo.yml
-    - include_tasks: tasks/pacman.yml
-    - include_tasks: tasks/aur.yml
-    - include_tasks: tasks/remove.yml
-    - include_tasks: tasks/basic-tools.yml
-    - include_tasks: tasks/kernel.yml
-    - include_tasks: tasks/syslinux.yml
+    - import_tasks: tasks/sudo.yml
+    - import_tasks: tasks/pacman.yml
+    - import_tasks: tasks/aur.yml
+    - import_tasks: tasks/remove.yml
+    - import_tasks: tasks/basic-tools.yml
+    - import_tasks: tasks/kernel.yml
+    - import_tasks: tasks/syslinux.yml
       when: part_type == "mbr"
-    - include_tasks: tasks/systemd-boot.yml
+    - import_tasks: tasks/systemd-boot.yml
       when: part_type == "gpt"
-    - include_tasks: tasks/network.yml
-    - include_tasks: tasks/ssh.yml
-    - include_tasks: tasks/zsh.yml
-    - include_tasks: tasks/users.yml
+    - import_tasks: tasks/network.yml
+    - import_tasks: tasks/ssh.yml
+    - import_tasks: tasks/zsh.yml
+    - import_tasks: tasks/users.yml
     - include_tasks: tasks/linger.yml item={{ item }}
       with_items: '{{ users }}'
-    - include_tasks: tasks/ntp.yml
-    - include_tasks: tasks/fonts.yml
-    - include_tasks: tasks/xorg.yml
-    - include_tasks: tasks/blacklist-pc-speaker.yml
-    - include_tasks: tasks/desktop.yml
-    - include_tasks: tasks/timers-pre.yml
+    - import_tasks: tasks/ntp.yml
+    - import_tasks: tasks/fonts.yml
+    - import_tasks: tasks/xorg.yml
+    - import_tasks: tasks/blacklist-pc-speaker.yml
+    - import_tasks: tasks/desktop.yml
+    - import_tasks: tasks/timers-pre.yml
     - include_tasks: tasks/timers.yml
       with_items:
         - clean-cache
@@ -54,12 +54,12 @@
         - pacman-fy
         - reflector
         - clean-pacaur-cache
-    - include_tasks: tasks/systemd.yml
-    - include_tasks: tasks/email.yml
+    - import_tasks: tasks/systemd.yml
+    - import_tasks: tasks/email.yml
       when: not minimal
-    - include_tasks: tasks/chinese.yml
+    - import_tasks: tasks/chinese.yml
       when: not minimal
-    - include_tasks: tasks/sysctl.yml
+    - import_tasks: tasks/sysctl.yml
     - include_tasks: tasks/dotfiles.yml user={{ user_item }}
       with_items: '{{ users_inc_super }}'
       loop_control:
@@ -82,22 +82,22 @@
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user_item
-    - include_tasks: tasks/shared.yml
+    - import_tasks: tasks/shared.yml
       when: model == "VirtualBox"
-    - include_tasks: tasks/udev.yml
-    - include_tasks: tasks/printing.yml
+    - import_tasks: tasks/udev.yml
+    - import_tasks: tasks/printing.yml
       when: model != "VirtualBox"
-    - include_tasks: tasks/sound.yml
-    - include_tasks: tasks/power.yml
+    - import_tasks: tasks/sound.yml
+    - import_tasks: tasks/power.yml
       when: laptop
-    - include_tasks: tasks/debugging.yml
+    - import_tasks: tasks/debugging.yml
       when: not minimal
-    - include_tasks: tasks/tex.yml
+    - import_tasks: tasks/tex.yml
       when: not minimal
-    - include_tasks: tasks/locale.yml
-    - include_tasks: tasks/wine.yml
+    - import_tasks: tasks/locale.yml
+    - import_tasks: tasks/wine.yml
       when: not minimal
-    - include_tasks: tasks/postremove.yml
+    - import_tasks: tasks/postremove.yml
     - systemd: daemon_reload=yes
 
   handlers:
