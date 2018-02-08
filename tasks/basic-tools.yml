@@ -95,6 +95,7 @@
     - geteltorito
     - pkgbuild-introspection
     - pdftk-bin
+    - clipmenu
   become: yes
   become_user: makepkg
 

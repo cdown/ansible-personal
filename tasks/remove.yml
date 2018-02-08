@@ -44,7 +44,6 @@
     - nodenv-node-build
     - prompter
     - tor-browser-en
-    - clipmenu
     - gnome-icon-theme
     - arch-install-scripts
     - autossh
