@@ -11,6 +11,7 @@
     - mupdf
     - btrfs-progs
     - wmname
+    - netbrake
 
 # See https://github.com/ansible/ansible/pull/34322 for my plan for a better
 # solution
