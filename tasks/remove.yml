@@ -92,3 +92,11 @@
     - /etc/cron.d/pkgfile
     - /etc/cron.d/purge-atop-logs
     - /etc/cron.d/reflector
+
+- name: Mask undesirable services that remain for dependency reasons
+  systemd: name={{ item }} state=stopped enabled=no masked=yes
+  with_items:
+    - lvm2-lvmetad
+    - upower
+    - polkit
+    - rtkit-daemon
