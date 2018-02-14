@@ -25,7 +25,7 @@
 
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
-  when: model == "Vostro 3700"
+  when: model in ["Vostro 3700", "W530"]
 
 - name: Set up Xorg for Vostro 3700
   pacman: name={{ item }} state=present
@@ -40,21 +40,18 @@
     - libva-intel-driver
   when: model in ["T460s", "T470s", "X1 Carbon"]
 
-- name: Set up Xorg for nvidia laptops
+- name: Set up Xorg for nouveau-using laptops
   pacman: name={{ item }} state=present
   with_items:
     - xf86-video-nouveau
     - xf86-input-synaptics
-  when: model in ["XPS 8500", "W530"]
+  when: model in ["XPS 8500"]
 
-# Workaround for https://bugzilla.redhat.com/show_bug.cgi?id=1509294 / https://bbs.archlinux.org/viewtopic.php?id=233159
-#
-# [Wed Feb 14 07:54:52 2018] nouveau 0000:01:00.0: fifo: write fault at 0000068000 engine 07 [HOST0] client 07 [HOST_CPU] reason 02 [PTE] on channel 2 [007f9ab000 systemd-logind[441]]
-# [Wed Feb 14 07:54:52 2018] nouveau 0000:01:00.0: fifo: channel 2: killed
-# [Wed Feb 14 07:54:52 2018] nouveau 0000:01:00.0: fifo: runlist 0: scheduled for recovery
-
-- name: Add workaround for PTE write fault
-  copy: src=files/nouveau-pte-write-fault.conf dest=/etc/modprobe.d/nouveau-pte-write-fault.conf
+- name: Set up Xorg for nvidia-using laptops
+  pacman: name={{ item }} state=present
+  with_items:
+    - nvidia
+    - xf86-input-synaptics
   when: model in ["W530"]
 
 - name: Remove intel video for those formerly using only integrated
