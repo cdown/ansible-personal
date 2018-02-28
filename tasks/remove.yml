@@ -69,6 +69,7 @@
     - rfkill  # this is now part of util-linux
     - firefox-unbranded-bin
     - rust  # rustup
+    - chromium
 
 - name: Remove unused files
   file: path={{ item }} state=absent

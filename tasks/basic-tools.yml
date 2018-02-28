@@ -60,7 +60,6 @@
     - imagemagick
     - ghostscript # for imagemagick
     - mpv
-    - chromium
     - ncdu
     - powertop
     - openbox  # presentations
@@ -97,6 +96,7 @@
     - pkgbuild-introspection
     - pdftk-bin
     - clipmenu
+    - google-chrome
   become: yes
   become_user: makepkg
 
