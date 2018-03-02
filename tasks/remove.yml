@@ -99,4 +99,3 @@
   with_items:
     - lvm2-lvmetad
     - upower
-    - polkit

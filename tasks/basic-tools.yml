@@ -118,3 +118,4 @@
   systemd: name={{ item }} state=started enabled=yes masked=no
   with_items:
     - rtkit-daemon
+    - polkit
