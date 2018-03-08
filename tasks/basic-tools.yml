@@ -75,6 +75,7 @@
     - shellcheck
     - docx2txt
     - antiword
+    - gdb
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }}
