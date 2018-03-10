@@ -16,6 +16,6 @@
     - wireless_tools
     - dialog  # needed for wifi-menu
 
-- copy: src=files/no-wifi-power-save dest=/etc/modules-load.d/no-wifi-power-save.conf
+- copy: src=files/no-wifi-power-save dest=/etc/modprobe.d/no-wifi-power-save.conf
 
 - template: src=files/hosts dest=/etc/hosts
