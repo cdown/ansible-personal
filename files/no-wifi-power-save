@@ -1,2 +1,1 @@
 options iwlmvm power_scheme=1
-options iwlwifi bt_coex_active=N swcrypto=1 11n_disable=1
