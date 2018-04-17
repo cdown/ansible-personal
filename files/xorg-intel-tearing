@@ -1,9 +1,0 @@
-Section "Device"
-   Identifier "Intel Graphics"
-   Driver "intel"
-   Option "DRI" "3"
-   # Probably not needed with DRI3?
-   Option "AccelMethod" "sna"
-   Option "TearFree" "true"
-   Option "TripleBuffer" "true"
-EndSection
