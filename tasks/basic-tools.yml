@@ -120,3 +120,6 @@
   with_items:
     - rtkit-daemon
     - polkit
+
+- name: Install nsswitch.conf
+  copy: src=files/nsswitch.conf dest=/etc/nsswitch.conf
