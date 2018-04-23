@@ -40,18 +40,11 @@
     - libva-intel-driver
   when: model in ["T460s", "T470s", "X1 Carbon"]
 
-- name: Set up Xorg for nouveau laptops
+- name: Set up Xorg for nvidia laptops
   pacman: name={{ item }} state=present
   with_items:
     - xf86-video-nouveau
     - xf86-input-synaptics
-  when: model in ["XPS 8500", "W530"]
-
-- name: Purge nvidia from nouveau laptops
-  pacman: name={{ item }} state=absent
-  with_items:
-    - nvidia
-    - nvidia-libgl
   when: model in ["XPS 8500", "W530"]
 
 # Workaround for https://bugzilla.redhat.com/show_bug.cgi?id=1509294 / https://bbs.archlinux.org/viewtopic.php?id=233159
