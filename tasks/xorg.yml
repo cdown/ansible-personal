@@ -27,10 +27,6 @@
   kernel_blacklist: name=nouveau state=present
   when: model == "Vostro 3700"
 
-- name: Blacklist nvidia Xorg driver
-  kernel_blacklist: name=nvidia state=present
-  when: model in ["XPS 8500", "W530"]
-
 - name: Set up Xorg for Vostro 3700
   pacman: name={{ item }} state=present
   with_items:
