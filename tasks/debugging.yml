@@ -11,14 +11,13 @@
     - time
     - ngrep
 
-# currently bcc is broken with "IK_C was not declared in this scope"
-#- name: Install debugging tools (AUR)
-#  aur: name={{ item }}
-#  with_items:
-#    - bcc-tools
-#    - python2-bcc
-#  become: yes
-#  become_user: makepkg
+- name: Install debugging tools (AUR)
+  aur: name={{ item }}
+  with_items:
+    - bcc-tools
+    - python2-bcc
+  become: yes
+  become_user: makepkg
 
 - name: Copy atop config
   copy: src=files/atop.daily dest=/usr/share/atop/atop.daily mode=700
