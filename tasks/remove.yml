@@ -43,7 +43,6 @@
     - nodenv
     - nodenv-node-build
     - prompter
-    - tor-browser-en
     - gnome-icon-theme
     - arch-install-scripts
     - autossh
