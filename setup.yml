@@ -50,10 +50,14 @@
         - clean-cache
         - cache-updates
         - fstrim-root
-        - fstrim-boot
         - pacman-fy
         - reflector
         - clean-pacaur-cache
+    - include_tasks: tasks/remove-timers.yml
+      with_items:
+        - fstrim-boot  # fstrim on VFAT is not supported
+      loop_control:
+        loop_var: rem_timer
     - import_tasks: tasks/systemd.yml
     - import_tasks: tasks/email.yml
       when: not minimal
