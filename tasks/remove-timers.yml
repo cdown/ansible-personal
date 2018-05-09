@@ -1,6 +1,10 @@
 ---
+- stat: path=/etc/systemd/system/{{ rem_timer }}.timer
+  register: timer_file
+
 - name: Disable and stop {{ rem_timer }} timer
   systemd: name={{ rem_timer }}.timer state=stopped enabled=False
+  when: timer_file.stat.exists
 
 - name: Delete {{ rem_timer }} service and timer
   file: path={{ item }} state=absent
