@@ -12,3 +12,5 @@
 
 - name: Set FUSE config
   copy: src=files/fuse.conf dest=/etc/fuse.conf
+
+- copy: src=files/enable-thinkpad-fan-management dest=/etc/modprobe.d/enable-thinkpad-fan-management.conf
