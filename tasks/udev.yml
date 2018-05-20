@@ -14,3 +14,7 @@
   copy: src=files/fuse.conf dest=/etc/fuse.conf
 
 - copy: src=files/enable-thinkpad-fan-management dest=/etc/modprobe.d/enable-thinkpad-fan-management.conf
+
+- name: Manually set fan
+  copy: src=files/set-w530-fan.conf dest=/etc/tmpfiles.d/set-w530-fan.conf
+  when: model in ["W530"]
