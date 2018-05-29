@@ -113,7 +113,6 @@
     - pandoc-bin
     - mpdscribble
     - mpdmenu
-    - spek
     - geteltorito
     - pkgbuild-introspection
     - pdftk-bin
