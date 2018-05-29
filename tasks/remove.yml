@@ -63,7 +63,6 @@
     - isync
     - openvpn
     - ntp
-    - rfkill  # this is now part of util-linux
     - firefox-unbranded-bin
     - rust  # rustup
     - chromium
