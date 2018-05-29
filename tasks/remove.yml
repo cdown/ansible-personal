@@ -64,7 +64,6 @@
     - openvpn
     - ntp
     - firefox-unbranded-bin
-    - rust  # rustup
     - chromium
 
 - name: Remove unused files
