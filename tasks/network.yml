@@ -15,6 +15,9 @@
     - wpa_supplicant
     - wireless_tools
     - dialog  # needed for wifi-menu
+    - crda
+
+- copy: src=files/wireless-regdom dest=/etc/conf.d/wireless-regdom
 
 - copy: src=files/no-wifi-power-save dest=/etc/modprobe.d/no-wifi-power-save.conf
 
