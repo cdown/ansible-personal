@@ -27,7 +27,6 @@
     - gvfs-mtp
     - mtpfs
     - mcelog  # not in community or aur any more
-    - cronie
     - jfsutils
     - nano
     - pcmciautils
