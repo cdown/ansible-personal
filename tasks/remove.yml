@@ -64,6 +64,7 @@
     - ntp
     - firefox-unbranded-bin
     - chromium
+    - certbot
 
 - name: Remove unused files
   file: path={{ item }} state=absent
