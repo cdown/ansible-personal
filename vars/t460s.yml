@@ -1,15 +1,1 @@
----
-model: T460s
-wifi: true
-laptop: true
-
-# t460s does not enable ASPM for power saving without pcie_aspm=force
-# % dmesg | grep -i aspm
-# [    0.502657] acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI]
-# [    0.502759] acpi PNP0A08:00: _OSC failed (AE_SUPPORT); disabling ASPM
-extra_kernel_params: 'pcie_aspm=force'
-
-# currently freezes when sd card is inserted
-#kernel: linux-ck-skylake
-#hdd_scheduler: bfq
-#ssd_scheduler: bfq
+t470s.yml
