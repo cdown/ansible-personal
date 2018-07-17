@@ -25,7 +25,7 @@ extra_kernel_pgp_keys: []
 python_2_version: 2.7.15
 python_3_version: 3.6.5
 ruby_version: 2.6.0-dev
-perl_version: 5.27.8
+perl_version: 5.28.0
 
 install_wine: false
 
