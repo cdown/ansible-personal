@@ -12,6 +12,7 @@ users_inc_super:
 
 install_env_users:
   - cdown
+  - lin
 
 minimal: false
 
