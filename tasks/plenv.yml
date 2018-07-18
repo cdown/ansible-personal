@@ -23,7 +23,7 @@
   when: 'item not in plenv_versions.stdout_lines'
 
 - name: Get user home
-  shell: "getent passwd cdown | awk -F: '{ print $6 }'"
+  shell: "getent passwd {{ user }} | awk -F: '{ print $6 }'"
   register: user_home
   changed_when: false
 
