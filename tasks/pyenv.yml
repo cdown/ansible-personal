@@ -69,7 +69,6 @@
     - statsmodels
     - nbconvert
     - scikit-learn
-    - tensorflow
     - numba
     - dask
     - cvxopt
