@@ -28,9 +28,12 @@
     - terminus-font
     - ttf-inconsolata
 
-- aur: name=ttf-symbola
+- aur: name={{ item }}
   become: yes
   become_user: makepkg
+  with_items:
+    - ttf-symbola
+    - scientifica-bdf
 
 - name: Lock screen on suspend for cdown
   copy: src=files/slock.service dest=/etc/systemd/system/slock.service mode=644
