@@ -9,6 +9,7 @@
     - strace
     - time
     - ngrep
+    - perf
 
 - name: Install debugging tools (AUR)
   aur: name={{ item }}

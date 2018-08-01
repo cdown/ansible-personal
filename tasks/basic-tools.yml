@@ -12,6 +12,7 @@
     - btrfs-progs
     - wmname
     - netbrake
+    - graphviz
 
 # See https://github.com/ansible/ansible/pull/34322 for my plan for a better
 # solution
@@ -120,6 +121,7 @@
     - pdftk-bin
     - clipmenu
     - google-chrome
+    - levmar
   become: yes
   become_user: makepkg
 
