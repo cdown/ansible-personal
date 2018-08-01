@@ -122,6 +122,7 @@
     - clipmenu
     - google-chrome
     - levmar
+    - faddeeva-cpp
   become: yes
   become_user: makepkg
 
