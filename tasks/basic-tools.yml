@@ -123,6 +123,7 @@
     - google-chrome
     - levmar-openmp
     - faddeeva-cpp
+    - cern-vdt
   become: yes
   become_user: makepkg
 
