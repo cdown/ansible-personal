@@ -65,6 +65,7 @@
     - firefox-unbranded-bin
     - chromium
     - certbot
+    - levmar
 
 - name: Remove unused files
   file: path={{ item }} state=absent

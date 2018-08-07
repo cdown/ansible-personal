@@ -121,7 +121,7 @@
     - pdftk-bin
     - clipmenu
     - google-chrome
-    - levmar
+    - levmar-openmp
     - faddeeva-cpp
   become: yes
   become_user: makepkg
