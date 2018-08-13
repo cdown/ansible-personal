@@ -1,0 +1,12 @@
+#!/bin/bash -e
+
+ifs=(/sys/class/net/e*)
+ifs=( "${ifs[@]##*/}" )
+
+if (( ${#ifs[@]} > 1 )); then
+    printf -- 'More than one interface:\n' >&2
+    printf -- '- %s\n' "${ifs[@]}" >&2
+    exit 1
+fi
+
+printf -- '%s\n' "${ifs[0]}"

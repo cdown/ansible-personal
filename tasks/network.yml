@@ -1,11 +1,8 @@
 ---
-- name: Disable old dhcpcd setup (now using netctl)
-  service: name=dhcpcd state=stopped enabled=no
-  when: wifi
-
-- name: Enable dhcpcd if not a wifi machine
-  service: name=dhcpcd state=started enabled=yes
-  when: not wifi
+- name: Install wired tools
+  pacman: name={{ item }} state=present
+  with_items:
+    - ifplugd
 
 - name: Install wireless tools
   pacman: name={{ item }} state=present
@@ -22,3 +19,10 @@
 - copy: src=files/no-wifi-power-save dest=/etc/modprobe.d/no-wifi-power-save.conf
 
 - template: src=files/hosts dest=/etc/hosts
+
+- copy: src=files/bin/get-wired-interface dest=/usr/local/bin/get-wired-interface mode=755
+
+- command: get-wired-interface
+  register: wired_iface
+
+- service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }}

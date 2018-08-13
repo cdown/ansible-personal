@@ -97,3 +97,8 @@
 #  with_items:
 #    - lvm2-lvmetad
 #    - upower
+
+- name: Stop old services
+  service: name={{ item }} state=stopped enabled=no
+  with_items:
+    - dhcpcd
