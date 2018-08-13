@@ -24,5 +24,6 @@
 
 - command: get-wired-interface
   register: wired_iface
+  changed_when: false
 
 - service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }}
