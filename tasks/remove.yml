@@ -51,7 +51,6 @@
     - xautolock
     - xbanish
     - logrotate
-    - perf
     - wireshark-cli
     - nmap
     - tcpdump
