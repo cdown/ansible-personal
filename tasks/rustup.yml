@@ -22,6 +22,9 @@
   register: cargo_pkgs
   changed_when: false
 
+- name: Install libssh2-sys build dependency cmake
+  pacman: name=cmake
+
 - name: Install rust utilities
   command: "cargo install {{ item }}"
   with_items:
