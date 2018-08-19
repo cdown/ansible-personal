@@ -33,6 +33,7 @@
     - cargo-update
     - fd-find
     - rustfmt
+    - cargo-edit-locally
   become: yes
   become_user: "{{ user }}"
   when: 'item not in cargo_pkgs.stdout_lines'
