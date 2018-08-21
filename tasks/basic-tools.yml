@@ -85,6 +85,7 @@
     - pacman-contrib
     - tigervnc
     - pv
+    - clipmenu
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys 2E1AC68ED40814E0
@@ -121,7 +122,6 @@
     - geteltorito
     - pkgbuild-introspection
     - pdftk-bin
-    - clipmenu
     - google-chrome
     - levmar-openmp
     - faddeeva-cpp
