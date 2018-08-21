@@ -13,6 +13,8 @@
     - wmname
     - netbrake
     - graphviz
+    - aspell
+    - aspell-en
 
 # See https://github.com/ansible/ansible/pull/34322 for my plan for a better
 # solution
