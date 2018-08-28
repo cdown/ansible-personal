@@ -22,8 +22,23 @@
   register: cargo_pkgs
   changed_when: false
 
+- shell: "rustup component list --toolchain nightly | awk -F- '{ print $1 \"-\" $2 }'"
+  become: yes
+  become_user: "{{ user }}"
+  register: rustup_nightly_components
+  changed_when: false
+
 - name: Install libssh2-sys build dependency cmake
   pacman: name=cmake
+
+- name: Install rustup components
+  command: "rustup component add {{ item }} --toolchain nightly"
+  with_items:
+    - clippy-preview
+    - rustfmt-preview
+  become: yes
+  become_user: "{{ user }}"
+  when: 'item not in rustup_nightly_components.stdout_lines'
 
 - name: Install rust utilities
   command: "cargo install {{ item }}"
@@ -32,7 +47,6 @@
     - ripgrep
     - cargo-update
     - fd-find
-    - rustfmt
     - cargo-edit-locally
   become: yes
   become_user: "{{ user }}"
