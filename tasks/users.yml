@@ -11,6 +11,10 @@
   user: name={{ item }} groups=adbusers append=yes
   with_items: '{{ users }}'
 
+- name: Add local user to vboxusers group
+  user: name={{ item }} groups=vboxusers append=yes
+  with_items: '{{ users }}'
+
 - name: Add local user to ssh group
   user: name={{ item }} groups=ssh append=yes
   with_items: '{{ users }}'
