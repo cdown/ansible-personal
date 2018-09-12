@@ -26,4 +26,4 @@
   register: wired_iface
   changed_when: false
 
-- service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }}
+- service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }} state=started enabled=yes
