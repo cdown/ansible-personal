@@ -94,6 +94,7 @@
   with_items:
     - lvm2-lvmetad
     - upower
+    - systemd-journald-audit.socket
 
 - name: Stop old services
   service: name={{ item }} state=stopped enabled=no
