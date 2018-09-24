@@ -89,12 +89,11 @@
     - /etc/cron.d/purge-atop-logs
     - /etc/cron.d/reflector
 
-# Temporarily disabled due to https://github.com/ansible/ansible/issues/42384
-#- name: Mask undesirable services that remain for dependency reasons
-#  systemd: name={{ item }} state=stopped enabled=no masked=yes
-#  with_items:
-#    - lvm2-lvmetad
-#    - upower
+- name: Mask undesirable services that remain for dependency reasons
+  systemd: name={{ item }} state=stopped enabled=no masked=yes
+  with_items:
+    - lvm2-lvmetad
+    - upower
 
 - name: Stop old services
   service: name={{ item }} state=stopped enabled=no
