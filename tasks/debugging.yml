@@ -22,6 +22,5 @@
 - name: Copy atop config
   copy: src=files/atop.daily dest=/usr/share/atop/atop.daily mode=700
 
-# Temporarily disabled due to https://github.com/ansible/ansible/issues/42384
-#- name: Mask atop
-#  systemd: name=atop state=stopped enabled=no masked=yes
+- name: Mask atop
+  systemd: name=atop state=stopped enabled=no masked=yes
