@@ -19,7 +19,7 @@ minimal: false
 kernel: linux
 hdd_scheduler: deadline
 ssd_scheduler: deadline
-default_kernel_params: 'cgroup_no_v1=all systemd.unified_cgroup_hierarchy=1 nmi_watchdog=0 nowatchdog audit=0'
+default_kernel_params: 'cgroup_no_v1=all cgroup_disable=rdma systemd.unified_cgroup_hierarchy=1 nmi_watchdog=0 nowatchdog audit=0'
 extra_kernel_params: ''
 extra_kernel_pgp_keys: []
 
