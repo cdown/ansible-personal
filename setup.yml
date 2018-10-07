@@ -38,7 +38,7 @@
     - import_tasks: tasks/zsh.yml
     - import_tasks: tasks/vbox-host.yml
     - import_tasks: tasks/users.yml
-    - include_tasks: tasks/linger.yml item={{ item }}
+    - include_tasks: tasks/linger.yml
       with_items: '{{ users }}'
     - import_tasks: tasks/ntp.yml
     - import_tasks: tasks/fonts.yml
@@ -65,28 +65,28 @@
     - import_tasks: tasks/chinese.yml
       when: not minimal
     - import_tasks: tasks/sysctl.yml
-    - include_tasks: tasks/dotfiles.yml user={{ user_item }}
+    - include_tasks: tasks/dotfiles.yml
       with_items: '{{ users_inc_super }}'
       loop_control:
-        loop_var: user_item
-    - include_tasks: tasks/rustup.yml user={{ user_item }}
+        loop_var: user
+    - include_tasks: tasks/rustup.yml
       with_items: '{{ install_env_users }}'
       loop_control:
-        loop_var: user_item
+        loop_var: user
       tags:
         - rust
-    - include_tasks: tasks/rbenv.yml user={{ user_item }}
+    - include_tasks: tasks/rbenv.yml
       with_items: '{{ install_env_users }}'
       loop_control:
-        loop_var: user_item
-    - include_tasks: tasks/pyenv.yml user={{ user_item }}
+        loop_var: user
+    - include_tasks: tasks/pyenv.yml
       with_items: '{{ install_env_users }}'
       loop_control:
-        loop_var: user_item
-    - include_tasks: tasks/plenv.yml user={{ user_item }}
+        loop_var: user
+    - include_tasks: tasks/plenv.yml
       with_items: '{{ install_env_users }}'
       loop_control:
-        loop_var: user_item
+        loop_var: user
     - import_tasks: tasks/shared.yml
       when: model == "VirtualBox"
     - import_tasks: tasks/udev.yml
