@@ -1,3 +1,6 @@
 ---
 - name: Install fonts
   pacman: name=ttf-droid state=present
+
+- name: Install fontconfig cache clear hook
+  copy: src=files/fontconfig-clear-cache.hook dest=/usr/share/libalpm/hooks/fontconfig-clear-cache.hook

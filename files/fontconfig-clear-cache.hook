@@ -1,0 +1,12 @@
+# Default provided fontconfig.hook only does `-s`, and only looks at
+# usr/share/fonts/* which doesn't help much for things like Terminus
+[Trigger]
+Type = Package
+Operation = Install
+Operation = Upgrade
+Target = fontconfig
+
+[Action]
+Description = Updating fontconfig cache due to fontconfig upgrade...
+When = PostTransaction
+Exec = /usr/bin/fc-cache -f -v
