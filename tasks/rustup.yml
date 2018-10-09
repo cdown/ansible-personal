@@ -22,7 +22,7 @@
   register: cargo_pkgs
   changed_when: false
 
-- shell: "rustup component list --toolchain nightly | awk -F- '{ print $1 \"-\" $2 }'"
+- shell: "rustup component list --toolchain nightly-2018-10-07 | awk -F- '{ print $1 \"-\" $2 }'"
   become: yes
   become_user: "{{ user }}"
   register: rustup_nightly_components
@@ -32,7 +32,7 @@
   pacman: name=cmake
 
 - name: Install rustup components
-  command: "rustup component add {{ item }} --toolchain nightly"
+  command: "rustup component add {{ item }} --toolchain nightly-2018-10-07"
   with_items:
     - clippy-preview
     - rustfmt-preview
