@@ -28,17 +28,30 @@
   register: rustup_nightly_components
   changed_when: false
 
+- shell: "rustup component list --toolchain stable | awk -F- '{ print $1 \"-\" $2 }'"
+  become: yes
+  become_user: "{{ user }}"
+  register: rustup_stable_components
+  changed_when: false
+
 - name: Install libssh2-sys build dependency cmake
   pacman: name=cmake
 
-- name: Install rustup components
+- name: Install nightly rustup components
   command: "rustup component add {{ item }} --toolchain nightly-2018-10-07"
   with_items:
     - clippy-preview
-    - rustfmt-preview
   become: yes
   become_user: "{{ user }}"
   when: 'item not in rustup_nightly_components.stdout_lines'
+
+- name: Install stable rustup components
+  command: "rustup component add {{ item }} --toolchain stable"
+  with_items:
+    - rustfmt-preview
+  become: yes
+  become_user: "{{ user }}"
+  when: 'item not in rustup_stable_components.stdout_lines'
 
 - name: Install rust utilities
   command: "cargo install {{ item }}"
