@@ -42,6 +42,7 @@
   with_items:
     - xf86-input-synaptics
     - libva-intel-driver
+    - xf86-video-intel
   when: model in ["T460s", "T470s", "X1 Carbon"]
 
 # https://bbs.archlinux.org/viewtopic.php?id=198157
