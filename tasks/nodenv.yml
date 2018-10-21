@@ -1,0 +1,40 @@
+---
+- name: Install nodenv
+  aur: 'name={{ item }}'
+  with_items:
+    - nodenv
+    - nodenv-node-build
+  become: yes
+  become_user: makepkg
+
+- name: Check if node is installed in nodenv
+  command: nodenv version
+  register: nodenv_version
+  become: yes
+  become_user: "{{ user }}"
+  changed_when: false
+
+- name: Install node {{ node_version }} using nodenv
+  command: "{{ item }}"
+  with_items:
+    - nodenv install {{ node_version }}
+    - nodenv rehash
+    - nodenv global {{ node_version }}
+  become: yes
+  become_user: "{{ user }}"
+  when: '"system" in nodenv_version.stdout'
+
+- name: Get list of installed packages
+  shell: "eval \"$(nodenv init -)\" && npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
+  register: nodenv_packages
+  become: yes
+  become_user: "{{ user }}"
+  changed_when: false
+
+- name: Install node utilities
+  shell: 'eval "$(nodenv init -)" && npm install -g {{ item }} && nodenv rehash'
+  with_items:
+    - arch-wiki-man
+  become: yes
+  become_user: "{{ user }}"
+  when: '"{{ item | basename }}" not in nodenv_packages.stdout_lines'

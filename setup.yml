@@ -83,6 +83,10 @@
       with_items: '{{ install_env_users }}'
       loop_control:
         loop_var: user
+    - include_tasks: tasks/nodenv.yml
+      with_items: '{{ install_env_users }}'
+      loop_control:
+        loop_var: user
     - include_tasks: tasks/plenv.yml
       with_items: '{{ install_env_users }}'
       loop_control:

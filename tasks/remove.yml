@@ -37,8 +37,6 @@
     - vlock-original
     - screenkey
     - xprintidle
-    - nodenv
-    - nodenv-node-build
     - prompter
     - gnome-icon-theme
     - arch-install-scripts
