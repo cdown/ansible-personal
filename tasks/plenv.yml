@@ -51,6 +51,8 @@
     # Image renamer
     - Image::ExifTool
     - App::cpanoutdated
+    # ASCII trees from dot
+    - Graph::Easy
   become: yes
   become_user: "{{ user }}"
   when: '(item|basename) not in plenv_gems.stdout_lines'
