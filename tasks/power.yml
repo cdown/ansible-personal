@@ -17,6 +17,9 @@
     - powerdown
     - powerup
 
+- name: Copy power key disable
+  copy: src=files/logind.conf dest=/etc/systemd/logind.conf
+
 - name: Copy power targets udev rule
   copy: src=files/udev/powertargets.rules dest=/etc/udev/rules.d/99-powertargets.rules
 
