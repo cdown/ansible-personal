@@ -1,0 +1,16 @@
+---
+- name: Install Bluetooth audio required packages
+  pacman:
+    state: present
+    name:
+      - bluez
+      - bluez-utils
+      - bluez-tools
+      - pulseaudio-bluetooth
+
+- name: Enable required bluetooth modules on boot
+  copy: src=files/bluetooth.conf dest=/etc/modules-load.d/bluetooth.conf
+
+- name: Add local users to lp group for DBus policy
+  user: name={{ item }} groups=lp append=yes
+  with_items: '{{ users }}'

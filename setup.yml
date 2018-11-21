@@ -106,6 +106,8 @@
     - import_tasks: tasks/locale.yml
     - import_tasks: tasks/wine.yml
       when: not minimal
+    - import_tasks: tasks/bluetooth.yml
+      when: not minimal
     - import_tasks: tasks/postremove.yml
     - systemd: daemon_reload=yes
 
