@@ -98,3 +98,9 @@
   service: name={{ item }} state=stopped enabled=no
   with_items:
     - dhcpcd
+
+- name: Don't blacklist Bluetooth
+  kernel_blacklist: name={{ item }} state=absent
+  with_items:
+    - btusb
+    - bluetooth

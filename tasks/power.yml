@@ -32,12 +32,6 @@
 - name: Install ethtool for powerdown
   pacman: name=ethtool state=present
 
-- name: Blacklist Bluetooth
-  kernel_blacklist: name={{ item }} state=present
-  with_items:
-    - btusb
-    - bluetooth
-
 # Sometimes Lin's W530 decides to totally freeze during suspend. A good suspend
 # looks like this:
 #
