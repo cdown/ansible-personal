@@ -121,6 +121,7 @@
     - pandoc-bin
     - mpdscribble
     - mpdmenu
+    - btmenu
     - geteltorito
     - pkgbuild-introspection
     - pdftk-bin
