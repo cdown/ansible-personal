@@ -37,4 +37,4 @@
     - arch-wiki-man
   become: yes
   become_user: "{{ user }}"
-  when: '"{{ item | basename }}" not in nodenv_packages.stdout_lines'
+  when: '(item|basename) not in nodenv_packages.stdout_lines'
