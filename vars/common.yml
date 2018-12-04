@@ -16,7 +16,8 @@ install_env_users:
 
 minimal: false
 
-kernel: linux
+# temporarily move everyone to lts due to https://bugzilla.kernel.org/show_bug.cgi?id=201685
+kernel: linux-lts
 hdd_scheduler: mq-deadline
 ssd_scheduler: none
 default_kernel_params: 'cgroup_no_v1=all cgroup_disable=rdma systemd.unified_cgroup_hierarchy=1 nmi_watchdog=0 nowatchdog audit=0 acpi.ec_no_wakeup=1 scsi_mod.use_blk_mq=1'
