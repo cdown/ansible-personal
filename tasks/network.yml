@@ -1,18 +1,18 @@
 ---
 - name: Install wired tools
-  pacman: name={{ item }} state=present
-  with_items:
-    - ifplugd
+  pacman:
+    name:
+      - ifplugd
 
 - name: Install wireless tools
-  pacman: name={{ item }} state=present
   when: wifi
-  with_items:
-    - iw
-    - wpa_supplicant
-    - wireless_tools
-    - dialog  # needed for wifi-menu
-    - crda
+  pacman:
+    name:
+      - iw
+      - wpa_supplicant
+      - wireless_tools
+      - dialog  # needed for wifi-menu
+      - crda
 
 - copy: src=files/wireless-regdom dest=/etc/conf.d/wireless-regdom
 

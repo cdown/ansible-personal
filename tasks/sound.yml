@@ -4,10 +4,10 @@
   when: model in ["T460s", "T470s", "X1 Carbon", "W530"]
 
 - name: Install PulseAudio
-  pacman: name={{ item }}
-  with_items:
-    - pulseaudio
-    - pavucontrol
+  pacman:
+    name:
+      - pulseaudio
+      - pavucontrol
   when: not minimal
 
 - name: Install PulseAudio utils

@@ -2,8 +2,8 @@
 - name: Install systemd build deps
   pacman:
     name:
-      - meson
-      - ninja
-      - gperf
-      - docbook-xsl
-      - libmicrohttpd
+        - meson
+        - ninja
+        - gperf
+        - docbook-xsl
+        - libmicrohttpd

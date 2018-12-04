@@ -1,20 +1,20 @@
 ---
 - name: Install tools that don't require Ansible configuration (all)
-  pacman: name={{ item }} state=present
-  with_items:
-    - vim
-    - rsync
-    - tmux
-    - git
-    - openssh
-    - htop
-    - mupdf
-    - btrfs-progs
-    - wmname
-    - netbrake
-    - graphviz
-    - aspell
-    - aspell-en
+  pacman:
+    name:
+      - vim
+      - rsync
+      - tmux
+      - git
+      - openssh
+      - htop
+      - mupdf
+      - btrfs-progs
+      - wmname
+      - netbrake
+      - graphviz
+      - aspell
+      - aspell-en
 
 # See https://github.com/ansible/ansible/pull/34322 for my plan for a better
 # solution
@@ -23,72 +23,72 @@
   when: "'atop' not in installed_packages.stdout_lines"
 
 - name: Install tools that don't require Ansible configuration (Chris specific)
-  pacman: name={{ item }} state=present
   when: not minimal
-  with_items:
-    - macchanger
-    - python-virtualenvwrapper
-    - bind-tools
-    - lsof
-    - whois
-    - zenity  # used for trello-popup
-    - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
-    - reflector
-    - p7zip
-    - maim
-    - slop  # optdepends for `screenshot --select`
-    - zstd
-    - mercurial  # needed for some pyenv installed stuff
-    - flashplugin
-    - openconnect
-    - mupdf-tools  # `mutool clean` to fix pdfs
-    - msmtp
-    - xclip
-    - pass
-    - sxiv
-    - irssi
+  pacman:
+    name:
+      - macchanger
+      - python-virtualenvwrapper
+      - bind-tools
+      - lsof
+      - whois
+      - zenity  # used for trello-popup
+      - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
+      - reflector
+      - p7zip
+      - maim
+      - slop  # optdepends for `screenshot --select`
+      - zstd
+      - mercurial  # needed for some pyenv installed stuff
+      - flashplugin
+      - openconnect
+      - mupdf-tools  # `mutool clean` to fix pdfs
+      - msmtp
+      - xclip
+      - pass
+      - sxiv
+      - irssi
     # For duply
-    - python2-boto
-    - parallel
-    - pdfpc
-    - enca
-    - android-tools
-    - android-udev
-    - hugin
-    - gimp
-    - gimp-plugin-gmic
-    - gmic
-    - rustup
-    - dmidecode  # certsign
-    - imagemagick
-    - ghostscript # for imagemagick
-    - mpv
-    - ncdu
-    - powertop
-    - openbox  # presentations
-    - libreoffice-still
-    - mktorrent
-    - mpd
-    - mpc
-    - id3v2
-    - kid3
-    - easytag
-    - udftools
-    - clang
-    - shellcheck
-    - docx2txt
-    - antiword
-    - gdb
-    - jq
-    - busybox
-    - xdotool
-    - pacman-contrib
-    - tigervnc
-    - pv
-    - clipmenu
-    - clipnotify  # clipmenu optdepends
-    - asp
-    - moreutils
+      - python2-boto
+      - parallel
+      - pdfpc
+      - enca
+      - android-tools
+      - android-udev
+      - hugin
+      - gimp
+      - gimp-plugin-gmic
+      - gmic
+      - rustup
+      - dmidecode  # certsign
+      - imagemagick
+      - ghostscript # for imagemagick
+      - mpv
+      - ncdu
+      - powertop
+      - openbox  # presentations
+      - libreoffice-still
+      - mktorrent
+      - mpd
+      - mpc
+      - id3v2
+      - kid3
+      - easytag
+      - udftools
+      - clang
+      - shellcheck
+      - docx2txt
+      - antiword
+      - gdb
+      - jq
+      - busybox
+      - xdotool
+      - pacman-contrib
+      - tigervnc
+      - pv
+      - clipmenu
+      - clipnotify  # clipmenu optdepends
+      - asp
+      - moreutils
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys EB774491D9FF06E2

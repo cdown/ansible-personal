@@ -1,67 +1,69 @@
 ---
 - name: Remove tools that are no longer used
-  pacman: name={{ item }} state=absent recurse=yes
-  with_items:
-    - okular
-    - ctags
-    - emojione-color-font
-    - exfat-utils
-    - lib32-apulse
-    - ltrace
-    - skype
-    - ndenv
-    - node-build
-    - pkgfile
-    - xf86-video-intel  # we always use KMS
-    - openvpn-update-resolv-conf  # now managed by ansible directly
-    - cython
-    - youtube-dl  # done through pyenv
-    - frogr
-    - wdiff
-    - urlscan
-    - xorg-xgamma
-    - laptop-mode
-    - docker
-    - netatop-dkms
-    - netatop
-    - gvfs-mtp
-    - mtpfs
-    - mcelog  # not in community or aur any more
-    - jfsutils
-    - nano
-    - pcmciautils
-    - reiserfsprogs
-    - s-nail
-    - evince
-    - acpi
-    - vlock-original
-    - screenkey
-    - xprintidle
-    - prompter
-    - gnome-icon-theme
-    - arch-install-scripts
-    - autossh
-    - colordiff
-    - pinta
-    - lshw
-    - gthumb
-    - libreoffice-fresh
-    - xautolock
-    - xbanish
-    - logrotate
-    - wireshark-cli
-    - nmap
-    - tcpdump
-    - nethogs
-    - alsa-utils
-    - notmuch
-    - notmuch-mutt
-    - isync
-    - openvpn
-    - ntp
-    - firefox-unbranded-bin
-    - chromium
-    - certbot
+  pacman:
+    state: absent
+    recurse: yes
+    name:
+      - okular
+      - ctags
+      - emojione-color-font
+      - exfat-utils
+      - lib32-apulse
+      - ltrace
+      - skype
+      - ndenv
+      - node-build
+      - pkgfile
+      - xf86-video-intel  # we always use KMS
+      - openvpn-update-resolv-conf  # now managed by ansible directly
+      - cython
+      - youtube-dl  # done through pyenv
+      - frogr
+      - wdiff
+      - urlscan
+      - xorg-xgamma
+      - laptop-mode
+      - docker
+      - netatop-dkms
+      - netatop
+      - gvfs-mtp
+      - mtpfs
+      - mcelog  # not in community or aur any more
+      - jfsutils
+      - nano
+      - pcmciautils
+      - reiserfsprogs
+      - s-nail
+      - evince
+      - acpi
+      - vlock-original
+      - screenkey
+      - xprintidle
+      - prompter
+      - gnome-icon-theme
+      - arch-install-scripts
+      - autossh
+      - colordiff
+      - pinta
+      - lshw
+      - gthumb
+      - libreoffice-fresh
+      - xautolock
+      - xbanish
+      - logrotate
+      - wireshark-cli
+      - nmap
+      - tcpdump
+      - nethogs
+      - alsa-utils
+      - notmuch
+      - notmuch-mutt
+      - isync
+      - openvpn
+      - ntp
+      - firefox-unbranded-bin
+      - chromium
+      - certbot
 
 - name: Remove unused files
   file: path={{ item }} state=absent

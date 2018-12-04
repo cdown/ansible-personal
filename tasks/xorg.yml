@@ -1,23 +1,23 @@
 ---
 - name: Install Xorg base
-  pacman: name={{ item }} state=present
-  with_items:
-    - xorg-server
-    - xorg-xinit
-    - xorg-xrdb
+  pacman:
+    name:
+      - xorg-server
+      - xorg-xinit
+      - xorg-xrdb
 
 - name: Install optional xorg tools
-  pacman: name={{ item }} state=present
-  with_items:
-    - xorg-xprop
-    - xorg-xmodmap
-    - xorg-xrandr
-    - xorg-xev
-    - xorg-xset
-    - xorg-xinput
-    - xorg-xlsclients
-    - xorg-xdpyinfo
-    - xorg-xwininfo
+  pacman:
+    name:
+      - xorg-xprop
+      - xorg-xmodmap
+      - xorg-xrandr
+      - xorg-xev
+      - xorg-xset
+      - xorg-xinput
+      - xorg-xlsclients
+      - xorg-xdpyinfo
+      - xorg-xwininfo
   when: not minimal
 
 - name: Caps -> Ctrl in Xorg
@@ -32,17 +32,17 @@
   when: model in ["Vostro 3700", "W530"]
 
 - name: Set up Xorg for Vostro 3700
-  pacman: name={{ item }} state=present
-  with_items:
-    - xf86-input-synaptics
+  pacman:
+    name:
+      - xf86-input-synaptics
   when: model == "Vostro 3700"
 
 - name: Set up Xorg for ThinkPad
-  pacman: name={{ item }} state=present
-  with_items:
-    - xf86-input-synaptics
-    - libva-intel-driver
-    - xf86-video-intel
+  pacman:
+    name:
+      - xf86-input-synaptics
+      - libva-intel-driver
+      - xf86-video-intel
   when: model in ["T460s", "T470s", "X1 Carbon"]
 
 # https://bbs.archlinux.org/viewtopic.php?id=198157
@@ -51,30 +51,32 @@
   when: model in ["T460s", "T470s", "X1 Carbon"]
 
 - name: Set up Xorg for nouveau-using laptops
-  pacman: name={{ item }} state=present
-  with_items:
-    - xf86-video-nouveau
-    - xf86-input-synaptics
+  pacman:
+    name:
+      - xf86-video-nouveau
+      - xf86-input-synaptics
   when: model in ["XPS 8500"]
 
 - name: Set up Xorg for nvidia-using laptops
-  pacman: name={{ item }} state=present
-  with_items:
-    - nvidia
-    - xf86-input-synaptics
+  pacman:
+    name:
+      - nvidia
+      - xf86-input-synaptics
   when: model in ["W530"]
 
 - name: Purge nouveau for nvidia-using laptops
-  pacman: name={{ item }} state=present
-  with_items:
-    - xf86-video-nouveau
+  pacman:
+    name:
+      - xf86-video-nouveau
   when: model in ["W530"]
 
 - name: Remove intel video for those formerly using only integrated
-  pacman: name={{ item }} state=absent recurse=yes
-  with_items:
-    - xf86-video-intel
-    - libva-intel-driver
+  pacman:
+    state: absent
+    recurse: yes
+    name:
+      - xf86-video-intel
+      - libva-intel-driver
   when: model in ["W530"]
 
 - name: Set up Xorg for Parallels

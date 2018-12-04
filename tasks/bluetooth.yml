@@ -3,10 +3,10 @@
   pacman:
     state: present
     name:
-      - bluez
-      - bluez-utils
-      - bluez-tools
-      - pulseaudio-bluetooth
+        - bluez
+        - bluez-utils
+        - bluez-tools
+        - pulseaudio-bluetooth
 
 - name: Enable required bluetooth modules on boot
   copy: src=files/bluetooth.conf dest=/etc/modules-load.d/bluetooth.conf

@@ -1,15 +1,15 @@
 ---
 - name: Install debugging tools
-  pacman: name={{ item }} state=present
-  with_items:
-    - bind-tools
-    - htop
-    - iftop
-    - mtr
-    - strace
-    - time
-    - ngrep
-    - perf
+  pacman:
+    name:
+      - bind-tools
+      - htop
+      - iftop
+      - mtr
+      - strace
+      - time
+      - ngrep
+      - perf
 
 - name: Install debugging tools (AUR)
   aur: name={{ item }}

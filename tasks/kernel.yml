@@ -14,12 +14,12 @@
     - "{{ kernel }}-headers"
 
 - name: For whatever kernel we installed, add standard + LTS ones as a backup
-  pacman: name={{ item }} state=present
-  with_items:
-    - linux
-    - linux-headers
-    - linux-lts
-    - linux-lts-headers
+  pacman:
+    name:
+      - linux
+      - linux-headers
+      - linux-lts
+      - linux-lts-headers
   when: not minimal
 
 - name: Install mkinitcpio config

@@ -1,7 +1,7 @@
 ---
 - name: Install VirtualBox base
-  pacman: name={{ item }} state=present
-  with_items:
-    - virtualbox-host-dkms
-    - virtualbox
-    - virtualbox-guest-iso
+  pacman:
+    name:
+      - virtualbox-host-dkms
+      - virtualbox
+      - virtualbox-guest-iso

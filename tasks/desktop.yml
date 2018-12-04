@@ -5,17 +5,17 @@
   become_user: makepkg
 
 - name: Install desktop utilities
-  pacman: name={{ item }} state=present
-  with_items:
-    - dmenu
-    - rxvt-unicode
-    - slock
+  pacman:
+    name:
+      - dmenu
+      - rxvt-unicode
+      - slock
 
 - name: Install optional desktop utilities
-  pacman: name={{ item }} state=present
-  with_items:
-    - libnotify
-    - xfce4-notifyd
+  pacman:
+    name:
+      - libnotify
+      - xfce4-notifyd
   when: not minimal
 
 - name: Install urxvt Perl extensions
@@ -23,10 +23,10 @@
   when: not minimal
 
 - name: Set up terminal fonts
-  pacman: name={{ item }}
-  with_items:
-    - terminus-font
-    - ttf-inconsolata
+  pacman:
+    name:
+      - terminus-font
+      - ttf-inconsolata
 
 - aur: name=ttf-symbola
   become: yes

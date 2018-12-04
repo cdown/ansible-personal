@@ -1,6 +1,6 @@
 ---
 - name: Install CUPS and Ghostscript
-  pacman: name={{ item }} state=present
-  with_items:
-    - cups
-    - ghostscript
+  pacman:
+    name:
+      - cups
+      - ghostscript
