@@ -108,6 +108,8 @@
       when: not minimal
     - import_tasks: tasks/bluetooth.yml
       when: not minimal
+    - import_tasks: tasks/systemd-dev.yml
+      when: not minimal
     - import_tasks: tasks/postremove.yml
     - systemd: daemon_reload=yes
 
