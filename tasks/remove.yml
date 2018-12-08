@@ -77,6 +77,7 @@
     - /etc/acpi/events/ansible
     - /etc/X11/xorg.conf.d/99-xorg-intel-tearing.conf
     - /etc/modules-load.d/no-wifi-power-save.conf
+    - /etc/sysctl.d/99-laptop.conf
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent

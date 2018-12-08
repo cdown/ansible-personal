@@ -1,8 +1,4 @@
 ---
-- name: Copy sysctl laptop powersave settings
-  copy: src=files/sysctl/laptop.conf dest=/etc/sysctl.d/99-laptop.conf
-  when: laptop
-
 - name: Disable ptrace_scope
   copy: src=files/sysctl/trace.conf dest=/etc/sysctl.d/99-trace.conf
 
