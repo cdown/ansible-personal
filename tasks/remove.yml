@@ -78,6 +78,9 @@
     - /etc/X11/xorg.conf.d/99-xorg-intel-tearing.conf
     - /etc/modules-load.d/no-wifi-power-save.conf
     - /etc/sysctl.d/99-laptop.conf
+    - /etc/sysctl.d/99-dirty.conf
+    - /etc/sysctl.d/99-sysrq.conf
+    - /etc/sysctl.d/99-trace.conf
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent
