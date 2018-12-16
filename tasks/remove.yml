@@ -64,6 +64,8 @@
       - firefox-unbranded-bin
       - chromium
       - certbot
+      - thermald
+      - ethtool
 
 - name: Remove unused files
   file: path={{ item }} state=absent
@@ -81,6 +83,11 @@
     - /etc/sysctl.d/99-dirty.conf
     - /etc/sysctl.d/99-sysrq.conf
     - /etc/sysctl.d/99-trace.conf
+    - /etc/udev/rules.d/70-laptop-net.rules
+    - /etc/systemd/system/ac.target
+    - /etc/systemd/system/battery.target
+    - /etc/systemd/system/powerdown.service
+    - /etc/systemd/system/powerup.service
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent

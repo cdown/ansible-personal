@@ -1,36 +1,6 @@
 ---
-- name: Copy {{ item }} script
-  copy: src=files/bin/{{ item }} dest=/usr/local/bin/{{ item }} mode=755
-  with_items:
-    - powerdown
-    - powerup
-
-- name: Install {{ item }} service
-  copy: src=files/{{ item }}.service dest=/etc/systemd/system/{{ item }}.service mode=644
-  with_items:
-    - powerdown
-    - powerup
-
-- name: Enable {{ item }} service
-  systemd: name={{ item }} enabled=yes daemon_reload=yes
-  with_items:
-    - powerdown
-    - powerup
-
 - name: Copy power key disable
   copy: src=files/logind.conf dest=/etc/systemd/logind.conf
-
-- name: Copy power targets udev rule
-  copy: src=files/udev/powertargets.rules dest=/etc/udev/rules.d/99-powertargets.rules
-
-- name: Copy power targets
-  copy: src=files/{{ item }}.target dest=/etc/systemd/system
-  with_items:
-    - ac
-    - battery
-
-- name: Install ethtool for powerdown
-  pacman: name=ethtool state=present
 
 # Sometimes Lin's W530 decides to totally freeze during suspend. A good suspend
 # looks like this:
@@ -46,7 +16,3 @@
 # pm_async=0 and it seems to work with no real penalty to suspend time. Bleh.
 - name: Disable pm_async
   copy: src=files/disable-pm-async.conf dest=/etc/tmpfiles.d/disable-pm-async.conf
-
-- pacman: name=thermald
-
-- systemd: name=thermald state=started enabled=yes daemon_reload=yes
