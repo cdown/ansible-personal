@@ -65,7 +65,6 @@
       - chromium
       - certbot
       - thermald
-      - ethtool
 
 - name: Remove unused files
   file: path={{ item }} state=absent
