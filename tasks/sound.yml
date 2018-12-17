@@ -11,7 +11,7 @@
   when: not minimal
 
 - name: Install PulseAudio utils
-  aur: name=pulseaudio-ctl
+  aur: name=pulseaudio-ctl skip_installed=yes
   become: yes
   become_user: makepkg
   when: not minimal

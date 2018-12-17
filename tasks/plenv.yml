@@ -1,6 +1,6 @@
 ---
 - name: Install plenv
-  aur: 'name={{ item }}'
+  aur: name={{ item }} skip_installed=yes
   with_items:
     - plenv
     - perl-build

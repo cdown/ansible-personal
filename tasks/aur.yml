@@ -8,26 +8,12 @@
 - name: Install base-devel
   pacman: name=base-devel state=present
 
-- name: Check falconindy key's existence
-  command: gpg --list-keys 1EB2638FF56C0C53
-  changed_when: false
-  ignore_errors: true
-  register: falconindy_key
-  become: yes
-  become_user: makepkg
-
-- name: Set up GPG key for falconindy (for cower)
-  command: gpg --keyserver pgp.mit.edu --recv-keys 1EB2638FF56C0C53
-  when: "falconindy_key.rc != 0"
-  become: yes
-  become_user: makepkg
-  retries: 3
-  delay: 1
-
 - name: Install cower (pacaur AUR dep)
-  command: aur cower
-  when: "'cower' not in installed_packages.stdout_lines"
+  aur: name=cower skip_installed=yes
+  become: yes
+  become_user: makepkg
 
 - name: Install pacaur
-  command: aur pacaur
-  when: "'pacaur' not in installed_packages.stdout_lines"
+  aur: name=pacaur skip_installed=yes
+  become: yes
+  become_user: makepkg

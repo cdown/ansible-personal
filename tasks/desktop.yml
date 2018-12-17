@@ -1,6 +1,6 @@
 ---
 - name: Install dwm
-  aur: name=dwm-cdown-git
+  aur: name=dwm-cdown-git skip_installed=yes
   become: yes
   become_user: makepkg
 
@@ -28,7 +28,7 @@
       - terminus-font
       - ttf-inconsolata
 
-- aur: name=ttf-symbola
+- aur: name=ttf-symbola skip_installed=yes
   become: yes
   become_user: makepkg
 

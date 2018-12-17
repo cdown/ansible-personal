@@ -12,7 +12,7 @@
       - perf
 
 - name: Install debugging tools (AUR)
-  aur: name={{ item }}
+  aur: name={{ item }} skip_installed=yes
   with_items:
     - bcc-tools
     - python2-bcc

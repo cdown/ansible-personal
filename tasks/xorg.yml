@@ -86,7 +86,7 @@
 - name: Install VirtualBox guest utilities
   # Needs to be from the AUR as there's no guarantee that the headers will come
   # from pacman repos
-  aur: name={{ item }} state=present auronly=no
+  aur: name={{ item }} skip_installed=yes
   with_items:
     - virtualbox-guest-utils
     - "{{ kernel }}-headers"  # needed for virtualbox-guest-dkms which is

@@ -6,7 +6,7 @@
   become_user: makepkg
 
 - name: Install kernel
-  aur: name={{ item }} state=present auronly=no
+  aur: name={{ item }} skip_installed=yes
   become: yes
   become_user: makepkg
   with_items:

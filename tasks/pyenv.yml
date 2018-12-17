@@ -3,7 +3,7 @@
   pacman: name=tk
 
 - name: Install pyenv
-  aur: name=pyenv
+  aur: name=pyenv skip_installed=yes
   become: yes
   become_user: makepkg
 

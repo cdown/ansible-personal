@@ -3,7 +3,7 @@
   pacman: name=ruby
 
 - name: Install rbenv
-  aur: 'name={{ item }}'
+  aur: name={{ item }} skip_installed=yes
   with_items:
     - rbenv
     - ruby-build
