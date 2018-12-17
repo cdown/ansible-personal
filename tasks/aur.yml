@@ -8,12 +8,7 @@
 - name: Install base-devel
   pacman: name=base-devel state=present
 
-- name: Install cower (pacaur AUR dep)
-  aur: name=cower skip_installed=yes
-  become: yes
-  become_user: makepkg
-
-- name: Install pacaur
-  aur: name=pacaur skip_installed=yes
+- name: Install yay
+  aur: name=yay-bin skip_installed=yes use=makepkg
   become: yes
   become_user: makepkg

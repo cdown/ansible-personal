@@ -25,8 +25,8 @@
 
     - import_tasks: tasks/sudo.yml
     - import_tasks: tasks/pacman.yml
-    - import_tasks: tasks/aur.yml
     - import_tasks: tasks/remove.yml
+    - import_tasks: tasks/aur.yml
     - import_tasks: tasks/basic-tools.yml
     - import_tasks: tasks/kernel.yml
     - import_tasks: tasks/syslinux.yml
@@ -53,10 +53,10 @@
         - fstrim-root
         - pacman-fy
         - reflector
-        - clean-pacaur-cache
     - include_tasks: tasks/remove-timers.yml
       with_items:
         - fstrim-boot  # fstrim on VFAT is not supported
+        - clean-pacaur-cache
       loop_control:
         loop_var: rem_timer
     - import_tasks: tasks/systemd.yml

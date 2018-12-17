@@ -65,6 +65,8 @@
       - chromium
       - certbot
       - thermald
+      - pacaur
+      - cower
 
 - name: Remove unused files
   file: path={{ item }} state=absent
