@@ -19,7 +19,6 @@
       - cython
       - youtube-dl  # done through pyenv
       - frogr
-      - wdiff
       - urlscan
       - xorg-xgamma
       - laptop-mode
@@ -43,7 +42,6 @@
       - gnome-icon-theme
       - arch-install-scripts
       - autossh
-      - colordiff
       - pinta
       - lshw
       - gthumb
