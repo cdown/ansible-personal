@@ -1,0 +1,15 @@
+# In this case, the name of the configuration file is important. Due to the
+# introduction of persistent device names via 80-net-setup-link.rules in
+# systemd, it is important that the network powersave rules are named
+# lexicographically before 80-net-setup-link.rules so that they are applied
+# before the devices are named e.g. enp2s0. However, be advised that commands
+# ran with RUN are executed after all rules have been processed -- in which
+# case the naming of the rules file is irrelevant and the persistent device
+# names should be used.
+
+# Disable WOL for battery savings
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="en*", RUN+="/usr/bin/ethtool -s %k wol d"
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="eth*", RUN+="/usr/bin/ethtool -s %k wol d"
+
+# Turn on wifi power savings
+ACTION=="add", SUBSYSTEM=="net", KERNEL=="wl*", RUN+="/usr/bin/iw dev %k set power_save on"

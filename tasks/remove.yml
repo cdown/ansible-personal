@@ -82,11 +82,6 @@
     - /etc/sysctl.d/99-dirty.conf
     - /etc/sysctl.d/99-sysrq.conf
     - /etc/sysctl.d/99-trace.conf
-    - /etc/udev/rules.d/70-laptop-net.rules
-    - /etc/systemd/system/ac.target
-    - /etc/systemd/system/battery.target
-    - /etc/systemd/system/powerdown.service
-    - /etc/systemd/system/powerup.service
     - /etc/X11/xorg.conf.d/20-intel.conf
 
 - name: Remove old crons (now timers)
