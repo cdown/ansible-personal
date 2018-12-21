@@ -41,13 +41,6 @@
   pacman:
     name:
       - xf86-input-synaptics
-      - libva-intel-driver
-      - xf86-video-intel
-  when: model in ["T460s", "T470s", "X1 Carbon"]
-
-# https://bbs.archlinux.org/viewtopic.php?id=198157
-- name: Add UXA override for ThinkPads
-  copy: src=files/20-intel.conf dest=/etc/X11/xorg.conf.d/20-intel.conf mode=644
   when: model in ["T460s", "T470s", "X1 Carbon"]
 
 - name: Set up Xorg for nouveau-using laptops
@@ -77,7 +70,6 @@
     name:
       - xf86-video-intel
       - libva-intel-driver
-  when: model in ["W530"]
 
 - name: Set up Xorg for Parallels
   pacman: name=xf86-video-vesa state=present

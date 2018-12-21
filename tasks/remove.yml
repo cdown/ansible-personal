@@ -87,6 +87,7 @@
     - /etc/systemd/system/battery.target
     - /etc/systemd/system/powerdown.service
     - /etc/systemd/system/powerup.service
+    - /etc/X11/xorg.conf.d/20-intel.conf
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent
