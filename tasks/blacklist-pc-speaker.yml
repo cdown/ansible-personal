@@ -10,3 +10,11 @@
 
 - name: Blacklist uvcvideo (for webcam)
   kernel_blacklist: name=uvcvideo state=present
+
+# wtf?
+#
+# % lsmod | grep sctp
+# sctp                  389120  8
+# libcrc32c              16384  2 btrfs,sctp
+- name: Blacklist sctp
+  kernel_blacklist: name=sctp state=present
