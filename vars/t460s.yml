@@ -1,1 +1,11 @@
-t470s.yml
+---
+model: T460s
+wifi: true
+laptop: true
+
+part_type: gpt
+
+install_wine: true
+
+# Truly the pure cargo cult nuclear option to see what's causing these horizontal lines
+extra_kernel_params: 'i915.enable_rc6=0 i915.enable_psr=0 i915.preliminary_hw_support=1 i915.enable_hd_vgaarb=1 intel_idle.max_cstate=1'
