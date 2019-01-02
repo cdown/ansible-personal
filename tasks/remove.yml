@@ -65,6 +65,7 @@
       - thermald
       - pacaur
       - cower
+      - bluejeans
 
 - name: Remove unused files
   file: path={{ item }} state=absent

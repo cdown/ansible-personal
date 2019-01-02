@@ -135,12 +135,6 @@
   become: yes
   become_user: makepkg
 
-- name: Install bluejeans on 64-bit only
-  aur: name=bluejeans skip_installed=yes
-  become: yes
-  become_user: makepkg
-  when: long_bit.stdout == "64" and not minimal
-
 - name: Install laptop tools
   aur: name={{ item }} skip_installed=yes
   with_items:
