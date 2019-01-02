@@ -5,6 +5,7 @@ Type = Package
 Operation = Install
 Operation = Upgrade
 Target = fontconfig
+Target = terminus-font
 
 [Action]
 Description = Updating fontconfig cache due to fontconfig upgrade...
