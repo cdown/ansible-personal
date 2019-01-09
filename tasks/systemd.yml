@@ -10,3 +10,8 @@
 
 - name: Install system config
   copy: src=files/system.conf dest=/etc/system.conf.d/local.conf
+
+- file: path=/etc/systemd/system/-.slice.d state=directory
+
+- name: Install DisableControllers for root slice
+  copy: src=files/root_override.conf dest=/etc/systemd/system/-.slice.d/override.conf
