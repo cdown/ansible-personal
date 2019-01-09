@@ -17,7 +17,7 @@ minimal: false
 kernel: linux
 hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
-default_kernel_params: 'cgroup_no_v1=all nowatchdog audit=0 scsi_mod.use_blk_mq=1'
+default_kernel_params: 'cgroup_no_v1=all audit=0 scsi_mod.use_blk_mq=1'
 extra_kernel_params: ''
 extra_kernel_pgp_keys: []
 
