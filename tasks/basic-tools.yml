@@ -132,6 +132,7 @@
     - levmar-openmp
     - faddeeva-cpp
     - cern-vdt
+    - downgrade
   become: yes
   become_user: makepkg
 
