@@ -15,3 +15,9 @@
 
 - name: Install DisableControllers for root slice
   copy: src=files/root_override.conf dest=/etc/systemd/system/-.slice.d/override.conf
+
+- file: path=/etc/systemd/system/dev-mapper-swap.swap.d state=directory
+
+# See https://www.reddit.com/r/archlinux/comments/ah941t/every_other_boot_since_last_week_gets_stuck_at_a/?st=jr8xtqs3&sh=89542e4d
+- name: Install /dev/mapper/swap override for timeout
+  copy: src=files/dev-mapper-swap-override.conf dest=/etc/systemd/system/dev-mapper-swap.swap.d/override.conf
