@@ -91,6 +91,7 @@
       - moreutils
       - colordiff
       - wdiff
+      - qemu
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys EB774491D9FF06E2
