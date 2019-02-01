@@ -1,4 +1,7 @@
 ---
+# + systemd-sysvcompat-cdown-git
+- pacman: name={{ systemd }}
+
 - name: Create journald.conf.d dir
   file: path=/etc/journald.conf.d state=directory
 

@@ -6,3 +6,6 @@ laptop: true
 part_type: gpt
 
 install_wine: true
+
+kernel: linux-cdown-mmots-git
+systemd: systemd-cdown-git

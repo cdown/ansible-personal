@@ -15,6 +15,7 @@ install_env_users:
 minimal: false
 
 kernel: linux
+systemd: systemd
 hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
 default_kernel_params: 'cgroup_no_v1=all audit=0 scsi_mod.use_blk_mq=1'
