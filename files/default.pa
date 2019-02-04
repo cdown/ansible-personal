@@ -67,6 +67,8 @@ load-module module-bluetooth-discover
 load-module module-switch-on-connect
 .endif
 
+load-module snd-usb-audio
+
 ### Load several protocols
 .ifexists module-esound-protocol-unix.so
 load-module module-esound-protocol-unix
