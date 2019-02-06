@@ -37,16 +37,16 @@
       - xf86-input-synaptics
   when: model == "Vostro 3700"
 
-- name: Set up Xorg for T460s
+- name: Set up Xorg for T4xxs
   pacman:
     name:
       - xf86-video-intel
       - libva-intel-driver
-  when: model in ["T460s"]
+  when: model in ["T460s", "T470s"]
 
-- name: Add UXA override for T460s
+- name: Add UXA override 
   copy: src=files/20-intel.conf dest=/etc/X11/xorg.conf.d/20-intel.conf mode=644
-  when: model in ["T460s"]
+  when: model in ["T460s", "T470s"]
 
 - name: Set up Xorg for ThinkPad
   pacman:
@@ -81,7 +81,7 @@
     name:
       - xf86-video-intel
       - libva-intel-driver
-  when: model not in ["T460s"]
+  when: model not in ["T460s", "T470s"]
 
 - name: Set up Xorg for Parallels
   pacman: name=xf86-video-vesa state=present
