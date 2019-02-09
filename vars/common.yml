@@ -23,10 +23,10 @@ extra_kernel_params: ''
 extra_kernel_pgp_keys: []
 
 python_2_version: 2.7.15
-python_3_version: 3.7.0
-ruby_version: 2.6.0-preview2
-perl_version: 5.28.0
-node_version: 10.5.0
+python_3_version: 3.7.2
+node_version: 11.6.0
+ruby_version: 2.6.1
+perl_version: 5.28.1
 
 install_wine: false
 
