@@ -127,7 +127,6 @@
     - mpdmenu
     - btmenu
     - geteltorito
-    - pkgbuild-introspection
     - pdftk-bin
     - google-chrome
     - levmar-openmp
