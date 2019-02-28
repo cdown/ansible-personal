@@ -35,6 +35,7 @@
   shell: 'eval "$(nodenv init -)" && npm install -g {{ item }} && nodenv rehash'
   with_items:
     - arch-wiki-man
+    - twly
   become: yes
   become_user: "{{ user }}"
   when: '(item|basename) not in nodenv_packages.stdout_lines'
