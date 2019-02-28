@@ -1,6 +1,8 @@
 #!/bin/bash -e
 
-ifs=(/sys/class/net/e*)
+# We actually want IFS splitting
+# shellcheck disable=SC2207
+ifs=( $(find /sys/class/net -maxdepth 1 -mindepth 1 -regex '/sys/class/net/e[^u]+') )
 ifs=( "${ifs[@]##*/}" )
 
 if (( ${#ifs[@]} > 1 )); then
