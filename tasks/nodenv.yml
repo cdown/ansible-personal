@@ -22,7 +22,7 @@
     - nodenv global {{ node_version }}
   become: yes
   become_user: "{{ user }}"
-  when: '"system" in nodenv_version.stdout'
+  when: 'node_version not in nodenv_version.stdout'
 
 - name: Get list of installed packages
   shell: "eval \"$(nodenv init -)\" && npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
