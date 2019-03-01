@@ -1,22 +1,4 @@
 ---
-- name: Copy {{ item }} script
-  copy: src=files/bin/{{ item }} dest=/usr/local/bin/{{ item }} mode=755
-  with_items:
-    - powerdown
-    - powerup
-
-- name: Install {{ item }} service
-  copy: src=files/{{ item }}.service dest=/etc/systemd/system/{{ item }}.service mode=644
-  with_items:
-    - powerdown
-    - powerup
-
-- name: Enable {{ item }} service
-  systemd: name={{ item }} enabled=yes daemon_reload=yes
-  with_items:
-    - powerdown
-    - powerup
-
 - name: Copy power key disable
   copy: src=files/logind.conf dest=/etc/systemd/logind.conf
 
@@ -28,9 +10,6 @@
   with_items:
     - ac
     - battery
-
-- name: Install ethtool for powerdown
-  pacman: name=ethtool state=present
 
 # Sometimes Lin's W530 decides to totally freeze during suspend. A good suspend
 # looks like this:

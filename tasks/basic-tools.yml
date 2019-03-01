@@ -93,6 +93,7 @@
       - wdiff
       - qemu
       - exfat-utils
+      - ethtool
 
 - name: Check Tor Browser Bundle key's existence
   command: gpg --list-keys EB774491D9FF06E2

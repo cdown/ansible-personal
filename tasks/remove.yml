@@ -75,6 +75,10 @@
     - /etc/systemd/system/localepurge.service
     - /etc/systemd/system/localepurge.timer
     - /usr/local/bin/powertargets
+    - /usr/local/bin/powerdown
+    - /usr/local/bin/powerup
+    - /etc/systemd/system/powerdown.service
+    - /etc/systemd/system/powerup.service
     - /etc/acpi/events/ansible
     - /etc/X11/xorg.conf.d/99-xorg-intel-tearing.conf
     - /etc/modules-load.d/no-wifi-power-save.conf
