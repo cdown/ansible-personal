@@ -23,7 +23,6 @@
   with_items:
     - systemd-rfkill.service
     - systemd-rfkill.socket
-    - NetworkManager.service   # https://bugs.archlinux.org/task/43733
 
 - name: Copy power key disable
   copy: src=files/logind.conf dest=/etc/systemd/logind.conf
