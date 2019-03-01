@@ -6,7 +6,8 @@
         - bluez
         - bluez-utils
         - bluez-tools
-        - pulseaudio-bluetooth
+        - pulseaudio-modules-bt-git
+        - libldac
 
 - name: Enable required bluetooth modules on boot
   copy: src=files/bluetooth.conf dest=/etc/modules-load.d/bluetooth.conf
