@@ -48,7 +48,7 @@
 - name: Install stable rustup components
   command: "rustup component add {{ item }} --toolchain stable"
   with_items:
-    - rustfmt-preview
+    - rustfmt
   become: yes
   become_user: "{{ user }}"
   when: 'item not in rustup_stable_components.stdout_lines'
