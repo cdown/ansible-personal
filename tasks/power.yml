@@ -46,7 +46,3 @@
 # pm_async=0 and it seems to work with no real penalty to suspend time. Bleh.
 - name: Disable pm_async
   copy: src=files/disable-pm-async.conf dest=/etc/tmpfiles.d/disable-pm-async.conf
-
-- pacman: name=thermald
-
-- systemd: name=thermald state=started enabled=yes daemon_reload=yes
