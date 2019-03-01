@@ -22,13 +22,13 @@
   register: cargo_pkgs
   changed_when: false
 
-- shell: "rustup component list --toolchain nightly | awk -F- '{ print $1 \"-\" $2 }'"
+- shell: "rustup component list --toolchain nightly | awk -F- '{ print $1 }'"
   become: yes
   become_user: "{{ user }}"
   register: rustup_nightly_components
   changed_when: false
 
-- shell: "rustup component list --toolchain stable | awk -F- '{ print $1 \"-\" $2 }'"
+- shell: "rustup component list --toolchain stable | awk -F- '{ print $1 }'"
   become: yes
   become_user: "{{ user }}"
   register: rustup_stable_components
