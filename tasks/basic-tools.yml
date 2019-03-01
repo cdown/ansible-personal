@@ -135,6 +135,7 @@
     - faddeeva-cpp
     - cern-vdt
     - downgrade
+    - timeshift
   become: yes
   become_user: makepkg
 
