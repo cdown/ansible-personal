@@ -13,7 +13,7 @@
   copy: src=files/tlp.conf dest=/etc/default/tlp
 
 - name: Enable TLP services
-  systemd: name={{ item }} state=started enabled=yes masked=no
+  systemd: name={{ item }} enabled=yes masked=no
   with_items:
     - tlp
     - tlp-sleep
