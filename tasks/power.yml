@@ -1,4 +1,30 @@
 ---
+
+- name: Install TLP
+  pacman:
+    name:
+      - tlp
+
+      # Determined from tlp-stat's suggestions at the end
+      - smartmontools  # TLP disk drive health info
+      - acpi_call      # Adjust ThinkPad battery features
+
+- name: Copy TLP config
+  copy: src=files/tlp.conf dest=/etc/default/tlp
+
+- name: Enable TLP services
+  systemd: name={{ item }} state=started enabled=yes masked=no
+  with_items:
+    - tlp
+    - tlp-sleep
+
+- name: Mask units conflicting with TLP
+  systemd: name={{ item }} state=stopped masked=yes
+  with_items:
+    - systemd-rfkill.service
+    - systemd-rfkill.socket
+    - NetworkManager.service   # https://bugs.archlinux.org/task/43733
+
 - name: Copy power key disable
   copy: src=files/logind.conf dest=/etc/systemd/logind.conf
 
