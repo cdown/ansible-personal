@@ -14,7 +14,6 @@
       - ndenv
       - node-build
       - pkgfile
-      - xf86-video-intel  # we always use KMS
       - openvpn-update-resolv-conf  # now managed by ansible directly
       - cython
       - youtube-dl  # done through pyenv
