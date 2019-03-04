@@ -131,8 +131,6 @@
     - geteltorito
     - pdftk-bin
     - google-chrome
-    - levmar-openmp
-    - faddeeva-cpp
     - cern-vdt
     - downgrade
     - timeshift
