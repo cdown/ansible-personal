@@ -65,8 +65,6 @@
       - cower
       - bluejeans
       - pkgbuild-introspection
-      - pulseaudio-bluetooth  # replaced with pulseaudio-modules-bt-git
-                              # see https://www.reddit.com/r/archlinux/comments/at2v3x/
 
 - name: Remove unused files
   file: path={{ item }} state=absent
