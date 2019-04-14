@@ -45,7 +45,6 @@
       - msmtp
       - xclip
       - pass
-      - sxiv
       - irssi
     # For duply
       - python2-boto
@@ -134,6 +133,7 @@
     - cern-vdt
     - downgrade
     - timeshift
+    - sxiv-cdown-git
   become: yes
   become_user: makepkg
 
