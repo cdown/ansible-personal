@@ -4,4 +4,9 @@
     name:
       - fcitx
       - fcitx-sunpinyin
-      - fcitx-im
+      # fcitx-im contains qt4 version, which requires installing qt4 from AUR,
+      # which seems unnecessary
+      # pacman -Qgq fcitx-im | grep -v qt4
+      - fcitx-gtk2
+      - fcitx-gtk3
+      - fcitx-qt5
