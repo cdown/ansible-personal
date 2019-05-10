@@ -9,7 +9,7 @@
     name:
       - dmenu
       - rxvt-unicode
-      - slock
+      - physlock
 
 - name: Install optional desktop utilities
   pacman:

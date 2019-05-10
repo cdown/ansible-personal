@@ -65,6 +65,7 @@
       - cower
       - bluejeans
       - pkgbuild-introspection
+      - slock
 
 - name: Remove unused files
   file: path={{ item }} state=absent
