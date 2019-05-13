@@ -11,14 +11,14 @@
   become_user: makepkg
 
 - name: Get list of Rubies installed in rbenv
-  shell: "rbenv versions | sed 's/^..//' | awk '{ print $1 }'"
+  shell: "eval \"$(rbenv init -)\" && rbenv versions | sed 's/^..//' | awk '{ print $1 }'"
   register: rbenv_versions
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Install Rubies using rbenv
-  shell: "rbenv install {{ item }} && rbenv global {{ item }}"
+  shell: "eval \"$(rbenv init -)\" && rbenv install {{ item }} && rbenv global {{ item }}"
   with_items:
     - "{{ ruby_version }}"
   become: yes

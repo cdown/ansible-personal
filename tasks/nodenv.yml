@@ -8,18 +8,14 @@
   become_user: makepkg
 
 - name: Check if node is installed in nodenv
-  command: nodenv version
+  shell: "eval \"$(nodenv init -)\" && nodenv version"
   register: nodenv_version
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Install node {{ node_version }} using nodenv
-  command: "{{ item }}"
-  with_items:
-    - nodenv install {{ node_version }}
-    - nodenv rehash
-    - nodenv global {{ node_version }}
+  shell: "eval \"$(nodenv init -)\" && nodenv install {{ node_version }} && nodenv rehash && nodenv global {{ node_version }}"
   become: yes
   become_user: "{{ user }}"
   when: 'node_version not in nodenv_version.stdout'

@@ -8,14 +8,14 @@
   become_user: makepkg
 
 - name: Get list of Perls installed in plenv
-  shell: "plenv versions | sed 's/^..//' | awk '{ print $1 }'"
+  shell: "eval \"$(plenv init -)\" && plenv versions | sed 's/^..//' | awk '{ print $1 }'"
   register: plenv_versions
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Install Perls using plenv
-  shell: "plenv install {{ item }} && plenv global {{ item }}"
+  shell: "eval \"$(plenv init -)\" && plenv install {{ item }} && plenv global {{ item }}"
   with_items:
     - "{{ perl_version }}"
   become: yes
