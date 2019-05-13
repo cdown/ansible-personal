@@ -21,6 +21,10 @@
   become: yes
   become_user: "{{ user }}"
   when: 'item not in plenv_versions.stdout_lines'
+  # Otherwise we might use shims from the user running upgrade
+  # TODO: should we also sanitise to `getconf PATH` for other envs?
+  environment:
+    PATH: "/bin:/usr/bin"
 
 - name: Get user home
   shell: "getent passwd {{ user }} | awk -F: '{ print $6 }'"
