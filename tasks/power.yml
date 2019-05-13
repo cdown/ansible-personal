@@ -51,6 +51,9 @@
 - name: Disable pm_async
   copy: src=files/disable-pm-async.conf dest=/etc/tmpfiles.d/disable-pm-async.conf
 
+- name: Copy throttled config
+  copy: src=files/lenovo_fix.conf dest=/etc/lenovo_fix.conf
+
 - name: Install throttled if T4?0s
   aur: name=throttled skip_installed=yes
   when: model in ["T460s", "T470s"]
