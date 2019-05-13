@@ -1,6 +1,3 @@
-Defaults env_reset
-Defaults secure_path="/bin:/usr/bin"
-
 root  ALL=(ALL) ALL
 %sudo ALL=(ALL) ALL
 
