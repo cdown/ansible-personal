@@ -4,7 +4,7 @@ Description=Lock the screen on resume from suspend
 [Service]
 User=cdown
 Environment=DISPLAY=:0
-ExecStart=/usr/bin/physlock
+ExecStart=/usr/bin/physlock -s
 
 [Install]
 WantedBy=suspend.target hibernate.target sleep.target battery.target
