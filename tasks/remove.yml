@@ -66,6 +66,7 @@
       - bluejeans
       - pkgbuild-introspection
       - slock
+      - throttled
 
 - name: Remove unused files
   file: path={{ item }} state=absent
@@ -87,6 +88,7 @@
     - /etc/sysctl.d/99-dirty.conf
     - /etc/sysctl.d/99-sysrq.conf
     - /etc/sysctl.d/99-trace.conf
+    - /etc/lenovo_fix.conf
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent
