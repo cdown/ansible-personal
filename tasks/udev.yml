@@ -5,7 +5,7 @@
 
 - name: Copy udev settings for laptops
   copy: src=files/udev/laptop-net.rules dest=/etc/udev/rules.d/70-laptop-net.rules
-  when: laptop
+  when: laptop|bool
 
 - name: Set I/O schedulers
   template: src=files/udev/io-schedulers.rules dest=/etc/udev/rules.d/99-io-schedulers.rules

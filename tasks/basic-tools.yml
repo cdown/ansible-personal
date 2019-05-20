@@ -141,7 +141,7 @@
   aur: name={{ item }} skip_installed=yes
   with_items:
     - bats
-  when: laptop
+  when: laptop|bool
   become: yes
   become_user: makepkg
 

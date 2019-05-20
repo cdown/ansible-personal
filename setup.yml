@@ -98,7 +98,7 @@
       when: model != "VirtualBox"
     - import_tasks: tasks/sound.yml
     - import_tasks: tasks/power.yml
-      when: laptop
+      when: laptop|bool
     - import_tasks: tasks/debugging.yml
       when: not minimal
     - import_tasks: tasks/tex.yml

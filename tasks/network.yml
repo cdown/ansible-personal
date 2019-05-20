@@ -5,7 +5,7 @@
       - ifplugd
 
 - name: Install wireless tools
-  when: wifi
+  when: wifi|bool
   pacman:
     name:
       - iw
