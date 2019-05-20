@@ -2,7 +2,7 @@
 - name: Remove tools that are no longer used
   pacman:
     state: absent
-    recurse: yes
+    extra_args: "--recursive"
     name:
       - okular
       - ctags

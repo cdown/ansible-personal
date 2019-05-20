@@ -77,7 +77,7 @@
 - name: Remove intel video for those formerly using only integrated
   pacman:
     state: absent
-    recurse: yes
+    extra_args: "--recursive"
     name:
       - xf86-video-intel
       - libva-intel-driver

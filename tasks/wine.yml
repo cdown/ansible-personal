@@ -15,7 +15,7 @@
 - name: Uninstall WINE
   pacman:
     state: absent
-    recurse: yes
+    extra_args: "--recursive"
     name:
       - wine
       - wine_gecko

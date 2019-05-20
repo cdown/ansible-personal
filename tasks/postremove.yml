@@ -8,7 +8,7 @@
 - name: Remove orphaned packages
   pacman:
     state: absent
-    recurse: yes
+    extra_args: "--recursive"
     name: "{{ orphaned_pkgs.stdout_lines }}"
   # https://github.com/ansible/ansible/issues/45638
   when: "orphaned_pkgs.stdout | length > 0"
