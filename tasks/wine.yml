@@ -10,7 +10,7 @@
       - lib32-alsa-plugins
       - lib32-libpulse
       - lib32-openal
-  when: install_wine
+  when: install_wine|bool
 
 - name: Uninstall WINE
   pacman:
