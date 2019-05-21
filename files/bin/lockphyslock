@@ -1,0 +1,10 @@
+#!/bin/bash -e
+
+# physlock can have multiple instances running at the same time. This enforces
+# that only one can run at a time.
+#
+# Obviously, this can prevent locking the screen if an attacker can manipulate
+# /tmp/physlock. Realistically this isn't a problem on my laptop, since I check
+# the lock occurred.
+
+exec flock -nF /tmp/physlock -c physlock "$@"
