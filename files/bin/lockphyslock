@@ -7,4 +7,4 @@
 # /tmp/physlock. Realistically this isn't a problem on my laptop, since I check
 # the lock occurred.
 
-exec flock -nF /tmp/physlock -c physlock "$@"
+exec flock -nF /tmp/physlock physlock "$@"
