@@ -94,22 +94,6 @@
       - exfat-utils
       - ethtool
 
-- name: Check Tor Browser Bundle key's existence
-  command: gpg --list-keys EB774491D9FF06E2
-  changed_when: false
-  ignore_errors: true
-  register: tor_key
-  become: yes
-  become_user: makepkg
-
-- name: Set up GPG key for Tor Browser Bundle developers
-  command: gpg --keyserver pgp.mit.edu --recv-keys EB774491D9FF06E2
-  when: tor_key.rc != 0
-  become: yes
-  become_user: makepkg
-  retries: 3
-  delay: 1
-
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }} skip_installed=yes
   when: not minimal
@@ -121,7 +105,6 @@
     - sshrc
     - spotify
     - xinput-toggle
-    - tor-browser-en
     - nota
     - pandoc-bin
     - mpdscribble

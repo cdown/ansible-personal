@@ -67,6 +67,7 @@
       - pkgbuild-introspection
       - slock
       - throttled
+      - tor-browser-en
 
 - name: Remove unused files
   file: path={{ item }} state=absent
