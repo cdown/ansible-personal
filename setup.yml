@@ -50,11 +50,11 @@
       with_items:
         - clean-cache
         - cache-updates
-        - fstrim-root
         - pacman-fy
         - reflector
     - include_tasks: tasks/remove-timers.yml
       with_items:
+        - fstrim-root  # temporary, https://www.redhat.com/archives/dm-devel/2019-May/msg00082.html
         - fstrim-boot  # fstrim on VFAT is not supported
         - clean-pacaur-cache
       loop_control:
