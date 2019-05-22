@@ -23,7 +23,7 @@ fi
 
 if (( encrypt )); then
     encrypted_root_uuid=$(cryptsetup luksUUID "$root_partition")
-    append="cryptdevice=UUID=$encrypted_root_uuid:$root_crypt_device root=$root_crypt_device_path rw"
+    append="cryptdevice=UUID=$encrypted_root_uuid:$root_crypt_device:allow-discards root=$root_crypt_device_path rw"
 else
     append="root=LABEL=$short_hostname-/ rw"
 fi
