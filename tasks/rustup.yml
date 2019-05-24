@@ -37,13 +37,16 @@
 - name: Install libssh2-sys build dependency cmake
   pacman: name=cmake
 
-#- name: Install nightly rustup components
-#  command: "rustup component add {{ item }} --toolchain nightly"
-#  with_items:
-#    - clippy
-#  become: yes
-#  become_user: "{{ user }}"
-#  when: 'item not in rustup_nightly_components.stdout_lines'
+# These are now all on stable, and if they linger can block nightly updates if
+# it failed to build
+- name: Remove nightly rustup components
+  command: "rustup component remove {{ item }} --toolchain nightly"
+  with_items:
+    - clippy
+    - rustfmt
+  become: yes
+  become_user: "{{ user }}"
+  when: 'item in rustup_nightly_components.stdout_lines'
 
 - name: Install stable rustup components
   command: "rustup component add {{ item }} --toolchain stable"
