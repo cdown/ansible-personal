@@ -93,6 +93,7 @@
       - qemu
       - exfat-utils
       - ethtool
+      - ctags
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }} skip_installed=yes
