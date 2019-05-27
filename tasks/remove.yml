@@ -5,7 +5,6 @@
     extra_args: "--recursive"
     name:
       - okular
-      - ctags
       - emojione-color-font
       - lib32-apulse
       - ltrace
