@@ -67,6 +67,7 @@
       - slock
       - throttled
       - tor-browser-en
+      - kid3
 
 - name: Remove unused files
   file: path={{ item }} state=absent

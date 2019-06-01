@@ -70,7 +70,6 @@
       - mpd
       - mpc
       - id3v2
-      - kid3
       - easytag
       - udftools
       - clang
