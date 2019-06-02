@@ -57,6 +57,7 @@
       - openvpn
       - ntp
       - firefox-unbranded-bin
+      - firefox
       - chromium
       - certbot
       - thermald
