@@ -83,6 +83,7 @@
       - mercurial
       - ngrep
       - mtr
+      - netbrake
 
 
 - name: Remove unused files

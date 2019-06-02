@@ -11,7 +11,6 @@
       - mupdf
       - btrfs-progs
       - wmname
-      - netbrake
       - graphviz
       - aspell
       - aspell-en

@@ -1,4 +1,4 @@
 #!/bin/bash -e
 
 mkdir -p /var/tmp/pdl
-netbrake -r 100000 pacman --noconfirm --dbpath /var/tmp/pdl -Syw $(CHECKUPDATES_DB=/var/tmp/pdl checkupdates | awk '{ print $1 }')
+pacman --noconfirm --dbpath /var/tmp/pdl -Syw $(CHECKUPDATES_DB=/var/tmp/pdl checkupdates | awk '{ print $1 }')
