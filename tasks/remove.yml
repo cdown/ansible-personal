@@ -92,7 +92,6 @@
       - xorg-xlsclients
       - xorg-xdpyinfo
       - xorg-xwininfo
-      - zstd
 
 
 - name: Remove unused files
