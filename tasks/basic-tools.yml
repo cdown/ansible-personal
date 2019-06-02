@@ -51,8 +51,6 @@
       - android-udev
       - hugin
       - gimp
-      - gimp-plugin-gmic
-      - gmic
       - rustup
       - imagemagick
       - ghostscript # for imagemagick

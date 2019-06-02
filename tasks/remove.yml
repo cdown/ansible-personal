@@ -92,6 +92,8 @@
       - xorg-xlsclients
       - xorg-xdpyinfo
       - xorg-xwininfo
+      - gimp-plugin-gmic
+      - gmic
 
 
 - name: Remove unused files
