@@ -37,7 +37,6 @@
       - maim
       - slop  # optdepends for `screenshot --select`
       - zstd
-      - mercurial  # needed for some pyenv installed stuff
       - openconnect
       - mupdf-tools  # `mutool clean` to fix pdfs
       - msmtp

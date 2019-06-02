@@ -80,6 +80,7 @@
       - cern-vdt
       - timeshift
       - aria2
+      - mercurial
 
 
 - name: Remove unused files
