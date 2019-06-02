@@ -89,6 +89,9 @@
       - smartmontools
       - tk
       - virtualbox-guest-iso
+      - xorg-xlsclients
+      - xorg-xdpyinfo
+      - xorg-xwininfo
 
 
 - name: Remove unused files
