@@ -84,6 +84,8 @@
       - ngrep
       - mtr
       - netbrake
+      - phonon-qt5
+      - phonon-qt5-gstreamer
 
 
 - name: Remove unused files
