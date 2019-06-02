@@ -78,6 +78,7 @@
       - tigervnc
       - cern-vdt
       - timeshift
+      - aria2
 
 
 - name: Remove unused files

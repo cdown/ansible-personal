@@ -1,19 +1,4 @@
 ---
-- name: Install aria2
-  pacman: name=aria2 state=present
-  when: kernel.startswith("linux-ck")
-
-- name: Retrieve repo-ck key
-  command: pacman-key -r 5EE46C4C
-  register: retrieve_ck_key
-  when: 'kernel.startswith("linux-ck") and "88A032865EE46C4C" not in pacman_keys.stdout'
-  retries: 3
-  delay: 1
-
-- name: Lsign repo-ck key
-  command: pacman-key --lsign-key 5EE46C4C
-  when: retrieve_ck_key.changed
-
 - name: Copy pacman configuration
   template: src=files/pacman.conf dest=/etc/pacman.conf
 
