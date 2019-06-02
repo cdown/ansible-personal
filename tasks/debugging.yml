@@ -5,10 +5,8 @@
       - bind-tools
       - htop
       - iftop
-      - mtr
       - strace
       - time
-      - ngrep
       - perf
 
 - name: Install debugging tools (AUR)

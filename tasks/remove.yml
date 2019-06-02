@@ -81,6 +81,8 @@
       - timeshift
       - aria2
       - mercurial
+      - ngrep
+      - mtr
 
 
 - name: Remove unused files
