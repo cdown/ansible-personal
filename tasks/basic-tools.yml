@@ -35,7 +35,6 @@
       - p7zip
       - maim
       - slop  # optdepends for `screenshot --select`
-      - zstd
       - openconnect
       - mupdf-tools  # `mutool clean` to fix pdfs
       - msmtp
