@@ -4,4 +4,3 @@
     name:
       - virtualbox-host-dkms
       - virtualbox
-      - virtualbox-guest-iso
