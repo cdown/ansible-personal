@@ -6,7 +6,6 @@
       - tlp
 
       # Determined from tlp-stat's suggestions at the end
-      - smartmontools  # TLP disk drive health info
       - acpi_call      # Adjust ThinkPad battery features
 
 - name: Copy TLP config

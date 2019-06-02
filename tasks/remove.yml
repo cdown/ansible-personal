@@ -86,6 +86,7 @@
       - netbrake
       - phonon-qt5
       - phonon-qt5-gstreamer
+      - smartmontools
 
 
 - name: Remove unused files
