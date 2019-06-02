@@ -32,21 +32,19 @@
       - lsof
       - whois
       - zenity  # used for trello-popup
-      - dhclient  # wtf? without this ipv6 wired profiles seem to bomb
       - reflector
       - p7zip
       - maim
       - slop  # optdepends for `screenshot --select`
       - zstd
       - mercurial  # needed for some pyenv installed stuff
-      - flashplugin
       - openconnect
       - mupdf-tools  # `mutool clean` to fix pdfs
       - msmtp
       - xclip
       - pass
       - irssi
-    # For duply
+      # For duply
       - python2-boto
       - parallel
       - pdfpc
@@ -58,7 +56,6 @@
       - gimp-plugin-gmic
       - gmic
       - rustup
-      - dmidecode  # certsign
       - imagemagick
       - ghostscript # for imagemagick
       - mpv
@@ -69,19 +66,14 @@
       - mktorrent
       - mpd
       - mpc
-      - id3v2
       - easytag
       - udftools
-      - clang
       - shellcheck
       - docx2txt
-      - antiword
       - gdb
       - jq
       - busybox
-      - xdotool
       - pacman-contrib
-      - tigervnc
       - pv
       - clipmenu
       - clipnotify  # clipmenu optdepends
@@ -91,7 +83,6 @@
       - wdiff
       - qemu
       - exfat-utils
-      - ethtool
       - ctags
 
 - name: Install basic tools requiring aur (Chris specific)
@@ -113,9 +104,7 @@
     - geteltorito
     - pdftk-bin
     - google-chrome
-    - cern-vdt
     - downgrade
-    - timeshift
     - sxiv-cdown-git
   become: yes
   become_user: makepkg

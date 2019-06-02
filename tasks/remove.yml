@@ -68,6 +68,17 @@
       - throttled
       - tor-browser-en
       - kid3
+      - dhclient
+      - flashplugin
+      - dmidecode
+      - id3v2
+      - clang
+      - antiword
+      - xdotool
+      - tigervnc
+      - cern-vdt
+      - timeshift
+
 
 - name: Remove unused files
   file: path={{ item }} state=absent
