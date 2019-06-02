@@ -87,6 +87,7 @@
       - phonon-qt5
       - phonon-qt5-gstreamer
       - smartmontools
+      - tk
 
 
 - name: Remove unused files
