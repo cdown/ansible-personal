@@ -94,7 +94,8 @@
       - xorg-xwininfo
       - gimp-plugin-gmic
       - gmic
-
+      - pulseaudio-modules-bt-git
+      - libldac
 
 - name: Remove unused files
   file: path={{ item }} state=absent

@@ -6,14 +6,7 @@
         - bluez
         - bluez-utils
         - bluez-tools
-
-- name:  Install Bluetooth audio required packages (AUR)
-  aur: name={{ item }} skip_installed=yes
-  become: yes
-  become_user: makepkg
-  with_items:
-    - pulseaudio-modules-bt-git
-    - libldac
+        - pulseaudio-bluetooth
 
 - name: Enable required bluetooth modules on boot
   copy: src=files/bluetooth.conf dest=/etc/modules-load.d/bluetooth.conf
