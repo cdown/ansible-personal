@@ -96,10 +96,38 @@
       - gmic
       - pulseaudio-modules-bt-git
       - libldac
+      - aspell-en
+      - atop
+      - bcc-tools
+      - python2-bcc
+      - texlive-bibtexextra
+      - biber
+      - bind-tools
+      - bluez-tools
+      - busybox
+      - cmake
+      - colordiff
+      - docx2txt
+      - ethtool
+      - gdb
+      - iftop
+      - macchanger
+      - moreutils
+      - mupdf-tools
+      - pdftk-bin
+      - pv
+      - python-virtualenvwrapper
+      - spotify
+      - wdiff
+      - whois
+      - wireless_tools
+      - xorg-xprop
 
 - name: Remove unused files
   file: path={{ item }} state=absent
   with_items:
+    - /etc/udev/rules.d/70-laptop-net.rules
+    - /etc/conf.d/wireless-regdom
     - /etc/udev/rules.d/99-deadline-for-ssd.rules
     - /etc/cron.d/clear-corrupt-journals
     - /etc/modprobe.d/99-i915.conf
@@ -118,6 +146,7 @@
     - /etc/sysctl.d/99-sysrq.conf
     - /etc/sysctl.d/99-trace.conf
     - /etc/lenovo_fix.conf
+    - /usr/share/atop/atop.daily
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent

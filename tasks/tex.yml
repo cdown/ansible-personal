@@ -6,8 +6,6 @@
       - texlive-core
       - texlive-latexextra
       - texlive-pictures  # forest
-      - texlive-bibtexextra
-      - biber
 
 - name: Install dependencies for CV
   pacman:

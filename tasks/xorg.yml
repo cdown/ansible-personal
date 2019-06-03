@@ -9,7 +9,6 @@
 - name: Install optional xorg tools
   pacman:
     name:
-      - xorg-xprop
       - xorg-xmodmap
       - xorg-xrandr
       - xorg-xev

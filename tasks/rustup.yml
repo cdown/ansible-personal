@@ -34,9 +34,6 @@
   register: rustup_stable_components
   changed_when: false
 
-- name: Install libssh2-sys build dependency cmake
-  pacman: name=cmake
-
 # These are now all on stable, and if they linger can block nightly updates if
 # it failed to build
 - name: Remove nightly rustup components

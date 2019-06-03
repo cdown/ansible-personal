@@ -2,24 +2,7 @@
 - name: Install debugging tools
   pacman:
     name:
-      - bind-tools
       - htop
-      - iftop
       - strace
       - time
       - perf
-
-- name: Install debugging tools (AUR)
-  aur: name={{ item }} skip_installed=yes
-  with_items:
-    - bcc-tools
-    - python2-bcc
-  become: yes
-  become_user: makepkg
-
-- name: Copy atop config
-  copy: src=files/atop.daily dest=/usr/share/atop/atop.daily mode=700
-
-# Temporarily disabled due to https://github.com/ansible/ansible/issues/42384
-#- name: Mask atop
-#  systemd: name=atop state=stopped enabled=no masked=yes

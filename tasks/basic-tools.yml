@@ -12,24 +12,12 @@
       - btrfs-progs
       - wmname
       - graphviz
-      - aspell
-      - aspell-en
-
-# See https://github.com/ansible/ansible/pull/34322 for my plan for a better
-# solution
-- name: Install atop using --assume-installed magic
-  command: pacman --noconfirm -S atop --assume-installed cron
-  when: "'atop' not in installed_packages.stdout_lines"
 
 - name: Install tools that don't require Ansible configuration (Chris specific)
   when: not minimal
   pacman:
     name:
-      - macchanger
-      - python-virtualenvwrapper
-      - bind-tools
       - lsof
-      - whois
       - zenity  # used for trello-popup
       - reflector
       - p7zip
@@ -37,7 +25,6 @@
       - slop  # optdepends for `screenshot --select`
       - zstd
       - openconnect
-      - mupdf-tools  # `mutool clean` to fix pdfs
       - msmtp
       - xclip
       - pass
@@ -64,18 +51,10 @@
       - mpc
       - easytag
       - udftools
-      - docx2txt
-      - gdb
-      - jq
-      - busybox
       - pacman-contrib
-      - pv
       - clipmenu
       - clipnotify  # clipmenu optdepends
       - asp
-      - moreutils
-      - colordiff
-      - wdiff
       - qemu
       - exfat-utils
       - ctags
@@ -89,7 +68,6 @@
     - drive-bin
     - pngquant
     - sshrc
-    - spotify
     - xinput-toggle
     - nota
     - pandoc-bin
@@ -97,7 +75,6 @@
     - mpdmenu
     - btmenu
     - geteltorito
-    - pdftk-bin
     - google-chrome
     - downgrade
     - sxiv-cdown-git
