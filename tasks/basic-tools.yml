@@ -64,7 +64,6 @@
       - mpc
       - easytag
       - udftools
-      - shellcheck
       - docx2txt
       - gdb
       - jq
@@ -102,6 +101,7 @@
     - google-chrome
     - downgrade
     - sxiv-cdown-git
+    - shellcheck-static
   become: yes
   become_user: makepkg
 
