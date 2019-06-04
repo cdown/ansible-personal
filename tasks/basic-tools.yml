@@ -51,7 +51,6 @@
       - pacman-contrib
       - clipmenu
       - clipnotify  # clipmenu optdepends
-      - asp
       - qemu
       - exfat-utils
       - ctags

@@ -129,6 +129,7 @@
       - perf
       - python-sphinx
       - powertop
+      - asp
 
 - name: Remove unused files
   file: path={{ item }} state=absent
