@@ -1,8 +1,13 @@
 ---
-- name: Install WINE
+- name: Fulfil lib32-libgl
   pacman:
     name:
       - lib32-libglvnd  # wine has multiple fulfilments for lib32-libgl
+    extra_args: "--asdeps"
+
+- name: Install WINE
+  pacman:
+    name:
       - wine
       - wine_gecko
       - wine-mono
