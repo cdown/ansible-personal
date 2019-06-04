@@ -18,7 +18,6 @@
   pacman:
     name:
       - lsof
-      - zenity  # used for trello-popup
       - reflector
       - p7zip
       - maim
