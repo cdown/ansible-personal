@@ -10,7 +10,6 @@
       - htop
       - mupdf
       - btrfs-progs
-      - wmname
       - graphviz
 
 - name: Install tools that don't require Ansible configuration (Chris specific)

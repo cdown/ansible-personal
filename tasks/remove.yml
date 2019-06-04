@@ -125,6 +125,7 @@
       - fcitx-gtk2
       - fcitx-qt5
       - zenity
+      - wmname
 
 - name: Remove unused files
   file: path={{ item }} state=absent
