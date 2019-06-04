@@ -81,6 +81,7 @@
     - beets
     - codemod
     - whensthebus
+    - ansible
   become: yes
   become_user: "{{ user }}"
   when: '(item|basename) not in py3_utils.stdout_lines'
