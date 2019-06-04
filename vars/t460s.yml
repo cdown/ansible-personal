@@ -8,3 +8,5 @@ part_type: gpt
 install_wine: true
 
 key_user: lin
+
+extra_kernel_params: 'psmouse.synaptics_intertouch=1'
