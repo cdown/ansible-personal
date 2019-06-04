@@ -41,7 +41,6 @@
       - ghostscript # for imagemagick
       - mpv
       - ncdu
-      - powertop
       - openbox  # presentations
       - libreoffice-still
       - mktorrent
