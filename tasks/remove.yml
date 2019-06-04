@@ -122,6 +122,8 @@
       - whois
       - wireless_tools
       - xorg-xprop
+      - fcitx-gtk2
+      - fcitx-qt5
 
 - name: Remove unused files
   file: path={{ item }} state=absent
