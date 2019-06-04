@@ -127,6 +127,7 @@
       - zenity
       - wmname
       - perf
+      - python-sphinx
 
 - name: Remove unused files
   file: path={{ item }} state=absent
