@@ -130,6 +130,7 @@
       - python-sphinx
       - powertop
       - asp
+      - pandoc-bin
 
 - name: Remove unused files
   file: path={{ item }} state=absent
