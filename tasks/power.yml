@@ -2,11 +2,7 @@
 
 - name: Install TLP
   pacman:
-    name:
-      - tlp
-
-      # Determined from tlp-stat's suggestions at the end
-      - acpi_call      # Adjust ThinkPad battery features
+    name: tlp
 
 - name: Copy TLP config
   copy: src=files/tlp.conf dest=/etc/default/tlp

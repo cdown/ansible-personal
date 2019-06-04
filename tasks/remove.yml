@@ -131,6 +131,7 @@
       - powertop
       - asp
       - pandoc-bin
+      - acpi_call
 
 - name: Remove unused files
   file: path={{ item }} state=absent
