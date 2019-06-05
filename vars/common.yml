@@ -20,7 +20,9 @@ kernel: linux
 systemd: systemd
 hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
-default_kernel_params: 'cgroup_no_v1=all audit=0 scsi_mod.use_blk_mq=1'
+
+# hmm, seems mitigations=auto doesn't include MDS yet?
+default_kernel_params: 'cgroup_no_v1=all audit=0 scsi_mod.use_blk_mq=1 page_poison=1 slab_nomerge=1 vsyscall=none mce=0 mitigations=auto,nosmt mds=full'
 extra_kernel_params: ''
 extra_kernel_pgp_keys: []
 
