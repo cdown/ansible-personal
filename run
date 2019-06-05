@@ -14,7 +14,3 @@ AS_CONFIG=$(cat "$config_file")
 export AS_CONFIG
 
 ansible-playbook -i localhost, "$@" "${0%/*}"/setup.yml
-
-# We only install as a pacman package to get us going, afterwards it should
-# come from PyPi
-pacman -Qq ansible &>/dev/null && pacman -Rns --noconfirm ansible
