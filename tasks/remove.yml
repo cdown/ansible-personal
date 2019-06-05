@@ -132,6 +132,7 @@
       - asp
       - pandoc-bin
       - acpi_call
+      - lvm2
 
 - name: Remove unused files
   file: path={{ item }} state=absent
