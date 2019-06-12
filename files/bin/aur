@@ -1,5 +1,7 @@
 #!/bin/sh -e
 
+. /etc/makepkg.conf
+
 pkg=$1
 
 temp=$(mktemp -d)
@@ -12,7 +14,7 @@ cd "$pkg"
 
 chown -R makepkg "$temp"
 sudo -u makepkg makepkg -s --noconfirm
-pacman --noconfirm -U *.pkg.tar.xz
+pacman --noconfirm -U *"${PKGEXT?}"
 
 cd /
 
