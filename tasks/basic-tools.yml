@@ -73,6 +73,7 @@
     - downgrade
     - sxiv-cdown-git
     - shellcheck-static
+    - gimp-plugin-resynthesizer
   become: yes
   become_user: makepkg
 
