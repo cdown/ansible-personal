@@ -13,4 +13,4 @@ fi
 AS_CONFIG=$(cat "$config_file")
 export AS_CONFIG
 
-ansible-playbook -i localhost, "$@" "${0%/*}"/setup.yml
+ansible-playbook -c local -i localhost, "$@" "${0%/*}"/setup.yml
