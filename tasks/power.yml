@@ -45,3 +45,9 @@
 # pm_async=0 and it seems to work with no real penalty to suspend time. Bleh.
 - name: Disable pm_async
   copy: src=files/disable-pm-async.conf dest=/etc/tmpfiles.d/disable-pm-async.conf
+
+- aur: name=lenovo-throttling-fix-git skip_installed=yes
+  when: model in ["T470s"]
+
+- systemd: name=lenovo_fix state=started enabled=yes masked=no
+  when: model in ["T470s"]
