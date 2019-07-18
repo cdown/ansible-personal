@@ -158,6 +158,14 @@
     - /etc/sysctl.d/99-trace.conf
     - /usr/share/atop/atop.daily
 
+- name: 'Workaround for https://bugs.archlinux.org/task/63205'
+  file: dest=/etc/fonts/conf.d/{{ item }}.conf src=/dev/null state=link
+  with_items:
+    - 60-droid-sans-mono
+    - 65-droid-kufi
+    - 65-droid-sans
+    - 65-droid-serif
+
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent
   with_items:
