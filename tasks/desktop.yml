@@ -34,9 +34,3 @@
 
 - name: Install lockphyslock
   copy: src=files/bin/lockphyslock dest=/usr/local/bin/lockphyslock mode=755
-
-- name: Lock screen on suspend for {{ key_user }}
-  template: src=files/slock.service dest=/etc/systemd/system/slock.service mode=644
-
-- name: Enable lock service
-  service: name=slock enabled=yes

@@ -157,6 +157,7 @@
     - /etc/sysctl.d/99-sysrq.conf
     - /etc/sysctl.d/99-trace.conf
     - /usr/share/atop/atop.daily
+    - /etc/systemd/system/slock.service
 
 - name: 'Workaround for https://bugs.archlinux.org/task/63205'
   file: dest=/etc/fonts/conf.d/{{ item }}.conf src=/dev/null state=link
