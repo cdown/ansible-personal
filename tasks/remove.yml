@@ -158,6 +158,8 @@
     - /etc/sysctl.d/99-trace.conf
     - /usr/share/atop/atop.daily
     - /etc/systemd/system/slock.service
+    - /etc/systemd/system/dev-mapper-swap.swap.d/override.conf
+    - /etc/systemd/system/dev-mapper-swap.swap.d
 
 - name: 'Workaround for https://bugs.archlinux.org/task/63205'
   file: dest=/etc/fonts/conf.d/{{ item }}.conf src=/dev/null state=link
