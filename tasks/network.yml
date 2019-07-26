@@ -11,8 +11,6 @@
       - wpa_supplicant
       - dialog  # needed for wifi-menu
 
-- copy: src=files/no-wifi-power-save dest=/etc/modprobe.d/no-wifi-power-save.conf
-
 - template: src=files/hosts dest=/etc/hosts
 
 - copy: src=files/bin/get-wired-interface dest=/usr/local/bin/get-wired-interface mode=755
