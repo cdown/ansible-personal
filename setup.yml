@@ -31,7 +31,6 @@
     - import_tasks: tasks/network.yml
     - import_tasks: tasks/ssh.yml
     - import_tasks: tasks/zsh.yml
-    - import_tasks: tasks/vbox-host.yml
     - import_tasks: tasks/users.yml
     - include_tasks: tasks/linger.yml
       with_items: '{{ users }}'

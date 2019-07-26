@@ -133,6 +133,8 @@
       - acpi_call
       - lvm2
       - mdadm
+      - virtualbox
+      - virtualbox-host-dkms
 
 - name: Remove unused files
   file: path={{ item }} state=absent
