@@ -161,6 +161,7 @@
     - /etc/systemd/system/dev-mapper-swap.swap.d/override.conf
     - /etc/systemd/system/dev-mapper-swap.swap.d
     - /etc/modprobe.d/no-wifi-power-save.conf
+    - /etc/tmpfiles.d/disable-pm-async.conf
 
 - name: 'Workaround for https://bugs.archlinux.org/task/63205'
   file: dest=/etc/fonts/conf.d/{{ item }}.conf src=/dev/null state=link

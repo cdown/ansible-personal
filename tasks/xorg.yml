@@ -21,11 +21,11 @@
 
 - name: Blacklist nouveau Xorg driver
   kernel_blacklist: name=nouveau state=present
-  when: model in ["Vostro 3700", "W530"]
+  when: model in ["Vostro 3700"]
 
 - name: Do not blacklist nouveau Xorg driver
   kernel_blacklist: name=nvidia state=absent
-  when: model in ["Vostro 3700", "W530"]
+  when: model in ["Vostro 3700"]
 
 - name: Set up Xorg for Vostro 3700
   pacman:
@@ -56,19 +56,6 @@
       - xf86-video-nouveau
       - xf86-input-synaptics
   when: model in ["XPS 8500"]
-
-- name: Set up Xorg for nvidia-using laptops
-  pacman:
-    name:
-      - nvidia
-      - xf86-input-synaptics
-  when: model in ["W530"]
-
-- name: Purge nouveau for nvidia-using laptops
-  pacman:
-    name:
-      - xf86-video-nouveau
-  when: model in ["W530"]
 
 - name: Remove intel video for those formerly using only integrated
   pacman:

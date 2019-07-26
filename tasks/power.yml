@@ -31,21 +31,6 @@
     - ac
     - battery
 
-# Sometimes Lin's W530 decides to totally freeze during suspend. A good suspend
-# looks like this:
-#
-# Mar 18 21:46:32 daotian kernel: PM: suspend entry (deep)
-# Mar 18 21:46:32 daotian kernel: PM: Syncing filesystems ... done.
-#
-# The bad one just sits here and stays powered on but unresponsive:
-#
-# Mar 19 15:14:04 daotian kernel: PM: suspend entry (deep)
-#
-# I suspect this is some weird timing/deadlock issue, so for now I've set
-# pm_async=0 and it seems to work with no real penalty to suspend time. Bleh.
-- name: Disable pm_async
-  copy: src=files/disable-pm-async.conf dest=/etc/tmpfiles.d/disable-pm-async.conf
-
 - aur: name=lenovo-throttling-fix-git skip_installed=yes
   when: model in ["T470s"]
 

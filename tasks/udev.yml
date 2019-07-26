@@ -1,7 +1,7 @@
 ---
 - name: Copy udev settings for T460s
   copy: src=files/udev/t460s.rules dest=/etc/udev/rules.d/99-machinespec.rules
-  when: model in ["T460s", "T470s", "X1 Carbon", "W530"]
+  when: model in ["T460s", "T470s", "X1 Carbon"]
 
 - name: Set I/O schedulers
   template: src=files/udev/io-schedulers.rules dest=/etc/udev/rules.d/99-io-schedulers.rules
@@ -10,7 +10,3 @@
   copy: src=files/fuse.conf dest=/etc/fuse.conf
 
 - copy: src=files/enable-thinkpad-fan-management dest=/etc/modprobe.d/enable-thinkpad-fan-management.conf
-
-- name: Manually set fan
-  copy: src=files/set-w530-fan.conf dest=/etc/tmpfiles.d/set-w530-fan.conf
-  when: model in ["W530"]
