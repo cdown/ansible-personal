@@ -54,6 +54,7 @@
       - exfat-utils
       - ctags
       - bind-tools
+      - python-virtualenvwrapper
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }} skip_installed=yes

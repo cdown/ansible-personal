@@ -115,7 +115,6 @@
       - mupdf-tools
       - pdftk-bin
       - pv
-      - python-virtualenvwrapper
       - spotify
       - wdiff
       - whois
