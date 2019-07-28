@@ -76,6 +76,8 @@
     - sxiv-cdown-git
     - shellcheck-static
     - gimp-plugin-resynthesizer
+    - acestream-engine-stable
+    - acestream-launcher
   become: yes
   become_user: makepkg
 
