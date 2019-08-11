@@ -31,7 +31,7 @@
     - ac
     - battery
 
-- aur: name=lenovo-throttling-fix-git skip_installed=yes
+- pacman: name=throttled
   when: model in ["T470s"]
 
 - systemd: name=lenovo_fix state=started enabled=yes masked=no
