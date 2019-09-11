@@ -124,7 +124,6 @@
       - wmname
       - perf
       - python-sphinx
-      - powertop
       - asp
       - pandoc-bin
       - acpi_call
