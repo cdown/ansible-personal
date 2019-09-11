@@ -36,3 +36,6 @@
 
 - systemd: name=lenovo_fix state=started enabled=yes masked=no
   when: model in ["T470s"]
+
+- name: Add wifi power save settings
+  copy: src=files/wifi-power-save dest=/etc/modprobe.d/99-wifi-power-save.conf mode=644
