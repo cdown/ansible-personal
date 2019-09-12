@@ -59,6 +59,7 @@
     - import_tasks: tasks/chinese.yml
       when: not minimal
     - import_tasks: tasks/sysctl.yml
+    - import_tasks: tasks/ufw.yml
     - include_tasks: tasks/dotfiles.yml
       with_items: '{{ users_inc_super }}'
       loop_control:

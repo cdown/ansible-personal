@@ -1,0 +1,8 @@
+---
+- pacman: name=ufw
+
+- ufw: logging=off
+- ufw: direction=incoming policy=deny
+- ufw: direction=outgoing policy=allow
+
+- systemd: name=ufw state=started enabled=yes
