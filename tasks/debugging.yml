@@ -5,3 +5,4 @@
       - htop
       - strace
       - time
+      - gdb

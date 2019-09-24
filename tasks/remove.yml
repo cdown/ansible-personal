@@ -107,7 +107,6 @@
       - colordiff
       - docx2txt
       - ethtool
-      - gdb
       - iftop
       - macchanger
       - moreutils
