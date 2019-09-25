@@ -29,3 +29,12 @@
 - name: Regenerate initcpios
   command: mkinitcpio -P
   when: cpio.changed
+
+- name: Install kernel-modules-hook
+  aur: name=kernel-modules-hook skip_installed=yes
+  become: yes
+  become_user: makepkg
+  with_items:
+    - kernel-modules-hook
+
+- systemd: name=linux-modules-cleanup enabled=yes daemon_reload=yes
