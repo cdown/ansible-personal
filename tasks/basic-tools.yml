@@ -1,4 +1,6 @@
 ---
+- pacman: name=base
+
 - name: Install tools that don't require Ansible configuration (all)
   pacman:
     name:
