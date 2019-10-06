@@ -1,5 +1,22 @@
 ---
-- pacman: name=base
+- name: Install minimal base
+  pacman:
+    name:
+      - base
+
+      # These used to be part of the base group, but aren't part of the new
+      # metapackage. After new `base` becomes stable, these should be moved to
+      # relevant sections and justified there.
+      - cryptsetup
+      - device-mapper
+      - dhcpcd
+      - diffutils
+      - less
+      - linux-firmware
+      - man-db
+      - man-pages
+      - netctl
+      - systemd-sysvcompat  # TODO: remove and just use init=...?
 
 - name: Install tools that don't require Ansible configuration (all)
   pacman:
