@@ -3,7 +3,7 @@
 - command: pacman -Qi base
   changed_when: False
   register: base_package_present
-- command: pacman -S base
+- command: pacman -S --noconfirm base
   when: base_package_present.rc != 0
 
 - name: Install minimal base
