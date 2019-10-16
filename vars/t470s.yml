@@ -6,6 +6,3 @@ laptop: true
 part_type: gpt
 
 install_wine: true
-
-systemd: systemd-git
-kernel: linux-mainline
