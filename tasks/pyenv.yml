@@ -35,8 +35,9 @@
   changed_when: false
 
 - name: Install Python 3 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell {{ python_3_version }} && pip install {{ item }}'
+  shell: 'eval "$(pyenv init -)" && pyenv shell {{ python_3_version }} && pip install -U {{ item }}'
   with_items:
+    - pip
     - yturl
     - tzupdate
     - virtualenv
@@ -87,8 +88,9 @@
   when: '(item|basename) not in py3_utils.stdout_lines'
 
 - name: Install Python 2 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell {{ python_2_version }} && pip install {{ item }}'
+  shell: 'eval "$(pyenv init -)" && pyenv shell {{ python_2_version }} && pip install -U {{ item }}'
   with_items:
+    - pip
     - gsutil
     - s3cmd
     - pipdeptree
