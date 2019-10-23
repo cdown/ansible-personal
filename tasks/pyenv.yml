@@ -21,14 +21,14 @@
   when: 'item not in pyenv_versions.stdout_lines'
 
 - name: Get list of Python 3 utils installed
-  shell: "eval \"$(pyenv init -)\" && pyenv shell {{ python_3_version }} && pip freeze | awk -F= '{ print $1 }'"
+  shell: "eval \"$(pyenv init -)\" && pyenv shell {{ python_3_version }} && pip freeze --all | awk -F= '{ print $1 }'"
   register: py3_utils
   become: yes
   become_user: "{{ user }}"
   changed_when: false
 
 - name: Get list of Python 2 utils installed
-  shell: "eval \"$(pyenv init -)\" && pyenv shell {{ python_2_version }} && pip freeze | awk -F= '{ print $1 }'"
+  shell: "eval \"$(pyenv init -)\" && pyenv shell {{ python_2_version }} && pip freeze --all | awk -F= '{ print $1 }'"
   register: py2_utils
   become: yes
   become_user: "{{ user }}"
