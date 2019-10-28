@@ -1,0 +1,10 @@
+Description='Generic wired'
+Interface={{ wired_iface.stdout | trim }}
+Connection=ethernet
+IP=dhcp
+IP6=dhcp
+DHCP6Client=dhcpcd
+
+# Holy shit, the T460s ethernet takes a while to get a carrier
+TimeoutCarrier=60
+ForceConnect=yes

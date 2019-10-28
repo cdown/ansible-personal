@@ -19,4 +19,6 @@
   register: wired_iface
   changed_when: false
 
+- template: src=files/generic-wired dest=/etc/netctl/generic-wired
+
 - service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }} state=started enabled=yes
