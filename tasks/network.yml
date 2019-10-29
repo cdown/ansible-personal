@@ -1,9 +1,4 @@
 ---
-- name: Install wired tools
-  pacman:
-    name:
-      - ifplugd
-
 - name: Install wireless tools
   when: wifi|bool
   pacman:
@@ -21,4 +16,6 @@
 
 - template: src=files/generic-wired dest=/etc/netctl/generic-wired
 
-- service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }} state=started enabled=yes
+# For now, go back to manual management to avoid any confusion. ifplugd doesn't
+# help much anyway.
+- service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }} state=stopped enabled=no

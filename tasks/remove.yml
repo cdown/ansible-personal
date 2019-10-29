@@ -131,6 +131,7 @@
       - virtualbox
       - virtualbox-host-dkms
       - lenovo-throttling-fix-git
+      - ifplugd
 
 - name: Remove unused files
   file: path={{ item }} state=absent
