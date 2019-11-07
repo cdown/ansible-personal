@@ -1,6 +1,5 @@
 [Service]
 Type=oneshot
 ExecStart=/bin/reflector \
-    -c 'United Kingdom' -c France -c Germany -c Sweden -c Finland -c Denmark \
-    -c Ireland -c Netherlands -c 'Hong Kong' -c Singapore -c 'United States' \
-    -c Canada -f 6 --protocol http --sort rate --save /etc/pacman.d/mirrorlist
+    -c 'United Kingdom' -c Netherlands -c 'United States' -c 'Hong Kong' \
+    -f 6 --protocol http --sort delay --save /etc/pacman.d/mirrorlist
