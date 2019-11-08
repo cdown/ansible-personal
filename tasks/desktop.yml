@@ -7,7 +7,8 @@
 - name: Install desktop utilities
   pacman:
     name:
-      - dmenu
+      # XXX: temporarily dmenu-git just for focus + IM bugs until 5.0 is out
+      - dmenu-git
       - rxvt-unicode
       - physlock
 
