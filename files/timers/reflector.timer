@@ -1,5 +1,5 @@
 [Timer]
-OnCalendar=daily
+OnCalendar=hourly
 RandomizedDelaySec=6h
 
 [Install]
