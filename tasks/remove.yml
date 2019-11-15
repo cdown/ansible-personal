@@ -173,13 +173,6 @@
     - /etc/cron.d/purge-atop-logs
     - /etc/cron.d/reflector
 
-- name: Mask undesirable services that remain for dependency reasons
-  systemd: name={{ item }} state=stopped enabled=no masked=yes
-  with_items:
-    - lvm2-monitor  # https://www.reddit.com/r/archlinux/comments/azeshi/linux_50_hangs/?st=jt3lfy9i&sh=3f5adfce
-    - lvm2-lvmetad
-    - upower
-
 - name: Stop old services
   service: name={{ item }} state=stopped enabled=no
   with_items:
