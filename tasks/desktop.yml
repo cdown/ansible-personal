@@ -7,10 +7,14 @@
 - name: Install desktop utilities
   pacman:
     name:
-      # XXX: temporarily dmenu-git just for focus + IM bugs until 5.0 is out
-      - dmenu-git
+      #- dmenu
       - rxvt-unicode
       - physlock
+
+# XXX: temporarily dmenu-git just for focus + IM bugs until 5.0 is out
+- aur: name=dmenu-git skip_installed=yes
+  become: yes
+  become_user: makepkg
 
 - name: Install optional desktop utilities
   pacman:
