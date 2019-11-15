@@ -115,11 +115,5 @@
   become: yes
   become_user: makepkg
 
-- name: Unmask rtkit
-  systemd: name={{ item }} state=started enabled=yes masked=no
-  with_items:
-    - rtkit-daemon
-    - polkit
-
 - name: Install nsswitch.conf
   copy: src=files/nsswitch.conf dest=/etc/nsswitch.conf
