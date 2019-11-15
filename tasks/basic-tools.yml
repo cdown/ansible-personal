@@ -93,6 +93,7 @@
     - xinput-toggle
     - nota
     - mpdscribble
+    - dmenu-git
     - mpdmenu
     - btmenu
     - geteltorito
