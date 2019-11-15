@@ -36,6 +36,11 @@
       - btrfs-progs
       - graphviz
 
+- name: Install dmenu-git (here to avoid conflict from revdeps)
+  aur: name=dmenu-git skip_installed=yes skip_pgp_check=yes
+  become: yes
+  become_user: makepkg
+
 - name: Install tools that don't require Ansible configuration (Chris specific)
   when: not minimal
   pacman:
@@ -93,7 +98,6 @@
     - xinput-toggle
     - nota
     - mpdscribble
-    - dmenu-git
     - mpdmenu
     - btmenu
     - geteltorito
