@@ -13,12 +13,13 @@
   become: yes
   become_user: "{{ user }}"
   changed_when: false
+  failed_when: 'nodenv_version.rc != 0 and nodenv_version.stdout_lines'
 
 - name: Install node {{ node_version }} using nodenv
   shell: "eval \"$(nodenv init -)\" && nodenv install {{ node_version }} && nodenv rehash && nodenv global {{ node_version }}"
   become: yes
   become_user: "{{ user }}"
-  when: 'node_version not in nodenv_version.stdout'
+  when: 'nodenv_version.rc != 0 or node_version not in nodenv_version.stdout'
 
 - name: Get list of installed packages
   shell: "eval \"$(nodenv init -)\" && npm ls -g | awk '$NF ~ /@/ { print $NF }' | awk -F@ '{ print $1 }'"
