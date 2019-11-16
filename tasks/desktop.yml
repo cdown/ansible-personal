@@ -15,7 +15,7 @@
   pacman:
     name:
       - libnotify
-      - xfce4-notifyd
+      - dunst
   when: not minimal
 
 - name: Install urxvt Perl extensions
