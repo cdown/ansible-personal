@@ -61,7 +61,6 @@
     - ripgrep
     - cargo-update
     - fd-find
-    - cargo-edit-locally
     - mack
   become: yes
   become_user: "{{ user }}"
