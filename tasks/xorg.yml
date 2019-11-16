@@ -70,6 +70,10 @@
   pacman: name=xf86-video-vesa state=present
   when: model == "Parallels"
 
+- name: Install VMVGA Xorg driver
+  pacman: name=xf86-video-vmware state=present
+  when: model == "VirtualBox"
+
 - name: Install VirtualBox guest utilities
   # Needs to be from the AUR as there's no guarantee that the headers will come
   # from pacman repos
