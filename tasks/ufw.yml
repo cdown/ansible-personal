@@ -1,8 +1,17 @@
 ---
 - pacman: name=ufw
 
+- command: systemd-detect-virt -c
+  register: virt
+
+# these can't generally be done in a container
+
 - ufw: logging=off
+  when: virt.stdout == "none"
 - ufw: direction=incoming policy=deny
+  when: virt.stdout == "none"
 - ufw: direction=outgoing policy=allow
+  when: virt.stdout == "none"
 
 - systemd: name=ufw state=started enabled=yes
+  when: virt.stdout == "none"
