@@ -3,6 +3,8 @@
 
 - command: systemd-detect-virt -c
   register: virt
+  changed_when: false
+  failed_when: false  # returns 1 on none
 
 # these can't generally be done in a container
 
