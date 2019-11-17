@@ -133,6 +133,7 @@
       - lenovo-throttling-fix-git
       - ifplugd
       - xfce4-notifyd
+      - acestream-launcher
 
 - name: Remove unused files
   file: path={{ item }} state=absent

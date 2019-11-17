@@ -107,7 +107,6 @@
     - shellcheck-static
     - gimp-plugin-resynthesizer
     - acestream-engine-stable
-    - acestream-launcher
     - spotify
   become: yes
   become_user: makepkg
