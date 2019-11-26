@@ -6,3 +6,4 @@
       - strace
       - time
       - gdb
+      - perf

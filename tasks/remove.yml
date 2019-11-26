@@ -120,7 +120,6 @@
       - fcitx-qt5
       - zenity
       - wmname
-      - perf
       - python-sphinx
       - asp
       - pandoc-bin
