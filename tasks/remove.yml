@@ -97,8 +97,6 @@
       - libldac
       - aspell-en
       - atop
-      - bcc-tools
-      - python2-bcc
       - texlive-bibtexextra
       - biber
       - bluez-tools

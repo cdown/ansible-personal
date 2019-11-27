@@ -7,3 +7,5 @@
       - time
       - gdb
       - perf
+      - python-bcc
+      - bcc-tools
