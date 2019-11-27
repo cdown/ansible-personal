@@ -118,7 +118,6 @@
       - zenity
       - wmname
       - python-sphinx
-      - asp
       - pandoc-bin
       - acpi_call
       - lvm2
