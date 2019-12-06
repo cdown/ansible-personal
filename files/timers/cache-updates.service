@@ -1,3 +1,6 @@
 [Service]
 Type=oneshot
 ExecStart=/usr/local/bin/cache-updates
+
+# If we're on a slow connection, don't prolong the inevitable
+TimeoutSec=30
