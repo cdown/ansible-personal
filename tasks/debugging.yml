@@ -7,5 +7,11 @@
       - time
       - gdb
       - perf
-      - python-bcc
-      - bcc-tools
+
+- name: Install debugging tools (AUR)
+  aur: name={{ item }} skip_installed=yes skip_pgp_check=yes
+  with_items:
+    - python-bcc
+    - bcc-tools
+  become: yes
+  become_user: makepkg
