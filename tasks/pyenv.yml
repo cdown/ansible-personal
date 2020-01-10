@@ -48,9 +48,7 @@
     - jupyter
     - ipython
     - flake8
-    # God knows what this thing wants, it complains it wants Cython out of the
-    # blue, but that doesn't help... let's look later.
-    # - line_profiler
+    - line_profiler
     - memory-profiler
     - psutil
     - awscli
