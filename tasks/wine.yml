@@ -9,7 +9,7 @@
   pacman:
     name:
       - wine
-      - wine_gecko
+      - wine-gecko
       - wine-mono
       # Audio
       - lib32-alsa-plugins
@@ -23,7 +23,7 @@
     extra_args: "--recursive"
     name:
       - wine
-      - wine_gecko
+      - wine-gecko
       - wine-mono
       # Audio
       - lib32-libglvnd  # wine has multiple fulfilments for lib32-libgl
