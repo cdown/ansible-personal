@@ -110,6 +110,7 @@
     - gimp-plugin-resynthesizer
     - acestream-engine-stable
     - spotify
+    - nocache
   become: yes
   become_user: makepkg
 
