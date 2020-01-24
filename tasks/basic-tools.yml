@@ -6,6 +6,9 @@
 - command: pacman -S --noconfirm base
   when: base_package_present.rc != 0
 
+- name: Install base
+  pacman: name=base state=present
+
 - name: Install minimal base
   pacman:
     name:
@@ -26,6 +29,7 @@
 - name: Install tools that don't require Ansible configuration (all)
   pacman:
     name:
+      - ansible
       - vim
       - rsync
       - tmux
