@@ -87,7 +87,6 @@
       - phonon-qt5-gstreamer
       - smartmontools
       - tk
-      - virtualbox-guest-iso
       - xorg-xlsclients
       - xorg-xdpyinfo
       - xorg-xwininfo
