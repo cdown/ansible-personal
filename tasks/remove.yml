@@ -122,8 +122,6 @@
       - acpi_call
       - lvm2
       - mdadm
-      - virtualbox
-      - virtualbox-host-dkms
       - lenovo-throttling-fix-git
       - ifplugd
       - xfce4-notifyd
