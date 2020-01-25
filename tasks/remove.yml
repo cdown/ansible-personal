@@ -72,7 +72,6 @@
       - flashplugin
       - dmidecode
       - id3v2
-      - clang
       - antiword
       - xdotool
       - tigervnc
