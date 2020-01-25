@@ -5,3 +5,6 @@
       - virtualbox-host-dkms
       - virtualbox
       - virtualbox-guest-iso
+
+- name: Set up autoloading of VirtualBox host modules
+  copy: src=files/virtualbox/host-modules dest=/etc/modules-load.d/virtualbox-host.conf
