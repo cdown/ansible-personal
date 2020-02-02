@@ -48,6 +48,7 @@
         - fstrim-root
         - pacman-fy
         - reflector
+        - btrfs-balance-root
     - include_tasks: tasks/remove-timers.yml
       with_items:
         - fstrim-boot  # fstrim on VFAT is not supported
