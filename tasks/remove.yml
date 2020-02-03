@@ -93,7 +93,6 @@
       - gmic
       - pulseaudio-modules-bt-git
       - libldac
-      - aspell-en
       - atop
       - texlive-bibtexextra
       - biber

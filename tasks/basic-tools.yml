@@ -39,6 +39,8 @@
       - mupdf
       - btrfs-progs
       - graphviz
+      - aspell
+      - aspell-en
 
 - name: Install dmenu-git (here to avoid conflict from revdeps)
   aur: name=dmenu-git skip_installed=yes skip_pgp_check=yes
