@@ -5,7 +5,7 @@
     name: tlp
 
 - name: Copy TLP config
-  copy: src=files/tlp.conf dest=/etc/default/tlp
+  copy: src=files/tlp.conf dest=/etc/tlp.conf
 
 - name: Enable TLP services
   systemd: name={{ item }} enabled=yes masked=no
