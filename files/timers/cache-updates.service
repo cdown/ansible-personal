@@ -4,6 +4,7 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
+ExecCondition=/usr/local/bin/internet-isnt-crappy
 ExecStart=/usr/local/bin/cache-updates
 
 # If we're on a slow connection, don't prolong the inevitable

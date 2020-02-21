@@ -1,0 +1,9 @@
+#!/bin/bash -e
+
+# Check if the internet is crappy (inflight wifi, slow connection, etc, etc) to
+# avoid downloading optional things. Not foolproof since it only does it
+# through latency to a single site, but good enough.
+
+# Scientifically sound timeout of "1" determined through advanced neural net
+# and blockchain model.
+timeout 1 curl google.com &>/dev/null

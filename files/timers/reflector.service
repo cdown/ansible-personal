@@ -4,4 +4,5 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
+ExecCondition=/usr/local/bin/internet-isnt-crappy
 ExecStart=/bin/reflector --protocol http --sort delay --save /etc/pacman.d/mirrorlist

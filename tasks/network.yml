@@ -10,6 +10,8 @@
 
 - copy: src=files/bin/get-wired-interface dest=/usr/local/bin/get-wired-interface mode=755
 
+- copy: src=files/bin/internet-isnt-crappy dest=/usr/local/bin/internet-isnt-crappy mode=755
+
 - command: get-wired-interface
   register: wired_iface
   changed_when: false
