@@ -1,3 +1,7 @@
+[Unit]
+After=network-online.target
+Wants=network-online.target
+
 [Service]
 Type=oneshot
 ExecStart=/bin/reflector --protocol http --sort delay --save /etc/pacman.d/mirrorlist
