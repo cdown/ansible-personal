@@ -4,6 +4,15 @@
   become: yes
   become_user: makepkg
 
+- name: Purge all Python 2 installations
+  shell: "eval \"$(pyenv init -)\" && pyenv versions | sed 's/^..//' | awk '/^2/ { print $1 }' | tee >(xargs -L1 -r pyenv uninstall -f)"
+  args:
+    executable: /bin/bash
+  register: py2
+  become: yes
+  become_user: "{{ user }}"
+  changed_when: py2.stdout_lines
+
 - name: Get list of Pythons installed in pyenv
   shell: "eval \"$(pyenv init -)\" && pyenv versions | sed 's/^..//' | awk '{ print $1 }'"
   register: pyenv_versions
@@ -14,7 +23,6 @@
 - name: Install Pythons using pyenv
   shell: "eval \"$(pyenv init -)\" && pyenv install {{ item }}"
   with_items:
-    - "{{ python_2_version }}"
     - "{{ python_3_version }}"
   become: yes
   become_user: "{{ user }}"
@@ -23,13 +31,6 @@
 - name: Get list of Python 3 utils installed
   shell: "eval \"$(pyenv init -)\" && pyenv shell {{ python_3_version }} && pip freeze --all | awk -F= '{ print $1 }'"
   register: py3_utils
-  become: yes
-  become_user: "{{ user }}"
-  changed_when: false
-
-- name: Get list of Python 2 utils installed
-  shell: "eval \"$(pyenv init -)\" && pyenv shell {{ python_2_version }} && pip freeze --all | awk -F= '{ print $1 }'"
-  register: py2_utils
   become: yes
   become_user: "{{ user }}"
   changed_when: false
@@ -82,19 +83,9 @@
     - whensthebus
     - csvprint
     - acestream-launcher
+    - stapler
+    - s3cmd
+    - gsutil
   become: yes
   become_user: "{{ user }}"
   when: '(item|basename) not in py3_utils.stdout_lines'
-
-- name: Install Python 2 utilities
-  shell: 'eval "$(pyenv init -)" && pyenv shell {{ python_2_version }} && pip install -U {{ item }}'
-  with_items:
-    - pip
-    - gsutil
-    - s3cmd
-    - pipdeptree
-    - stapler
-    - flickr-download
-  become: yes
-  become_user: "{{ user }}"
-  when: '(item|basename) not in py2_utils.stdout_lines'
