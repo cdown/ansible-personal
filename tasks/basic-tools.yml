@@ -93,6 +93,7 @@
       - powertop
       - redshift
       - asp
+      - colordiff
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }} skip_installed=yes skip_pgp_check=yes

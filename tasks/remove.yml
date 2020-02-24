@@ -99,7 +99,6 @@
       - bluez-tools
       - busybox
       - cmake
-      - colordiff
       - docx2txt
       - iftop
       - macchanger
