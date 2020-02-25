@@ -84,8 +84,10 @@
     - csvprint
     - acestream-launcher
     - stapler
-    - s3cmd
     - gsutil
+
+    # s3cmd is busted on 2.0.2, which is latest release:
+    - git+https://github.com/s3tools/s3cmd.git@a9375c33206312d118da7f3bfd62aad19c62cd2b
   become: yes
   become_user: "{{ user }}"
-  when: '(item|basename) not in py3_utils.stdout_lines'
+  when: 'not item.startswith("git+https://") and (item|basename) not in py3_utils.stdout_lines'
