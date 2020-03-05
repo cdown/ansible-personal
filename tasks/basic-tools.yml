@@ -83,7 +83,6 @@
       - easytag
       - udftools
       - pacman-contrib
-      - clipmenu
       - clipnotify  # clipmenu optdepends
       - qemu
       - exfat-utils
@@ -118,6 +117,7 @@
     - acestream-engine-stable
     - spotify
     - nocache
+    - clipmenu-git
   become: yes
   become_user: makepkg
 
