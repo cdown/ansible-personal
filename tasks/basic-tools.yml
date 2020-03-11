@@ -131,3 +131,6 @@
 
 - name: Install nsswitch.conf
   copy: src=files/nsswitch.conf dest=/etc/nsswitch.conf
+
+- name: Install ImageMagick policy
+  copy: src=files/policy.xml dest=/etc/ImageMagick-7/policy.xml
