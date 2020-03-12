@@ -134,3 +134,6 @@
 
 - name: Install ImageMagick policy
   copy: src=files/policy.xml dest=/etc/ImageMagick-7/policy.xml
+
+- name: Install vconsole config
+  copy: src=files/vconsole.conf dest=/etc/vconsole.conf
