@@ -83,7 +83,6 @@
       - easytag
       - udftools
       - pacman-contrib
-      - clipnotify  # clipmenu optdepends
       - qemu
       - exfat-utils
       - ctags
@@ -93,6 +92,7 @@
       - redshift
       - asp
       - colordiff
+      - clipmenu
 
 - name: Install basic tools requiring aur (Chris specific)
   aur: name={{ item }} skip_installed=yes skip_pgp_check=yes
@@ -117,7 +117,6 @@
     - acestream-engine-stable
     - spotify
     - nocache
-    - clipmenu-git
   become: yes
   become_user: makepkg
 
