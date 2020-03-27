@@ -32,5 +32,10 @@
   become: yes
   become_user: makepkg
 
+# https://bugs.archlinux.org/task/65969
+- aur: name=ttf-inconsolata-g skip_installed=yes
+  become: yes
+  become_user: makepkg
+
 - name: Install lockphyslock
   copy: src=files/bin/lockphyslock dest=/usr/local/bin/lockphyslock mode=755
