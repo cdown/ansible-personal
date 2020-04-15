@@ -73,7 +73,6 @@
       - dmidecode
       - id3v2
       - antiword
-      - xdotool
       - tigervnc
       - cern-vdt
       - timeshift
