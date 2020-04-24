@@ -120,6 +120,7 @@
     - acestream-engine-stable
     - spotify
     - nocache
+    - whatmp3
   become: yes
   become_user: makepkg
 
