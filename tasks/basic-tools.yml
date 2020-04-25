@@ -121,6 +121,7 @@
     - spotify
     - nocache
     - whatmp3
+    - psi-notify
   become: yes
   become_user: makepkg
 
