@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Check if Python itself or any of its lib-dynloads need it to be rebuilt
+
+! ldd \
+    "$(pyenv which python)" \
+    "$(pyenv prefix)"/lib/python*/lib-dynload/*.so |&
+        grep -q 'not found'
