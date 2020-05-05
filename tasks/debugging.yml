@@ -7,6 +7,7 @@
       - time
       - gdb
       - perf
+      - valgrind
 
 - name: Install debugging tools (AUR)
   aur: name={{ item }} skip_installed=yes skip_pgp_check=yes
