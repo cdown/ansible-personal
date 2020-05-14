@@ -122,7 +122,6 @@
     - nocache
     - whatmp3
     - psi-notify
-    - pacman-static
   become: yes
   become_user: makepkg
 
