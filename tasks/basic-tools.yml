@@ -62,7 +62,7 @@
       - pass
       - irssi
       # For duply
-      - python2-boto
+      - python-boto
       - parallel
       - pdfpc
       - enca
