@@ -28,7 +28,6 @@
       - jfsutils
       - nano
       - pcmciautils
-      - reiserfsprogs
       - s-nail
       - evince
       - acpi
@@ -121,6 +120,8 @@
       - ifplugd
       - xfce4-notifyd
       - acestream-launcher
+      # TODO: bring back after https://bugs.archlinux.org/task/66658
+      # - reiserfsprogs
 
 - name: Remove unused files
   file: path={{ item }} state=absent
