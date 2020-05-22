@@ -121,7 +121,6 @@
       - ifplugd
       - xfce4-notifyd
       - acestream-launcher
-      - systemd-sysvcompat
 
 - name: Remove unused files
   file: path={{ item }} state=absent
