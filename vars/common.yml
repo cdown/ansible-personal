@@ -27,8 +27,8 @@ extra_kernel_pgp_keys: []
 
 python_3_version: 3.8.2
 node_version: 12.0.0
-ruby_version: 2.6.4
-perl_version: 5.30.0
+ruby_version: 2.7.1
+perl_version: 5.30.2
 
 install_wine: false
 
