@@ -24,7 +24,6 @@
       - man-db
       - man-pages
       - netctl
-      - systemd-sysvcompat  # TODO: remove and just use init=...?
 
 - name: Install tools that don't require Ansible configuration (all)
   pacman:

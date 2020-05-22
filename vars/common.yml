@@ -21,7 +21,7 @@ systemd: systemd
 hdd_scheduler: mq-deadline
 ssd_scheduler: mq-deadline
 
-default_kernel_params: 'cgroup_no_v1=all audit=0'
+default_kernel_params: 'init=/usr/lib/systemd/systemd cgroup_no_v1=all audit=0'
 extra_kernel_params: ''
 extra_kernel_pgp_keys: []
 
