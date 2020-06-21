@@ -15,5 +15,5 @@
 
 # Not sure why the pacman hook sometimes doesn't work, but for now...
 - name: Always flush font cache
-  command: fc-cache -f -v
+  command: fc-cache -rfv
   changed_when: false
