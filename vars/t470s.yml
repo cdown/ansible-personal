@@ -4,5 +4,3 @@ wifi: true
 laptop: true
 
 part_type: gpt
-
-install_wine: true

@@ -5,6 +5,4 @@ laptop: true
 
 part_type: gpt
 
-install_wine: true
-
 key_user: lin
