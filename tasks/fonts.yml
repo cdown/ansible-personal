@@ -13,3 +13,7 @@
     - 65-droid-sans
     - 65-droid-serif
 
+# Not sure why the pacman hook sometimes doesn't work, but for now...
+- name: Always flush font cache
+  command: fc-cache -f -v
+  changed_when: false
