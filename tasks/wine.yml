@@ -4,6 +4,7 @@
     name:
       - lib32-libglvnd  # wine has multiple fulfilments for lib32-libgl
     extra_args: "--asdeps"
+  when: install_wine|bool
 
 - name: Install WINE
   pacman:
