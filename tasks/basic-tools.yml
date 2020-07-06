@@ -90,7 +90,6 @@
       - powertop
       - redshift
       - asp
-      - colordiff
       - clipmenu
       - zsh-syntax-highlighting
       - rtorrent
