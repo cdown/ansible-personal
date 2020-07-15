@@ -17,7 +17,3 @@
   changed_when: false
 
 - template: src=files/generic-wired dest=/etc/netctl/generic-wired
-
-# For now, go back to manual management to avoid any confusion. ifplugd doesn't
-# help much anyway.
-- service: name=netctl-ifplugd@{{ wired_iface.stdout | trim }} state=stopped enabled=no
