@@ -85,7 +85,7 @@
       - qemu
       - exfat-utils
       - ctags
-      - bind-tools
+      - bind
       - python-virtualenvwrapper
       - powertop
       - redshift
