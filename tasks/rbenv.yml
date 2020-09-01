@@ -1,7 +1,4 @@
 ---
-- name: Ruby needs Ruby to build, believe it or not...
-  pacman: name=ruby
-
 - name: Install rbenv
   aur: name={{ item }} skip_installed=yes
   with_items:
