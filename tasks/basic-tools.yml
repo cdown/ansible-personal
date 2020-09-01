@@ -90,7 +90,6 @@
       - asp
       - clipmenu
       - zsh-syntax-highlighting
-      - rtorrent
       - xdotool
 
 - name: Install basic tools requiring aur (Chris specific)
