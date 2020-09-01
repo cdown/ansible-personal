@@ -86,7 +86,6 @@
       - ctags
       - bind
       - python-virtualenvwrapper
-      - powertop
       - redshift
       - asp
       - clipmenu
