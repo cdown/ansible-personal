@@ -114,6 +114,7 @@
     - whatmp3
     - psi-notify
     - shellcheck-bin
+    - xob
   become: yes
   become_user: makepkg
 
