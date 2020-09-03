@@ -64,7 +64,6 @@ load-module module-bluetooth-policy
 
 .ifexists module-bluetooth-discover.so
 load-module module-bluetooth-discover
-load-module module-switch-on-connect
 .endif
 
 load-module snd-usb-audio
