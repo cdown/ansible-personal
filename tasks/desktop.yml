@@ -7,7 +7,7 @@
 - name: Install desktop utilities
   pacman:
     name:
-      #- dmenu
+      - dmenu
       - rxvt-unicode
       - physlock
 
