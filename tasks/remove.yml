@@ -121,7 +121,6 @@
       - ifplugd
       - xfce4-notifyd
       - acestream-launcher
-      - dmenu-git
 
 - name: Remove unused files
   file: path={{ item }} state=absent
