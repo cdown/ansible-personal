@@ -62,6 +62,7 @@
     - cargo-update
     - fd-find
     - mack
+    - git-trim
   become: yes
   become_user: "{{ user }}"
   when: 'item not in cargo_pkgs.stdout_lines'
