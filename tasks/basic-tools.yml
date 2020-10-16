@@ -12,6 +12,7 @@
 - name: Install minimal base
   pacman:
     name:
+      - base
       # These used to be part of the base group, but aren't part of the new
       # metapackage. After new `base` becomes stable, these should be moved to
       # relevant sections and justified there.
