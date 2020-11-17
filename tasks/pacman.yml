@@ -8,3 +8,6 @@
 
 - name: Copy makepkg configuration
   copy: src=files/makepkg.conf dest=/etc/makepkg.conf
+
+- name: Copy GPG configuration
+  copy: src=files/pacman-gpg.conf dest=/etc/pacman.d/gnupg/gpg.conf
