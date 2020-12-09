@@ -23,9 +23,9 @@
   kernel_blacklist: name=nouveau state=present
   when: model in ["Vostro 3700"]
 
-- name: Do not blacklist nouveau Xorg driver
+- name: Do not blacklist nvidia Xorg driver
   kernel_blacklist: name=nvidia state=absent
-  when: model in ["Vostro 3700"]
+  when: model in ["Vostro 3700", "P920"]
 
 - name: Set up Xorg for Vostro 3700
   pacman:
@@ -40,7 +40,7 @@
       - libva-intel-driver
   when: model in ["T460s", "T470s"]
 
-- name: Add UXA override 
+- name: Add UXA override
   copy: src=files/20-intel.conf dest=/etc/X11/xorg.conf.d/20-intel.conf mode=644
   when: model in ["T460s", "T470s"]
 
@@ -56,6 +56,12 @@
       - xf86-video-nouveau
       - xf86-input-synaptics
   when: model in ["XPS 8500"]
+
+- name: Set up Xorg for nvidia-using  desktops
+  pacman:
+    name:
+      - nvidia
+  when: model in ["P920"]
 
 - name: Remove intel video for those formerly using only integrated
   pacman:

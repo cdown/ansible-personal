@@ -1,0 +1,6 @@
+---
+model: P920
+wifi: true
+laptop: false
+
+part_type: gpt
