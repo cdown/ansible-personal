@@ -2,8 +2,19 @@
 
 # We actually want IFS splitting
 # shellcheck disable=SC2207
-ifs=( $(find /sys/class/net -maxdepth 1 -mindepth 1 -regex '/sys/class/net/e[^u]+') )
-ifs=( "${ifs[@]##*/}" )
+all_ifs=( $(find /sys/class/net -maxdepth 1 -mindepth 1 -regex '/sys/class/net/e[^u]+') )
+all_ifs=( "${all_ifs[@]##*/}" )
+
+ifs=()
+
+if (( ${#all_ifs[@]} > 1 )); then
+    # Use whichever one has routes, or fail later if multiple do
+    for i in "${all_ifs[@]}"; do
+        if [[ "$(ip route show dev "$i")" ]]; then
+            ifs+=( "$i" )
+        fi
+    done
+fi
 
 if (( ${#ifs[@]} > 1 )); then
     printf -- 'More than one interface:\n' >&2
