@@ -38,6 +38,3 @@
 
 - name: Add wifi power save settings
   copy: src=files/wifi-power-save dest=/etc/modprobe.d/99-wifi-power-save.conf mode=644
-
-- name: Allow MSR writes for throttled
-  copy: src=files/allow-msr-writes dest=/etc/modprobe.d/allow-msr-writes.conf mode=644

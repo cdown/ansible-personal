@@ -151,6 +151,7 @@
     - /etc/modprobe.d/no-wifi-power-save.conf
     - /etc/tmpfiles.d/disable-pm-async.conf
     - /etc/default/tlp
+    - /etc/modprobe.d/allow-msr-writes.conf
 
 - name: Remove old crons (now timers)
   file: path={{ item }} state=absent
