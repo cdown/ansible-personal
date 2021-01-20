@@ -3,6 +3,8 @@ model: T460s
 wifi: true
 laptop: true
 
+kernel: linux-lts
+
 part_type: gpt
 
 key_user: lin
